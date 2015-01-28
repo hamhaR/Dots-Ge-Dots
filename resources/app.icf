@@ -3,5 +3,6 @@ MemMgrMaxAllocWarning=0
 
 [GL]
 
+
 [QUICK]
 mainFilename="main.lua"
