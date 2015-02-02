@@ -33,6 +33,8 @@ assets
 
 deployments
 {
+    icon=resources/gfx/app_icon/icon.png
+
     ["Windows"]
     win32
     arch=x86

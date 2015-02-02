@@ -11,185 +11,185 @@ System Info:
  Unique ID    : SIMULATOR_ID
  Device Name  : My Computer
  Memory       : 1048576KiB
-28/01/15 09:51:23.512: [0x96c] DEVICE: Initialising FIBRE
-28/01/15 09:51:23.514: [0x96c] DEVICE: Initialising THREAD
-28/01/15 09:51:23.517: [0x96c] THREAD: s3eThreadCreateMain
-28/01/15 09:51:23.518: [0xfa0] DEVICE: Initialising SURFACE
-28/01/15 09:51:23.519: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
-28/01/15 09:51:23.525: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
-28/01/15 09:51:23.526: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
-28/01/15 09:51:23.527: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
-28/01/15 09:51:23.528: [0xfa0] DEVICE: Initialising EXT
-28/01/15 09:51:23.528: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
-28/01/15 09:51:23.529: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
-28/01/15 09:51:23.530: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
-28/01/15 09:51:23.531: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
-28/01/15 09:51:23.532: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
-28/01/15 09:51:23.533: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
-28/01/15 09:51:23.534: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
-28/01/15 09:51:23.535: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
-28/01/15 09:51:23.536: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
-28/01/15 09:51:23.537: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
-28/01/15 09:51:23.538: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
-28/01/15 09:51:23.539: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
-28/01/15 09:51:23.540: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
-28/01/15 09:51:23.540: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
-28/01/15 09:51:23.542: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
-28/01/15 09:51:23.543: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
-28/01/15 09:51:23.550: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
-28/01/15 09:51:23.551: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
-28/01/15 09:51:23.552: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
-28/01/15 09:51:23.553: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
-28/01/15 09:51:23.554: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
-28/01/15 09:51:23.555: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
-28/01/15 09:51:23.556: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
-28/01/15 09:51:23.558: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
-28/01/15 09:51:23.561: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
-28/01/15 09:51:23.562: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
-28/01/15 09:51:23.563: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
-28/01/15 09:51:23.564: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
-28/01/15 09:51:23.565: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
-28/01/15 09:51:23.569: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
-28/01/15 09:51:23.570: [0xfa0] EXT: registering extension: Location [0x7604d91e]
-28/01/15 09:51:23.571: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
-28/01/15 09:51:23.573: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
-28/01/15 09:51:23.574: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
-28/01/15 09:51:23.575: [0xfa0] DEVICE: Initialising CONFIG
-28/01/15 09:51:23.576: [0xfa0] DEVICE: Initialising TIMER
-28/01/15 09:51:23.577: [0xfa0] DEVICE: Initialising COMPRESSION
-28/01/15 09:51:23.578: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
-28/01/15 09:51:23.579: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
-28/01/15 09:51:23.580: [0xfa0] EXT: initializing extension: s3eWindow
-28/01/15 09:51:23.581: [0xfa0] EXT: initializing extension: s3eWindow 0x5025c2a0
-28/01/15 09:51:23.583: [0xfa0] DEVICE: SetupPaths: NULL
-28/01/15 09:51:23.584: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
-28/01/15 09:51:23.585: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
-28/01/15 09:51:23.586: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
-28/01/15 09:51:23.587: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 09:51:23.588: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
-28/01/15 09:51:23.590: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
-28/01/15 09:51:23.591: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
-28/01/15 09:51:23.592: [0xfa0] FILE: fs[03]: system[raw://] ''
-28/01/15 09:51:23.593: [0xfa0] FILE: listed 2 active filesystems
-28/01/15 09:51:23.594: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
-28/01/15 09:51:23.596: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
-28/01/15 09:51:23.597: [0xfa0] FILE: fs[01]: system[ram://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram'
-28/01/15 09:51:23.598: [0xfa0] FILE: fs[03]: system[raw://] ''
-28/01/15 09:51:23.599: [0xfa0] FILE: listed 3 active filesystems
-28/01/15 09:51:23.605: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
-28/01/15 09:51:23.607: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
-28/01/15 09:51:23.609: [0xfa0] LOADER: Using data directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources as ROM drive
-28/01/15 09:51:23.612: [0xfa0] LOADER: Using directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram as RAM drive
-28/01/15 09:51:23.615: [0xfa0] FILE: s3eFileOpen('raw://C:\Program Files\Marmalade\7.4\s3e/s3e.icf', 'rb') succeeded, id=1345447672 p=0x5031e6f8
-28/01/15 09:51:23.620: [0xfa0] LOADER: Loading config from: C:\Program Files\Marmalade\7.4\s3e/s3e.icf
-28/01/15 09:51:23.622: [0xfa0] FILE: s3eFileClose h=0x5031e6f8
-28/01/15 09:51:23.623: [0xfa0] LOADER: Loading app-icf from command line specified location C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 09:51:23.625: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf', 'rb') succeeded, id=1000 p=0x5031fdcc
-28/01/15 09:51:23.626: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 09:51:23.627: [0xfa0] FILE: s3eFileClose h=0x5031fdcc
-28/01/15 09:51:23.628: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf', 'rb') succeeded, id=1001 p=0x5031fee8
-28/01/15 09:51:23.629: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
-28/01/15 09:51:23.630: [0xfa0] FILE: s3eFileClose h=0x5031fee8
-28/01/15 09:51:23.631: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
-28/01/15 09:51:23.632: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
-28/01/15 09:51:23.633: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
-28/01/15 09:51:23.634: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 09:51:23.635: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
-28/01/15 09:51:24.146: [0xfa0] SPLASH: displaying debug splash-screen
-28/01/15 09:51:24.166: [0xfa0] LICENSE: SplashScreenRequired: Splash set in licenseText
-28/01/15 09:51:24.189: [0xfa0] LICENSE: LicenseType: ret true : output=Free
-28/01/15 09:51:24.190: [0xfa0] SPLASH: No splash screen specified
-28/01/15 09:51:24.237: [0xfa0] LICENSE: LicenseType: ret true : output=Free
-28/01/15 09:51:24.240: [0xfa0] SOCKET: s3eSocketCreate -> p=0x503c4b9c id=3000
-28/01/15 09:51:24.241: [0xfa0] SOCKET: s3eInetLookup: 'www.google-analytics.com'
-28/01/15 09:51:24.318: [0xfa0] SOCKET: s3eInetLookup (synchronous): done DNS: '173.194.127.96:0'
-28/01/15 09:51:24.320: [0xfa0] SOCKET: s3eSocketConnect: 0x503c4b9c -> 173.194.127.96:80
-28/01/15 09:51:24.322: [0xfa0] SOCKET: TryConnect error: 10036
-28/01/15 09:51:24.324: [0xfa0] SOCKET: Connect: FAILED (0: )
-28/01/15 09:51:24.407: [0xfa0] SOCKET: TryConnect error: 10056
-28/01/15 09:51:24.409: [0xfa0] SOCKET: NotifyConnect: 3000 0x503c4b9c
-28/01/15 09:51:24.412: [0xfa0] SOCKET: s3eSocketClose: 0x503c4b9c open=1
-28/01/15 09:51:26.173: [0xfa0] VIDEO: s3eVideoPlay raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/mwm-splash-320.jpg
-28/01/15 09:51:26.174: [0xfa0] VIDEO: data in in JPG (EXIF) format
-28/01/15 09:51:26.176: [0xfa0] VIDEO: s3eVideoPlay w=320 h=320
-28/01/15 09:51:26.179: [0xfa0] JPEG: s3eVideoPlay_jpeglib: raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/mwm-splash-320.jpg
-28/01/15 09:51:26.181: [0xfa0] JPEG: loading jpeg file: raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/mwm-splash-320.jpg [37220]
-28/01/15 09:51:26.183: [0xfa0] JPEG: jpeg head was read: [320x320]
-28/01/15 09:51:26.189: [0xfa0] JPEG: CanvasSink: canvas[320x320], pos[0x80], display[(0-320)x(0-320)]
-28/01/15 09:51:26.190: [0xfa0] JPEG: from [320x320] to [320x320]
-28/01/15 09:51:26.207: [0xfa0] VIDEO: s3eVideoPlay done: 0
-28/01/15 09:51:28.161: [0xfa0] VIDEO: s3eVideoPlay raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/ads/ad.320.jpg
-28/01/15 09:51:28.163: [0xfa0] VIDEO: data in in JPG (EXIF) format
-28/01/15 09:51:28.164: [0xfa0] VIDEO: s3eVideoPlay w=320 h=320
-28/01/15 09:51:28.165: [0xfa0] JPEG: s3eVideoPlay_jpeglib: raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/ads/ad.320.jpg
-28/01/15 09:51:28.166: [0xfa0] JPEG: loading jpeg file: raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/ads/ad.320.jpg [30325]
-28/01/15 09:51:28.167: [0xfa0] JPEG: jpeg head was read: [320x320]
-28/01/15 09:51:28.172: [0xfa0] JPEG: CanvasSink: canvas[320x320], pos[0x80], display[(0-320)x(0-320)]
-28/01/15 09:51:28.173: [0xfa0] JPEG: from [320x320] to [320x320]
-28/01/15 09:51:28.190: [0xfa0] VIDEO: s3eVideoPlay done: 0
+01/02/15 20:02:17.785: [0x3f4] DEVICE: Initialising FIBRE
+01/02/15 20:02:17.789: [0x3f4] DEVICE: Initialising THREAD
+01/02/15 20:02:17.790: [0x3f4] THREAD: s3eThreadCreateMain
+01/02/15 20:02:17.790: [0xfa0] DEVICE: Initialising SURFACE
+01/02/15 20:02:17.796: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
+01/02/15 20:02:17.797: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+01/02/15 20:02:17.798: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+01/02/15 20:02:17.799: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
+01/02/15 20:02:17.801: [0xfa0] DEVICE: Initialising EXT
+01/02/15 20:02:17.818: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
+01/02/15 20:02:17.819: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
+01/02/15 20:02:17.820: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
+01/02/15 20:02:17.820: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
+01/02/15 20:02:17.821: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
+01/02/15 20:02:17.823: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
+01/02/15 20:02:17.863: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
+01/02/15 20:02:17.864: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
+01/02/15 20:02:17.865: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
+01/02/15 20:02:17.866: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
+01/02/15 20:02:17.867: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
+01/02/15 20:02:17.868: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
+01/02/15 20:02:17.869: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
+01/02/15 20:02:17.870: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
+01/02/15 20:02:17.870: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
+01/02/15 20:02:17.871: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
+01/02/15 20:02:17.872: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
+01/02/15 20:02:17.873: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
+01/02/15 20:02:17.874: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
+01/02/15 20:02:17.874: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
+01/02/15 20:02:17.875: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
+01/02/15 20:02:17.876: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
+01/02/15 20:02:17.877: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
+01/02/15 20:02:17.878: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
+01/02/15 20:02:17.878: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
+01/02/15 20:02:17.879: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
+01/02/15 20:02:17.880: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
+01/02/15 20:02:17.881: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
+01/02/15 20:02:17.882: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
+01/02/15 20:02:17.883: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
+01/02/15 20:02:17.884: [0xfa0] EXT: registering extension: Location [0x7604d91e]
+01/02/15 20:02:17.884: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
+01/02/15 20:02:17.885: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
+01/02/15 20:02:17.886: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
+01/02/15 20:02:17.887: [0xfa0] DEVICE: Initialising CONFIG
+01/02/15 20:02:17.890: [0xfa0] DEVICE: Initialising TIMER
+01/02/15 20:02:17.893: [0xfa0] DEVICE: Initialising COMPRESSION
+01/02/15 20:02:17.894: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
+01/02/15 20:02:17.895: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
+01/02/15 20:02:17.896: [0xfa0] EXT: initializing extension: s3eWindow
+01/02/15 20:02:17.896: [0xfa0] EXT: initializing extension: s3eWindow 0x77c4c2a0
+01/02/15 20:02:17.897: [0xfa0] DEVICE: SetupPaths: NULL
+01/02/15 20:02:17.898: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
+01/02/15 20:02:17.899: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
+01/02/15 20:02:17.906: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
+01/02/15 20:02:17.907: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:02:17.908: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 20:02:17.909: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+01/02/15 20:02:17.910: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
+01/02/15 20:02:17.911: [0xfa0] FILE: fs[03]: system[raw://] ''
+01/02/15 20:02:17.912: [0xfa0] FILE: listed 2 active filesystems
+01/02/15 20:02:17.913: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+01/02/15 20:02:17.914: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
+01/02/15 20:02:17.915: [0xfa0] FILE: fs[01]: system[ram://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram'
+01/02/15 20:02:17.916: [0xfa0] FILE: fs[03]: system[raw://] ''
+01/02/15 20:02:17.916: [0xfa0] FILE: listed 3 active filesystems
+01/02/15 20:02:17.999: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+01/02/15 20:02:18.000: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+01/02/15 20:02:18.001: [0xfa0] LOADER: Using data directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources as ROM drive
+01/02/15 20:02:18.001: [0xfa0] LOADER: Using directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram as RAM drive
+01/02/15 20:02:18.004: [0xfa0] FILE: s3eFileOpen('raw://C:\Program Files\Marmalade\7.4\s3e/s3e.icf', 'rb') succeeded, id=2010179320 p=0x77d0e6f8
+01/02/15 20:02:18.005: [0xfa0] LOADER: Loading config from: C:\Program Files\Marmalade\7.4\s3e/s3e.icf
+01/02/15 20:02:18.026: [0xfa0] FILE: s3eFileClose h=0x77d0e6f8
+01/02/15 20:02:18.027: [0xfa0] LOADER: Loading app-icf from command line specified location C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:02:18.028: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf', 'rb') succeeded, id=1000 p=0x77d0fdcc
+01/02/15 20:02:18.029: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:02:18.052: [0xfa0] FILE: s3eFileClose h=0x77d0fdcc
+01/02/15 20:02:18.053: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf', 'rb') succeeded, id=1001 p=0x77d0fee8
+01/02/15 20:02:18.055: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 20:02:18.057: [0xfa0] FILE: s3eFileClose h=0x77d0fee8
+01/02/15 20:02:18.058: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
+01/02/15 20:02:18.058: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
+01/02/15 20:02:18.059: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
+01/02/15 20:02:18.060: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:02:18.061: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 20:02:27.427: [0xfa0] SPLASH: displaying debug splash-screen
+01/02/15 20:02:27.447: [0xfa0] LICENSE: SplashScreenRequired: Splash set in licenseText
+01/02/15 20:02:27.471: [0xfa0] LICENSE: LicenseType: ret true : output=Free
+01/02/15 20:02:27.472: [0xfa0] SPLASH: No splash screen specified
+01/02/15 20:02:27.654: [0xfa0] LICENSE: LicenseType: ret true : output=Free
+01/02/15 20:02:27.706: [0xfa0] SOCKET: s3eSocketCreate -> p=0x77db4b9c id=3000
+01/02/15 20:02:27.707: [0xfa0] SOCKET: s3eInetLookup: 'www.google-analytics.com'
+01/02/15 20:02:27.800: [0xfa0] SOCKET: s3eInetLookup (synchronous): done DNS: '173.194.127.233:0'
+01/02/15 20:02:27.801: [0xfa0] SOCKET: s3eSocketConnect: 0x77db4b9c -> 173.194.127.233:80
+01/02/15 20:02:27.802: [0xfa0] SOCKET: TryConnect error: 10036
+01/02/15 20:02:27.803: [0xfa0] SOCKET: Connect: FAILED (0: )
+01/02/15 20:02:28.727: [0xfa0] SOCKET: TryConnect error: 10056
+01/02/15 20:02:28.810: [0xfa0] SOCKET: NotifyConnect: 3000 0x77db4b9c
+01/02/15 20:02:28.813: [0xfa0] SOCKET: s3eSocketClose: 0x77db4b9c open=1
+01/02/15 20:02:29.506: [0xfa0] VIDEO: s3eVideoPlay raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/mwm-splash-320.jpg
+01/02/15 20:02:29.507: [0xfa0] VIDEO: data in in JPG (EXIF) format
+01/02/15 20:02:29.509: [0xfa0] VIDEO: s3eVideoPlay w=320 h=320
+01/02/15 20:02:29.509: [0xfa0] JPEG: s3eVideoPlay_jpeglib: raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/mwm-splash-320.jpg
+01/02/15 20:02:29.510: [0xfa0] JPEG: loading jpeg file: raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/mwm-splash-320.jpg [37220]
+01/02/15 20:02:29.580: [0xfa0] JPEG: jpeg head was read: [320x320]
+01/02/15 20:02:29.585: [0xfa0] JPEG: CanvasSink: canvas[320x320], pos[0x80], display[(0-320)x(0-320)]
+01/02/15 20:02:29.586: [0xfa0] JPEG: from [320x320] to [320x320]
+01/02/15 20:02:29.727: [0xfa0] VIDEO: s3eVideoPlay done: 0
+01/02/15 20:02:31.475: [0xfa0] VIDEO: s3eVideoPlay raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/ads/ad.320.jpg
+01/02/15 20:02:31.476: [0xfa0] VIDEO: data in in JPG (EXIF) format
+01/02/15 20:02:31.478: [0xfa0] VIDEO: s3eVideoPlay w=320 h=320
+01/02/15 20:02:31.479: [0xfa0] JPEG: s3eVideoPlay_jpeglib: raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/ads/ad.320.jpg
+01/02/15 20:02:31.481: [0xfa0] JPEG: loading jpeg file: raw://C:\Program Files\Marmalade\7.4\s3e/deploy/resources/ads/ad.320.jpg [30325]
+01/02/15 20:02:31.484: [0xfa0] JPEG: jpeg head was read: [320x320]
+01/02/15 20:02:31.493: [0xfa0] JPEG: CanvasSink: canvas[320x320], pos[0x80], display[(0-320)x(0-320)]
+01/02/15 20:02:31.497: [0xfa0] JPEG: from [320x320] to [320x320]
+01/02/15 20:02:31.516: [0xfa0] VIDEO: s3eVideoPlay done: 0
 COCOS2DX LOG: cocos2d: cocos2d-2.1beta3-x-2.1.0
-28/01/15 09:51:34.230: [0xfa0] IW_GL: EGL: eglGetDisplay returned 066629C8
-28/01/15 09:51:34.249: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
-28/01/15 09:51:34.250: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
-28/01/15 09:51:34.251: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
-28/01/15 09:51:34.253: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
-28/01/15 09:51:34.256: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
-28/01/15 09:51:34.258: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
-28/01/15 09:51:34.259: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
-28/01/15 09:51:34.261: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
-28/01/15 09:51:34.262: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
-28/01/15 09:51:34.263: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
-28/01/15 09:51:34.265: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
-28/01/15 09:51:34.267: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 09:51:34.268: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
-28/01/15 09:51:34.269: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 09:51:34.270: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
-28/01/15 09:51:34.271: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 09:51:34.272: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
-28/01/15 09:51:34.273: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 09:51:34.274: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
-28/01/15 09:51:34.275: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 09:51:34.276: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 09:51:34.277: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 09:51:34.278: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 09:51:34.279: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
-28/01/15 09:51:34.304: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
-28/01/15 09:51:34.305: [0xfa0] IW_GL: GL_RENDERER: ANGLE (Mobile Intel(R) 4 Series Express Chipset Family)
-28/01/15 09:51:34.306: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
-28/01/15 09:51:34.307: [0xfa0] IW_GL: GL properties reported by driver:
-28/01/15 09:51:34.308: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
-28/01/15 09:51:34.309: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
-28/01/15 09:51:34.310: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
-28/01/15 09:51:34.311: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
-28/01/15 09:51:34.312: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
-28/01/15 09:51:34.313: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
-28/01/15 09:51:34.314: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
-28/01/15 09:51:34.315: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
-28/01/15 09:51:34.316: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 4096
-28/01/15 09:51:34.317: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
-28/01/15 09:51:34.318: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
-28/01/15 09:51:34.319: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 4096
-28/01/15 09:51:34.320: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
-28/01/15 09:51:34.321: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 4096
-28/01/15 09:51:34.322: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: (4096, 4096)
-28/01/15 09:51:34.323: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
-28/01/15 09:51:34.324: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
-28/01/15 09:51:34.325: [0xfa0] IW_GL:     GL_OES_element_index_uint
-28/01/15 09:51:34.326: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
-28/01/15 09:51:34.327: [0xfa0] IW_GL:     GL_NV_fence
-28/01/15 09:51:34.328: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
-28/01/15 09:51:34.329: [0xfa0] IW_GL:     GL_OES_get_program_binary
-28/01/15 09:51:34.330: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
-28/01/15 09:51:34.331: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
-28/01/15 09:51:34.332: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
-28/01/15 09:51:34.333: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
-28/01/15 09:51:34.333: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
-28/01/15 09:51:34.334: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
-28/01/15 09:51:34.335: [0xfa0] IW_GL:     GL_OES_texture_half_float
-28/01/15 09:51:34.336: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
-28/01/15 09:51:34.337: [0xfa0] IW_GL:     GL_OES_standard_derivatives
-28/01/15 09:51:34.338: [0xfa0] IW_GL:     GL_OES_texture_float
-28/01/15 09:51:34.339: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+01/02/15 20:02:39.910: [0xfa0] IW_GL: EGL: eglGetDisplay returned 02062CD0
+01/02/15 20:02:40.034: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+01/02/15 20:02:40.035: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+01/02/15 20:02:40.036: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+01/02/15 20:02:40.037: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+01/02/15 20:02:40.038: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+01/02/15 20:02:40.039: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+01/02/15 20:02:40.040: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+01/02/15 20:02:40.041: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+01/02/15 20:02:40.042: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+01/02/15 20:02:40.044: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+01/02/15 20:02:40.059: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
+01/02/15 20:02:40.060: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:02:40.061: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
+01/02/15 20:02:40.062: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:02:40.063: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
+01/02/15 20:02:40.064: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:02:40.066: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
+01/02/15 20:02:40.067: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:02:40.068: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
+01/02/15 20:02:40.069: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:02:40.070: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:02:40.071: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:02:40.072: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:02:40.072: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
+01/02/15 20:02:40.901: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
+01/02/15 20:02:40.938: [0xfa0] IW_GL: GL_RENDERER: ANGLE (Mobile Intel(R) 4 Series Express Chipset Family)
+01/02/15 20:02:40.939: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
+01/02/15 20:02:40.940: [0xfa0] IW_GL: GL properties reported by driver:
+01/02/15 20:02:40.941: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
+01/02/15 20:02:40.942: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
+01/02/15 20:02:40.943: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
+01/02/15 20:02:40.944: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
+01/02/15 20:02:40.945: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
+01/02/15 20:02:40.946: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
+01/02/15 20:02:40.947: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
+01/02/15 20:02:40.949: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
+01/02/15 20:02:40.950: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 4096
+01/02/15 20:02:40.951: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
+01/02/15 20:02:40.993: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
+01/02/15 20:02:40.994: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 4096
+01/02/15 20:02:40.995: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
+01/02/15 20:02:40.996: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 4096
+01/02/15 20:02:40.997: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: (4096, 4096)
+01/02/15 20:02:40.998: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+01/02/15 20:02:40.999: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+01/02/15 20:02:41.000: [0xfa0] IW_GL:     GL_OES_element_index_uint
+01/02/15 20:02:41.001: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+01/02/15 20:02:41.001: [0xfa0] IW_GL:     GL_NV_fence
+01/02/15 20:02:41.002: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+01/02/15 20:02:41.003: [0xfa0] IW_GL:     GL_OES_get_program_binary
+01/02/15 20:02:41.004: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+01/02/15 20:02:41.005: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+01/02/15 20:02:41.006: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+01/02/15 20:02:41.007: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+01/02/15 20:02:41.008: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+01/02/15 20:02:41.009: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+01/02/15 20:02:41.010: [0xfa0] IW_GL:     GL_OES_texture_half_float
+01/02/15 20:02:41.011: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+01/02/15 20:02:41.012: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+01/02/15 20:02:41.013: [0xfa0] IW_GL:     GL_OES_texture_float
+01/02/15 20:02:41.014: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path arial.ttf not found
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/arial.ttf not found
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/marker felt.ttf not found
@@ -218,58 +218,215 @@ COCOS2DX LOG: cocos2d: GL supports discard_framebuffer: NO
 COCOS2DX LOG: cocos2d: GL supports shareable VAO: NO
 COCOS2DX LOG: cocos2d: compiled with Profiling Support: NO
 QUICKCPP LOG: Loading app...
-28/01/15 10:03:03.960: [0xfa0] IW_GL: Suspending IwGL
-28/01/15 10:03:04.047: [0xfa0] IW_GL: Terminating EGL...
-28/01/15 10:03:04.151: [0xfa0] IW_GL: Terminating EGL... Done
-28/01/15 10:03:04.152: [0xfa0] IW_GL: Resuming IwGL
-28/01/15 10:03:04.155: [0xfa0] IW_GL: EGL: eglGetDisplay returned 0666A7E8
-28/01/15 10:03:04.175: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
-28/01/15 10:03:04.176: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
-28/01/15 10:03:04.177: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
-28/01/15 10:03:04.178: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
-28/01/15 10:03:04.179: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
-28/01/15 10:03:04.180: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
-28/01/15 10:03:04.180: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
-28/01/15 10:03:04.181: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
-28/01/15 10:03:04.182: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
-28/01/15 10:03:04.183: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
-28/01/15 10:03:04.184: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
-28/01/15 10:03:04.185: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 10:03:04.186: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
-28/01/15 10:03:04.187: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 10:03:04.188: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
-28/01/15 10:03:04.189: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 10:03:04.192: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
-28/01/15 10:03:04.193: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 10:03:04.194: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
-28/01/15 10:03:04.195: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 10:03:04.196: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 10:03:04.197: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 10:03:04.198: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 10:03:04.198: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
-28/01/15 10:03:04.238: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
-28/01/15 10:03:04.239: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
-28/01/15 10:03:04.240: [0xfa0] IW_GL:     GL_OES_element_index_uint
-28/01/15 10:03:04.241: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
-28/01/15 10:03:04.242: [0xfa0] IW_GL:     GL_NV_fence
-28/01/15 10:03:04.244: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
-28/01/15 10:03:04.245: [0xfa0] IW_GL:     GL_OES_get_program_binary
-28/01/15 10:03:04.247: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
-28/01/15 10:03:04.248: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
-28/01/15 10:03:04.249: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
-28/01/15 10:03:04.250: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
-28/01/15 10:03:04.251: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
-28/01/15 10:03:04.252: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
-28/01/15 10:03:04.253: [0xfa0] IW_GL:     GL_OES_texture_half_float
-28/01/15 10:03:04.254: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
-28/01/15 10:03:04.255: [0xfa0] IW_GL:     GL_OES_standard_derivatives
-28/01/15 10:03:04.256: [0xfa0] IW_GL:     GL_OES_texture_float
-28/01/15 10:03:04.257: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
-Creating default font
-COCOS2DX LOG: cocos2d: padding: 1,1,1,1
-COCOS2DX LOG: cocos2d: padding: 1,1,1,1
 Already in target scene
 Already in target scene
+-- END TRACE --
+-- START TRACE TO FILE --
+tracing to: ''
+MarmaladeSDK v7.4.3 [415797] (S3E Loader v4.39.0)
+Copyright (C) 2001-2014 Marmalade Technologies Ltd.
+System Info:
+ OS           : WINDOWS (3)
+ OS Version   : Windows 6.1 (6.1)
+ Device ID    : Windows Simulator (0x1)
+ Device Class : WINDOWS_GENERIC (3000)
+ Phone Number : 0044123456789
+ Unique ID    : SIMULATOR_ID
+ Device Name  : My Computer
+ Memory       : 1048576KiB
+01/02/15 20:10:46.685: [0x3f4] DEVICE: Initialising FIBRE
+01/02/15 20:10:46.686: [0x3f4] DEVICE: Initialising THREAD
+01/02/15 20:10:46.688: [0x3f4] THREAD: s3eThreadCreateMain
+01/02/15 20:10:46.689: [0xfa0] DEVICE: Initialising SURFACE
+01/02/15 20:10:46.691: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
+01/02/15 20:10:46.692: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+01/02/15 20:10:46.693: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+01/02/15 20:10:46.695: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
+01/02/15 20:10:46.696: [0xfa0] DEVICE: Initialising EXT
+01/02/15 20:10:46.697: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
+01/02/15 20:10:46.698: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
+01/02/15 20:10:46.699: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
+01/02/15 20:10:46.700: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
+01/02/15 20:10:46.701: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
+01/02/15 20:10:46.703: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
+01/02/15 20:10:46.704: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
+01/02/15 20:10:46.706: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
+01/02/15 20:10:46.707: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
+01/02/15 20:10:46.708: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
+01/02/15 20:10:46.709: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
+01/02/15 20:10:46.710: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
+01/02/15 20:10:46.711: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
+01/02/15 20:10:46.713: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
+01/02/15 20:10:46.714: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
+01/02/15 20:10:46.716: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
+01/02/15 20:10:46.716: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
+01/02/15 20:10:46.718: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
+01/02/15 20:10:46.719: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
+01/02/15 20:10:46.721: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
+01/02/15 20:10:46.723: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
+01/02/15 20:10:46.724: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
+01/02/15 20:10:46.726: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
+01/02/15 20:10:46.727: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
+01/02/15 20:10:46.728: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
+01/02/15 20:10:46.732: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
+01/02/15 20:10:46.733: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
+01/02/15 20:10:46.734: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
+01/02/15 20:10:46.735: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
+01/02/15 20:10:46.736: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
+01/02/15 20:10:46.737: [0xfa0] EXT: registering extension: Location [0x7604d91e]
+01/02/15 20:10:46.739: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
+01/02/15 20:10:46.742: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
+01/02/15 20:10:46.743: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
+01/02/15 20:10:46.744: [0xfa0] DEVICE: Initialising CONFIG
+01/02/15 20:10:46.746: [0xfa0] DEVICE: Initialising TIMER
+01/02/15 20:10:46.747: [0xfa0] DEVICE: Initialising COMPRESSION
+01/02/15 20:10:46.748: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
+01/02/15 20:10:46.751: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
+01/02/15 20:10:46.753: [0xfa0] EXT: initializing extension: s3eWindow
+01/02/15 20:10:46.755: [0xfa0] EXT: initializing extension: s3eWindow 0x77c4c2a0
+01/02/15 20:10:46.756: [0xfa0] DEVICE: SetupPaths: 
+01/02/15 20:10:46.757: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
+01/02/15 20:10:46.759: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
+01/02/15 20:10:46.791: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
+01/02/15 20:10:46.793: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:10:46.794: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 20:10:46.796: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+01/02/15 20:10:46.797: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
+01/02/15 20:10:46.798: [0xfa0] FILE: fs[03]: system[raw://] ''
+01/02/15 20:10:46.799: [0xfa0] FILE: listed 2 active filesystems
+01/02/15 20:10:46.800: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+01/02/15 20:10:46.802: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
+01/02/15 20:10:46.804: [0xfa0] FILE: fs[01]: system[ram://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram'
+01/02/15 20:10:46.806: [0xfa0] FILE: fs[03]: system[raw://] ''
+01/02/15 20:10:46.809: [0xfa0] FILE: listed 3 active filesystems
+01/02/15 20:10:47.159: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+01/02/15 20:10:47.160: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+01/02/15 20:10:47.162: [0xfa0] LOADER: Using data directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources as ROM drive
+01/02/15 20:10:47.165: [0xfa0] LOADER: Using directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram as RAM drive
+01/02/15 20:10:47.166: [0xfa0] LOADER: returning pre/post config: 0x00000000 0x00000000
+01/02/15 20:10:47.412: [0xfa0] FILE: s3eFileOpen('raw://C:\Program Files\Marmalade\7.4\s3e/s3e.icf', 'rb') succeeded, id=2010179320 p=0x77d0e6f8
+01/02/15 20:10:47.414: [0xfa0] LOADER: Loading config from: C:\Program Files\Marmalade\7.4\s3e/s3e.icf
+01/02/15 20:10:47.653: [0xfa0] FILE: s3eFileClose h=0x77d0e6f8
+01/02/15 20:10:47.654: [0xfa0] LOADER: Loading app-icf from command line specified location C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:10:47.657: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf', 'rb') succeeded, id=1000 p=0x77d0fdcc
+01/02/15 20:10:47.659: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:10:47.678: [0xfa0] FILE: s3eFileClose h=0x77d0fdcc
+01/02/15 20:10:47.680: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf', 'rb') succeeded, id=1001 p=0x77d0fee8
+01/02/15 20:10:47.681: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 20:10:47.683: [0xfa0] FILE: s3eFileClose h=0x77d0fee8
+01/02/15 20:10:47.684: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
+01/02/15 20:10:47.685: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
+01/02/15 20:10:47.686: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
+01/02/15 20:10:47.687: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:10:47.691: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 20:10:51.385: [0xfa0] LICENSE: LicenseType: ret true : output=Free
+COCOS2DX LOG: cocos2d: cocos2d-2.1beta3-x-2.1.0
+01/02/15 20:10:51.594: [0xfa0] IW_GL: EGL: eglGetDisplay returned 02392CD0
+01/02/15 20:10:51.618: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+01/02/15 20:10:51.619: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+01/02/15 20:10:51.620: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+01/02/15 20:10:51.621: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+01/02/15 20:10:51.623: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+01/02/15 20:10:51.624: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+01/02/15 20:10:51.626: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+01/02/15 20:10:51.627: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+01/02/15 20:10:51.628: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+01/02/15 20:10:51.630: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+01/02/15 20:10:51.631: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
+01/02/15 20:10:51.632: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:10:51.633: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
+01/02/15 20:10:51.634: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:10:51.636: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
+01/02/15 20:10:51.637: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:10:51.638: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
+01/02/15 20:10:51.639: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:10:51.640: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
+01/02/15 20:10:51.642: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:10:51.643: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:10:51.645: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:10:51.646: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:10:51.647: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
+01/02/15 20:10:51.680: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
+01/02/15 20:10:51.682: [0xfa0] IW_GL: GL_RENDERER: ANGLE (Mobile Intel(R) 4 Series Express Chipset Family)
+01/02/15 20:10:51.683: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
+01/02/15 20:10:51.684: [0xfa0] IW_GL: GL properties reported by driver:
+01/02/15 20:10:51.686: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
+01/02/15 20:10:51.687: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
+01/02/15 20:10:51.688: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
+01/02/15 20:10:51.689: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
+01/02/15 20:10:51.691: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
+01/02/15 20:10:51.692: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
+01/02/15 20:10:51.693: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
+01/02/15 20:10:51.694: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
+01/02/15 20:10:51.696: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 4096
+01/02/15 20:10:51.697: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
+01/02/15 20:10:51.698: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
+01/02/15 20:10:51.699: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 4096
+01/02/15 20:10:51.701: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
+01/02/15 20:10:51.702: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 4096
+01/02/15 20:10:51.703: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: (4096, 4096)
+01/02/15 20:10:51.704: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+01/02/15 20:10:51.706: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+01/02/15 20:10:51.707: [0xfa0] IW_GL:     GL_OES_element_index_uint
+01/02/15 20:10:51.708: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+01/02/15 20:10:51.709: [0xfa0] IW_GL:     GL_NV_fence
+01/02/15 20:10:51.710: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+01/02/15 20:10:51.712: [0xfa0] IW_GL:     GL_OES_get_program_binary
+01/02/15 20:10:51.713: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+01/02/15 20:10:51.714: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+01/02/15 20:10:51.715: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+01/02/15 20:10:51.716: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+01/02/15 20:10:51.718: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+01/02/15 20:10:51.719: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+01/02/15 20:10:51.720: [0xfa0] IW_GL:     GL_OES_texture_half_float
+01/02/15 20:10:51.721: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+01/02/15 20:10:51.722: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+01/02/15 20:10:51.723: [0xfa0] IW_GL:     GL_OES_texture_float
+01/02/15 20:10:51.724: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path arial.ttf not found
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/arial.ttf not found
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/marker felt.ttf not found
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path arial.ttf not found
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/arial.ttf not found
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/marker felt.ttf not found
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path arial.ttf not found
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/arial.ttf not found
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/marker felt.ttf not found
+
+
+QUICKCPP LOG: Marmalade Quick 1.1
+QUICKCPP LOG: Loading app configuration...
+ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path config.lua not found
+QUICKCPP WARNING: Failed to load config lua file
+QUICKCPP LOG: Loading Quick engine...
+COCOS2DX LOG: cocos2d: GL_VENDOR:     Google Inc.
+COCOS2DX LOG: cocos2d: GL_RENDERER:   ANGLE (Mobile Intel(R) 4 Series Express Chipset Family)
+COCOS2DX LOG: cocos2d: GL_VERSION:    OpenGL ES 2.0 (ANGLE 1.0.0.1275)
+COCOS2DX LOG: cocos2d: GL_MAX_TEXTURE_SIZE: 4096
+COCOS2DX LOG: cocos2d: GL_MAX_TEXTURE_UNITS: 20
+COCOS2DX LOG: cocos2d: GL supports PVRTC: NO
+COCOS2DX LOG: cocos2d: GL supports BGRA8888 textures: NO
+COCOS2DX LOG: cocos2d: GL supports NPOT textures: YES
+COCOS2DX LOG: cocos2d: GL supports discard_framebuffer: NO
+COCOS2DX LOG: cocos2d: GL supports shareable VAO: NO
+COCOS2DX LOG: cocos2d: compiled with Profiling Support: NO
+QUICKCPP LOG: Loading app...
+Already in target scene
+Already in target scene
+Already in target scene
+Already in target scene
+Already in target scene
+Already in target scene
+GC on animation: (unnamed)
+GC on atlas: (unnamed)
+GC on node: 12
+GC on animation: (unnamed)
+GC on atlas: (unnamed)
+GC on node: 11
+GC on animation: (unnamed)
+GC on atlas: (unnamed)
+GC on node: 10
+GC on node: 9
 GC on animation: (unnamed)
 GC on atlas: (unnamed)
 GC on node: 8
@@ -289,16 +446,15 @@ GC on animation: (unnamed)
 GC on atlas: (unnamed)
 GC on node: 3
 GC on node: 2
-Already in target scene
-Already in target scene
+GC on animation: (unnamed)
+GC on atlas: (unnamed)
+GC on node: 20
 GC on animation: (unnamed)
 GC on atlas: (unnamed)
 GC on node: 19
 GC on animation: (unnamed)
 GC on atlas: (unnamed)
 GC on node: 18
-GC on animation: (unnamed)
-GC on atlas: (unnamed)
 GC on node: 17
 GC on animation: (unnamed)
 GC on atlas: (unnamed)
@@ -310,155 +466,100 @@ GC on animation: (unnamed)
 GC on atlas: (unnamed)
 GC on node: 14
 GC on node: 13
-GC on animation: (unnamed)
-GC on atlas: (unnamed)
-GC on node: 12
-GC on animation: (unnamed)
-GC on atlas: (unnamed)
-GC on node: 11
-GC on node: 10
-GC on node: 9
-28/01/15 12:00:42.358: [0xfa0] IW_GL: Suspending IwGL
-28/01/15 12:00:42.361: [0xfa0] IW_GL: Terminating EGL...
-28/01/15 12:00:42.384: [0xfa0] IW_GL: Terminating EGL... Done
-28/01/15 12:00:42.385: [0xfa0] IW_GL: Resuming IwGL
-28/01/15 12:00:42.387: [0xfa0] IW_GL: EGL: eglGetDisplay returned 0666A7E8
-28/01/15 12:00:42.415: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
-28/01/15 12:00:42.416: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
-28/01/15 12:00:42.418: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
-28/01/15 12:00:42.419: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
-28/01/15 12:00:42.420: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
-28/01/15 12:00:42.421: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
-28/01/15 12:00:42.422: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
-28/01/15 12:00:42.423: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
-28/01/15 12:00:42.424: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
-28/01/15 12:00:42.425: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
-28/01/15 12:00:42.426: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
-28/01/15 12:00:42.427: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:42.428: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
-28/01/15 12:00:42.429: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:42.431: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
-28/01/15 12:00:42.432: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:42.433: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
-28/01/15 12:00:42.434: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:42.434: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
-28/01/15 12:00:42.436: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:42.436: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:42.437: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:42.438: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:42.439: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
-28/01/15 12:00:42.475: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
-28/01/15 12:00:42.476: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
-28/01/15 12:00:42.477: [0xfa0] IW_GL:     GL_OES_element_index_uint
-28/01/15 12:00:42.479: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
-28/01/15 12:00:42.480: [0xfa0] IW_GL:     GL_NV_fence
-28/01/15 12:00:42.481: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
-28/01/15 12:00:42.482: [0xfa0] IW_GL:     GL_OES_get_program_binary
-28/01/15 12:00:42.483: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
-28/01/15 12:00:42.484: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
-28/01/15 12:00:42.485: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
-28/01/15 12:00:42.486: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
-28/01/15 12:00:42.487: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
-28/01/15 12:00:42.488: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
-28/01/15 12:00:42.489: [0xfa0] IW_GL:     GL_OES_texture_half_float
-28/01/15 12:00:42.490: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
-28/01/15 12:00:42.490: [0xfa0] IW_GL:     GL_OES_standard_derivatives
-28/01/15 12:00:42.491: [0xfa0] IW_GL:     GL_OES_texture_float
-28/01/15 12:00:42.492: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
-28/01/15 12:00:50.033: [0xfa0] IW_GL: Suspending IwGL
-28/01/15 12:00:50.035: [0xfa0] IW_GL: Terminating EGL...
-28/01/15 12:00:50.056: [0xfa0] IW_GL: Terminating EGL... Done
-28/01/15 12:00:50.058: [0xfa0] IW_GL: Resuming IwGL
-28/01/15 12:00:50.060: [0xfa0] IW_GL: EGL: eglGetDisplay returned 0666A7E8
-28/01/15 12:00:50.089: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
-28/01/15 12:00:50.090: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
-28/01/15 12:00:50.091: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
-28/01/15 12:00:50.093: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
-28/01/15 12:00:50.094: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
-28/01/15 12:00:50.095: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
-28/01/15 12:00:50.096: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
-28/01/15 12:00:50.097: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
-28/01/15 12:00:50.098: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
-28/01/15 12:00:50.099: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
-28/01/15 12:00:50.100: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
-28/01/15 12:00:50.101: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:50.102: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
-28/01/15 12:00:50.103: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:50.104: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
-28/01/15 12:00:50.105: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:50.106: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
-28/01/15 12:00:50.107: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:50.108: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
-28/01/15 12:00:50.110: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:50.111: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:50.112: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:50.113: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:00:50.114: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
-28/01/15 12:00:50.142: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
-28/01/15 12:00:50.144: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
-28/01/15 12:00:50.145: [0xfa0] IW_GL:     GL_OES_element_index_uint
-28/01/15 12:00:50.147: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
-28/01/15 12:00:50.148: [0xfa0] IW_GL:     GL_NV_fence
-28/01/15 12:00:50.149: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
-28/01/15 12:00:50.150: [0xfa0] IW_GL:     GL_OES_get_program_binary
-28/01/15 12:00:50.151: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
-28/01/15 12:00:50.152: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
-28/01/15 12:00:50.153: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
-28/01/15 12:00:50.154: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
-28/01/15 12:00:50.155: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
-28/01/15 12:00:50.156: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
-28/01/15 12:00:50.159: [0xfa0] IW_GL:     GL_OES_texture_half_float
-28/01/15 12:00:50.160: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
-28/01/15 12:00:50.161: [0xfa0] IW_GL:     GL_OES_standard_derivatives
-28/01/15 12:00:50.162: [0xfa0] IW_GL:     GL_OES_texture_float
-28/01/15 12:00:50.163: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
-28/01/15 12:34:09.497: [0xfa0] IW_GL: Suspending IwGL
-28/01/15 12:34:09.499: [0xfa0] IW_GL: Terminating EGL...
-28/01/15 12:34:09.519: [0xfa0] IW_GL: Terminating EGL... Done
-28/01/15 12:34:09.520: [0xfa0] IW_GL: Resuming IwGL
-28/01/15 12:34:09.523: [0xfa0] IW_GL: EGL: eglGetDisplay returned 0666A7E8
-28/01/15 12:34:09.546: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
-28/01/15 12:34:09.548: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
-28/01/15 12:34:09.549: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
-28/01/15 12:34:09.551: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
-28/01/15 12:34:09.552: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
-28/01/15 12:34:09.552: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
-28/01/15 12:34:09.553: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
-28/01/15 12:34:09.554: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
-28/01/15 12:34:09.555: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
-28/01/15 12:34:09.556: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
-28/01/15 12:34:09.557: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
-28/01/15 12:34:09.559: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:09.560: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
-28/01/15 12:34:09.561: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:09.561: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
-28/01/15 12:34:09.562: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:09.563: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
-28/01/15 12:34:09.565: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:09.566: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
-28/01/15 12:34:09.567: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:09.568: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:09.569: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:09.570: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:09.571: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
-28/01/15 12:34:09.595: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
-28/01/15 12:34:09.597: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
-28/01/15 12:34:09.598: [0xfa0] IW_GL:     GL_OES_element_index_uint
-28/01/15 12:34:09.599: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
-28/01/15 12:34:09.600: [0xfa0] IW_GL:     GL_NV_fence
-28/01/15 12:34:09.601: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
-28/01/15 12:34:09.602: [0xfa0] IW_GL:     GL_OES_get_program_binary
-28/01/15 12:34:09.603: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
-28/01/15 12:34:09.604: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
-28/01/15 12:34:09.605: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
-28/01/15 12:34:09.606: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
-28/01/15 12:34:09.607: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
-28/01/15 12:34:09.608: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
-28/01/15 12:34:09.609: [0xfa0] IW_GL:     GL_OES_texture_half_float
-28/01/15 12:34:09.610: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
-28/01/15 12:34:09.610: [0xfa0] IW_GL:     GL_OES_standard_derivatives
-28/01/15 12:34:09.611: [0xfa0] IW_GL:     GL_OES_texture_float
-28/01/15 12:34:09.612: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+01/02/15 20:26:42.983: [0xfa0] IW_GL: Suspending IwGL
+01/02/15 20:26:43.428: [0xfa0] IW_GL: Terminating EGL...
+01/02/15 20:26:46.130: [0xfa0] IW_GL: Terminating EGL... Done
+01/02/15 20:26:46.132: [0xfa0] IW_GL: Resuming IwGL
+01/02/15 20:26:46.214: [0xfa0] IW_GL: EGL: eglGetDisplay returned 02392CD0
+01/02/15 20:26:46.890: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+01/02/15 20:26:46.891: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+01/02/15 20:26:46.892: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+01/02/15 20:26:46.894: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+01/02/15 20:26:46.895: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+01/02/15 20:26:46.896: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+01/02/15 20:26:46.897: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+01/02/15 20:26:46.899: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+01/02/15 20:26:46.900: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+01/02/15 20:26:46.901: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+01/02/15 20:26:46.902: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
+01/02/15 20:26:46.903: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:26:46.904: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
+01/02/15 20:26:46.906: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:26:46.907: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
+01/02/15 20:26:46.913: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:26:46.914: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
+01/02/15 20:26:46.918: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:26:46.920: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
+01/02/15 20:26:46.925: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:26:46.929: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:26:46.931: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:26:46.934: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:26:46.936: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
+01/02/15 20:26:47.148: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+01/02/15 20:26:47.171: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+01/02/15 20:26:47.172: [0xfa0] IW_GL:     GL_OES_element_index_uint
+01/02/15 20:26:47.173: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+01/02/15 20:26:47.174: [0xfa0] IW_GL:     GL_NV_fence
+01/02/15 20:26:47.176: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+01/02/15 20:26:47.177: [0xfa0] IW_GL:     GL_OES_get_program_binary
+01/02/15 20:26:47.178: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+01/02/15 20:26:47.179: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+01/02/15 20:26:47.180: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+01/02/15 20:26:47.182: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+01/02/15 20:26:47.183: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+01/02/15 20:26:47.184: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+01/02/15 20:26:47.185: [0xfa0] IW_GL:     GL_OES_texture_half_float
+01/02/15 20:26:47.186: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+01/02/15 20:26:47.188: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+01/02/15 20:26:47.191: [0xfa0] IW_GL:     GL_OES_texture_float
+01/02/15 20:26:47.192: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+01/02/15 20:31:01.893: [0xfa0] IW_GL: Suspending IwGL
+01/02/15 20:31:01.899: [0xfa0] IW_GL: Terminating EGL...
+01/02/15 20:31:01.926: [0xfa0] IW_GL: Terminating EGL... Done
+01/02/15 20:31:01.927: [0xfa0] IW_GL: Resuming IwGL
+01/02/15 20:31:01.945: [0xfa0] IW_GL: EGL: eglGetDisplay returned 02392CD0
+01/02/15 20:31:02.055: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+01/02/15 20:31:02.057: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+01/02/15 20:31:02.059: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+01/02/15 20:31:02.061: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+01/02/15 20:31:02.063: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+01/02/15 20:31:02.066: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+01/02/15 20:31:02.067: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+01/02/15 20:31:02.069: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+01/02/15 20:31:02.071: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+01/02/15 20:31:02.073: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+01/02/15 20:31:02.076: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
+01/02/15 20:31:02.077: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:02.079: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
+01/02/15 20:31:02.081: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:02.082: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
+01/02/15 20:31:02.084: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:02.091: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
+01/02/15 20:31:02.092: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:02.094: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
+01/02/15 20:31:02.098: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:02.100: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:02.101: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:02.107: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:02.109: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
+01/02/15 20:31:02.189: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+01/02/15 20:31:02.191: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+01/02/15 20:31:02.193: [0xfa0] IW_GL:     GL_OES_element_index_uint
+01/02/15 20:31:02.195: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+01/02/15 20:31:02.196: [0xfa0] IW_GL:     GL_NV_fence
+01/02/15 20:31:02.198: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+01/02/15 20:31:02.200: [0xfa0] IW_GL:     GL_OES_get_program_binary
+01/02/15 20:31:02.202: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+01/02/15 20:31:02.204: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+01/02/15 20:31:02.206: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+01/02/15 20:31:02.207: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+01/02/15 20:31:02.209: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+01/02/15 20:31:02.212: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+01/02/15 20:31:02.215: [0xfa0] IW_GL:     GL_OES_texture_half_float
+01/02/15 20:31:02.216: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+01/02/15 20:31:02.218: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+01/02/15 20:31:02.220: [0xfa0] IW_GL:     GL_OES_texture_float
+01/02/15 20:31:02.222: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
 -- END TRACE --
 -- START TRACE TO FILE --
 tracing to: ''
@@ -473,155 +574,155 @@ System Info:
  Unique ID    : SIMULATOR_ID
  Device Name  : My Computer
  Memory       : 1048576KiB
-28/01/15 12:34:14.108: [0x96c] DEVICE: Initialising FIBRE
-28/01/15 12:34:14.109: [0x96c] DEVICE: Initialising THREAD
-28/01/15 12:34:14.110: [0x96c] THREAD: s3eThreadCreateMain
-28/01/15 12:34:14.111: [0xfa0] DEVICE: Initialising SURFACE
-28/01/15 12:34:14.112: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
-28/01/15 12:34:14.113: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
-28/01/15 12:34:14.113: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
-28/01/15 12:34:14.115: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
-28/01/15 12:34:14.115: [0xfa0] DEVICE: Initialising EXT
-28/01/15 12:34:14.116: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
-28/01/15 12:34:14.117: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
-28/01/15 12:34:14.118: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
-28/01/15 12:34:14.119: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
-28/01/15 12:34:14.120: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
-28/01/15 12:34:14.121: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
-28/01/15 12:34:14.121: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
-28/01/15 12:34:14.122: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
-28/01/15 12:34:14.124: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
-28/01/15 12:34:14.125: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
-28/01/15 12:34:14.126: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
-28/01/15 12:34:14.127: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
-28/01/15 12:34:14.128: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
-28/01/15 12:34:14.129: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
-28/01/15 12:34:14.130: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
-28/01/15 12:34:14.130: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
-28/01/15 12:34:14.131: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
-28/01/15 12:34:14.132: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
-28/01/15 12:34:14.133: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
-28/01/15 12:34:14.134: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
-28/01/15 12:34:14.135: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
-28/01/15 12:34:14.136: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
-28/01/15 12:34:14.137: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
-28/01/15 12:34:14.137: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
-28/01/15 12:34:14.138: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
-28/01/15 12:34:14.140: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
-28/01/15 12:34:14.141: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
-28/01/15 12:34:14.142: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
-28/01/15 12:34:14.143: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
-28/01/15 12:34:14.144: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
-28/01/15 12:34:14.145: [0xfa0] EXT: registering extension: Location [0x7604d91e]
-28/01/15 12:34:14.146: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
-28/01/15 12:34:14.147: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
-28/01/15 12:34:14.148: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
-28/01/15 12:34:14.149: [0xfa0] DEVICE: Initialising CONFIG
-28/01/15 12:34:14.149: [0xfa0] DEVICE: Initialising TIMER
-28/01/15 12:34:14.150: [0xfa0] DEVICE: Initialising COMPRESSION
-28/01/15 12:34:14.151: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
-28/01/15 12:34:14.152: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
-28/01/15 12:34:14.153: [0xfa0] EXT: initializing extension: s3eWindow
-28/01/15 12:34:14.154: [0xfa0] EXT: initializing extension: s3eWindow 0x5025c2a0
-28/01/15 12:34:14.155: [0xfa0] DEVICE: SetupPaths: 
-28/01/15 12:34:14.156: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
-28/01/15 12:34:14.157: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
-28/01/15 12:34:14.158: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
-28/01/15 12:34:14.159: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 12:34:14.160: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
-28/01/15 12:34:14.162: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
-28/01/15 12:34:14.162: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
-28/01/15 12:34:14.163: [0xfa0] FILE: fs[03]: system[raw://] ''
-28/01/15 12:34:14.164: [0xfa0] FILE: listed 2 active filesystems
-28/01/15 12:34:14.165: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
-28/01/15 12:34:14.166: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
-28/01/15 12:34:14.167: [0xfa0] FILE: fs[01]: system[ram://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram'
-28/01/15 12:34:14.168: [0xfa0] FILE: fs[03]: system[raw://] ''
-28/01/15 12:34:14.169: [0xfa0] FILE: listed 3 active filesystems
-28/01/15 12:34:14.214: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
-28/01/15 12:34:14.215: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
-28/01/15 12:34:14.216: [0xfa0] LOADER: Using data directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources as ROM drive
-28/01/15 12:34:14.217: [0xfa0] LOADER: Using directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram as RAM drive
-28/01/15 12:34:14.218: [0xfa0] LOADER: returning pre/post config: 0x00000000 0x00000000
-28/01/15 12:34:14.236: [0xfa0] FILE: s3eFileOpen('raw://C:\Program Files\Marmalade\7.4\s3e/s3e.icf', 'rb') succeeded, id=1345447672 p=0x5031e6f8
-28/01/15 12:34:14.237: [0xfa0] LOADER: Loading config from: C:\Program Files\Marmalade\7.4\s3e/s3e.icf
-28/01/15 12:34:14.254: [0xfa0] FILE: s3eFileClose h=0x5031e6f8
-28/01/15 12:34:14.255: [0xfa0] LOADER: Loading app-icf from command line specified location C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 12:34:14.268: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf', 'rb') succeeded, id=1000 p=0x5031fdcc
-28/01/15 12:34:14.269: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 12:34:14.276: [0xfa0] FILE: s3eFileClose h=0x5031fdcc
-28/01/15 12:34:14.279: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf', 'rb') succeeded, id=1001 p=0x5031fee8
-28/01/15 12:34:14.279: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
-28/01/15 12:34:14.281: [0xfa0] FILE: s3eFileClose h=0x5031fee8
-28/01/15 12:34:14.282: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
-28/01/15 12:34:14.283: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
-28/01/15 12:34:14.284: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
-28/01/15 12:34:14.284: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 12:34:14.285: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
-28/01/15 12:34:15.153: [0xfa0] LICENSE: LicenseType: ret true : output=Free
+01/02/15 20:31:04.743: [0x3f4] DEVICE: Initialising FIBRE
+01/02/15 20:31:04.745: [0x3f4] DEVICE: Initialising THREAD
+01/02/15 20:31:04.747: [0x3f4] THREAD: s3eThreadCreateMain
+01/02/15 20:31:04.748: [0xfa0] DEVICE: Initialising SURFACE
+01/02/15 20:31:04.750: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
+01/02/15 20:31:04.751: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+01/02/15 20:31:04.752: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+01/02/15 20:31:04.754: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
+01/02/15 20:31:04.755: [0xfa0] DEVICE: Initialising EXT
+01/02/15 20:31:04.773: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
+01/02/15 20:31:04.774: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
+01/02/15 20:31:04.776: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
+01/02/15 20:31:04.777: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
+01/02/15 20:31:04.779: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
+01/02/15 20:31:04.780: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
+01/02/15 20:31:04.781: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
+01/02/15 20:31:04.783: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
+01/02/15 20:31:04.784: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
+01/02/15 20:31:04.789: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
+01/02/15 20:31:04.791: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
+01/02/15 20:31:04.793: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
+01/02/15 20:31:04.794: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
+01/02/15 20:31:04.796: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
+01/02/15 20:31:04.798: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
+01/02/15 20:31:04.799: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
+01/02/15 20:31:04.802: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
+01/02/15 20:31:04.805: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
+01/02/15 20:31:04.807: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
+01/02/15 20:31:04.809: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
+01/02/15 20:31:04.810: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
+01/02/15 20:31:04.812: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
+01/02/15 20:31:04.813: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
+01/02/15 20:31:04.815: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
+01/02/15 20:31:04.816: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
+01/02/15 20:31:04.817: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
+01/02/15 20:31:04.819: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
+01/02/15 20:31:04.822: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
+01/02/15 20:31:04.826: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
+01/02/15 20:31:04.828: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
+01/02/15 20:31:04.829: [0xfa0] EXT: registering extension: Location [0x7604d91e]
+01/02/15 20:31:04.831: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
+01/02/15 20:31:04.832: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
+01/02/15 20:31:04.834: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
+01/02/15 20:31:04.836: [0xfa0] DEVICE: Initialising CONFIG
+01/02/15 20:31:04.837: [0xfa0] DEVICE: Initialising TIMER
+01/02/15 20:31:04.856: [0xfa0] DEVICE: Initialising COMPRESSION
+01/02/15 20:31:04.858: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
+01/02/15 20:31:04.860: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
+01/02/15 20:31:04.861: [0xfa0] EXT: initializing extension: s3eWindow
+01/02/15 20:31:04.863: [0xfa0] EXT: initializing extension: s3eWindow 0x77c4c2a0
+01/02/15 20:31:04.864: [0xfa0] DEVICE: SetupPaths: 
+01/02/15 20:31:04.869: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
+01/02/15 20:31:04.871: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
+01/02/15 20:31:04.872: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
+01/02/15 20:31:04.873: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:31:04.875: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 20:31:04.892: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+01/02/15 20:31:04.924: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
+01/02/15 20:31:04.927: [0xfa0] FILE: fs[03]: system[raw://] ''
+01/02/15 20:31:04.929: [0xfa0] FILE: listed 2 active filesystems
+01/02/15 20:31:04.935: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+01/02/15 20:31:04.937: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
+01/02/15 20:31:04.939: [0xfa0] FILE: fs[01]: system[ram://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram'
+01/02/15 20:31:04.941: [0xfa0] FILE: fs[03]: system[raw://] ''
+01/02/15 20:31:04.944: [0xfa0] FILE: listed 3 active filesystems
+01/02/15 20:31:05.131: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+01/02/15 20:31:05.132: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+01/02/15 20:31:05.134: [0xfa0] LOADER: Using data directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources as ROM drive
+01/02/15 20:31:05.136: [0xfa0] LOADER: Using directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram as RAM drive
+01/02/15 20:31:05.137: [0xfa0] LOADER: returning pre/post config: 0x00000000 0x00000000
+01/02/15 20:31:05.216: [0xfa0] FILE: s3eFileOpen('raw://C:\Program Files\Marmalade\7.4\s3e/s3e.icf', 'rb') succeeded, id=2010179320 p=0x77d0e6f8
+01/02/15 20:31:05.221: [0xfa0] LOADER: Loading config from: C:\Program Files\Marmalade\7.4\s3e/s3e.icf
+01/02/15 20:31:05.342: [0xfa0] FILE: s3eFileClose h=0x77d0e6f8
+01/02/15 20:31:05.344: [0xfa0] LOADER: Loading app-icf from command line specified location C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:31:05.347: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf', 'rb') succeeded, id=1000 p=0x77d0fdcc
+01/02/15 20:31:05.349: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:31:05.421: [0xfa0] FILE: s3eFileClose h=0x77d0fdcc
+01/02/15 20:31:05.425: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf', 'rb') succeeded, id=1001 p=0x77d0fee8
+01/02/15 20:31:05.427: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 20:31:05.428: [0xfa0] FILE: s3eFileClose h=0x77d0fee8
+01/02/15 20:31:05.430: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
+01/02/15 20:31:05.432: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
+01/02/15 20:31:05.433: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
+01/02/15 20:31:05.434: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 20:31:05.436: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 20:31:07.507: [0xfa0] LICENSE: LicenseType: ret true : output=Free
 COCOS2DX LOG: cocos2d: cocos2d-2.1beta3-x-2.1.0
-28/01/15 12:34:15.620: [0xfa0] IW_GL: EGL: eglGetDisplay returned 00DF29C8
-28/01/15 12:34:15.646: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
-28/01/15 12:34:15.647: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
-28/01/15 12:34:15.649: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
-28/01/15 12:34:15.650: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
-28/01/15 12:34:15.652: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
-28/01/15 12:34:15.653: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
-28/01/15 12:34:15.654: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
-28/01/15 12:34:15.656: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
-28/01/15 12:34:15.657: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
-28/01/15 12:34:15.659: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
-28/01/15 12:34:15.661: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
-28/01/15 12:34:15.662: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:15.664: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
-28/01/15 12:34:15.665: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:15.667: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
-28/01/15 12:34:15.668: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:15.669: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
-28/01/15 12:34:15.670: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:15.671: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
-28/01/15 12:34:15.672: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:15.673: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:15.674: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:15.675: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:34:15.676: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
-28/01/15 12:34:15.705: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
-28/01/15 12:34:15.706: [0xfa0] IW_GL: GL_RENDERER: ANGLE (Mobile Intel(R) 4 Series Express Chipset Family)
-28/01/15 12:34:15.707: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
-28/01/15 12:34:15.709: [0xfa0] IW_GL: GL properties reported by driver:
-28/01/15 12:34:15.709: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
-28/01/15 12:34:15.710: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
-28/01/15 12:34:15.711: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
-28/01/15 12:34:15.712: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
-28/01/15 12:34:15.713: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
-28/01/15 12:34:15.714: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
-28/01/15 12:34:15.715: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
-28/01/15 12:34:15.716: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
-28/01/15 12:34:15.717: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 4096
-28/01/15 12:34:15.718: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
-28/01/15 12:34:15.719: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
-28/01/15 12:34:15.720: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 4096
-28/01/15 12:34:15.721: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
-28/01/15 12:34:15.722: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 4096
-28/01/15 12:34:15.723: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: (4096, 4096)
-28/01/15 12:34:15.724: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
-28/01/15 12:34:15.725: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
-28/01/15 12:34:15.726: [0xfa0] IW_GL:     GL_OES_element_index_uint
-28/01/15 12:34:15.727: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
-28/01/15 12:34:15.728: [0xfa0] IW_GL:     GL_NV_fence
-28/01/15 12:34:15.729: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
-28/01/15 12:34:15.730: [0xfa0] IW_GL:     GL_OES_get_program_binary
-28/01/15 12:34:15.731: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
-28/01/15 12:34:15.732: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
-28/01/15 12:34:15.733: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
-28/01/15 12:34:15.734: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
-28/01/15 12:34:15.735: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
-28/01/15 12:34:15.736: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
-28/01/15 12:34:15.736: [0xfa0] IW_GL:     GL_OES_texture_half_float
-28/01/15 12:34:15.738: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
-28/01/15 12:34:15.739: [0xfa0] IW_GL:     GL_OES_standard_derivatives
-28/01/15 12:34:15.740: [0xfa0] IW_GL:     GL_OES_texture_float
-28/01/15 12:34:15.741: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+01/02/15 20:31:08.395: [0xfa0] IW_GL: EGL: eglGetDisplay returned 02192CD0
+01/02/15 20:31:08.507: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+01/02/15 20:31:08.508: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+01/02/15 20:31:08.510: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+01/02/15 20:31:08.511: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+01/02/15 20:31:08.513: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+01/02/15 20:31:08.515: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+01/02/15 20:31:08.516: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+01/02/15 20:31:08.518: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+01/02/15 20:31:08.537: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+01/02/15 20:31:08.539: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+01/02/15 20:31:08.542: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
+01/02/15 20:31:08.547: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:08.553: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
+01/02/15 20:31:08.561: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:08.571: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
+01/02/15 20:31:08.574: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:08.578: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
+01/02/15 20:31:08.580: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:08.583: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
+01/02/15 20:31:08.586: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:08.589: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:08.591: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:08.594: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:31:08.597: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
+01/02/15 20:31:08.656: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
+01/02/15 20:31:08.670: [0xfa0] IW_GL: GL_RENDERER: ANGLE (Mobile Intel(R) 4 Series Express Chipset Family)
+01/02/15 20:31:08.674: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
+01/02/15 20:31:08.676: [0xfa0] IW_GL: GL properties reported by driver:
+01/02/15 20:31:08.678: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
+01/02/15 20:31:08.681: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
+01/02/15 20:31:08.682: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
+01/02/15 20:31:08.684: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
+01/02/15 20:31:08.686: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
+01/02/15 20:31:08.688: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
+01/02/15 20:31:08.690: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
+01/02/15 20:31:08.691: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
+01/02/15 20:31:08.693: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 4096
+01/02/15 20:31:08.696: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
+01/02/15 20:31:08.700: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
+01/02/15 20:31:08.702: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 4096
+01/02/15 20:31:08.744: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
+01/02/15 20:31:08.746: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 4096
+01/02/15 20:31:08.749: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: (4096, 4096)
+01/02/15 20:31:08.752: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+01/02/15 20:31:08.757: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+01/02/15 20:31:08.765: [0xfa0] IW_GL:     GL_OES_element_index_uint
+01/02/15 20:31:08.768: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+01/02/15 20:31:08.771: [0xfa0] IW_GL:     GL_NV_fence
+01/02/15 20:31:08.773: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+01/02/15 20:31:08.776: [0xfa0] IW_GL:     GL_OES_get_program_binary
+01/02/15 20:31:08.778: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+01/02/15 20:31:08.781: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+01/02/15 20:31:08.784: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+01/02/15 20:31:08.787: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+01/02/15 20:31:08.789: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+01/02/15 20:31:08.792: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+01/02/15 20:31:08.796: [0xfa0] IW_GL:     GL_OES_texture_half_float
+01/02/15 20:31:08.801: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+01/02/15 20:31:08.810: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+01/02/15 20:31:08.816: [0xfa0] IW_GL:     GL_OES_texture_float
+01/02/15 20:31:08.819: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path arial.ttf not found
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/arial.ttf not found
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/marker felt.ttf not found
@@ -650,6 +751,102 @@ COCOS2DX LOG: cocos2d: GL supports discard_framebuffer: NO
 COCOS2DX LOG: cocos2d: GL supports shareable VAO: NO
 COCOS2DX LOG: cocos2d: compiled with Profiling Support: NO
 QUICKCPP LOG: Loading app...
+Already in target scene
+QUICKCPP ERROR: [string "startgame.lua"]:33: attempt to index global 'cc' (a nil value)
+01/02/15 20:37:21.174: [0xfa0] IW_GL: Suspending IwGL
+01/02/15 20:37:21.439: [0xfa0] IW_GL: Terminating EGL...
+01/02/15 20:37:21.487: [0xfa0] IW_GL: Terminating EGL... Done
+01/02/15 20:37:21.488: [0xfa0] IW_GL: Resuming IwGL
+01/02/15 20:37:21.496: [0xfa0] IW_GL: EGL: eglGetDisplay returned 02192CD0
+01/02/15 20:37:21.606: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+01/02/15 20:37:21.608: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+01/02/15 20:37:21.609: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+01/02/15 20:37:21.611: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+01/02/15 20:37:21.612: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+01/02/15 20:37:21.614: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+01/02/15 20:37:21.615: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+01/02/15 20:37:21.617: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+01/02/15 20:37:21.618: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+01/02/15 20:37:21.620: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+01/02/15 20:37:21.621: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
+01/02/15 20:37:21.622: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:37:21.624: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
+01/02/15 20:37:21.625: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:37:21.628: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
+01/02/15 20:37:21.629: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:37:21.630: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
+01/02/15 20:37:21.631: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:37:21.633: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
+01/02/15 20:37:21.635: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:37:21.636: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:37:21.637: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:37:21.639: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 20:37:21.641: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
+01/02/15 20:37:21.682: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+01/02/15 20:37:21.687: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+01/02/15 20:37:21.688: [0xfa0] IW_GL:     GL_OES_element_index_uint
+01/02/15 20:37:21.689: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+01/02/15 20:37:21.690: [0xfa0] IW_GL:     GL_NV_fence
+01/02/15 20:37:21.700: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+01/02/15 20:37:21.703: [0xfa0] IW_GL:     GL_OES_get_program_binary
+01/02/15 20:37:21.705: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+01/02/15 20:37:21.707: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+01/02/15 20:37:21.708: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+01/02/15 20:37:21.711: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+01/02/15 20:37:21.712: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+01/02/15 20:37:21.714: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+01/02/15 20:37:21.715: [0xfa0] IW_GL:     GL_OES_texture_half_float
+01/02/15 20:37:21.716: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+01/02/15 20:37:21.717: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+01/02/15 20:37:21.718: [0xfa0] IW_GL:     GL_OES_texture_float
+01/02/15 20:37:21.719: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+01/02/15 22:03:34.210: [0xfa0] IW_GL: Suspending IwGL
+01/02/15 22:03:38.020: [0xfa0] IW_GL: Terminating EGL...
+01/02/15 22:03:48.123: [0xfa0] IW_GL: Terminating EGL... Done
+01/02/15 22:03:48.125: [0xfa0] IW_GL: Resuming IwGL
+01/02/15 22:03:48.523: [0xfa0] IW_GL: EGL: eglGetDisplay returned 02192CD0
+01/02/15 22:03:52.114: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+01/02/15 22:03:52.115: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+01/02/15 22:03:52.116: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+01/02/15 22:03:52.117: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+01/02/15 22:03:52.118: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+01/02/15 22:03:52.119: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+01/02/15 22:03:52.120: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+01/02/15 22:03:52.121: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+01/02/15 22:03:52.122: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+01/02/15 22:03:52.123: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+01/02/15 22:03:52.124: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
+01/02/15 22:03:52.126: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:03:52.128: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
+01/02/15 22:03:52.129: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:03:52.131: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
+01/02/15 22:03:52.133: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:03:52.134: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
+01/02/15 22:03:52.136: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:03:52.138: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
+01/02/15 22:03:52.139: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:03:52.141: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:03:52.142: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:03:52.144: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:03:52.145: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
+01/02/15 22:03:52.583: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+01/02/15 22:03:52.585: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+01/02/15 22:03:52.586: [0xfa0] IW_GL:     GL_OES_element_index_uint
+01/02/15 22:03:52.587: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+01/02/15 22:03:52.588: [0xfa0] IW_GL:     GL_NV_fence
+01/02/15 22:03:52.589: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+01/02/15 22:03:52.590: [0xfa0] IW_GL:     GL_OES_get_program_binary
+01/02/15 22:03:52.591: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+01/02/15 22:03:52.592: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+01/02/15 22:03:52.593: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+01/02/15 22:03:52.594: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+01/02/15 22:03:52.595: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+01/02/15 22:03:52.596: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+01/02/15 22:03:52.597: [0xfa0] IW_GL:     GL_OES_texture_half_float
+01/02/15 22:03:52.597: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+01/02/15 22:03:52.598: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+01/02/15 22:03:52.599: [0xfa0] IW_GL:     GL_OES_texture_float
+01/02/15 22:03:52.600: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
 -- END TRACE --
 -- START TRACE TO FILE --
 tracing to: ''
@@ -664,155 +861,155 @@ System Info:
  Unique ID    : SIMULATOR_ID
  Device Name  : My Computer
  Memory       : 1048576KiB
-28/01/15 12:35:03.849: [0x96c] DEVICE: Initialising FIBRE
-28/01/15 12:35:03.850: [0x96c] DEVICE: Initialising THREAD
-28/01/15 12:35:03.851: [0x96c] THREAD: s3eThreadCreateMain
-28/01/15 12:35:03.852: [0xfa0] DEVICE: Initialising SURFACE
-28/01/15 12:35:03.853: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
-28/01/15 12:35:03.854: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
-28/01/15 12:35:03.855: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
-28/01/15 12:35:03.856: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
-28/01/15 12:35:03.857: [0xfa0] DEVICE: Initialising EXT
-28/01/15 12:35:03.858: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
-28/01/15 12:35:03.859: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
-28/01/15 12:35:03.860: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
-28/01/15 12:35:03.861: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
-28/01/15 12:35:03.862: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
-28/01/15 12:35:03.863: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
-28/01/15 12:35:03.864: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
-28/01/15 12:35:03.865: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
-28/01/15 12:35:03.866: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
-28/01/15 12:35:03.867: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
-28/01/15 12:35:03.868: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
-28/01/15 12:35:03.870: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
-28/01/15 12:35:03.871: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
-28/01/15 12:35:03.872: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
-28/01/15 12:35:03.873: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
-28/01/15 12:35:03.875: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
-28/01/15 12:35:03.876: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
-28/01/15 12:35:03.877: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
-28/01/15 12:35:03.878: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
-28/01/15 12:35:03.878: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
-28/01/15 12:35:03.879: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
-28/01/15 12:35:03.880: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
-28/01/15 12:35:03.881: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
-28/01/15 12:35:03.882: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
-28/01/15 12:35:03.883: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
-28/01/15 12:35:03.884: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
-28/01/15 12:35:03.885: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
-28/01/15 12:35:03.887: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
-28/01/15 12:35:03.888: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
-28/01/15 12:35:03.889: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
-28/01/15 12:35:03.890: [0xfa0] EXT: registering extension: Location [0x7604d91e]
-28/01/15 12:35:03.891: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
-28/01/15 12:35:03.892: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
-28/01/15 12:35:03.893: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
-28/01/15 12:35:03.894: [0xfa0] DEVICE: Initialising CONFIG
-28/01/15 12:35:03.895: [0xfa0] DEVICE: Initialising TIMER
-28/01/15 12:35:03.896: [0xfa0] DEVICE: Initialising COMPRESSION
-28/01/15 12:35:03.897: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
-28/01/15 12:35:03.898: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
-28/01/15 12:35:03.898: [0xfa0] EXT: initializing extension: s3eWindow
-28/01/15 12:35:03.899: [0xfa0] EXT: initializing extension: s3eWindow 0x5025c2a0
-28/01/15 12:35:03.900: [0xfa0] DEVICE: SetupPaths: 
-28/01/15 12:35:03.901: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
-28/01/15 12:35:03.902: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
-28/01/15 12:35:03.903: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
-28/01/15 12:35:03.904: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 12:35:03.905: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
-28/01/15 12:35:03.907: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
-28/01/15 12:35:03.908: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
-28/01/15 12:35:03.909: [0xfa0] FILE: fs[03]: system[raw://] ''
-28/01/15 12:35:03.910: [0xfa0] FILE: listed 2 active filesystems
-28/01/15 12:35:03.911: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
-28/01/15 12:35:03.912: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
-28/01/15 12:35:03.913: [0xfa0] FILE: fs[01]: system[ram://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram'
-28/01/15 12:35:03.913: [0xfa0] FILE: fs[03]: system[raw://] ''
-28/01/15 12:35:03.914: [0xfa0] FILE: listed 3 active filesystems
-28/01/15 12:35:03.920: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
-28/01/15 12:35:03.921: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
-28/01/15 12:35:03.922: [0xfa0] LOADER: Using data directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources as ROM drive
-28/01/15 12:35:03.923: [0xfa0] LOADER: Using directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram as RAM drive
-28/01/15 12:35:03.924: [0xfa0] LOADER: returning pre/post config: 0x00000000 0x00000000
-28/01/15 12:35:03.926: [0xfa0] FILE: s3eFileOpen('raw://C:\Program Files\Marmalade\7.4\s3e/s3e.icf', 'rb') succeeded, id=1345447672 p=0x5031e6f8
-28/01/15 12:35:03.927: [0xfa0] LOADER: Loading config from: C:\Program Files\Marmalade\7.4\s3e/s3e.icf
-28/01/15 12:35:03.929: [0xfa0] FILE: s3eFileClose h=0x5031e6f8
-28/01/15 12:35:03.930: [0xfa0] LOADER: Loading app-icf from command line specified location C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 12:35:03.931: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf', 'rb') succeeded, id=1000 p=0x5031fdcc
-28/01/15 12:35:03.931: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 12:35:03.933: [0xfa0] FILE: s3eFileClose h=0x5031fdcc
-28/01/15 12:35:03.934: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf', 'rb') succeeded, id=1001 p=0x5031fee8
-28/01/15 12:35:03.934: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
-28/01/15 12:35:03.935: [0xfa0] FILE: s3eFileClose h=0x5031fee8
-28/01/15 12:35:03.936: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
-28/01/15 12:35:03.937: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
-28/01/15 12:35:03.938: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
-28/01/15 12:35:03.939: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
-28/01/15 12:35:03.940: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
-28/01/15 12:35:04.318: [0xfa0] LICENSE: LicenseType: ret true : output=Free
+01/02/15 22:03:55.601: [0x3f4] DEVICE: Initialising FIBRE
+01/02/15 22:03:55.602: [0x3f4] DEVICE: Initialising THREAD
+01/02/15 22:03:55.603: [0x3f4] THREAD: s3eThreadCreateMain
+01/02/15 22:03:55.604: [0xfa0] DEVICE: Initialising SURFACE
+01/02/15 22:03:55.605: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
+01/02/15 22:03:55.606: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+01/02/15 22:03:55.607: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+01/02/15 22:03:55.608: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
+01/02/15 22:03:55.609: [0xfa0] DEVICE: Initialising EXT
+01/02/15 22:03:55.610: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
+01/02/15 22:03:55.612: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
+01/02/15 22:03:55.613: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
+01/02/15 22:03:55.614: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
+01/02/15 22:03:55.615: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
+01/02/15 22:03:55.616: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
+01/02/15 22:03:55.618: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
+01/02/15 22:03:55.619: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
+01/02/15 22:03:55.619: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
+01/02/15 22:03:55.621: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
+01/02/15 22:03:55.622: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
+01/02/15 22:03:55.623: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
+01/02/15 22:03:55.624: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
+01/02/15 22:03:55.625: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
+01/02/15 22:03:55.626: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
+01/02/15 22:03:55.627: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
+01/02/15 22:03:55.628: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
+01/02/15 22:03:55.629: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
+01/02/15 22:03:55.633: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
+01/02/15 22:03:55.634: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
+01/02/15 22:03:55.635: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
+01/02/15 22:03:55.636: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
+01/02/15 22:03:55.637: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
+01/02/15 22:03:55.638: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
+01/02/15 22:03:55.638: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
+01/02/15 22:03:55.639: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
+01/02/15 22:03:55.640: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
+01/02/15 22:03:55.642: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
+01/02/15 22:03:55.642: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
+01/02/15 22:03:55.654: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
+01/02/15 22:03:55.655: [0xfa0] EXT: registering extension: Location [0x7604d91e]
+01/02/15 22:03:55.656: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
+01/02/15 22:03:55.656: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
+01/02/15 22:03:55.657: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
+01/02/15 22:03:55.658: [0xfa0] DEVICE: Initialising CONFIG
+01/02/15 22:03:55.659: [0xfa0] DEVICE: Initialising TIMER
+01/02/15 22:03:55.706: [0xfa0] DEVICE: Initialising COMPRESSION
+01/02/15 22:03:55.707: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
+01/02/15 22:03:55.708: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
+01/02/15 22:03:55.709: [0xfa0] EXT: initializing extension: s3eWindow
+01/02/15 22:03:55.710: [0xfa0] EXT: initializing extension: s3eWindow 0x77c4c2a0
+01/02/15 22:03:55.711: [0xfa0] DEVICE: SetupPaths: 
+01/02/15 22:03:55.712: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
+01/02/15 22:03:55.729: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
+01/02/15 22:03:55.730: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
+01/02/15 22:03:55.731: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 22:03:55.732: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 22:03:55.743: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+01/02/15 22:03:55.745: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
+01/02/15 22:03:55.746: [0xfa0] FILE: fs[03]: system[raw://] ''
+01/02/15 22:03:55.747: [0xfa0] FILE: listed 2 active filesystems
+01/02/15 22:03:55.748: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+01/02/15 22:03:55.749: [0xfa0] FILE: fs[00]: system[rom://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources'
+01/02/15 22:03:55.750: [0xfa0] FILE: fs[01]: system[ram://] 'C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram'
+01/02/15 22:03:55.751: [0xfa0] FILE: fs[03]: system[raw://] ''
+01/02/15 22:03:55.753: [0xfa0] FILE: listed 3 active filesystems
+01/02/15 22:03:56.068: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+01/02/15 22:03:56.069: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+01/02/15 22:03:56.070: [0xfa0] LOADER: Using data directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources as ROM drive
+01/02/15 22:03:56.071: [0xfa0] LOADER: Using directory C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources-ram as RAM drive
+01/02/15 22:03:56.072: [0xfa0] LOADER: returning pre/post config: 0x00000000 0x00000000
+01/02/15 22:03:56.155: [0xfa0] FILE: s3eFileOpen('raw://C:\Program Files\Marmalade\7.4\s3e/s3e.icf', 'rb') succeeded, id=2010179320 p=0x77d0e6f8
+01/02/15 22:03:56.156: [0xfa0] LOADER: Loading config from: C:\Program Files\Marmalade\7.4\s3e/s3e.icf
+01/02/15 22:03:56.173: [0xfa0] FILE: s3eFileClose h=0x77d0e6f8
+01/02/15 22:03:56.175: [0xfa0] LOADER: Loading app-icf from command line specified location C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 22:03:56.209: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf', 'rb') succeeded, id=1000 p=0x77d0fdcc
+01/02/15 22:03:56.211: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 22:03:56.232: [0xfa0] FILE: s3eFileClose h=0x77d0fdcc
+01/02/15 22:03:56.247: [0xfa0] FILE: s3eFileOpen('raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf', 'rb') succeeded, id=1001 p=0x77d0fee8
+01/02/15 22:03:56.248: [0xfa0] LOADER: Loading config from: raw://C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 22:03:56.250: [0xfa0] FILE: s3eFileClose h=0x77d0fee8
+01/02/15 22:03:56.252: [0xfa0] LOADER: ParseCommandLineData [--dll="C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86" --data="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources" --app-icf1="C:\Users\mokz\Desktop\DotsGeDots\DotsGeDo
+01/02/15 22:03:56.254: [0xfa0] LOADER: setting [commandline]  dll=C:\Program Files\Marmalade\7.4\quick\target\win\quick_prebuilt_d.s86
+01/02/15 22:03:56.255: [0xfa0] LOADER: setting [commandline]  data=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources
+01/02/15 22:03:56.257: [0xfa0] LOADER: setting [commandline]  app-icf1=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\common.icf
+01/02/15 22:03:56.258: [0xfa0] LOADER: setting [commandline]  app-icf2=C:\Users\mokz\Desktop\DotsGeDots\DotsGeDots\resources\app.icf
+01/02/15 22:04:08.374: [0xfa0] LICENSE: LicenseType: ret true : output=Free
 COCOS2DX LOG: cocos2d: cocos2d-2.1beta3-x-2.1.0
-28/01/15 12:35:04.385: [0xfa0] IW_GL: EGL: eglGetDisplay returned 05D329C8
-28/01/15 12:35:04.402: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
-28/01/15 12:35:04.403: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
-28/01/15 12:35:04.405: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
-28/01/15 12:35:04.405: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
-28/01/15 12:35:04.406: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
-28/01/15 12:35:04.407: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
-28/01/15 12:35:04.408: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
-28/01/15 12:35:04.409: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
-28/01/15 12:35:04.410: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
-28/01/15 12:35:04.411: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
-28/01/15 12:35:04.412: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
-28/01/15 12:35:04.413: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:35:04.414: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
-28/01/15 12:35:04.415: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:35:04.416: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
-28/01/15 12:35:04.417: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:35:04.418: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
-28/01/15 12:35:04.419: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:35:04.420: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
-28/01/15 12:35:04.421: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:35:04.421: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:35:04.423: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:35:04.423: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-28/01/15 12:35:04.424: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
-28/01/15 12:35:04.447: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
-28/01/15 12:35:04.448: [0xfa0] IW_GL: GL_RENDERER: ANGLE (Mobile Intel(R) 4 Series Express Chipset Family)
-28/01/15 12:35:04.449: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
-28/01/15 12:35:04.450: [0xfa0] IW_GL: GL properties reported by driver:
-28/01/15 12:35:04.451: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
-28/01/15 12:35:04.452: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
-28/01/15 12:35:04.453: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
-28/01/15 12:35:04.454: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
-28/01/15 12:35:04.455: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
-28/01/15 12:35:04.456: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
-28/01/15 12:35:04.457: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
-28/01/15 12:35:04.458: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
-28/01/15 12:35:04.459: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 4096
-28/01/15 12:35:04.460: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
-28/01/15 12:35:04.461: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
-28/01/15 12:35:04.461: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 4096
-28/01/15 12:35:04.462: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
-28/01/15 12:35:04.463: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 4096
-28/01/15 12:35:04.464: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: (4096, 4096)
-28/01/15 12:35:04.466: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
-28/01/15 12:35:04.467: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
-28/01/15 12:35:04.468: [0xfa0] IW_GL:     GL_OES_element_index_uint
-28/01/15 12:35:04.469: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
-28/01/15 12:35:04.469: [0xfa0] IW_GL:     GL_NV_fence
-28/01/15 12:35:04.470: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
-28/01/15 12:35:04.471: [0xfa0] IW_GL:     GL_OES_get_program_binary
-28/01/15 12:35:04.472: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
-28/01/15 12:35:04.473: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
-28/01/15 12:35:04.474: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
-28/01/15 12:35:04.475: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
-28/01/15 12:35:04.476: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
-28/01/15 12:35:04.477: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
-28/01/15 12:35:04.478: [0xfa0] IW_GL:     GL_OES_texture_half_float
-28/01/15 12:35:04.479: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
-28/01/15 12:35:04.479: [0xfa0] IW_GL:     GL_OES_standard_derivatives
-28/01/15 12:35:04.482: [0xfa0] IW_GL:     GL_OES_texture_float
-28/01/15 12:35:04.483: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+01/02/15 22:04:13.480: [0xfa0] IW_GL: EGL: eglGetDisplay returned 06402CD0
+01/02/15 22:04:13.626: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+01/02/15 22:04:13.629: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+01/02/15 22:04:13.630: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+01/02/15 22:04:13.631: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+01/02/15 22:04:13.635: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+01/02/15 22:04:13.636: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+01/02/15 22:04:13.637: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+01/02/15 22:04:13.638: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+01/02/15 22:04:13.639: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+01/02/15 22:04:13.640: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+01/02/15 22:04:13.641: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
+01/02/15 22:04:13.645: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:04:13.646: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
+01/02/15 22:04:13.648: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:04:13.650: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
+01/02/15 22:04:13.651: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:04:13.652: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
+01/02/15 22:04:13.653: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:04:13.655: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
+01/02/15 22:04:13.656: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:04:13.657: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:04:13.658: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:04:13.659: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+01/02/15 22:04:13.660: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
+01/02/15 22:04:13.830: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
+01/02/15 22:04:13.832: [0xfa0] IW_GL: GL_RENDERER: ANGLE (Mobile Intel(R) 4 Series Express Chipset Family)
+01/02/15 22:04:13.833: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
+01/02/15 22:04:13.834: [0xfa0] IW_GL: GL properties reported by driver:
+01/02/15 22:04:13.836: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
+01/02/15 22:04:13.838: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
+01/02/15 22:04:13.840: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
+01/02/15 22:04:13.842: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
+01/02/15 22:04:13.843: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
+01/02/15 22:04:13.845: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
+01/02/15 22:04:13.847: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
+01/02/15 22:04:13.849: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
+01/02/15 22:04:13.850: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 4096
+01/02/15 22:04:13.852: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
+01/02/15 22:04:13.853: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
+01/02/15 22:04:13.854: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 4096
+01/02/15 22:04:13.856: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
+01/02/15 22:04:13.857: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 4096
+01/02/15 22:04:13.860: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: (4096, 4096)
+01/02/15 22:04:13.864: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+01/02/15 22:04:13.865: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+01/02/15 22:04:13.866: [0xfa0] IW_GL:     GL_OES_element_index_uint
+01/02/15 22:04:13.867: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+01/02/15 22:04:13.868: [0xfa0] IW_GL:     GL_NV_fence
+01/02/15 22:04:13.870: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+01/02/15 22:04:13.871: [0xfa0] IW_GL:     GL_OES_get_program_binary
+01/02/15 22:04:13.873: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+01/02/15 22:04:13.874: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+01/02/15 22:04:13.876: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+01/02/15 22:04:13.877: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+01/02/15 22:04:13.879: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+01/02/15 22:04:13.880: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+01/02/15 22:04:13.882: [0xfa0] IW_GL:     GL_OES_texture_half_float
+01/02/15 22:04:13.884: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+01/02/15 22:04:13.885: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+01/02/15 22:04:13.886: [0xfa0] IW_GL:     GL_OES_texture_float
+01/02/15 22:04:13.888: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path arial.ttf not found
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/arial.ttf not found
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/marker felt.ttf not found
@@ -841,3 +1038,8 @@ COCOS2DX LOG: cocos2d: GL supports discard_framebuffer: NO
 COCOS2DX LOG: cocos2d: GL supports shareable VAO: NO
 COCOS2DX LOG: cocos2d: compiled with Profiling Support: NO
 QUICKCPP LOG: Loading app...
+Already in target scene
+Creating default font
+COCOS2DX LOG: cocos2d: padding: 1,1,1,1
+COCOS2DX LOG: cocos2d: padding: 1,1,1,1
+QUICKCPP ERROR: [string "startgame.lua"]:35: attempt to index global 'cc' (a nil value)

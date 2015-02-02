@@ -21,15 +21,19 @@ assets = deploy_config.assets
 
 class HubConfig(deploy_config.DefaultConfig):
     android_icon_group = {}
+    android_external_res = [ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3efacebook/third-party/facebook-android-sdk/facebook/res", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3eandroidgoogleplaybilling/source/android/res", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3esamsunginapppurchasing/source/android/res"]
     android_install_location = 1
     android_pkgname = r"com.mokz.DotsGeDots"
     assets = assets["Default"]
-    config = [ur"C:/Program Files/Marmalade/7.4/quick/data/examples/Hello World/Hello World/resources/common.icf", ur"C:/Program Files/Marmalade/7.4/quick/data/examples/Hello World/Hello World/resources/app.icf"]
+    config = [ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/resources/common.icf", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/resources/app.icf"]
     name = ur"DotsGeDots"
     caption = ur"DotsGeDots"
     provider = ur"mokz"
     copyright = ur"(C) mokz"
     version = [0, 0, 1]
+    android_extra_manifest = [ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3eandroidgoogleplaybilling/source/android/ExtraManifests.xml", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3esamsunginapppurchasing/source/android/ExtraManifests.xml", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/fortumo/extras.manifest.txt"]
+    android_extra_application_manifest = [ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3efacebook/source/android/extra_app_manifest.xml", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3eamazoninapppurchasing/source/android/AmazonInAppPurchasingManifestSnippet.xml", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3eandroidmarketbilling/s3eAndroidMarketBillingManifest.xml", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3eandroidgoogleplaybilling/source/android/ExtraAppManifests.xml", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/s3esamsunginapppurchasing/source/android/ExtraAppManifests.xml", ur"C:/Users/mokz/Desktop/DotsGeDots/DotsGeDots/../../../../../program files/marmalade/7.4/extensions/fortumo/extras.application.txt"]
+    android_extra_strings = ur"(app_id,fb_app_id)"
     pass
 
 default = HubConfig()
