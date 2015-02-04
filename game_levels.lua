@@ -5,7 +5,7 @@ local widget = require( "widget" )
 
 -- Require "global" data table (http://coronalabs.com/blog/2013/05/28/tutorial-goodbye-globals/)
 -- This will contain relevant data like the current level, max levels, number of stars earned, etc.
-local myData = require( "mydata" )
+local mydata = require( "mydata" )
 
 -- Declare vertices for vector stars (an image is probably preferable for an actual game).
 local starVertices = { 0,-8,1.763,-2.427,7.608,-2.472,2.853,0.927,4.702,6.472,0.0,3.0,-4.702,6.472,-2.853,0.927,-7.608,-2.472,-1.763,-2.427 }
@@ -23,7 +23,7 @@ local function handleLevelSelect( event )
         -- 'event.target' is the button and '.id' is a number indicating which level to go to.  
         -- The 'game' scene will use this setting to determine which level to load.
         -- This could be done via passed parameters as well.
-        myData.settings.currentLevel = event.target.id
+        mydata.settings.currentLevel = event.target.id
 
         -- Purge the game scene so we have a fresh start
         storyboard.removeScene( "game", false )
@@ -68,8 +68,8 @@ function scene:createScene( event )
     -- Define the array to hold the buttons
     local buttons = {}
 
-    -- Read 'maxLevels' from the 'myData' table. Loop over them and generating one button for each.
-    for i = 1, myData.maxLevels do
+    -- Read 'maxLevels' from the 'mydata' table. Loop over them and generating one button for each.
+    for i = 1, mydata.maxLevels do
         -- Create a button
         buttons[i] = widget.newButton({
             label = tostring( i ),
@@ -99,10 +99,10 @@ function scene:createScene( event )
         -- If not set (new user), this value should be 1.
 
         -- If the level is locked, disable the button and fade it out.
-        if ( myData.settings.unlockedLevels == nil ) then
-            myData.settings.unlockedLevels = 1
+        if ( mydata.settings.unlockedLevels == nil ) then
+            mydata.settings.unlockedLevels = 1
         end
-        if ( i <= myData.settings.unlockedLevels ) then
+        if ( i <= mydata.settings.unlockedLevels ) then
             buttons[i]:setEnabled( true )
             buttons[i].alpha = 1.0
         else 
@@ -116,8 +116,8 @@ function scene:createScene( event )
         -- c. The number of stars is greater than 0 (no need to draw zero stars). 
 
         local star = {} 
-        if ( myData.settings.levels[i] and myData.settings.levels[i].stars and myData.settings.levels[i].stars > 0 ) then
-            for j = 1, myData.settings.levels[i].stars do
+        if ( mydata.settings.levels[i] and mydata.settings.levels[i].stars and mydata.settings.levels[i].stars > 0 ) then
+            for j = 1, mydata.settings.levels[i].stars do
                 star[j] = display.newPolygon( 0, 0, starVertices )
                 star[j]:setFillColor( 1, 0.9, 0 )
                 star[j].strokeWidth = 1

@@ -2,7 +2,7 @@ local storyboard = require("storyboard")
 local scene = storyboard.newScene()
 
 local widget = require( "widget" )
-local myData = require( "mydata" )
+local mydata = require( "mydata" )
 
 local params
 
@@ -35,8 +35,8 @@ function scene:createScene( event )
     -- Define the array to hold the buttons
     local grid = {}
 
-    -- Read 'maxLevels' from the 'myData' table. Loop over them and generating one grid for each.
-    for i = 1, myData.settings.easy do
+    -- Read 'maxLevels' from the 'mydata' table. Loop over them and generating one grid for each.
+    for i = 1, mydata.settings.easy do
         -- Create a grid
         grid[i] = display.newRect(100,200,150,150)
         grid[i]:setFillColor(255,255,255)
@@ -94,10 +94,10 @@ function scene:createScene( event )
     sceneGroup:insert( nextButton )
     
     -- If the level is locked, disable the button and fade it out.
-    if ( myData.settings.unlockedLevels == nil ) then
-      myData.settings.unlockedLevels = 1
+    if ( mydata.settings.unlockedLevels == nil ) then
+      mydata.settings.unlockedLevels = 1
     end
-    if ( 2 < myData.settings.unlockedLevels ) then
+    if ( 2 < mydata.settings.unlockedLevels ) then
       nextButton:setEnabled( true )
       nextButton.alpha = 1
     else 
@@ -141,10 +141,11 @@ function scene:createScene( event )
     circle2:setFillColor(100, 0, 250) 
     sceneGroup:insert( circle2 )
     
-    local circle3= display.newCircle(245, 400, 50)
-    circle3:setFillColor(100, 0, 250) 
-    sceneGroup:insert( circle3 )
+    --local circle3= display.newCircle(245, 400, 50)
+    --circle3:setFillColor(100, 0, 250) 
+    --sceneGroup:insert( circle3 )
     -- end circle
+    
     
 end
 
@@ -170,6 +171,66 @@ function scene:destroyScene( event )
     
 end
 
+--start sa move dots
+local LEFT = 250
+local CENTERX = display.contentCenterX
+local CENTERY = display.contentCenterY
+local RIGHT = display.contentWidth -  80
+local UP = 250
+local DOWN = display.contentHeight - 390
+
+local object = display.newCircle( display.contentCenterX, display.contentCenterY, 50 )
+object:setFillColor(100, 0, 250) 
+--sceneGroup:insert( object )
+    
+--function sa move dots
+local function handleSwipe( event )
+    if ( event.phase == "moved" ) then
+        local dX = event.x - event.xStart
+        print( event.x, event.xStart, dX )
+        if ( dX > 10 ) then
+            --swipe right
+            local spot = RIGHT
+            if ( event.target.x == LEFT ) then
+                spot = CENTERX
+            end
+            transition.to( event.target, { time=500, x=spot } )
+        elseif ( dX  < -10 ) then
+            --swipe left
+            local spot = LEFT
+            if ( event.target.x == RIGHT ) then
+                spot = CENTERX
+            end
+            transition.to( event.target, { time=500, x=spot } )
+        end
+        --y
+        local dY = event.y - event.yStart
+        
+        print( event.y, event.yStart, dY )
+        if ( dY > 10 ) then
+            --swipe right
+            local spot = DOWN
+            if ( event.target.y == UP ) then
+                spot = CENTERY
+            end
+            transition.to( event.target, { time=500, y=spot } )
+        elseif ( dY  < -10 ) then
+            --swipe left
+            local spot = UP
+            if ( event.target.y == DOWN ) then
+                spot = CENTERY
+            end
+            transition.to( event.target, { time=500, y=spot } )
+        end
+        
+        --end y
+    end
+    return true
+end
+
+object:addEventListener( "touch", handleSwipe )
+
+--end sa move dots
 ---------------------------------------------------------------------------------
 -- END OF YOUR IMPLEMENTATION
 ---------------------------------------------------------------------------------
