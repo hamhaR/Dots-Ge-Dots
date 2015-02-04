@@ -20,22 +20,14 @@ function scene:createScene( event )
 
     params = event.params
         
-    --
-    -- setup a page background, really not that important though storyboard
-    -- crashes out if there isn't a display object in the view.
-    --
+    -- start background
     local background = display.newRect(0, 0, display.contentWidth, display.contentHeight)
     background.x = display.contentCenterX
     background.y = display.contentCenterY
     sceneGroup:insert(background)
+    -- end background
     
-    --local displayTimer = display.newText("0", 0, 0, native.systemFont,32)
-    --displayTimer:setTextColor(black)
-    --timer:setReferencePoint(display.CenterReferencePoint)
-    --displayTimer.x = display.contentCenterX
-    --displayTimer.y = display.contentHeight - 80
-    
-    -- 'xOffset', 'yOffset' and 'cellCount' are used to position the grid in the grid.
+    -- start grid
     local xOffset = 94
     local yOffset = 250
     local cellCount = 1
@@ -48,7 +40,7 @@ function scene:createScene( event )
         -- Create a grid
         grid[i] = display.newRect(100,200,150,150)
         grid[i]:setFillColor(255,255,255)
-        grid[i].strokeWidth = 5
+        grid[i].strokeWidth = 4
         grid[i]:setStrokeColor(0,0,0)
         grid[i].x = xOffset 
         grid[i].y = yOffset
@@ -63,8 +55,14 @@ function scene:createScene( event )
             yOffset = yOffset + 150
         end
     end
+    
+    grid[2]:setFillColor(1, 104/255, 1)
+    grid[3]:setFillColor(1, 104/255, 1)
+    grid[6]:setFillColor(1, 104/255, 1)
+    
+    -- end of grid
 
-    -- back button
+    -- start back button
     local backButton = widget.newButton({
         id = "button",
         label = "<",
@@ -75,8 +73,9 @@ function scene:createScene( event )
     backButton.x = display.contentWidth - 420
     backButton.y = display.contentHeight - 750
     sceneGroup:insert( backButton )
+    -- end back button
     
-    -- next button
+    -- start next button
     local nextButton = widget.newButton{
         id = "button",
         label = "Next Level Button",
@@ -105,8 +104,9 @@ function scene:createScene( event )
       nextButton:setEnabled( false ) 
       nextButton.alpha = 0.667
     end 
+    -- end next button
     
-    -- replay button
+    -- start replay button
     local replayButton = widget.newButton{
         label = "Replay Button",
         fontSize = 30,
@@ -122,13 +122,29 @@ function scene:createScene( event )
     replayButton.x = display.contentWidth - 360
     replayButton.y = display.contentHeight - 43
     sceneGroup:insert( replayButton )
+    --end replay button
     
-    --timer
+    -- start timer
     local displayTimer = display.newText("0", 100, 100, native.systemFont, 40)
     displayTimer.x = display.contentCenterX
     displayTimer.y = display.contentCenterY + 270
     displayTimer:setTextColor(1,0,0)
     sceneGroup:insert( displayTimer )
+    -- end timer
+    
+    -- start draw circle
+    local circle1 = display.newCircle(90, 255, 50)
+    circle1:setFillColor(100, 0, 250) 
+    sceneGroup:insert( circle1 )
+    
+    local circle2= display.newCircle(245, 255, 50)
+    circle2:setFillColor(100, 0, 250) 
+    sceneGroup:insert( circle2 )
+    
+    local circle3= display.newCircle(245, 400, 50)
+    circle3:setFillColor(100, 0, 250) 
+    sceneGroup:insert( circle3 )
+    -- end circle
     
 end
 
