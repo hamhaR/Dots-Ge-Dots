@@ -1,6 +1,7 @@
 local M ={}
 M.maxLevels = 100
 M.settings = {}
+M.settings.easy = 9
 M.settings.currentLevel = 1
 M.settings.unlockedLevels = 2
 M.settings.soundOn = false
