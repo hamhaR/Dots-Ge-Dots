@@ -77,15 +77,21 @@ function scene:createScene( event )
     sceneGroup:insert( backButton )
     
     -- next button
-    local nextButton = widget.newButton({
+    local nextButton = widget.newButton{
         id = "button",
-        label = ">",
+        label = "Next Level Button",
+        shape = "rect",
+        width = 235,
+        height = 80,
+        fillColor = { default={ 1, 1, 1, 1 }, over={ 1, 0.1, 0.7, 0.4 } },
+        strokeColor = { default={ 0.300, 0.667, 1, 1 }, over={ 1, 1, 1, 1 } },
+        strokeWidth = 6,
         font = native.systemFontBold,
-        fontSize = 100,
+        fontSize = 25,
         --onEvent = handleCancelButtonEvent
-    })
-    nextButton.x = display.contentWidth - 50
-    nextButton.y = display.contentHeight - 750
+    }
+    nextButton.x = display.contentWidth - 120
+    nextButton.y = display.contentHeight - 43
     sceneGroup:insert( nextButton )
     
     -- If the level is locked, disable the button and fade it out.
@@ -94,11 +100,36 @@ function scene:createScene( event )
     end
     if ( 2 < myData.settings.unlockedLevels ) then
       nextButton:setEnabled( true )
-      nextButton.alpha = 1.0
+      nextButton.alpha = 1
     else 
       nextButton:setEnabled( false ) 
-      nextButton.alpha = 0.5 
+      nextButton.alpha = 0.667
     end 
+    
+    -- replay button
+    local replayButton = widget.newButton{
+        label = "Replay Button",
+        fontSize = 30,
+        shape = "rect",
+        width = 235,
+        height = 80,
+        defaultFile = "refresh.png",
+        overFile = "refresh.png",
+        strokeColor = { default={ 0.300, 0.667, 1, 1 }, over={ 1, 1, 1, 1 } },
+        strokeWidth = 6
+        --onEvent = handleCancelButtonEvent
+    }
+    replayButton.x = display.contentWidth - 360
+    replayButton.y = display.contentHeight - 43
+    sceneGroup:insert( replayButton )
+    
+    --timer
+    local displayTimer = display.newText("0", 100, 100, native.systemFont, 40)
+    displayTimer.x = display.contentCenterX
+    displayTimer.y = display.contentCenterY + 270
+    displayTimer:setTextColor(1,0,0)
+    sceneGroup:insert( displayTimer )
+    
 end
 
 function scene:showScene( event )
