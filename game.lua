@@ -150,15 +150,21 @@ function scene:createScene( event )
     local circle3= display.newCircle(display.contentCenterX, display.contentCenterY, 50)
     circle3:setFillColor(100, 0, 250) 
     sceneGroup:insert( circle3 )
+    
+    local group = display.newGroup()
+    group:insert(circle1)
+    group:insert(circle2)
+    group:insert(circle3)
+    
     -- end circle
     
     --move dots
     local CENTERX = display.contentCenterX
     local CENTERY = display.contentCenterY
-    local LEFT = 50
-    local RIGHT = display.contentWidth - 50
-    local UP = 250
-    local DOWN = display.contentHeight - 390
+    local LEFT = 10
+    local RIGHT = 140
+    local UP = -20
+    local DOWN = 150
     
 
     local function handleSwipe( event )
@@ -200,9 +206,8 @@ function scene:createScene( event )
         return true
     end
       
-      circle3:addEventListener("touch", handleSwipe)
-      circle2:addEventListener("touch", handleSwipe)
-      circle3:addEventListener("touch", handleSwipe)  
+      
+      group:addEventListener("touch", handleSwipe)  
 end
 
 function scene:showScene( event )
