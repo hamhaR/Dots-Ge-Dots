@@ -49,6 +49,7 @@ function scene:createScene( event )
     gameTitle.x = display.contentCenterX
     gameTitle.y = display.contentCenterY - 350
     gameTitle:setTextColor(black)
+    sceneGroup:insert( gameTitle )
 
     -- Use a scrollView to contain the level buttons (for support of more than one full screen).
     -- Since this will only scroll vertically, lock horizontal scrolling.

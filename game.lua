@@ -27,6 +27,12 @@ function scene:createScene( event )
     sceneGroup:insert(background)
     -- end background
     
+    local level1 = display.newText( "Level 1", 100, 100, native.systemFont, 55 )
+    level1.x = display.contentCenterX
+    level1.y = display.contentCenterY - 350
+    level1:setTextColor(black)
+    sceneGroup:insert( level1 )
+    
     -- start grid
     local xOffset = 94
     local yOffset = 250
@@ -141,12 +147,62 @@ function scene:createScene( event )
     circle2:setFillColor(100, 0, 250) 
     sceneGroup:insert( circle2 )
     
-    --local circle3= display.newCircle(245, 400, 50)
-    --circle3:setFillColor(100, 0, 250) 
-    --sceneGroup:insert( circle3 )
+    local circle3= display.newCircle(display.contentCenterX, display.contentCenterY, 50)
+    circle3:setFillColor(100, 0, 250) 
+    sceneGroup:insert( circle3 )
     -- end circle
     
+    --move dots
+    local CENTERX = display.contentCenterX
+    local CENTERY = display.contentCenterY
+    local LEFT = 50
+    local RIGHT = display.contentWidth - 50
+    local UP = 250
+    local DOWN = display.contentHeight - 390
     
+
+    local function handleSwipe( event )
+        if ( event.phase == "moved" ) then
+            local dX = event.x - event.xStart
+            print( event.x, event.xStart, dX )
+            if ( dX > 5 ) then
+                --swipe right
+                local spot = RIGHT
+                if ( event.target.x == LEFT ) then
+                    spot = CENTERX
+                end
+                transition.to( event.target, { time=500, x=spot } )
+            elseif ( dX  < -10 ) then
+                --swipe left
+                local spot = LEFT
+                if ( event.target.x == RIGHT ) then
+                    spot = CENTERX
+                end
+                transition.to( event.target, { time=500, x=spot } )
+            end
+            --y-axis(up and down movement) = 
+            local dY = event.y - event.yStart
+            if (dY > 10) then
+              local spot = DOWN 
+              if ( event.target.y == UP )  then
+                  spot = CENTERY
+              end
+              transition.to( event.target, { time = 500, y = spot } )
+            elseif ( dY < -10 ) then
+              local spot = UP
+              if ( event.target.y == DOWN) then
+                  spot = CENTERY
+              end
+              transition.to( event.target, { time = 500, y = spot } )
+            end
+            --end sa y
+        end
+        return true
+    end
+      
+      circle3:addEventListener("touch", handleSwipe)
+      circle2:addEventListener("touch", handleSwipe)
+      circle3:addEventListener("touch", handleSwipe)  
 end
 
 function scene:showScene( event )
@@ -171,66 +227,9 @@ function scene:destroyScene( event )
     
 end
 
---start sa move dots
-local LEFT = 250
-local CENTERX = display.contentCenterX
-local CENTERY = display.contentCenterY
-local RIGHT = display.contentWidth -  80
-local UP = 250
-local DOWN = display.contentHeight - 390
+--end
 
-local object = display.newCircle( display.contentCenterX, display.contentCenterY, 50 )
-object:setFillColor(100, 0, 250) 
---sceneGroup:insert( object )
-    
---function sa move dots
-local function handleSwipe( event )
-    if ( event.phase == "moved" ) then
-        local dX = event.x - event.xStart
-        print( event.x, event.xStart, dX )
-        if ( dX > 10 ) then
-            --swipe right
-            local spot = RIGHT
-            if ( event.target.x == LEFT ) then
-                spot = CENTERX
-            end
-            transition.to( event.target, { time=500, x=spot } )
-        elseif ( dX  < -10 ) then
-            --swipe left
-            local spot = LEFT
-            if ( event.target.x == RIGHT ) then
-                spot = CENTERX
-            end
-            transition.to( event.target, { time=500, x=spot } )
-        end
-        --y
-        local dY = event.y - event.yStart
-        
-        print( event.y, event.yStart, dY )
-        if ( dY > 10 ) then
-            --swipe right
-            local spot = DOWN
-            if ( event.target.y == UP ) then
-                spot = CENTERY
-            end
-            transition.to( event.target, { time=500, y=spot } )
-        elseif ( dY  < -10 ) then
-            --swipe left
-            local spot = UP
-            if ( event.target.y == DOWN ) then
-                spot = CENTERY
-            end
-            transition.to( event.target, { time=500, y=spot } )
-        end
-        
-        --end y
-    end
-    return true
-end
 
-object:addEventListener( "touch", handleSwipe )
-
---end sa move dots
 ---------------------------------------------------------------------------------
 -- END OF YOUR IMPLEMENTATION
 ---------------------------------------------------------------------------------
