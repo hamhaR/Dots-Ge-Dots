@@ -1,5 +1,5 @@
 local M ={}
-M.maxLevels = 100
+M.maxLevels = 40
 M.settings = {}
 M.settings.easy = 9
 M.settings.currentLevel = 1

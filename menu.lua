@@ -7,12 +7,12 @@ local function startButtonHit(event)
 end
 
 local function settingsButtonHit(event)
-  storyboard.gotoScene("game_levels", {effect="slideUp"})
+  storyboard.gotoScene("settings", {effect="slideUp"})
   return true
 end
 
 local function aboutButtonHit(event)
-  storyboard.gotoScene("game_levels", {effect="slideRight"})
+  storyboard.gotoScene("about", {effect="slideRight"})
   return true
 end
 

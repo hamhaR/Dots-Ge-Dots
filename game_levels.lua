@@ -19,6 +19,15 @@ end
 
 -- Button handler to go to the selected level
 local function handleLevelSelect( event )
+    
+    local options = {
+      effect = "crossFade",
+      time = 333,
+      params = {
+        buttonID = event.target.num
+        }
+      }
+    
     if ( "ended" == event.phase ) then
         -- 'event.target' is the button and '.id' is a number indicating which level to go to.  
         -- The 'game' scene will use this setting to determine which level to load.
@@ -29,7 +38,7 @@ local function handleLevelSelect( event )
         storyboard.removeScene( "game", false )
 
         -- Go to the game scene
-        storyboard.gotoScene( "game", { effect="crossFade", time=333 } )
+        storyboard.gotoScene( "game", options )
     end
 end
 
@@ -92,6 +101,7 @@ function scene:createScene( event )
         -- Position the button in the grid and add it to the scrollView
         buttons[i].x = xOffset
         buttons[i].y = yOffset
+        buttons[i].num = i
         levelSelectGroup:insert( buttons[i] )
 
         -- Check to see if the player has achieved (completed) this level.
