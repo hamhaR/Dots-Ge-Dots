@@ -157,11 +157,11 @@ function scene:createScene( event )
     -- end circle
     
     --move dots
-    local CENTERX = display.contentCenterX
-    local CENTERY = display.contentCenterY
-    local LEFT = 10
-    local RIGHT = 140
-    local UP = -20
+    local CENTERX = display.contentWidth - 450
+    local CENTERY = display.contentHeight - 640
+    local LEFT = 9
+    local RIGHT = 165
+    local UP = -17
     local DOWN = 150
     
 
@@ -173,14 +173,15 @@ function scene:createScene( event )
                 --swipe right
                 local spot = RIGHT
                 if ( event.target.x == LEFT ) then
-                    spot = CENTERX
+                    spot = CENTERX - 10
                 end
+                print(dX)
                 transition.to( event.target, { time=500, x=spot } )
-            elseif ( dX  < -10 ) then
+            elseif ( dX  < -20 ) then
                 --swipe left
                 local spot = LEFT
                 if ( event.target.x == RIGHT ) then
-                    spot = CENTERX
+                    spot = CENTERX 
                 end
                 transition.to( event.target, { time=500, x=spot } )
             end
