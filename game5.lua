@@ -3,8 +3,6 @@ local scene = storyboard.newScene()
 
 local widget = require( "widget" )
 local mydata = require( "mydata" )
-local physics = require("physics")
-physics.start()
 
 local params
 
@@ -29,7 +27,7 @@ function scene:createScene( event )
     sceneGroup:insert(background)
     -- end background
     
-    local level1 = display.newText( "Level 2", 100, 100, native.systemFont, 55 )
+    local level1 = display.newText( "Level 5", 100, 100, native.systemFont, 55 )
     level1.x = display.contentCenterX
     level1.y = display.contentCenterY - 350
     level1:setTextColor(black)
@@ -64,20 +62,22 @@ function scene:createScene( event )
         end
     end
     
-    grid[6]:setFillColor(215/255, 112/255, 203/255)
-    grid[8]:setFillColor(215/255, 112/255, 203/255)
-    grid[9]:setFillColor(215/255, 112/255, 203/255)
-    
+    grid[1]:setFillColor(215/255, 112/255, 203/255)
+    grid[2]:setFillColor(215/255, 112/255, 203/255)
+    grid[4]:setFillColor(215/255, 112/255, 203/255)
+    --blocks at grid 16 and 8
+    --dots at 1, 4, 5
+  
     -- end of grid
     
     --insert block 
-    local block = display.newImage( "block_brick.png" )
-    block.x = 244; block.y = 400
-    --scale the block
-    block:scale(-0.57, -0.57)
-    physics.addBody( block, "static", { friction=0.5, bounce=0 } )
-    sceneGroup:insert(block)
+    --grid 1, 7, 8
+   -- local myImage = display.newImage( "images.block_brick.png" )
+
+    -- position the image
+    --myImage:translate( 100, 100 )
     --end sa block
+    
 
     -- start back button
     local backButton = widget.newButton({

@@ -3,6 +3,8 @@ local scene = storyboard.newScene()
 
 local widget = require( "widget" )
 local mydata = require( "mydata" )
+local physics = require("physics")
+physics.start()
 
 local params
 
@@ -62,11 +64,12 @@ function scene:createScene( event )
         end
     end
     
-    grid[2]:setFillColor(1, 104/255, 1)
-    grid[3]:setFillColor(1, 104/255, 1)
     grid[6]:setFillColor(1, 104/255, 1)
+    grid[8]:setFillColor(1, 104/255, 1)
+    grid[9]:setFillColor(1, 104/255, 1)
     
     -- end of grid
+     
 
     -- start back button
     local backButton = widget.newButton({

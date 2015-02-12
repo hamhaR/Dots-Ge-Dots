@@ -29,7 +29,7 @@ function scene:createScene( event )
     sceneGroup:insert(background)
     -- end background
     
-    local level1 = display.newText( "Level 2", 100, 100, native.systemFont, 55 )
+    local level1 = display.newText( "Level 3", 100, 100, native.systemFont, 55 )
     level1.x = display.contentCenterX
     level1.y = display.contentCenterY - 350
     level1:setTextColor(black)
@@ -64,20 +64,53 @@ function scene:createScene( event )
         end
     end
     
-    grid[6]:setFillColor(215/255, 112/255, 203/255)
+    grid[1]:setFillColor(215/255, 112/255, 203/255)
+    grid[2]:setFillColor(215/255, 112/255, 203/255)
     grid[8]:setFillColor(215/255, 112/255, 203/255)
-    grid[9]:setFillColor(215/255, 112/255, 203/255)
-    
+  
     -- end of grid
+    --dots at grid 1, 2, 4
+    --blocks at 5, 7
     
     --insert block 
-    local block = display.newImage( "block_brick.png" )
-    block.x = 244; block.y = 400
-    --scale the block
-    block:scale(-0.57, -0.57)
-    physics.addBody( block, "static", { friction=0.5, bounce=0 } )
-    sceneGroup:insert(block)
+    local block1 = display.newImage( "block_brick.png" )
+    block1.x=244; block1.y = 400
+    block1:scale(-0.57, -0.57)
+    physics.addBody( block1, "static", { density=3.0, friction=0.5, bounce=0 } )
+    
+    local block2 = display.newImage( "block_brick.png" )
+    block2.x=95; block2.y = 550
+    block2:scale(-0.57, -0.57)
+    physics.addBody( block2, "static", { density=3.0, friction=0.5, bounce=0 } )
+    
+    local blockgroup = display.newGroup()
+    blockgroup:insert(block1)
+    blockgroup:insert(block2)
+    sceneGroup:insert( blockgroup)
     --end sa block
+    
+    --block collision
+    local function onCollision( event )
+
+        if ( event.phase == "began" ) then
+          if(event.force > 1.0)then
+            --dot dont move
+          end
+
+            --print( "began: " .. event.object1.myName .. " and " .. event.object2.myName )
+
+        elseif ( event.phase == "ended" ) then
+
+            --print( "ended: " .. event.object1.myName .. " and " .. event.object2.myName )
+
+        end
+    end
+
+    Runtime:addEventListener( "collision", onCollision )
+    blockgroup.collision = onLocalCollision
+    blockgroup:addEventListener( "collision", blockgroup )
+    --end sa collision
+    
 
     -- start back button
     local backButton = widget.newButton({

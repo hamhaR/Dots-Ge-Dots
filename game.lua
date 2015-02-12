@@ -31,6 +31,14 @@ function scene:createScene( event )
       storyboard.gotoScene( "game1", { effect = "crossFade", time = 333 } )
     elseif(params.buttonID == 2) then
       storyboard.gotoScene( "game2", { effect = "crossFade", time = 333 } )
+    elseif(params.buttonID == 3) then
+      storyboard.gotoScene( "game3", { effect = "crossFade", time = 333 } )
+    elseif(params.buttonID == 4) then
+      storyboard.gotoScene( "game4", { effect = "crossFade", time = 333 } )
+    elseif(params.buttonID == 5) then
+      storyboard.gotoScene( "game5", { effect = "crossFade", time = 333 } )
+    elseif(params.buttonID == 6) then
+      storyboard.gotoScene( "game6", { effect = "crossFade", time = 333 } )
     end
     
     --[[
