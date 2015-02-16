@@ -16,6 +16,63 @@ local function handleCancelButtonEvent( event )
     end
 end
 
+local function checkXLeftPosition(group)
+  for i=1, group.numChildren do
+    if(group[i].x > 90) then
+      -- create new circle
+      local circle_new = display.newCircle(90, group[i].y, 50)
+      circle_new:setFillColor(100, 0, 250)
+      group[i]:removeSelf()
+      group:insert(circle_new)
+      print("x>90",group[i].x)
+    end
+  end
+  return true
+end
+
+local function checkXRightPosition(group)
+  for i=1, group.numChildren do
+    if(group[i].x < 250) then
+      -- create new circle
+      local circle_new = display.newCircle(235, group[i].y, 50)
+      circle_new:setFillColor(100, 0, 250)
+      group[i]:removeSelf()
+      group:insert(circle_new)
+      --print("x<250",group[i].x)
+    end
+  end
+  return true
+end
+
+local function checkYUpPosition(group)
+  for i=1, group.numChildren do
+    if(group[i].y >= 235) then
+      -- create new circle
+      local circle_new = display.newCircle(group[i].x, 250, 50)
+      circle_new:setFillColor(100, 0, 250)
+      group[i]:removeSelf()
+      group:insert(circle_new)
+      --print("y>=235",group[i].y)
+    end
+  end
+  return true
+end
+
+local function checkYDownPosition(group)
+  for i=1, group.numChildren do
+    if(group[i].y <= 255) then
+      -- create new circle
+      local circle_new = display.newCircle(group[i].x, 400, 50)
+      circle_new:setFillColor(100, 0, 250)
+      group[i]:removeSelf()
+      group:insert(circle_new)
+      print("y<=255",group[i].y)
+    end
+  end
+  return true
+end
+
+
 -- Start the storyboard event handlers
 function scene:createScene( event )
     local sceneGroup = self.view
@@ -159,6 +216,12 @@ function scene:createScene( event )
     
     -- end circle
     
+    local function destroyDots(circle)
+      group:remove(circle)
+      circle = nil
+    end
+    
+    
     --move dots
     local CENTERX = display.contentWidth - 450
     local CENTERY = display.contentHeight - 640
@@ -171,20 +234,24 @@ function scene:createScene( event )
     local function handleSwipe( event )
         if ( event.phase == "moved" ) then
             local dX = event.x - event.xStart
-            print( event.x, event.xStart, dX )
+            --print( event.x, event.xStart, dX )
             if ( dX > 5 ) then
                 --swipe right
                 local spot = RIGHT
                 if ( event.target.x == LEFT ) then
                     spot = CENTERX - 10
+                elseif(event.target.x == RIGHT) then
+                  checkXRightPosition(group)
+                  --spot = RIGHT
                 end
-                print(dX)
                 transition.to( event.target, { time=500, x=spot } )
             elseif ( dX  < -20 ) then
                 --swipe left
                 local spot = LEFT
                 if ( event.target.x == RIGHT ) then
-                    spot = CENTERX 
+                  spot = CENTERX - 10 
+                elseif(event.target.x == LEFT) then
+                  checkXLeftPosition(group)
                 end
                 transition.to( event.target, { time=500, x=spot } )
             end
@@ -194,12 +261,16 @@ function scene:createScene( event )
               local spot = DOWN 
               if ( event.target.y == UP )  then
                   spot = CENTERY
+              elseif( event.target.y == DOWN) then
+                  checkYDownPosition(group)
               end
               transition.to( event.target, { time = 500, y = spot } )
             elseif ( dY < -10 ) then
               local spot = UP
               if ( event.target.y == DOWN) then
                   spot = CENTERY
+              elseif(event.target.y == UP) then
+                checkYUpPosition(group) 
               end
               transition.to( event.target, { time = 500, y = spot } )
             end
