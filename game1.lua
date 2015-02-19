@@ -18,13 +18,41 @@ end
 
 local function checkXLeftPosition(group)
   for i=1, group.numChildren do
-    if(group[i].x > 90) then
-      -- create new circle
-      local circle_new = display.newCircle(90, group[i].y, 50)
-      circle_new:setFillColor(100, 0, 250)
-      group[i]:removeSelf()
-      group:insert(circle_new)
-      print("x>90",group[i].x)
+    if i == 1 then
+      if (group[i].x > 90) then
+        if(group[i].y == group[2].y or group[i].y == group[3].y) then
+          print("Dont move")
+        else
+          local circle_new = display.newCircle(90, group[i].y, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
+    elseif i == 2 then
+      -- do
+      if (group[i].x > 90) then
+        if(group[i].y == group[1].y or group[i].y == group[3].y) then
+          print("Dont move")
+        else
+          local circle_new = display.newCircle(90, group[i].y, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
+    elseif i == 3 then
+      -- do
+      if (group[i].x > 90) then
+        if(group[i].y == group[1].y or group[i].y == group[2].y) then
+          print("Dont move")
+        else
+          local circle_new = display.newCircle(90, group[i].y, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
     end
   end
   return true
@@ -32,44 +60,128 @@ end
 
 local function checkXRightPosition(group)
   for i=1, group.numChildren do
-    if(group[i].x < 250) then
-      -- create new circle
-      local circle_new = display.newCircle(235, group[i].y, 50)
-      circle_new:setFillColor(100, 0, 250)
-      group[i]:removeSelf()
-      group:insert(circle_new)
-      --print("x<250",group[i].x)
+    if i == 1 then
+      if (group[i].x < 245) then
+        if(group[i].y == group[2].y or group[i].y == group[3].y) then
+          print("Dont move")
+        else
+          local circle_new = display.newCircle(245, group[i].y, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
+    elseif i == 2 then
+      -- do
+      if (group[i].x < 245) then
+        if(group[i].y == group[1].y or group[i].y == group[3].y) then
+          print("Dont move")
+        else
+          local circle_new = display.newCircle(245, group[i].y, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
+    elseif i == 3 then
+      -- do
+      if (group[i].x < 245) then
+        if(group[i].y == group[1].y or group[i].y == group[2].y) then
+          print("Dont move")
+        else
+          local circle_new = display.newCircle(245, group[i].y, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
     end
   end
   return true
 end
 
 local function checkYUpPosition(group)
-  for i=1, group.numChildren do
-    if(group[i].y >= 235) then
-      -- create new circle
-      local circle_new = display.newCircle(group[i].x, 250, 50)
-      circle_new:setFillColor(100, 0, 250)
-      group[i]:removeSelf()
-      group:insert(circle_new)
-      --print("y>=235",group[i].y)
+  for i = 1, group.numChildren do
+    if i == 1 then
+      --do
+      if (group[i].y > 255) then
+        if group[i].x == group[2].x or group[i].x == group[3].x then
+          print ("Dont move")
+        else
+          local circle_new = display.newCircle(group[i].x, 255, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
+    elseif i == 2 then
+      --do
+      if (group[i].y > 255) then
+        if group[i].x == group[1].x or group[i].x == group[3].x then
+          print ("Dont move")
+        else
+          local circle_new = display.newCircle(group[i].x, 255, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
+    elseif i == 3 then 
+      --do
+      if (group[i].y > 255) then
+        if group[i].x == group[2].x or group[i].x == group[1].x then
+          print ("Dont move")
+        else
+          local circle_new = display.newCircle(group[i].x, 255, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
     end
-  end
-  return true
+  end 
 end
 
 local function checkYDownPosition(group)
-  for i=1, group.numChildren do
-    if(group[i].y <= 255) then
-      -- create new circle
-      local circle_new = display.newCircle(group[i].x, 400, 50)
-      circle_new:setFillColor(100, 0, 250)
-      group[i]:removeSelf()
-      group:insert(circle_new)
-      print("y<=255",group[i].y)
+  for i = 1, group.numChildren do
+    if i == 1 then
+      --do
+      if (group[i].y < 400) then
+        if group[i].x == group[2].x or group[i].x == group[3].x then
+          print ("Dont move")
+        else
+          local circle_new = display.newCircle(group[i].x, 400, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
+    elseif i == 2 then
+      --do
+      if (group[i].y < 400) then
+        if group[i].x == group[1].x or group[i].x == group[3].x then
+          print ("Dont move")
+        else
+          local circle_new = display.newCircle(group[i].x, 400, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
+    elseif i == 3 then 
+      --do
+      if (group[i].y < 400) then
+        if group[i].x == group[2].x or group[i].x == group[1].x then
+          print ("Dont move")
+        else
+          local circle_new = display.newCircle(group[i].x, 400, 50)
+          circle_new:setFillColor(100, 0, 250)
+          group[i]:removeSelf()
+          group:insert(circle_new)
+        end
+      end
     end
   end
-  return true
 end
 
 
@@ -205,7 +317,7 @@ function scene:createScene( event )
     local circle2= display.newCircle(245, 255, 50)
     circle2:setFillColor(100, 0, 250) 
     
-    local circle3= display.newCircle(display.contentCenterX, display.contentCenterY, 50)
+    local circle3= display.newCircle(245, 400, 50)
     circle3:setFillColor(100, 0, 250)
     
     local group = display.newGroup()
@@ -215,12 +327,6 @@ function scene:createScene( event )
     sceneGroup:insert( group)
     
     -- end circle
-    
-    local function destroyDots(circle)
-      group:remove(circle)
-      circle = nil
-    end
-    
     
     --move dots
     local CENTERX = display.contentWidth - 450
@@ -271,6 +377,7 @@ function scene:createScene( event )
                   spot = CENTERY
               elseif(event.target.y == UP) then
                 checkYUpPosition(group) 
+                
               end
               transition.to( event.target, { time = 500, y = spot } )
             end
