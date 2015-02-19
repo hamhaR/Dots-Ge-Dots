@@ -69,16 +69,7 @@ function scene:createScene( event )
     grid[9]:setFillColor(215/255, 112/255, 203/255)
     
     -- end of grid
-    
-    --insert block 
-    local block = display.newImage( "block_brick.png" )
-    block.x = 244; block.y = 400
-    --scale the block
-    block:scale(-0.57, -0.57)
-    physics.addBody( block, "static", { friction=0.5, bounce=0 } )
-    sceneGroup:insert(block)
-    --end sa block
-
+  
     -- start back button
     local backButton = widget.newButton({
         id = "button",
@@ -163,9 +154,19 @@ function scene:createScene( event )
     group:insert(circle1)
     group:insert(circle2)
     group:insert(circle3)
+     --physics.addBody(group, {density=0, friction=0, bounce=0})
     sceneGroup:insert( group)
     
     -- end circle
+    
+    --insert block 
+    local block = display.newImage( "block_brick.png" )
+    block.x = 244; block.y = 400
+    --scale the block
+    block:scale(-0.57, -0.57)
+    physics.addBody( block, "static", { friction=0.5, bounce=0 } )
+    sceneGroup:insert(block)
+    --end sa block
     
     --move dots
     local CENTERX = display.contentCenterX
@@ -218,6 +219,24 @@ function scene:createScene( event )
       
       group:addEventListener("touch", handleSwipe)  
 end
+
+
+    --collision hoy!!!!! work na ba... samuka.... 
+    local function onCollision(event) 
+      if (event.phase == "began") then
+        --if (event.block.isTouching)
+          group:translate( 0, 0 )
+        --group:translate( group.x, group.y )
+      --end
+      elseif(event.phase == "ended") then
+        group:translate( 0, 0 )
+      end
+       group:addEventListener("collision", onCollision)
+       block:addEventListener("collision", onCollision)
+    end
+    --Runtime:addEventListener("collision", onCollision)
+   
+    --end sa collision
 
 function scene:showScene( event )
     local sceneGroup = self.view
