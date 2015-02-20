@@ -69,6 +69,7 @@ function scene:createScene( event )
     grid[9]:setFillColor(215/255, 112/255, 203/255)
     
     -- end of grid
+ 
   
     -- start back button
     local backButton = widget.newButton({
@@ -164,7 +165,7 @@ function scene:createScene( event )
     block.x = 244; block.y = 400
     --scale the block
     block:scale(-0.57, -0.57)
-    physics.addBody( block, "static", { friction=0.5, bounce=0 } )
+    physics.addBody( block, "static", { isSensor=true, friction=0, bounce=0 } )
     sceneGroup:insert(block)
     --end sa block
     
@@ -185,9 +186,13 @@ function scene:createScene( event )
                 --swipe right
                 local spot = RIGHT
                 if ( event.target.x == LEFT ) then
-                    spot = CENTERX
+                  if(hasCollided(group, block)== true )then
+                    transition.to(group, {display.contentWidth, display.contentHeight })
+                  end
+                  spot = CENTERX
                 end
                 transition.to( event.target, { time=500, x=spot } )
+                --transition.to( square, { time=1500, alpha=0, x=(w-50), y=(h-50), onComplete=listener1 } )
             elseif ( dX  < -10 ) then
                 --swipe left
                 local spot = LEFT
@@ -201,6 +206,10 @@ function scene:createScene( event )
             if (dY > 10) then
               local spot = DOWN 
               if ( event.target.y == UP )  then
+                if(hasCollided(group, block)== true )then
+                  group.getCurrentStage()
+                    --transition.to(group, {display.contentWidth, display.contentHeight })
+                  end
                   spot = CENTERY
               end
               transition.to( event.target, { time = 500, y = spot } )
@@ -222,21 +231,55 @@ end
 
 
     --collision hoy!!!!! work na ba... samuka.... 
-    local function onCollision(event) 
-      if (event.phase == "began") then
+   -- local function onCollision(event) 
+     -- if (event.phase == "began") then
         --if (event.block.isTouching)
-          group:translate( 0, 0 )
+       --   group:translate( 0, 0 )
         --group:translate( group.x, group.y )
       --end
-      elseif(event.phase == "ended") then
-        group:translate( 0, 0 )
-      end
-       group:addEventListener("collision", onCollision)
-       block:addEventListener("collision", onCollision)
-    end
+      --elseif(event.phase == "ended") then
+        --group:translate( 0, 0 )
+      --end
+       --group:addEventListener("collision", onCollision)
+       --block:addEventListener("collision", onCollision)
+    --end
     --Runtime:addEventListener("collision", onCollision)
    
     --end sa collision
+    
+    --test collision
+local function hasCollided(group, block)
+  local r=50
+    if group ~= nil then
+         local groupDistance_x = math.abs(group.x+group.r - block.x - block.width/2)
+         local groupDistance_y = math.abs(group.y+group.r - block.y - block.height/2)
+
+        if (groupDistance_x > (block.width/2 + group.r)) then 
+            return false
+        end
+        if (groupDistance_y > (block.height/2 + group.r)) then  
+            return false
+        end
+
+        if (groupDistance_x <= (block.width/2)) then
+            return true
+        end
+
+        if (groupDistance_y <= (block.height/2)) then
+            return true
+        end
+
+        cornerDistance_sq = (groupDistance_x - block.width/2)^2 +
+                             (groupDistance_y - block.height/2)^2;
+
+        return (cornerDistance_sq <= (group.r^2));
+        else
+            return false
+    end
+    block:addEventListener("collision", hasCollided)
+    group:addEventListener("collision", hasCollided)
+end
+    --/test collision
 
 function scene:showScene( event )
     local sceneGroup = self.view
