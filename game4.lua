@@ -29,7 +29,7 @@ function scene:createScene( event )
     sceneGroup:insert(background)
     -- end background
     
-    local level1 = display.newText( "Level 2", 100, 100, native.systemFont, 55 )
+    local level1 = display.newText( "Level 4", 100, 100, native.systemFont, 55 )
     level1.x = display.contentCenterX
     level1.y = display.contentCenterY - 350
     level1:setTextColor(black)
@@ -142,13 +142,13 @@ function scene:createScene( event )
     -- end timer
     
     -- start draw circle
-    local circle1 = display.newCircle(90, 550, 50)
+    local circle1 = display.newCircle(95, 550, 50)
     circle1:setFillColor(174/255, 87/255, 163/255) 
     
-    local circle2= display.newCircle(245, 255, 50)
+    local circle2= display.newCircle(245, 250, 50)
     circle2:setFillColor(174/255, 87/255, 163/255) 
     
-    local circle3= display.newCircle(400, 255, 50)
+    local circle3= display.newCircle(400, 250, 50)
     circle3:setFillColor(174/255, 87/255, 163/255)
     
     local group = display.newGroup()
@@ -161,11 +161,11 @@ function scene:createScene( event )
     -- end circle
     
     --insert block 
-    local block = display.newImage( "block_brick.png" )
-    block.x = 95
-    block.y = 250
-    block:scale(-0.57, -0.57)
-    sceneGroup:insert(block)
+    local block1 = display.newImage( "block_brick.png" )
+    block1.x = 95
+    block1.y = 250
+    block1:scale(-0.57, -0.57)
+    sceneGroup:insert(block1)
 
     local block2 = display.newImage("block_brick.png")
     block2.x = 95
@@ -178,119 +178,123 @@ function scene:createScene( event )
     block3.y = 400
     block3:scale(-0.57, -0.57)
     sceneGroup:insert(block3)
+
+    local block = display.newGroup()
+    block:insert(block1)
+    block:insert(block2)
+    block:insert(block3)
+    sceneGroup:insert(block)
     --end sa block
     
     --move dots
-    local CENTERX = display.contentCenterX
-    local CENTERY = display.contentCenterY
-    local LEFT = 10
-    local RIGHT = 140
-    local UP = -20
-    local DOWN = 150
     
+    local function checkYUpPosition(group, block)
+        if group[2].x == group[3].x and group[3].y > group[2].y and group[2].y > 300 then
+            group[2].y = group[2].y - 150
+            group[3].y = group[3].y - 150
+        elseif group[3].x ~= group[2].x and group[3].y > 300 then
+            group[3].y = group[3].y - 150
+        end
+    end
+
+    local function checkYDownPosition(group, block)
+        
+        if group[3].x ~= group[1].x and group[3].x ~= group[2].x and group[3].y < 500   then
+            group[3].y = group[3].y + 150
+            print("nega")
+        elseif group[2].x ~= block[3].x and group[2].y + 150 ~= group[3].y then
+            group[2].y = group[2].y + 150
+            print("anne")
+        elseif group[2].x == group[3].x and group[3].y > group[2].y and group[3].y < 500 and group[3].x ~= group[1].x then
+            if group[3].y + 150 == group[1].y and group[1].x-5 == group[3].x then
+                
+                print("wae")
+            else
+                group[2].y = group[2].y + 150
+                group[3].y = group[3].y + 150
+                print("waeyo?")
+            end
+        end
+        print("looy", group[1].x, group[3].x)
+    end
+
+    local function checkXLeftPosition(group, block)
+        
+        if group[3].x - 155 == block[3].x and group[3].y == block[3].y then
+            if group[2].x - 150 == block[1].x and group[1].x > 100 then
+                group[1].x = 95
+                print("pretty")
+            elseif group[2].x - 150 ~= block[1].x then
+                group[1].x = group[1].x - 155
+                group[2].x = group[2].x - 155
+                print("sus oy")
+            end
+            print("woah")
+        elseif group[1].x > 240 and group[3].y ~= block[3].y then
+                group[1].x = group[1].x - 155   
+                group[3].x = group[3].x - 155
+                print("handsome")
+        end 
+    end
+
+    local function checkXRightPosition(group, block)
+        if group[1].x >= 95 and group[2].x+150 ~= group[3].x and group[2].y == group[3].y and group[1].x<300 then
+            group[1].x = group[1].x + 155
+            print("asdf")
+        elseif group[2].x < 300 and group[2].y ~= group[3].y  then
+            if group[2].x < group[3].x then
+                group[2].x = group[2].x + 155
+            else
+                print("jkl", group[1].x, group[2].x)
+                group[1].x = group[1].x + 155
+                group[2].x = group[2].x + 155
+                print("jkl", group[1].x, group[2].x)
+            end
+        elseif group[1].y == group[3].y and group[1].x < 300 then
+            group[1].x = 245
+            group[3].x = 400
+            print("mnop")
+        elseif group[1].y ~= group[3].y and group[1].x < 300 then
+            group[1].x = group[1].x + 155
+            print("qrst")
+        end
+    end
 
     local function handleSwipe( event )
         if ( event.phase == "moved" ) then
             local dX = event.x - event.xStart
-            print( event.x, event.xStart, dX )
+            --print( event.x, event.xStart, dX )
             if ( dX > 5 ) then
                 --swipe right
-                local spot = RIGHT
-                if ( event.target.x == LEFT ) then
-                  if(hasCollided(group, block)== true )then
-                    transition.to(group, {display.contentWidth, display.contentHeight })
-                  end
-                  spot = CENTERX
-                end
+                --local spot = RIGHT
+                print("right")
+                checkXRightPosition(group, block)
                 transition.to( event.target, { time=500, x=spot } )
-                --transition.to( square, { time=1500, alpha=0, x=(w-50), y=(h-50), onComplete=listener1 } )
             elseif ( dX  < -10 ) then
                 --swipe left
-                local spot = LEFT
-                if ( event.target.x == RIGHT ) then
-                    spot = CENTERX
-                end
+                checkXLeftPosition(group, block)
                 transition.to( event.target, { time=500, x=spot } )
             end
             --y-axis(up and down movement) = 
             local dY = event.y - event.yStart
             if (dY > 10) then
-              local spot = DOWN 
-              if ( event.target.y == UP )  then
-                if(hasCollided(group, block)== true )then
-                  group.getCurrentStage()
-                    --transition.to(group, {display.contentWidth, display.contentHeight })
-                  end
-                  spot = CENTERY
-              end
+                print("down")
+              --local spot = DOWN 
+              checkYDownPosition(group, block)
               transition.to( event.target, { time = 500, y = spot } )
             elseif ( dY < -10 ) then
-              local spot = UP
-              if ( event.target.y == DOWN) then
-                  spot = CENTERY
-              end
+                print("up", group[1].y, group[2].y, group[3].y)
+                checkYUpPosition(group, block)
               transition.to( event.target, { time = 500, y = spot } )
             end
             --end sa y
         end
         return true
     end
-      
-      
-      group:addEventListener("touch", handleSwipe)  
+
+    group:addEventListener("touch", handleSwipe)  
+
 end
-
-
-    --collision hoy!!!!! work na ba... samuka.... 
-   -- local function onCollision(event) 
-     -- if (event.phase == "began") then
-        --if (event.block.isTouching)
-       --   group:translate( 0, 0 )
-        --group:translate( group.x, group.y )
-      --end
-      --elseif(event.phase == "ended") then
-        --group:translate( 0, 0 )
-      --end
-       --group:addEventListener("collision", onCollision)
-       --block:addEventListener("collision", onCollision)
-    --end
-    --Runtime:addEventListener("collision", onCollision)
-   
-    --end sa collision
-    
-    --test collision
-local function hasCollided(group, block)
-  local r=50
-    if group ~= nil then
-         local groupDistance_x = math.abs(group.x+group.r - block.x - block.width/2)
-         local groupDistance_y = math.abs(group.y+group.r - block.y - block.height/2)
-
-        if (groupDistance_x > (block.width/2 + group.r)) then 
-            return false
-        end
-        if (groupDistance_y > (block.height/2 + group.r)) then  
-            return false
-        end
-
-        if (groupDistance_x <= (block.width/2)) then
-            return true
-        end
-
-        if (groupDistance_y <= (block.height/2)) then
-            return true
-        end
-
-        cornerDistance_sq = (groupDistance_x - block.width/2)^2 +
-                             (groupDistance_y - block.height/2)^2;
-
-        return (cornerDistance_sq <= (group.r^2));
-        else
-            return false
-    end
-    block:addEventListener("collision", hasCollided)
-    group:addEventListener("collision", hasCollided)
-end
-    --/test collision
 
 function scene:showScene( event )
     local sceneGroup = self.view
