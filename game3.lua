@@ -64,54 +64,13 @@ function scene:createScene( event )
         end
     end
     
-    grid[1]:setFillColor(215/255, 112/255, 203/255)
     grid[2]:setFillColor(215/255, 112/255, 203/255)
-    grid[8]:setFillColor(215/255, 112/255, 203/255)
-  
+    grid[3]:setFillColor(215/255, 112/255, 203/255)
+    grid[6]:setFillColor(215/255, 112/255, 203/255)
+    
     -- end of grid
-    --dots at grid 1, 2, 4
-    --blocks at 5, 7
-    
-    --insert block 
-    local block1 = display.newImage( "block_brick.png" )
-    block1.x=244; block1.y = 400
-    block1:scale(-0.57, -0.57)
-    physics.addBody( block1, "static", { density=3.0, friction=0.5, bounce=0 } )
-    
-    local block2 = display.newImage( "block_brick.png" )
-    block2.x=95; block2.y = 550
-    block2:scale(-0.57, -0.57)
-    physics.addBody( block2, "static", { density=3.0, friction=0.5, bounce=0 } )
-    
-    local blockgroup = display.newGroup()
-    blockgroup:insert(block1)
-    blockgroup:insert(block2)
-    sceneGroup:insert( blockgroup)
-    --end sa block
-    
-    --block collision
-    local function onCollision( event )
-
-        if ( event.phase == "began" ) then
-          if(event.force > 1.0)then
-            --dot dont move
-          end
-
-            --print( "began: " .. event.object1.myName .. " and " .. event.object2.myName )
-
-        elseif ( event.phase == "ended" ) then
-
-            --print( "ended: " .. event.object1.myName .. " and " .. event.object2.myName )
-
-        end
-    end
-
-    Runtime:addEventListener( "collision", onCollision )
-    blockgroup.collision = onLocalCollision
-    blockgroup:addEventListener( "collision", blockgroup )
-    --end sa collision
-    
-
+ 
+  
     -- start back button
     local backButton = widget.newButton({
         id = "button",
@@ -183,13 +142,13 @@ function scene:createScene( event )
     -- end timer
     
     -- start draw circle
-    local circle1 = display.newCircle(90, 255, 50)
+    local circle1 = display.newCircle(245, 255, 50)
     circle1:setFillColor(174/255, 87/255, 163/255) 
     
-    local circle2= display.newCircle(245, 255, 50)
+    local circle2= display.newCircle(95, 400, 50)
     circle2:setFillColor(174/255, 87/255, 163/255) 
     
-    local circle3= display.newCircle(400, 255, 50)
+    local circle3= display.newCircle(245, 400, 50)
     circle3:setFillColor(174/255, 87/255, 163/255)
     
     local group = display.newGroup()
@@ -197,50 +156,179 @@ function scene:createScene( event )
     group:insert(circle2)
     group:insert(circle3)
     sceneGroup:insert( group)
-    
     -- end circle
+    
+    --insert block 
+    local block1 = display.newImage( "block_brick.png" )
+    block1.x = 95
+    block1.y = 250
+    block1:scale(-0.57, -0.57)
+    --sceneGroup:insert(block1)
+
+    local block2 = display.newImage("block_brick.png")
+    block2.x = 95
+    block2.y = 550
+    block2:scale(-0.57, -0.57)
+    --sceneGroup:insert(block2)
+
+    local block3 = display.newImage("block_brick.png")
+    block3.x = 245
+    block3.y = 550
+    block3:scale(-0.57, -0.57)
+    --sceneGroup:insert(block3)
+
+    local block = display.newGroup()
+    block:insert(block1)
+    block:insert(block2)
+    block:insert(block3)
+    sceneGroup:insert(block)
+    --end sa block
     
     --move dots
     local CENTERX = display.contentCenterX
     local CENTERY = display.contentCenterY
-    local LEFT = 10
+    local LEFT = -150
     local RIGHT = 140
     local UP = -20
     local DOWN = 150
     
+    local function checkYUpPosition(group, block)
+        if group[1].y > 255 then
+            if (group[1].y-145 ~= group[2].y and group[1].x ~= group[2].x) or (group[1].y-145 ~= group[3].y and group[1].x ~= group[3].x) then
+                if (group[1].x == block[1].x) and (group[1].y-150 == block[1].y) then
+                    print("dots don't move, 1")
+                elseif group[2].x == block[1].x and group[2].y - 150 == block[1].y then
+                    print("pikachu")
+                    group[1].y = 255
+                    group[3].y = group[3].y - 150
+                else
+                    print("anne")
+                    group[1].y = 255
+                    group[2].y = 255
+                    group[3].y = group[3].y - 150
+                end
+            end
+        elseif group[2].y > 255 then
+            if (group[2].y-145 ~= group[3].y and group[2].x ~= group[3].x) or (group[1].y-145 ~= group[2].y and group[2].x ~= group[1].x) then
+                if (group[2].x == block[1].x) and (group[2].y-150 == block[1].y) then
+                    print("dots dont move, 2", group[3].y)
+                    if group[3].y ~= 255 and group[1].x ~= group[3].x then
+                        group[3].y = 255
+                    end
+                else
+                    group[2].y = 255
+                end
+            end
+        elseif group[3].y > 255 then
+            if (group[3].y-145 ~= group[1].y and group[3].y ~= group[2].y)  then
+                if (group[3].x == block[1].x) and (group[3].y-150 == block[1].y) then
+                    print("dots dont move, 3")
+                else
+                    print("na unsa ka?")
+                    group[3].y = group[3].y - 150
+                end
+            else
+                print("no up")
+            end
+        end
+        --]]
+    end
+
+    local function checkYDownPosition(group, block)
+        if group[1].y == 400 then
+            group[3].y = 550
+            print("statement 1")
+        elseif group[2].y == 400 then
+            if (group[2].y+150 == block[2].y and group[2].x == block[2].x) and (group[3].y+150 == block[3].y and group[3].x == block[3].x) then
+                print("statement 2, block")
+            elseif (group[2].y+150 == block[3].y and group[2].x == block[3].x) then
+                group[1].y = 400
+                group[2].y = 400
+                group[3].y = 550
+                print("srsly?")
+            else
+                if group[3].y == 400 then
+                    group[1].y = 400
+                    group[3].y = 550
+                elseif group[3].y == 255 then
+                    group[1].y = 400
+                    group[3].y = 400
+                end
+                print("condition not satisfy")
+            end
+        elseif group[3].y == 400 and group[1].y < 400 and group[2].y < 400 then
+            group[1].y = 400
+            group[2].y = 400
+            group[3].y = 400
+            print("statement 3")
+        else
+            group[1].y = 400
+            group[2].y = 400
+            group[3].y = 550
+            print("ambot")
+        end
+    end
+
+    local function checkXLeftPosition(group, block)
+        if group[1].x == 95 or group[2].x == 95 or group[3].x == 95 then
+            print("left dont move")
+        elseif group[1].x > 95 and group[2].x > 95 and (group[3].x > 95 and (group[3].x-155 ~= block[3].x and group[3].y == block[3].y)) then
+            group[1].x = 245
+            group[2].x = 95
+            group[3].x = 245
+
+        elseif group[2].x-150 == block[1].x and group[2].y-5 == block[1].y and group[3].x >190 then
+            group[3].x = group[3].x - 150
+            print(group[3].x)
+        elseif group[3].x - 155 == block[3].x and group[3].y == block[3].y then
+            group[1].x = 245
+            group[2].x = 95
+            
+        else
+            print("asa", group[3].x, block[3].y)
+        end
+    end
+
+    local function checkXRightPosition(group, block)
+        print("echos", group[1].x, group[2].x, group[3].x)
+        if group[2].x - 150 == block[1].x and group[2].y-5 == block[1].y and group[1].x-155 == group[2].x and group[3].x < 400 then
+            group[3].x = group[3].x + 150
+        elseif group[2].x == 95 and group[1].x == 245 and group[3].x == 400 and group[1].y == 400 and group[2].y == 400 and group[3].y == 400 then
+            print("stay dude!")
+        else
+            group[1].x = 400
+            group[2].x = 245
+            group[3].x = 400
+            print(group[1].x, group[2].x) 
+        end
+
+    end
 
     local function handleSwipe( event )
         if ( event.phase == "moved" ) then
             local dX = event.x - event.xStart
-            print( event.x, event.xStart, dX )
+            --print( event.x, event.xStart, dX )
             if ( dX > 5 ) then
                 --swipe right
-                local spot = RIGHT
-                if ( event.target.x == LEFT ) then
-                    spot = CENTERX
-                end
+                --local spot = RIGHT
+                print("right")
+                checkXRightPosition(group, block)
                 transition.to( event.target, { time=500, x=spot } )
             elseif ( dX  < -10 ) then
                 --swipe left
-                local spot = LEFT
-                if ( event.target.x == RIGHT ) then
-                    spot = CENTERX
-                end
+                checkXLeftPosition(group, block)
                 transition.to( event.target, { time=500, x=spot } )
             end
             --y-axis(up and down movement) = 
             local dY = event.y - event.yStart
             if (dY > 10) then
-              local spot = DOWN 
-              if ( event.target.y == UP )  then
-                  spot = CENTERY
-              end
+                print("down")
+              --local spot = DOWN 
+              checkYDownPosition(group, block)
               transition.to( event.target, { time = 500, y = spot } )
             elseif ( dY < -10 ) then
-              local spot = UP
-              if ( event.target.y == DOWN) then
-                  spot = CENTERY
-              end
+                print("up", group[1].y, group[2].y, group[3].y)
+                checkYUpPosition(group, block)
               transition.to( event.target, { time = 500, y = spot } )
             end
             --end sa y

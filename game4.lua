@@ -3,6 +3,8 @@ local scene = storyboard.newScene()
 
 local widget = require( "widget" )
 local mydata = require( "mydata" )
+local physics = require("physics")
+physics.start()
 
 local params
 
@@ -27,7 +29,7 @@ function scene:createScene( event )
     sceneGroup:insert(background)
     -- end background
     
-    local level1 = display.newText( "Level 4", 100, 100, native.systemFont, 55 )
+    local level1 = display.newText( "Level 2", 100, 100, native.systemFont, 55 )
     level1.x = display.contentCenterX
     level1.y = display.contentCenterY - 350
     level1:setTextColor(black)
@@ -62,23 +64,13 @@ function scene:createScene( event )
         end
     end
     
-    grid[2]:setFillColor(215/255, 112/255, 203/255)
-    grid[3]:setFillColor(215/255, 112/255, 203/255)
+    grid[6]:setFillColor(215/255, 112/255, 203/255)
     grid[8]:setFillColor(215/255, 112/255, 203/255)
-    --blocks at grid 6, 7, 9
-    --dots at grid 4, 7, 8
-  
+    grid[9]:setFillColor(215/255, 112/255, 203/255)
+    
     -- end of grid
-    
-    --insert block 
-    --grid 1, 7, 8
-   -- local myImage = display.newImage( "images.block_brick.png" )
-
-    -- position the image
-    --myImage:translate( 100, 100 )
-    --end sa block
-    
-
+ 
+  
     -- start back button
     local backButton = widget.newButton({
         id = "button",
@@ -150,7 +142,7 @@ function scene:createScene( event )
     -- end timer
     
     -- start draw circle
-    local circle1 = display.newCircle(90, 255, 50)
+    local circle1 = display.newCircle(90, 550, 50)
     circle1:setFillColor(174/255, 87/255, 163/255) 
     
     local circle2= display.newCircle(245, 255, 50)
@@ -163,9 +155,30 @@ function scene:createScene( event )
     group:insert(circle1)
     group:insert(circle2)
     group:insert(circle3)
+     --physics.addBody(group, {density=0, friction=0, bounce=0})
     sceneGroup:insert( group)
     
     -- end circle
+    
+    --insert block 
+    local block = display.newImage( "block_brick.png" )
+    block.x = 95
+    block.y = 250
+    block:scale(-0.57, -0.57)
+    sceneGroup:insert(block)
+
+    local block2 = display.newImage("block_brick.png")
+    block2.x = 95
+    block2.y = 400
+    block2:scale(-0.57, -0.57)
+    sceneGroup:insert(block2)
+
+    local block3 = display.newImage("block_brick.png")
+    block3.x = 245
+    block3.y = 400
+    block3:scale(-0.57, -0.57)
+    sceneGroup:insert(block3)
+    --end sa block
     
     --move dots
     local CENTERX = display.contentCenterX
@@ -184,9 +197,13 @@ function scene:createScene( event )
                 --swipe right
                 local spot = RIGHT
                 if ( event.target.x == LEFT ) then
-                    spot = CENTERX
+                  if(hasCollided(group, block)== true )then
+                    transition.to(group, {display.contentWidth, display.contentHeight })
+                  end
+                  spot = CENTERX
                 end
                 transition.to( event.target, { time=500, x=spot } )
+                --transition.to( square, { time=1500, alpha=0, x=(w-50), y=(h-50), onComplete=listener1 } )
             elseif ( dX  < -10 ) then
                 --swipe left
                 local spot = LEFT
@@ -200,6 +217,10 @@ function scene:createScene( event )
             if (dY > 10) then
               local spot = DOWN 
               if ( event.target.y == UP )  then
+                if(hasCollided(group, block)== true )then
+                  group.getCurrentStage()
+                    --transition.to(group, {display.contentWidth, display.contentHeight })
+                  end
                   spot = CENTERY
               end
               transition.to( event.target, { time = 500, y = spot } )
@@ -218,6 +239,58 @@ function scene:createScene( event )
       
       group:addEventListener("touch", handleSwipe)  
 end
+
+
+    --collision hoy!!!!! work na ba... samuka.... 
+   -- local function onCollision(event) 
+     -- if (event.phase == "began") then
+        --if (event.block.isTouching)
+       --   group:translate( 0, 0 )
+        --group:translate( group.x, group.y )
+      --end
+      --elseif(event.phase == "ended") then
+        --group:translate( 0, 0 )
+      --end
+       --group:addEventListener("collision", onCollision)
+       --block:addEventListener("collision", onCollision)
+    --end
+    --Runtime:addEventListener("collision", onCollision)
+   
+    --end sa collision
+    
+    --test collision
+local function hasCollided(group, block)
+  local r=50
+    if group ~= nil then
+         local groupDistance_x = math.abs(group.x+group.r - block.x - block.width/2)
+         local groupDistance_y = math.abs(group.y+group.r - block.y - block.height/2)
+
+        if (groupDistance_x > (block.width/2 + group.r)) then 
+            return false
+        end
+        if (groupDistance_y > (block.height/2 + group.r)) then  
+            return false
+        end
+
+        if (groupDistance_x <= (block.width/2)) then
+            return true
+        end
+
+        if (groupDistance_y <= (block.height/2)) then
+            return true
+        end
+
+        cornerDistance_sq = (groupDistance_x - block.width/2)^2 +
+                             (groupDistance_y - block.height/2)^2;
+
+        return (cornerDistance_sq <= (group.r^2));
+        else
+            return false
+    end
+    block:addEventListener("collision", hasCollided)
+    group:addEventListener("collision", hasCollided)
+end
+    --/test collision
 
 function scene:showScene( event )
     local sceneGroup = self.view
