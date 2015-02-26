@@ -6,6 +6,14 @@ local mydata = require( "mydata" )
 local physics = require("physics")
 physics.start()
 
+--fix positions of dots in every grid (x and y coordinates)
+local x1 = 90
+local x2 = 245
+local x3 = 400
+local y1 = 255
+local y2 = 400
+local y3 = 550
+
 local params
 
 local function handleCancelButtonEvent( event )
@@ -64,9 +72,9 @@ function scene:createScene( event )
         end
     end
     
-    grid[6]:setFillColor(215/255, 112/255, 203/255)
-    grid[8]:setFillColor(215/255, 112/255, 203/255)
-    grid[9]:setFillColor(215/255, 112/255, 203/255)
+    grid[5]:setFillColor(1, 104/255, 1)
+    grid[6]:setFillColor(1, 104/255, 1)
+    grid[9]:setFillColor(1, 104/255, 1)
     
     -- end of grid
  
@@ -143,13 +151,13 @@ function scene:createScene( event )
     
     -- start draw circle
     local circle1 = display.newCircle(90, 255, 50)
-    circle1:setFillColor(174/255, 87/255, 163/255) 
+    circle1:setFillColor(100, 0, 250) 
     
-    local circle2= display.newCircle(245, 255, 50)
-    circle2:setFillColor(174/255, 87/255, 163/255) 
+    local circle2 = display.newCircle(245, 255, 50)
+    circle2:setFillColor(100, 0, 250) 
     
-    local circle3= display.newCircle(400, 255, 50)
-    circle3:setFillColor(174/255, 87/255, 163/255)
+    local circle3 = display.newCircle(400, 255, 50)
+    circle3:setFillColor(100, 0, 250)
     
     local group = display.newGroup()
     group:insert(circle1)
@@ -162,19 +170,411 @@ function scene:createScene( event )
     
     --insert block 
     local block = display.newImage( "block_brick.png" )
-    block.x = 244; block.y = 400
-    --scale the block
-    block:scale(-0.57, -0.57)
+    block.x = 90; block.y = 400
+    block:scale(0.6, 0.57)
     physics.addBody( block, "static", { isSensor=true, friction=0, bounce=0 } )
     sceneGroup:insert(block)
+    --block 1
+    local block1 = display.newImage( "block_brick.png" )
+    block1.x = 90; block1.y = 400
+    block1:scale(0.6, 0.57)
+    physics.addBody( block1, "static", { isSensor=true, friction=0, bounce=0 } )
+    sceneGroup:insert(block1)
+    --block 2
+    local block2 = display.newImage( "block_brick.png" )
+    block2.x = 90; block2.y = 550
+    block2:scale(0.6, 0.57)
+    physics.addBody( block2, "static", { isSensor=true, friction=0, bounce=0 } )
+    sceneGroup:insert(block2)
+    --block 3
+    local block3 = display.newImage( "block_brick.png" )
+    block3.x = 245; block3.y = 550
+    block3:scale(0.6, 0.57)
+    physics.addBody( block3, "static", { isSensor=true, friction=0, bounce=0 } )
+    sceneGroup:insert(block3)
     --end sa block
     
+    --physics part(checks left, right, up and down positions of every dot with respect to toher dots and to blocks)
+    local function checkXLeftPosition(group, block1, block2, block3)
+  for i=1, group.numChildren do
+    if i == 1 then
+      if(group[i].x == block1.x) then
+          if(group[i].y == group[2].y and group[i].y == group[3].y) then
+            print("Don't move!")
+          elseif(group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y) then
+            print("Don't move")
+          elseif(group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
+            group[i].x = x1
+            group[2].x = x2
+            group[3].x = x2
+          elseif(group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
+            group[i].x = x1
+            group[2].x = x2
+            group[3].x = x3
+          elseif(group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
+            group[i].x = x1
+            group[2].x = x2
+            group[3].x = x2
+          elseif(group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
+            group[i].x = x1
+            group[2].x = x2
+            group[3].x = x2
+          elseif(group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
+            group[i].x = x1
+            group[2].x = x3
+            group[3].x = x2
+          end
+      elseif(group[i].x ~= block1.x) then
+        if(group[i].x == group[2].y and group[2].x == group[3].x and group[3].y == block1.y)then
+          group[i].x = x1
+          group[2].x = x2
+          group[3].x = x2
+        end
+      end
+    elseif i == 2 then
+      -- do
+          if(group[i].y == group[1].y and group[i].y == group[3].y) then
+            print("Don't move!")
+          elseif(group[i].x == block1.x and group[i].y == group[1].y and group[1].x == group[3].x and group[3].y == block1.y) then
+            print("Don't move")
+          elseif(group[i].x == block1.x and group[i].y == group[1].y and group[1].x ~= group[3].x and group[3].y == block1.y ) then
+            group[i].x = x1
+            group[1].x = x2
+            group[3].x = x2
+          elseif(group[i].x == block1.x and group[i].y == group[1].y and group[1].x ~= group[3].x and group[3].y ~= block1.y) then
+            group[i].x = x1
+            group[1].x = x2
+            group[3].x = x3
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x == group[1].x and group[1].y == block1.y) then
+            group[i].x = x1
+            group[1].x = x2
+            group[3].x = x2
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y == block1.y) then
+            group[i].x = x1
+            group[1].x = x2
+            group[3].x = x2
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y ~= block1.y) then
+            group[i].x = x1
+            group[1].x = x3
+            group[3].x = x2
+          end
+    elseif i == 3 then
+      -- do
+          if(group[i].x == block1.x) then
+            if(group[i].y == group[1].y and group[i].y == group[2].y) then
+              print ("Don't move")
+            elseif(group[i].y == group[1].y and group[1].x == group[2].x and group[2].y == block1.y) then
+              print("Don't move!")
+            elseif(group[i].y == group[1].y and group[1].x ~= group[2].x and group[2].y == block1.y) then
+              group[i].x = x1
+              group[1].x = x2
+              group[2].x = x2
+            elseif(group[i].y == group[1].y and group[1].x ~= group[2].x and group[2].y ~= block1.y) then
+              group[i].x = x1
+              group[1].x = x2
+              group[2].x = x3
+            elseif(group[i].y == group[2].y and group[2].x == group[1].x and group[1].y == block1.y) then
+              group[i].x = x1
+              group[1].x = x2
+              group[2].x = x2
+            elseif(group[i].y == group[2].y and group[2].x ~= group[1].x and group[1].y == block1.y) then
+              group[i].x = x1
+              group[1].x = x2
+              group[2].x = x2
+            elseif(group[i].y == group[2].y and group[2].x ~= group[1].x and group[1].y ~= block1.y) then
+              group[i].x = x1
+              group[1].x = x3
+              group[2].x = x2
+            end
+          end
+    end
+  end
+  return true
+end
+
+local function checkXRightPosition(group, block1, block2, block3)
+  for i=1, group.numChildren do
+    if i == 1 then
+     -- if (group[i].x < 245) then
+          if(group[i].y == group[2].y and group[i].y == group[3].y) then
+            print("Don't move!")
+          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y) then
+            group[i].x = x2
+            group[2].x = x3
+            group[3].x = x3
+          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
+            group[i].x = x2
+            group[2].x = x3
+            group[3].x = x3
+          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
+            group[i].x = x2
+            group[2].x = x3
+            group[3].x = x3
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
+            group[i].x = x2
+            group[2].x = x3
+            group[3].x = x3
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
+            group[i].x = x2
+            group[2].x = x3
+            group[3].x = x3
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
+            group[i].x = x2
+            group[2].x = x3
+            group[3].x = x3
+          end
+      --end
+    elseif i == 2 then
+      -- do
+      --if (group[i].x < 245) then
+        if(group[i].x == block1.x) then
+          if(group[i].y == group[1].y and group[i].y == group[3].y) then
+            print("Don't move!")
+          elseif(group[i].y == group[1].y and group[1].x == group[3].x and group[3].y == block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[3].x = x3
+          elseif(group[i].y == group[1].y and group[1].x ~= group[3].x and group[3].y == block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[3].x = x3 --
+          elseif(group[i].y == group[1].y and group[1].x ~= group[3].x and group[3].y ~= block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[3].x = x3 --
+          elseif(group[i].y == group[3].y and group[3].x == group[1].x and group[1].y == block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[3].x = x3
+          elseif(group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y == block1.y) then
+            group[i].x = x2
+            group[3].x = x3
+            group[1].x = x3
+          elseif(group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y ~= block1.y) then
+            group[i].x = x2
+            group[3].x = x3
+            group[1].x = x3 --
+          end
+        end
+      --end
+    elseif i == 3 then
+      -- do
+      --if (group[i].x < 245) then
+        if(group[i].x == block1.x) then
+          if(group[i].y == group[1].y and group[i].y == group[2].y) then
+            print ("Don't move")
+          elseif(group[i].y == group[1].y and group[1].x == group[2].x and group[2].y == block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[2].x = x3
+          elseif(group[i].y == group[1].y and group[1].x ~= group[2].x and group[2].y == block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[2].x = x3
+          elseif(group[i].y == group[1].y and group[1].x ~= group[2].x and group[2].y ~= block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[2].x = x3
+          elseif(group[i].y == group[2].y and group[2].x == group[1].x and group[1].y == block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[2].x = x3
+          elseif(group[i].y == group[2].y and group[2].x ~= group[1].x and group[1].y == block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[2].x = x3
+          elseif(group[i].y == group[2].y and group[2].x ~= group[1].x and group[1].y ~= block1.y) then
+            group[i].x = x2
+            group[1].x = x3
+            group[2].x = x3
+          end
+        end
+      --end
+    end
+  end
+  return true
+end
+
+local function checkYUpPosition(group, block1, block2, block3)
+  for i = 1, group.numChildren do
+    if i == 1 then
+      --do
+          if(group[i].x == block1.x and group[i].y == group[2].y and group[i].y == group[3].y) then
+            print("Don't move!")
+          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y) then
+            print("Don't move")
+          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y1
+          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y2
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y1
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y1
+          end
+    elseif i == 2 then
+      --do
+        if(group[i].x == block1.x) then
+          if(group[i].y == group[1].y and group[i].y == group[3].y) then
+            print("Don't move!")
+          elseif(group[i].y == group[1].y and group[1].x == group[3].x and group[3].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].y == group[1].y and group[1].x ~= group[3].x and group[3].y == block1.y) then
+            group[i].y = y1
+            group[1].y = y1
+            group[3].y = y1 --
+          elseif(group[i].y == group[1].y and group[1].x ~= group[3].x and group[3].y ~= block1.y) then
+            group[i].y = y1
+            group[1].y = y1
+            group[3].y = y2 --
+          elseif(group[i].y == group[3].y and group[3].x == group[1].x and group[1].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y == block1.y) then
+            group[i].y = y1
+            group[3].y = y1
+            group[1].y = y1
+          elseif(group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y ~= block1.y) then
+            group[i].y = y1
+            group[3].y = y1
+            group[1].y = y2 --
+          end
+        end
+    elseif i == 3 then 
+      --do
+       if(group[i].x == block1.x) then
+          if(group[i].y == group[1].y and group[i].y == group[2].y) then
+            print ("Don't move")
+          elseif(group[i].y == group[1].y and group[1].x == group[2].x and group[2].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].y == group[1].y and group[1].x ~= group[2].x and group[2].y == block1.y) then
+            group[i].y = y1
+            group[1].y = y1
+            group[2].y = y1
+          elseif(group[i].y == group[1].y and group[1].x ~= group[2].x and group[2].y ~= block1.y) then
+            group[i].y = y1
+            group[1].y = y1
+            group[2].y = y2
+          elseif(group[i].y == group[2].y and group[2].x == group[1].x and group[1].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].y == group[2].y and group[2].x ~= group[1].x and group[1].y == block1.y) then
+            group[i].y = y1
+            group[1].y = y1
+            group[2].y = y1
+          elseif(group[i].y == group[2].y and group[2].x ~= group[1].x and group[1].y ~= block1.y) then
+            group[i].y = y1
+            group[1].y = y2
+            group[2].y = y1
+          end
+        end
+    end
+  end 
+  return true
+end
+
+local function checkYDownPosition(group, block1, block2, block3)
+  for i = 1, group.numChildren do
+      if i == 1 then
+      --do
+          if(group[i].x == block1.x and group[i].y == group[2].y and group[i].y == group[3].y) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y2
+          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y) then
+            print("Don't move")
+          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y1
+          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y2
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y1
+          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y1
+          end
+    elseif i == 2 then
+      --do
+        if(group[i].x == block1.x) then
+          if(group[i].y == group[1].y and group[i].y == group[3].y) then
+            print("Don't move!")
+          elseif(group[i].y == group[1].y and group[1].x == group[3].x and group[3].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].y == group[1].y and group[1].x ~= group[3].x and group[3].y == block1.y) then
+            group[i].y = y1
+            group[1].y = y1
+            group[3].y = y1 --
+          elseif(group[i].y == group[1].y and group[1].x ~= group[3].x and group[3].y ~= block1.y) then
+            group[i].y = y1
+            group[1].y = y1
+            group[3].y = y2 --
+          elseif(group[i].y == group[3].y and group[3].x == group[1].x and group[1].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y == block1.y) then
+            group[i].y = y1
+            group[3].y = y1
+            group[1].y = y1
+          elseif(group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y ~= block1.y) then
+            group[i].y = y1
+            group[3].y = y1
+            group[1].y = y2 --
+          end
+        end
+    elseif i == 3 then 
+      --do
+       if(group[i].x == block1.x) then
+          if(group[i].y == group[1].y and group[i].y == group[2].y) then
+            print ("Don't move")
+          elseif(group[i].y == group[1].y and group[1].x == group[2].x and group[2].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].y == group[1].y and group[1].x ~= group[2].x and group[2].y == block1.y) then
+            group[i].y = y1
+            group[1].y = y2
+            group[2].y = y3
+          elseif(group[i].y == group[1].y and group[1].x ~= group[2].x and group[2].y ~= block1.y) then
+            group[i].y = y1
+            group[1].y = y2
+            group[2].y = y3
+          elseif(group[i].y == group[2].y and group[2].x == group[1].x and group[1].y == block1.y) then
+            print("Don't move!")
+          elseif(group[i].y == group[2].y and group[2].x ~= group[1].x and group[1].y == block1.y) then
+            group[i].y = y1
+            group[1].y = y3
+            group[2].y = y2
+          elseif(group[i].y == group[2].y and group[2].x ~= group[1].x and group[1].y ~= block1.y) then
+            group[i].y = y1
+            group[1].y = y3
+            group[2].y = y2
+          end
+        end
+    end
+  end
+  return true
+end
+    
     --move dots
-    local CENTERX = display.contentCenterX
-    local CENTERY = display.contentCenterY
-    local LEFT = 10
-    local RIGHT = 140
-    local UP = -20
+    local CENTERX = display.contentCenterX -450
+    local CENTERY = display.contentCenterY - 700
+    local LEFT = 9
+    local RIGHT = 150
+    local UP = 50
     local DOWN = 150
     
 
@@ -184,41 +584,45 @@ function scene:createScene( event )
             print( event.x, event.xStart, dX )
             if ( dX > 5 ) then
                 --swipe right
-                local spot = RIGHT
+                --local spot = RIGHT
+                checkXRightPosition(group, block1, block2, block3)
                 if ( event.target.x == LEFT ) then
-                  if(hasCollided(group, block)== true )then
-                    transition.to(group, {display.contentWidth, display.contentHeight })
-                  end
-                  spot = CENTERX
+                    spot = CENTERX 
+                elseif(event.target.x == RIGHT) then
+                  checkXRightPosition(group, block1, block2, block3)
+                  --spot = RIGHT
                 end
                 transition.to( event.target, { time=500, x=spot } )
-                --transition.to( square, { time=1500, alpha=0, x=(w-50), y=(h-50), onComplete=listener1 } )
-            elseif ( dX  < -10 ) then
-                --swipe left
-                local spot = LEFT
+            elseif ( dX  < -20 ) then
+                checkXLeftPosition(group, block1, block2, block3)
                 if ( event.target.x == RIGHT ) then
-                    spot = CENTERX
+                  spot = CENTERX 
+                elseif(event.target.x == LEFT) then
+                  checkXLeftPosition(group, block1, block2, block3)
                 end
                 transition.to( event.target, { time=500, x=spot } )
             end
             --y-axis(up and down movement) = 
             local dY = event.y - event.yStart
             if (dY > 10) then
-              local spot = DOWN 
+              checkYDownPosition(group, block1, block2, block3)
               if ( event.target.y == UP )  then
-                if(hasCollided(group, block)== true )then
-                  group.getCurrentStage()
-                    --transition.to(group, {display.contentWidth, display.contentHeight })
-                  end
                   spot = CENTERY
+              elseif( event.target.y == DOWN) then
+                  checkYDownPosition(group, block1, block2, block3)
+                  print(group.x )
+                  print(group.y)
               end
               transition.to( event.target, { time = 500, y = spot } )
-            elseif ( dY < -10 ) then
-              local spot = UP
+            elseif ( dY < -20 ) then
+              --local spot = UP
+              checkYUpPosition(group, block1, block2, block3)
               if ( event.target.y == DOWN) then
                   spot = CENTERY
+              elseif(event.target.y == UP) then
+                checkYUpPosition(group, block1, block2, block3) 
               end
-              transition.to( event.target, { time = 500, y = spot } )
+              transition.to( event.target, { time = 500,  y = spot } )
             end
             --end sa y
         end
@@ -229,57 +633,6 @@ function scene:createScene( event )
       group:addEventListener("touch", handleSwipe)  
 end
 
-
-    --collision hoy!!!!! work na ba... samuka.... 
-   -- local function onCollision(event) 
-     -- if (event.phase == "began") then
-        --if (event.block.isTouching)
-       --   group:translate( 0, 0 )
-        --group:translate( group.x, group.y )
-      --end
-      --elseif(event.phase == "ended") then
-        --group:translate( 0, 0 )
-      --end
-       --group:addEventListener("collision", onCollision)
-       --block:addEventListener("collision", onCollision)
-    --end
-    --Runtime:addEventListener("collision", onCollision)
-   
-    --end sa collision
-    
-    --test collision
-local function hasCollided(group, block)
-  local r=50
-    if group ~= nil then
-         local groupDistance_x = math.abs(group.x+group.r - block.x - block.width/2)
-         local groupDistance_y = math.abs(group.y+group.r - block.y - block.height/2)
-
-        if (groupDistance_x > (block.width/2 + group.r)) then 
-            return false
-        end
-        if (groupDistance_y > (block.height/2 + group.r)) then  
-            return false
-        end
-
-        if (groupDistance_x <= (block.width/2)) then
-            return true
-        end
-
-        if (groupDistance_y <= (block.height/2)) then
-            return true
-        end
-
-        cornerDistance_sq = (groupDistance_x - block.width/2)^2 +
-                             (groupDistance_y - block.height/2)^2;
-
-        return (cornerDistance_sq <= (group.r^2));
-        else
-            return false
-    end
-    block:addEventListener("collision", hasCollided)
-    group:addEventListener("collision", hasCollided)
-end
-    --/test collision
 
 function scene:showScene( event )
     local sceneGroup = self.view
