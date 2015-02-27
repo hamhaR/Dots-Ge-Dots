@@ -169,11 +169,6 @@ function scene:createScene( event )
     -- end circle
     
     --insert block 
-    local block = display.newImage( "block_brick.png" )
-    block.x = 90; block.y = 400
-    block:scale(0.6, 0.57)
-    physics.addBody( block, "static", { isSensor=true, friction=0, bounce=0 } )
-    sceneGroup:insert(block)
     --block 1
     local block1 = display.newImage( "block_brick.png" )
     block1.x = 90; block1.y = 400
@@ -182,20 +177,15 @@ function scene:createScene( event )
     sceneGroup:insert(block1)
     --block 2
     local block2 = display.newImage( "block_brick.png" )
-    block2.x = 90; block2.y = 550
+    block2.x = 245; block2.y = 550
     block2:scale(0.6, 0.57)
     physics.addBody( block2, "static", { isSensor=true, friction=0, bounce=0 } )
     sceneGroup:insert(block2)
-    --block 3
-    local block3 = display.newImage( "block_brick.png" )
-    block3.x = 245; block3.y = 550
-    block3:scale(0.6, 0.57)
-    physics.addBody( block3, "static", { isSensor=true, friction=0, bounce=0 } )
-    sceneGroup:insert(block3)
+   
     --end sa block
     
     --physics part(checks left, right, up and down positions of every dot with respect to toher dots and to blocks)
-    local function checkXLeftPosition(group, block1, block2, block3)
+  local function checkXLeftPosition(group, block1, block2, block3)
   for i=1, group.numChildren do
     if i == 1 then
       if(group[i].x == block1.x) then
@@ -223,14 +213,70 @@ function scene:createScene( event )
             group[i].x = x1
             group[2].x = x3
             group[3].x = x2
+          elseif(group[i].y ~= group[2].y and group[i].y ~= group[3].y and group[2].y ~= group[3].y and group[2].y == block1.y) then
+            group[i].x = x1
+            group[2].x = x2
+            group[3].x = x3
+          elseif(group[i].x ~= group[2].x and group[i].x ~= group[3].x and group[2].y == group[3].y and group[2].y == block1.y) then
+            group[i].x = x1
+            group[2].x = x2
+            group[3].x = x3
           end
-      elseif(group[i].x ~= block1.x) then
-        if(group[i].x == group[2].y and group[2].x == group[3].x and group[3].y == block1.y)then
+          --feb 26
+      elseif(group[i].x == x2 and group[i].y == y1) then
+        if(group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y and group[3].x ~= block1.x)then
+          group[i].x = x1
+          group[2].x = x2
+          group[3].x = x2
+        elseif(group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y and group[2].x ~= block1.x) then
+          group[i].x = x1
+          group[2].x = x2
+          group[3].x = x2
+        elseif(group[i].y ~= group[2].y and group[i].x ~= group[2].x and group[2].x == group[3].x and group[2].x ~= block1.x and group[2].y == block1.y) then
+          group[i].x = x1
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[i].y ~= group[3].y and group[i].x ~= group[3].x and group[3].x == group[2].x and group[3].x ~= block1.x and group[3].y == block1.y) then
+          group[i].x = x1
+          group[2].x = x3
+          group[3].x = x2
+        elseif(group[i].y ~= group[2].y and group[i].x == group[2].x and  group[i].x ~= group[3].x and group[2].y == group[3].y and group[3].x ~= block1.x) then
+          group[i].x = x1
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[i].y ~= group[3].y and group[i].x == group[3].x and group[3].y == group[2].y and group[2].x ~= block1.x) then
+          group[i].x = x1
+          group[2].x = x3
+          group[3].x = x2
+        elseif(group[i].x == group[2].x and group[2].x ~= group[3].x and group[3].x ~= block1.x and group[3].y == block2.y) then
+          group[i].x = x1
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[i].x == group[3].x and group[3].x ~= group[2].x and group[2].x ~= block1.x and group[2].y == block2.y) then
+          group[i].x = x1
+          group[2].x = x3
+          group[3].x = x2
+        elseif(group[i].x == group[2].x and group[i].y == group[3].y and group[2].y == block1.y and group[2].x ~= group[3].x and group[3].x ~= block1.x) then
           group[i].x = x1
           group[2].x = x2
           group[3].x = x2
         end
+      elseif(group[i].x == x3 and group[i].y == y1) then
+        if(group[i].x == group[2].x and group[i].x == group[3].x and group[2].y == block1.y ) then
+          group[i].x = x2
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[i].x == group[3].x and group[i].x ~= group[2].x and group[2].y == group[3].y and group[2].y == block1.y) then
+          group[i].x = x2
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[i].y == group[2].y and group[i].x  == group[3].x and group[3].y == block1.y) then
+            group[i].x = x2
+            group[2].x = x1
+            group[3].x = x2
+        end
       end
+
     elseif i == 2 then
       -- do
           if(group[i].y == group[1].y and group[i].y == group[3].y) then
@@ -295,35 +341,93 @@ end
 local function checkXRightPosition(group, block1, block2, block3)
   for i=1, group.numChildren do
     if i == 1 then
-     -- if (group[i].x < 245) then
+      if (group[i].x == block1.x ) then
           if(group[i].y == group[2].y and group[i].y == group[3].y) then
             print("Don't move!")
-          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y) then
+          elseif(group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y) then
             group[i].x = x2
             group[2].x = x3
             group[3].x = x3
-          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
+          elseif(group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
             group[i].x = x2
             group[2].x = x3
             group[3].x = x3
-          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
+          elseif(group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
             group[i].x = x2
             group[2].x = x3
             group[3].x = x3
-          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
+          elseif(group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
             group[i].x = x2
             group[2].x = x3
             group[3].x = x3
-          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
+          elseif(group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
             group[i].x = x2
             group[2].x = x3
             group[3].x = x3
-          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
+          elseif(group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
             group[i].x = x2
             group[2].x = x3
+            group[3].x = x3
+          elseif(group[i].y ~= group[2].y and group[i].y ~= group[3].y and group[2].y ~= group[3].y and group[2].y == block1.y) then
+            group[i].x = x2
+            group[2].x = x3
+            group[3].x = x3
+          elseif(group[i].x ~= group[2].x and group[i].x ~= group[3].x and group[2].y == group[3].y and group[2].y == block1.y) then
+            group[i].x = x2
+            group[2].x = x2
             group[3].x = x3
           end
-      --end
+      --feb 26
+      elseif(group[i].x == x2 and group[i].y == y1) then
+        if(group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y and group[3].x ~= block1.x)then
+          group[i].x = x2
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y and group[2].x ~= block1.x) then
+          group[i].x = x2
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[i].y ~= group[2].y and group[i].x ~= group[2].x and group[2].x == group[3].x and group[2].x ~= block1.x and group[2].y == block1.y) then
+          group[i].x = x3
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[i].y ~= group[3].y and group[i].x ~= group[3].x and group[3].x == group[2].x and group[3].x ~= block1.x and group[3].y == block1.y) then
+          group[i].x = x3
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[i].y ~= group[2].y and group[i].x == group[2].x and group[2].y == group[3].y and group[3].x ~= block1.x) then
+          group[i].x = x3
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[i].y ~= group[3].y and group[i].x == group[3].x and group[3].y == group[2].y and group[2].x ~= block1.x) then
+          group[i].x = x3
+          group[2].x = x3
+          group[3].x = x2
+        elseif(group[i].x == group[2].x and group[2].x ~= group[3].x and group[3].x ~= block1.x and group[3].y == block2.y) then
+          group[i].x = x3
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[i].x == group[3].x and group[3].x ~= group[2].x and group[2].x ~= block1.x and group[2].y == block2.y) then
+          group[i].x = x3
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[i].x == group[2].x and group[i].y == group[3].y and group[2].y == block1.y and group[2].x ~= group[3].x and group[3].x ~= block1.x) then
+          group[i].x = x2
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[i].y == group[1].y and group[i].x ~= group[3].x and group[1].x == group[3].x and group[3].y == block1.y) then
+            group[i].x = x3 
+            group[2].x = x2
+            group[3].x = x3
+        end
+      --elseif(group[i].x == x2 and group[i].y == y1) then
+      elseif(group[i].x == x3 and group[i].y == y1) then
+        if(group[i].x == group[2].x and group[i].x == group[3].x and group[2].y == block1.y ) then
+          group[i].x = x3
+          group[2].x = x3
+          group[3].x = x3
+        end
+      end
     elseif i == 2 then
       -- do
       --if (group[i].x < 245) then
@@ -354,6 +458,10 @@ local function checkXRightPosition(group, block1, block2, block3)
             group[i].x = x2
             group[3].x = x3
             group[1].x = x3 --
+          elseif(group[i].y == group[1].y and group[i].x ~= group[3].x and group[1].x == group[3].x and group[3].y == block1.y) then
+            group[i].x = x2 
+            group[1].x = x3
+            group[3].x = x3
           end
         end
       --end
@@ -399,29 +507,100 @@ local function checkYUpPosition(group, block1, block2, block3)
   for i = 1, group.numChildren do
     if i == 1 then
       --do
-          if(group[i].x == block1.x and group[i].y == group[2].y and group[i].y == group[3].y) then
+      if(group[i].x == block1.x) then
+          if(group[i].y == group[2].y and group[i].y == group[3].y) then
             print("Don't move!")
-          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y) then
+          elseif(group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y) then
             print("Don't move")
-          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
+          elseif(group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
             group[i].y = y1
             group[2].y = y1
             group[3].y = y1
-          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
+          elseif(group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
             group[i].y = y1
             group[2].y = y1
             group[3].y = y2
-          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
+          elseif(group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
             print("Don't move!")
-          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
+          elseif(group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
             group[i].y = y1
             group[2].y = y1
             group[3].y = y1
-          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
+          elseif(group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
             group[i].y = y1
             group[2].y = y2
             group[3].y = y1
+            --feb 26
+          elseif(group[i].y ~= group[2].y and group[2].y == group[3].y and group[2].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y1
+          elseif(group[i].y ~= group[2].y and group[i].y ~= group[3].y and group[2].y ~= group[3].y and group[2].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y2
           end
+      elseif(group[i].x == x2 and group[i].y == y1) then
+          if(group[i].y == group[2].y and group[2].x == group[3].x and group[3]. y == block1.y and group[3].x ~= block1.x) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y2
+          elseif(group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y and group[2].x ~= block1.x) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y1
+          elseif(group[i].y ~= group[2].y and group[2].x == group[3].x and group[2].y == block1.y and group[2].x ~= block1.x) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y2
+          elseif(group[i].y ~= group[3].y and group[3].x == group[2].x and group[3].y == block1.y and group[3].x ~= block1.x) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y1
+          elseif(group[i].x == group[2].x and group[i].x ~= group[3].x and group[2].y == group[3].y and group[2].y == block1.y and group[2].x ~= block1.x) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y1--
+          elseif(group[i].x == group[3].x and group[i].x ~= group[2].x and group[3].y == group[2].y and group[3].y == block1.y and group[3].x ~= block1.x) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y2
+          elseif(group[i].x == group[2].x and group[i].x ~= group[3].x and group[i].y ~= group[3].y and group[2].y ~= group[3].y and group[2].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y2
+          elseif(group[i].x == group[3].x and group[i].x ~= group[2].x and group[i].y ~= group[2].y and group[3].y ~= group[2].y and group[3].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y2
+          end
+      elseif(group[i].y == y2 and group[i].x == x2) then
+        if(group[i].y == group[3].y and group[i].x ~= group[2].x and group[3].x == group[2].x) then
+          group[i].y = y1
+          group[2].y = y2
+          group[3].y = y1
+        end
+      elseif(group[i].x == x3 and group[i].y == y1) then
+        if(group[i].x == group[2].x and group[i].x == group[3].x and group[2].y == block1.y ) then
+          group[i].y = y1
+          group[2].y = y2
+          group[3].y = y3
+        elseif(group[i].x == group[3].x and group[i].x ~= group[2].x and group[2].y == group[3].y and group[2].y == block1.y) then
+          group[i].y = y1
+          group[2].y = y1
+          group[3].y = y2
+        elseif(group[i].y == group[2].y and group[i].x  == group[3].x and group[3].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y1
+            group[3].y = y2
+        end
+      elseif(group[i].x == x3 and group[i].y == y2) then
+        if(group[i].y == group[2].y and group[i].x == group[3].x ) then
+          group[i].y = y1
+          group[2].y = y1
+          group[3].y = y2
+        end
+      end
     elseif i == 2 then
       --do
         if(group[i].x == block1.x) then
@@ -448,10 +627,27 @@ local function checkYUpPosition(group, block1, block2, block3)
             group[3].y = y1
             group[1].y = y2 --
           end
+        elseif(group[i].x == x3 and group[i].y == y2) then
+          if(group[i].y == group[1].y and group[i].x == group[3].x) then
+            group[i].y = y1
+            group[1].y = y1
+            group[3].y = y2
+          end
+        elseif(group[i].y == y2 and group[i].x == x2) then
+          if(group[i].x == group[1].x and group[i].x ~= group[3].x and group[i].y ~= group[3].y and group[1].y ~= group[3].y) then
+            group[i].y = y2
+            group[1].y = y1
+            group[3].y = y2
+          elseif(group[i].x == group[1].x and group[i].x ~= group[3].x and group[i].y == group[3].y and group[1].y ~= group[3].y) then
+            group[i].y = y2
+            group[1].y = y1
+            group[3].y = y1
+          end
+        
         end
     elseif i == 3 then 
       --do
-       if(group[i].x == block1.x) then
+      if(group[i].x == block1.x) then
           if(group[i].y == group[1].y and group[i].y == group[2].y) then
             print ("Don't move")
           elseif(group[i].y == group[1].y and group[1].x == group[2].x and group[2].y == block1.y) then
@@ -475,7 +671,7 @@ local function checkYUpPosition(group, block1, block2, block3)
             group[1].y = y2
             group[2].y = y1
           end
-        end
+      end
     end
   end 
   return true
@@ -485,31 +681,93 @@ local function checkYDownPosition(group, block1, block2, block3)
   for i = 1, group.numChildren do
       if i == 1 then
       --do
-          if(group[i].x == block1.x and group[i].y == group[2].y and group[i].y == group[3].y) then
+        if (group[i].y ~= block1.y and group[i].x == block1.x) then
+          if(group[i].y == group[2].y and group[i].y == group[3].y) then
             group[i].y = y1
             group[2].y = y2
             group[3].y = y2
-          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x == group[3].x and group[3].y == block1.y) then
+          elseif(group[2].x == group[3].x and group[3].y == block1.y) then
             print("Don't move")
-          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
+          elseif(group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y == block1.y ) then
             group[i].y = y1
             group[2].y = y1
             group[3].y = y1
-          elseif(group[i].x == block1.x and group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
+          elseif(group[i].y == group[2].y and group[2].x ~= group[3].x and group[3].y ~= block1.y) then
             group[i].y = y1
             group[2].y = y1
             group[3].y = y2
-          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
+          elseif(group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y) then
             print("Don't move!")
-          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
+          elseif(group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y == block1.y) then
             group[i].y = y1
             group[2].y = y1
             group[3].y = y1
-          elseif(group[i].x == block1.x and group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
+          elseif(group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
             group[i].y = y1
             group[2].y = y2
             group[3].y = y1
+          elseif(group[i].y ~= group[2].y and group[2].y == group[3].y and group[2].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y3
+          elseif(group[i].y ~= group[2].y and group[i].y ~= group[3].y and group[2].y ~= group[3].y and group[2].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y3
           end
+        elseif(group[i].x == x2 and group[i].y == y1) then
+          if(group[i].y == group[2].y and group[2].x == group[3].x and group[3]. y == block1.y and group[3].x ~= block1.x) then
+            group[i].y = y2
+            group[2].y = y2
+            group[3].y = y3
+          elseif(group[i].y == group[3].y and group[3].x == group[2].x and group[2].y == block1.y and group[2].x ~= block1.x) then
+            group[i].y = y2
+            group[2].y = y3
+            group[3].y = y2
+          elseif(group[i].y ~= group[2].y and group[2].x == group[3].x and group[2].y == block1.y and group[2].x ~= block1.x) then
+            group[i].y = y2
+            group[2].y = y2
+            group[3].y = y3
+          elseif(group[i].y ~= group[3].y and group[3].x == group[2].x and group[3].y == block1.y and group[3].x ~= block1.x) then
+            group[i].y = y2
+            group[2].y = y3
+            group[3].y = y2
+          elseif(group[i].x == group[2].x and group[i].x ~= group[3].x and group[2].y == group[3].y and group[2].y == block1.y and group[2].x ~= block1.x) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y3
+          elseif(group[i].x == group[3].x and group[i].x ~= group[2].x and group[3].y == group[2].y and group[3].y == block1.y and group[3].x ~= block1.x) then
+            group[i].y = y1
+            group[2].y = y3
+            group[3].y = y2
+          elseif(group[i].x == group[2].x and group[i].x ~= group[3].x and group[i].y ~= group[3].y and group[2].y ~= group[3].y and group[2].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y3
+          elseif(group[i].x == group[3].x and group[i].x ~= group[2].x and group[i].y ~= group[2].y and group[3].y ~= group[2].y and group[3].y == block1.y) then
+            group[i].y = y1
+            group[2].y = y3
+            group[3].y = y2
+          elseif(group[i].x == group[2].x and group[i].y == group[3].y and group[2].y == block1.y and group[2].x ~= group[3].x and group[3].x ~= block1.x) then
+          group[i].y = y1
+          group[2].y = y2
+          group[3].y = y2
+          end
+        elseif(group[i].x == x3 and group[i].y == y1) then
+          if(group[i].x == group[2].x and group[i].x == group[3].x and group[2].y == block1.y ) then
+            group[i].y = y1
+            group[2].y = y2
+            group[3].y = y3
+          elseif(group[i].x == group[3].x and group[i].x ~= group[2].x and group[2].y == group[3].y and group[2].y == block1.y) then
+            group[i].y = y2
+            group[2].y = y2
+            group[3].y = y3
+          elseif(group[i].y == group[2].y and group[i].x  == group[3].x and group[3].y == block1.y) then
+            group[i].y = y2
+            group[2].y = y2
+            group[3].y = y3
+          end
+        end
     elseif i == 2 then
       --do
         if(group[i].x == block1.x) then
@@ -539,7 +797,7 @@ local function checkYDownPosition(group, block1, block2, block3)
         end
     elseif i == 3 then 
       --do
-       if(group[i].x == block1.x) then
+      if(group[i].x == block1.x) then
           if(group[i].y == group[1].y and group[i].y == group[2].y) then
             print ("Don't move")
           elseif(group[i].y == group[1].y and group[1].x == group[2].x and group[2].y == block1.y) then
@@ -563,7 +821,8 @@ local function checkYDownPosition(group, block1, block2, block3)
             group[1].y = y3
             group[2].y = y2
           end
-        end
+     -- elseif() then
+      end
     end
   end
   return true
