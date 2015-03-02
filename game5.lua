@@ -154,10 +154,10 @@ local params
     circle1:setFillColor(100, 0, 250) 
     
     local circle2 = display.newCircle(400, 400, 50)
-    circle2:setFillColor(174/255, 87/255, 163/255) 
+    circle2:setFillColor(100, 0, 250) 
     
     local circle3 = display.newCircle(400, 550, 50)
-    circle3:setFillColor(0, 0, 0)
+    circle3:setFillColor(100, 0, 250)
     
     local group = display.newGroup()
     group:insert(circle1)
@@ -183,24 +183,31 @@ local params
   local function checkXLeftPosition(group, block1, block2)
     for i=1, group.numChildren do
       if i == 1 then
-        
+        if(group[i].x == x3 and group[i].y == y2) then
+          if(group[i].x == group[2].x and group[3].x == x2 and group[2].y == y3) then
+            print("char")
+            group[i].x = x3
+            group[2].x = x2
+            group[3].x = x1
+          end
+        end
       elseif i == 2 then
         if(group[i].x ~= block2.x and group[i].y == block2.y) then
           if(group[i].x == group[1].x) then
             if(group[i].x == group[3].x) then
-              print("move left")
+              print("move left1")
               group[i].x = x3
               group[1].x = x2
               group[3].x = x2
             elseif(group[i].x ~= group[3].x) then
-              print("move left") 
+              print("move left2") 
               group[i].x = x3
               group[1].x = x2
               group[3].x = x1
             end
           elseif(group[i].x == group[3].x) then
             if(group[1].x == x2 and group[3].y == y3) then
-              print("move left")
+              print("move left3")
               group[i].x = x3
               group[1].x = x1
               group[3].x = x2
@@ -211,63 +218,100 @@ local params
             group[1].x = x1
             group[3].x = x1
           elseif(group[i].x ~= group[1].x and group[i].x ~= group[3].x and group[1].x == group[3].x and group[1].x == x1) then
-            print("move left")
+            print("move left4")
             group[i].x = x3
             group[1].x = x1
             group[3].x = x1
           elseif(group[1].x == x2 and group[3].x == x1) then--
+            print("move left5")
             group[i].x = x3
             group[1].x = x1
             group[3].x = x1
+          elseif(group[1].x == x1 and group[3].x == x2) then
+            print("move left6")
+            group[i].x = x3
+            group[1].x = x1
+            group[3].x = x1
+            
+          end
+        elseif(group[i].x == x2 and group[i].y == y1) then
+          if(group[i].y == group[1].y) then
+            if(group[1].x == x1 and group[i].x == group[3].x) then
+              print("move left7")
+              group[i].x = x2
+              group[1].x = x1
+              group[3].x = x1
+            end
           end
         elseif(group[i].x == x3 and group[i].y == y3) then
-          if(group[1].x == group[3].x and group[1].x == x2) then
-            print("Move left")
+          if(group[1].x == group[3].x and group[1].x == x2 and group[1].y == y1) then
+            print("Move lefttt")
             group[i].x = x2
             group[1].x = x1
             group[3].x = x1
-          elseif(group[i].x == group[1].x ) then
-            if(group[1].y == y1) then
-              print("move left")
+          elseif(group[1].x == x3 and group[1].y == y1) then
+            if(group[1].y == y1 and group[1].x == x3) then
+              print("move left over")
               group[i].x = x2
               group[1].x = x2
               group[3].x = x1
-            elseif(group[1].y == y2) then
-              print("move left")
+            elseif(group[1].y == y2 and group[1].x == x3) then
+              print("move left8")
+              print("ok")
               group[i].x = x2
               group[1].x = x3
               group[3].x = x1
             end
+          elseif(group[1].x == x3 and group[1].y == y2 and group[3].x == x1 and group[3].y == y3) then
+              print("oks")
+              group[i].x = x2
+              group[1].x = x3
+              group[3].x = x1 
+          elseif(group[1].x == x1 and group[3].x == x2) then
+            print("move left9")
+            group[i].x = x2
+            group[1].x = x1
+            group[3].x = x1
+          elseif(group[1].x == group[3].x and group[1].x == x1) then
+            print("move left")
+            group[i].x = x2
+            group[1].x = x1
+            group[3].x = x1
           end
         elseif(group[i].x == x3 and group[i].y == y1) then
           if(group[i].y == group[1].y and group[1].x == x2) then
-            if(group[3].x == 2)then
-              print("move left")
+            if(group[i].x == group[3].x and group[3].y == y2)then
+              print("move left0")
               group[i].x = x2
               group[1].x = x1
-              group[3].x = x1
-            elseif(group[3].x == x3) then
-              print("move left")
-              group[i].x = x2
-              group[1].x = x1
-              group[3].x = x2
+              group[3].x = x3            
             end
+          elseif(group[1].x == group[3].x and group[1].x == x1) then
+            print("move left")
+            group[i].x = x2
+            group[1].x = x1
+            group[3].x = x1
           end
         elseif(group[i].x == x2 and group[i].y == y3) then
           if(group[i].y == group[3].y) then
             if(group[1].x == x1) then
               print("don't move")
-            elseif(group[1].x == x2) then
-              print("move left")
+            elseif(group[1].x == x2 and group[1].y == y1) then
+              print("move left11")
               group[i].x = x2
               group[1].x = x1
               group[3].x = x1
-            elseif(group[1].x == x3) then
-              print("move left")
+            elseif(group[1].x == x3 and group[1].y == y1) then
+              print("move left12")
               group[i].x = x2
               group[1].x = x2
               group[3].x = x1
             end
+          elseif(group[1].x == x3 and group[1].y == y2 and group[3].x == x1 and grou[3].y == y3) then
+            print("don't move13")
+            group[i].x = x2
+            group[1].x = x3
+            group[3].x = x1
           end
         end
       elseif i == 3 then
@@ -318,10 +362,20 @@ local params
             group[i].x = x3
             group[1].x = x3
             group[3].x = x2
+          elseif(group[1].x == x1 and group[3].x == x2) then
+            print("move right")
+            group[i].x = x3
+            group[1].x = x2
+            group[3].x = x3
           end
         elseif(group[i].x == x2 and group[i].y == y1) then
-          if(group[1].x == group[3].x) then
-            if(group[1].x == x1) then
+          if(group[i].y == group[1].y) then
+            if(group[1].x == x1 and group[i].x == group[3].x) then
+              print("move right")
+              group[i].x = x3
+              group[1].x = x2
+              group[3].x = x3
+            elseif(group[1].x == x1 and group[1].x == group[3].x) then
               print("move right")
               group[i].x = x3
               group[1].x = x2
@@ -341,7 +395,11 @@ local params
               group[1].x = x3
               group[3].x = x2
             end
-          --elseif(group[) then
+          elseif(group[1].x == group[3].x and group[1].x == x1) then
+            print("move right")
+            group[i].x = x3
+            group[1].x = x2
+            group[3].x = x2
           end
         elseif(group[i].x == x3 and group[i].y == y1) then
           if(group[1].x == group[3].x and group[1].x == x2) then
@@ -349,6 +407,16 @@ local params
             group[i].x = x3
             group[1].x = x2
             group[3].x = x3
+          elseif(group[1].x == x1 and group[3].x == x2) then
+            print("move right")
+            group[i].x = x3
+            group[1].x = x2
+            group[3].x = x3
+          elseif(group[1].x == group[3].x and group[1].x == x1) then
+            print("move right")
+            group[i].x = x3
+            group[1].x = x2
+            group[3].x = x2
           end
         elseif(group[i].x == x2 and group[i].y == y3) then
           if(group[i].y == group[3].y) then
@@ -405,6 +473,11 @@ local params
               group[1].y = y1
               group[3].y = y2
             end
+          elseif(group[1].x == x1 and group[3].x == x2) then
+            print("move up")
+            group[i].y = y1
+            group[1].y = y1
+            group[3].y = y3
           end
         elseif(group[i].x == x3 and group[i].y == y1) then
           if(group[i].y == group[1].y) then
@@ -433,12 +506,27 @@ local params
               group[1].y = y1
               group[3].y = y3
             end
+          elseif(group[1].x == group[3].x and group[1].x == x1) then
+            print("move up")
+            group[i].y = y2
+            group[1].y = y1
+            group[3].y = y3
+          elseif(group[1].x == x1 and group[3].x == x2) then
+            print("move up")
+            group[i].y = y2
+            group[1].y = y1
+            group[3].y = y3
           end
         elseif(group[i].x == x2 and group[i].y == y3) then
           if(group[i].y == group[3].y and group[1].y == y2) then
             print("move up")
             group[i].y = y3
             group[1].y = y1
+            group[3].y = y3
+          elseif(group[i].y == group[1].y and group[i].y == group[3].y) then
+            print("move up")
+            group[i].y = y3
+            group[1].y = y2
             group[3].y = y3
           end
         end
@@ -477,10 +565,30 @@ local params
             group[i].y = y3
             group[1].y = y1
             group[3].y = y3
+          elseif(group[1].x == x1 and group[3].x == x2) then
+            print("move down")
+            group[i].y = y3
+            group[1].y = y1
+            group[3].y = y3
           end
         elseif(group[i].x == x3 and group[i].y == y1) then
           if(group[i].y == group[1].y) then
             if(group[3].x == x3) then
+              print("move down")
+              group[i].y = y2
+              group[1].y = y1
+              group[3].y = y3
+            elseif(group[1].x == x1 and group[3].x == x2) then
+              print("move down")
+              group[i].y = y2
+              group[1].y = y1
+              group[3].y = y3
+            elseif(group[1].x == x2 and group[3].x == x2) then
+              print("move down")
+              group[i].y = y2
+              group[1].y = y1
+              group[3].y = y3
+            elseif(group[1].x == group[3].x and group[1].x == x1) then
               print("move down")
               group[i].y = y2
               group[1].y = y1
@@ -498,6 +606,11 @@ local params
           end
         elseif(group[i].x == x3 and group[i].y == y1) then
           if(group[1].x == group[3].x and group[1].x == x2) then
+            print("move down")
+            group[i].y = y2
+            group[1].y = y1
+            group[3].y = y3
+          elseif(group[1].x == x2 and group[3].x == x2) then
             print("move down")
             group[i].y = y2
             group[1].y = y1
@@ -540,7 +653,7 @@ local params
                   checkXRightPosition(group, block1, block2)
                   --spot = RIGHT
                 end
-                transition.to( event.target, { time=500, x=spot } )
+                transition.to( event.target, { time=2500, x=spot } )
             elseif ( dX  < -20 ) then
                 --swipe left
                 --local spot = LEFT
@@ -550,7 +663,7 @@ local params
                 elseif(event.target.x == LEFT) then
                   checkXLeftPosition(group, block1, block2)
                 end
-                transition.to( event.target, { time=500, x=spot } )
+                transition.to( event.target, { time=2500, x=spot } )
             end
             --y-axis(up and down movement) = 
             local dY = event.y - event.yStart
@@ -564,7 +677,7 @@ local params
                   print(group.x )
                   print(group.y)
               end
-              transition.to( event.target, { time = 500, y = spot } )
+              transition.to( event.target, { time = 2500, y = spot } )
             elseif ( dY < -10 ) then
               --local spot = UP
               checkYUpPosition(group, block1, block2)
@@ -574,7 +687,7 @@ local params
                 checkYUpPosition(group, block1, block2) 
                 
               end
-              transition.to( event.target, { time = 500, y = spot } )
+              transition.to( event.target, { time = 2500, y = spot } )
             end
             --end sa y
         end
