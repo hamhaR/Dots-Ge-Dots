@@ -6,6 +6,8 @@ local mydata = require( "mydata" )
 local physics = require("physics")
 physics.start()
 
+require("timer2")
+
 --fix positions of dots in every grid (x and y coordinates)
 local x1 = 90
 local x2 = 245
@@ -17,11 +19,15 @@ local y3 = 550
 local params
 
 local function handleCancelButtonEvent( event )
+  if ( "ended" == event.phase ) then
+    storyboard.removeScene( "game_levels", false )
+    storyboard.gotoScene( "game_levels", { effect = "crossFade", time = 333 } )
+  end
+end
 
-    if ( "ended" == event.phase ) then
-        storyboard.removeScene( "game_levels", false )
-        storyboard.gotoScene( "game_levels", { effect = "crossFade", time = 333 } )
-    end
+local function btnTap(event)
+	storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+	return true
 end
 
 -- Start the storyboard event handlers
@@ -34,15 +40,32 @@ function scene:createScene( event )
     local background = display.newRect(0, 0, display.contentWidth, display.contentHeight)
     background.x = display.contentCenterX
     background.y = display.contentCenterY
+    background:setFillColor(244, 164, 96)
     sceneGroup:insert(background)
     -- end background
+    
+    local levelUp = display.newRect(0, 0, 1200, 180)
+    levelUp.x = 0
+    levelUp.y = 0
+    levelUp:setFillColor(0, 255, 255)
+    sceneGroup:insert(levelUp)
+    
+    --lower rect
+    local levelDown = display.newRect(0, 0, 1200, 180)
+    levelDown.x = 0
+    levelDown.y = 800
+    levelDown:setFillColor(0, 255, 255)
+    sceneGroup:insert(levelDown)
+  --/lower rect
     
     local level1 = display.newText( "Level 2", 100, 100, native.systemFont, 55 )
     level1.x = display.contentCenterX
     level1.y = display.contentCenterY - 350
+    --level1:setFillColor(69, 242, 245)
     level1:setTextColor(black)
     sceneGroup:insert( level1 )
     
+      
     -- start grid
     local xOffset = 94
     local yOffset = 250
@@ -77,76 +100,98 @@ function scene:createScene( event )
     grid[9]:setFillColor(1, 104/255, 1)
     
     -- end of grid
- 
-  
-    -- start back button
-    local backButton = widget.newButton({
-        id = "button",
-        label = "<",
-        font = native.systemFontBold,
-        fontSize = 100,
-        onEvent = handleCancelButtonEvent
-    })
-    backButton.x = display.contentWidth - 420
-    backButton.y = display.contentHeight - 750
-    sceneGroup:insert( backButton )
-    -- end back button
+
+    --back button
+	local backBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/back.png"
+	}
+	backBtn.x = display.contentWidth - 420
+  backBtn.y = display.contentHeight - 750
+	backBtn.destination = "game_levels"
+	backBtn:addEventListener("tap", btnTap)
+	sceneGroup:insert(backBtn)
+    --/back button]]--
     
-    -- start next button
-    local nextButton = widget.newButton{
-        id = "button",
-        label = "Next Level Button",
-        shape = "rect",
-        width = 235,
-        height = 80,
-        fillColor = { default={ 1, 1, 1, 1 }, over={ 1, 0.1, 0.7, 0.4 } },
-        strokeColor = { default={ 0.300, 0.667, 1, 1 }, over={ 1, 1, 1, 1 } },
-        strokeWidth = 6,
-        font = native.systemFontBold,
-        fontSize = 25,
-        --onEvent = handleCancelButtonEvent
-    }
-    nextButton.x = display.contentWidth - 120
-    nextButton.y = display.contentHeight - 43
-    sceneGroup:insert( nextButton )
+  --pause button
+  local pauseBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/pauseBtn.png"
+	}
+	pauseBtn.x = display.contentWidth -230
+  pauseBtn.y = display.contentHeight - 40
+	--pauseBtn.destination = "game_levels"
+	pauseBtn:addEventListener("tap", btnTap)
+	sceneGroup:insert(pauseBtn)
+  --/pause button
+  
+  --next button
+  local nextBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/nextBtn.png"
+	}
+	nextBtn.x = display.contentWidth -420
+  nextBtn.y = display.contentHeight - 40
+	nextBtn.destination = "game_levels"
+	nextBtn:addEventListener("tap", btnTap)
+	sceneGroup:insert(nextBtn)
+  --/next button
+  
+  --replay button
+  local reloadBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/reloadBtn.png"
+	}
+	reloadBtn.x = display.contentWidth -50
+  reloadBtn.y = display.contentHeight - 40
+	reloadBtn.destination = "game_levels"
+	reloadBtn:addEventListener("tap", btnTap)
+	sceneGroup:insert(reloadBtn)
+  --/replay button
+ 
     
     -- If the level is locked, disable the button and fade it out.
     if ( mydata.settings.unlockedLevels == nil ) then
       mydata.settings.unlockedLevels = 1
     end
     if ( 2 < mydata.settings.unlockedLevels ) then
-      nextButton:setEnabled( true )
-      nextButton.alpha = 1
+      nextBtn:setEnabled( true )
+      nextBtn.alpha = 1
     else 
-      nextButton:setEnabled( false ) 
-      nextButton.alpha = 0.667
+      nextBtn:setEnabled( false ) 
+      nextBtn.alpha = 0.667
     end 
-    -- end next button
-    
-    -- start replay button
-    local replayButton = widget.newButton{
-        label = "Replay Button",
-        fontSize = 30,
-        shape = "rect",
-        width = 235,
-        height = 80,
-        defaultFile = "refresh.png",
-        overFile = "refresh.png",
-        strokeColor = { default={ 0.300, 0.667, 1, 1 }, over={ 1, 1, 1, 1 } },
-        strokeWidth = 6
-        --onEvent = handleCancelButtonEvent
-    }
-    replayButton.x = display.contentWidth - 360
-    replayButton.y = display.contentHeight - 43
-    sceneGroup:insert( replayButton )
-    --end replay button
-    
+   
     -- start timer
-    local displayTimer = display.newText("0", 100, 100, native.systemFont, 40)
-    displayTimer.x = display.contentCenterX
-    displayTimer.y = display.contentCenterY + 270
+    --actual
+    local displayTimer = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
+    displayTimer.x = 100
+    displayTimer.y = 130
     displayTimer:setTextColor(1,0,0)
     sceneGroup:insert( displayTimer )
+    
+  display.setStatusBar(display.HiddenStatusBar) time = 0
+ 
+  local timeUsed = display.newText( time, 100, 100, native.systemFont, 30 )
+  timeUsed.x = 200
+  timeUsed.y = 130
+  timeUsed:setTextColor( 1,0,0 )
+  function displayTime()
+    time = time + 1
+    timeUsed.text = time
+  end
+  timer.performWithDelay(1000, displayTime, 0)
+    
+    --time limit
+    local timelimit = display.newText("Time Limit: 20 seconds", 100, 100, native.systemFont, 30)
+    timelimit.x = 180
+    timelimit.y = 670
+    timelimit:setTextColor(1,0,0)
+    sceneGroup:insert( timelimit )
     -- end timer
     
     -- start draw circle
@@ -851,7 +896,7 @@ end
                   checkXRightPosition(group, block1, block2, block3)
                   --spot = RIGHT
                 end
-                transition.to( event.target, { time=500, x=spot } )
+                transition.to( event.target, { time=2500, x=spot } )
             elseif ( dX  < -20 ) then
                 checkXLeftPosition(group, block1, block2, block3)
                 if ( event.target.x == RIGHT ) then
@@ -859,7 +904,7 @@ end
                 elseif(event.target.x == LEFT) then
                   checkXLeftPosition(group, block1, block2, block3)
                 end
-                transition.to( event.target, { time=500, x=spot } )
+                transition.to( event.target, { time=2500, x=spot } )
             end
             --y-axis(up and down movement) = 
             local dY = event.y - event.yStart
@@ -872,7 +917,7 @@ end
                   print(group.x )
                   print(group.y)
               end
-              transition.to( event.target, { time = 500, y = spot } )
+              transition.to( event.target, { time = 2500, y = spot } )
             elseif ( dY < -20 ) then
               --local spot = UP
               checkYUpPosition(group, block1, block2, block3)
@@ -881,7 +926,7 @@ end
               elseif(event.target.y == UP) then
                 checkYUpPosition(group, block1, block2, block3) 
               end
-              transition.to( event.target, { time = 500,  y = spot } )
+              transition.to( event.target, { time = 2500,  y = spot } )
             end
             --end sa y
         end
@@ -890,6 +935,10 @@ end
       
       
       group:addEventListener("touch", handleSwipe)  
+end
+
+local function proceedToNextLevel(group)
+  --insert code
 end
 
 
