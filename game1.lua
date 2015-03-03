@@ -16,6 +16,26 @@ local function handleCancelButtonEvent( event )
     end
 end
 
+local function btnTap(event)
+    storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+    return true
+end
+
+local function onComplete( event )
+  if event.action == "clicked" then
+      local i = event.index
+      if i == 1 then
+        -- back to main menu
+        storyboard.gotoScene( "menu")
+      elseif i == 2 then
+        -- replay level
+        storyboard.gotoScene( "game1", { effect = "crossFade", time = 333 })
+      elseif i == 3 then
+        storyboard.gotoScene("game2", {effect = "crossFade", time = 333})
+      end
+  end
+end
+
 local function checkXLeftPosition(group)
   for i=1, group.numChildren do
     if i == 1 then
@@ -161,6 +181,18 @@ function scene:createScene( event )
     background.y = display.contentCenterY
     sceneGroup:insert(background)
     -- end background
+
+    local levelUp = display.newRect(0, 0, 1200, 180)
+    levelUp.x = 0
+    levelUp.y = 0
+    levelUp:setFillColor(0, 255, 255)
+    sceneGroup:insert(levelUp)
+
+    local levelDown = display.newRect(0, 0, 1200, 180)
+    levelDown.x = 0
+    levelDown.y = 800
+    levelDown:setFillColor(0, 255, 255)
+    sceneGroup:insert(levelDown)
     
     local level1 = display.newText( "Level 1", 100, 100, native.systemFont, 55 )
     level1.x = display.contentCenterX
@@ -204,74 +236,96 @@ function scene:createScene( event )
     -- end of grid
      
 
-    -- start back button
-    local backButton = widget.newButton({
-        id = "button",
-        label = "<",
-        font = native.systemFontBold,
-        fontSize = 100,
-        onEvent = handleCancelButtonEvent
-    })
-    backButton.x = display.contentWidth - 420
-    backButton.y = display.contentHeight - 750
-    sceneGroup:insert( backButton )
-    -- end back button
-    
-    -- start next button
-    local nextButton = widget.newButton{
-        id = "button",
-        label = "Next Level Button",
-        shape = "rect",
-        width = 235,
-        height = 80,
-        fillColor = { default={ 1, 1, 1, 1 }, over={ 1, 0.1, 0.7, 0.4 } },
-        strokeColor = { default={ 0.300, 0.667, 1, 1 }, over={ 1, 1, 1, 1 } },
-        strokeWidth = 6,
-        font = native.systemFontBold,
-        fontSize = 25,
-        --onEvent = handleCancelButtonEvent
+    --back button
+    local backBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/back.png"
     }
-    nextButton.x = display.contentWidth - 120
-    nextButton.y = display.contentHeight - 43
-    sceneGroup:insert( nextButton )
+    backBtn.x = display.contentWidth - 420
+    backBtn.y = display.contentHeight - 750
+    backBtn.destination = "game_levels"
+    backBtn:addEventListener("tap", btnTap)
+    sceneGroup:insert(backBtn)
+    --/back button]]--
+    
+  --pause button
+  local pauseBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/pauseBtn.png"
+    }
+    pauseBtn.x = display.contentWidth -230
+    pauseBtn.y = display.contentHeight - 40
+    --pauseBtn.destination = "game_levels"
+    pauseBtn:addEventListener("tap", btnTap)
+    sceneGroup:insert(pauseBtn)
+  --/pause button
+  
+  --next button
+  local nextBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/nextBtn.png"
+    }
+    nextBtn.x = display.contentWidth -420
+    nextBtn.y = display.contentHeight - 40
+    nextBtn.destination = "game_levels"
+    nextBtn:addEventListener("tap", btnTap)
+    sceneGroup:insert(nextBtn)
+  --/next button
+  
+  --replay button
+  local reloadBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/reloadBtn.png"
+    }
+    reloadBtn.x = display.contentWidth -50
+  reloadBtn.y = display.contentHeight - 40
+    reloadBtn.destination = "game_levels"
+    reloadBtn:addEventListener("tap", btnTap)
+    sceneGroup:insert(reloadBtn)
+  --/replay button
+ 
     
     -- If the level is locked, disable the button and fade it out.
     if ( mydata.settings.unlockedLevels == nil ) then
       mydata.settings.unlockedLevels = 1
     end
     if ( 2 < mydata.settings.unlockedLevels ) then
-      nextButton:setEnabled( true )
-      nextButton.alpha = 1
+      nextBtn:setEnabled( true )
+      nextBtn.alpha = 1
     else 
-      nextButton:setEnabled( false ) 
-      nextButton.alpha = 0.667
+      nextBtn:setEnabled( false ) 
+      nextBtn.alpha = 0.667
     end 
-    -- end next button
-    
-    -- start replay button
-    local replayButton = widget.newButton{
-        label = "Replay Button",
-        fontSize = 30,
-        shape = "rect",
-        width = 235,
-        height = 80,
-        defaultFile = "refresh.png",
-        overFile = "refresh.png",
-        strokeColor = { default={ 0.300, 0.667, 1, 1 }, over={ 1, 1, 1, 1 } },
-        strokeWidth = 6
-        --onEvent = handleCancelButtonEvent
-    }
-    replayButton.x = display.contentWidth - 360
-    replayButton.y = display.contentHeight - 43
-    sceneGroup:insert( replayButton )
-    --end replay button
     
     -- start timer
+    local displayTimeUsed = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
+    displayTimeUsed.x = 100
+    displayTimeUsed.y = 130
+    displayTimeUsed:setTextColor(1,0,0)
+    sceneGroup:insert(displayTimeUsed)
+
     local displayTimer = display.newText("0", 100, 100, native.systemFont, 40)
-    displayTimer.x = display.contentCenterX
-    displayTimer.y = display.contentCenterY + 270
+    displayTimer.x = 200
+    displayTimer.y = 130
     displayTimer:setTextColor(1,0,0)
     sceneGroup:insert( displayTimer )
+
+    function displayTime(event)
+      displayTimer.text = event.count
+      -- do
+      if event.count == 20 then
+        timer.cancel(event.source)
+        -- nagamit ang time pero wala nasolve.
+        --native.showAlert("Time's up.", "Congratulations you win the game.", {"Back To Main Menu", "Replay"}, onComplete)
+        native.showAlert("Time's up.", "Congratulations you win the game.", {"Back To Main Menu", "Replay", "Next Level"}, onComplete)
+        print("Timer is canceled.")
+      end
+    end
+    timer.performWithDelay(1000, displayTime, 0)
     -- end timer
     
     -- start draw circle
@@ -300,6 +354,11 @@ function scene:createScene( event )
     local UP = -17
     local DOWN = 150
     
+    local function checkSpot(group)
+      if group[1].x == 90 and group[1].y == 400 then
+        print("You win.")
+      end
+    end
 
     local function handleSwipe( event )
         if ( event.phase == "moved" ) then
@@ -307,6 +366,7 @@ function scene:createScene( event )
             --print( event.x, event.xStart, dX )
             if ( dX > 5 ) then
                 --swipe right
+                print("1: ", group[1].x, group[1].y, " 2:", group[2].x, group[2].y, " 3:", group[3].x, group[3].y)
                 local spot = RIGHT
                 if ( event.target.x == LEFT ) then
                     spot = CENTERX - 10
@@ -317,6 +377,7 @@ function scene:createScene( event )
                 transition.to( event.target, { time=500, x=spot } )
             elseif ( dX  < -20 ) then
                 --swipe left
+              print("1: ", group[1].x, group[1].y, " 2:", group[2].x, group[2].y, " 3:", group[3].x, group[3].y)
                 local spot = LEFT
                 if ( event.target.x == RIGHT ) then
                   spot = CENTERX - 10 
@@ -328,14 +389,17 @@ function scene:createScene( event )
             --y-axis(up and down movement) = 
             local dY = event.y - event.yStart
             if (dY > 10) then
+              print("1: ", group[1].x, group[1].y, " 2:", group[2].x, group[2].y, " 3:", group[3].x, group[3].y)
               local spot = DOWN 
               if ( event.target.y == UP )  then
                   spot = CENTERY
               elseif( event.target.y == DOWN) then
                   checkYDownPosition(group)
               end
+              checkSpot(group)
               transition.to( event.target, { time = 500, y = spot } )
             elseif ( dY < -10 ) then
+              print("1: ", group[1].x, group[1].y, " 2:", group[2].x, group[2].y, " 3:", group[3].x, group[3].y)
               local spot = UP
               if ( event.target.y == DOWN) then
                   spot = CENTERY
