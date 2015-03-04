@@ -301,33 +301,6 @@ function scene:createScene( event )
       nextBtn.alpha = 0.667
     end 
     
-    -- start timer
-    local displayTimeUsed = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
-    displayTimeUsed.x = 100
-    displayTimeUsed.y = 130
-    displayTimeUsed:setTextColor(1,0,0)
-    sceneGroup:insert(displayTimeUsed)
-
-    local displayTimer = display.newText("0", 100, 100, native.systemFont, 40)
-    displayTimer.x = 200
-    displayTimer.y = 130
-    displayTimer:setTextColor(1,0,0)
-    sceneGroup:insert( displayTimer )
-
-    function displayTime(event)
-      displayTimer.text = event.count
-      -- do
-      if event.count == 20 then
-        timer.cancel(event.source)
-        -- nagamit ang time pero wala nasolve.
-        --native.showAlert("Time's up.", "Congratulations you win the game.", {"Back To Main Menu", "Replay"}, onComplete)
-        native.showAlert("Time's up.", "Congratulations you win the game.", {"Back To Main Menu", "Replay", "Next Level"}, onComplete)
-        print("Timer is canceled.")
-      end
-    end
-    timer.performWithDelay(1000, displayTime, 0)
-    -- end timer
-    
     -- start draw circle
     local circle1 = display.newCircle(90, 255, 50)
     circle1:setFillColor(100, 0, 250) 
@@ -346,6 +319,44 @@ function scene:createScene( event )
     
     -- end circle
     
+    -- start timer
+    local displayTimeUsed = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
+    displayTimeUsed.x = 100
+    displayTimeUsed.y = 130
+    displayTimeUsed:setTextColor(1,0,0)
+    sceneGroup:insert(displayTimeUsed)
+
+    local displayTimer = display.newText("0", 100, 100, native.systemFont, 40)
+    displayTimer.x = 200
+    displayTimer.y = 130
+    displayTimer:setTextColor(1,0,0)
+    sceneGroup:insert( displayTimer )
+
+    function displayTime(event)
+      local params = event.source.params
+      displayTimer.text = event.count
+      -- do
+      if event.count < 20 then
+        if (params[1].x == 165 and params[1].y == 150) and (circle1.x == 90 and circle1.y == 400) and (circle1.x ~= circle2.x and circle1.x ~= circle3) then
+          timer.cancel(event.source)
+          native.showAlert("Time's up.", "Congratulations you win the game.", {"Back To Main Menu", "Replay", "Next Level"}, onComplete)
+        end
+      elseif event.count == 20 then
+        timer.cancel(event.source)
+        if (params[1].x == 165 and params[1].y == 150) and (circle1.x == 90 and circle1.y == 400) and (circle1.x ~= circle2.x and circle1.x ~= circle3) then
+          native.showAlert("Time's up.", "Congratulations you win the game.", {"Back To Main Menu", "Replay", "Next Level"}, onComplete)
+        else 
+          native.showAlert("I'm sorry", "You lose the game.", {"Back To Main Menu", "Replay"}, onComplete)
+        end
+        print("group x", params[1].x, "circle 1", circle1.x)
+      end
+    end
+    local tmr = timer.performWithDelay(1000, displayTime, 0)
+    tmr.params = {group}
+
+    -- end timer
+
+
     --move dots
     local CENTERX = display.contentWidth - 450
     local CENTERY = display.contentHeight - 640
@@ -354,12 +365,6 @@ function scene:createScene( event )
     local UP = -17
     local DOWN = 150
     
-    local function checkSpot(group)
-      if group[1].x == 90 and group[1].y == 400 then
-        print("You win.")
-      end
-    end
-
     local function handleSwipe( event )
         if ( event.phase == "moved" ) then
             local dX = event.x - event.xStart
@@ -396,8 +401,8 @@ function scene:createScene( event )
               elseif( event.target.y == DOWN) then
                   checkYDownPosition(group)
               end
-              checkSpot(group)
               transition.to( event.target, { time = 500, y = spot } )
+              print("Please ", group.x, group.y, circle1.x)
             elseif ( dY < -10 ) then
               print("1: ", group[1].x, group[1].y, " 2:", group[2].x, group[2].y, " 3:", group[3].x, group[3].y)
               local spot = UP
