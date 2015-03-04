@@ -6,6 +6,8 @@ local mydata = require( "mydata" )
 local physics = require("physics")
 physics.start()
 
+require("timer2")
+
 --fix positions of dots in every grid (x and y coordinates)
 local x1 = 90
 local x2 = 245
@@ -16,13 +18,35 @@ local y3 = 550
 
 local params
 
-  local function handleCancelButtonEvent( event )
+local function handleCancelButtonEvent( event )
 
-    if ( "ended" == event.phase ) then
-        storyboard.removeScene( "game_levels", false )
-        storyboard.gotoScene( "game_levels", { effect = "crossFade", time = 333 } )
-    end
+  if ( "ended" == event.phase ) then
+    storyboard.removeScene( "game_levels", false )
+    storyboard.gotoScene( "game_levels", { effect = "crossFade", time = 333 } )
   end
+end
+
+local function btnTap(event)
+  timer.cancel(tmr)
+  storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+  return true
+end
+
+local function pausebtnTap(event)
+  event.target.xScale = 0.95
+  event.target.yScale = 0.95
+  timer.pause(gameTimer)
+  --
+  storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+  return true
+end
+
+local function reloadbtnTap(event)
+  timer.cancel(gameTimer)
+  time = 0
+  storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+  return true
+end
 
   -- Start the storyboard event handlers
   function scene:createScene( event )
@@ -36,6 +60,18 @@ local params
     background.y = display.contentCenterY
     sceneGroup:insert(background)
     -- end background
+
+    local levelUp = display.newRect(0, 0, 1200, 180)
+    levelUp.x = 0
+    levelUp.y = 0
+    levelUp:setFillColor(0, 255, 255)
+    sceneGroup:insert(levelUp)
+
+    local levelDown = display.newRect(0, 0, 1200, 180)
+    levelDown.x = 0
+    levelDown.y = 800
+    levelDown:setFillColor(0, 255, 255)
+    sceneGroup:insert(levelDown)
     
     local level1 = display.newText( "Level 5", 100, 100, native.systemFont, 55 )
     level1.x = display.contentCenterX
@@ -79,75 +115,70 @@ local params
     -- end of grid
      
 
-    -- start back button
-    local backButton = widget.newButton({
-        id = "button",
-        label = "<",
-        font = native.systemFontBold,
-        fontSize = 100,
-        onEvent = handleCancelButtonEvent
-    })
-    backButton.x = display.contentWidth - 420
-    backButton.y = display.contentHeight - 750
-    sceneGroup:insert( backButton )
-    -- end back button
-    
-    -- start next button
-    local nextButton = widget.newButton{
-        id = "button",
-        label = "Next Level Button",
-        shape = "rect",
-        width = 235,
-        height = 80,
-        fillColor = { default={ 1, 1, 1, 1 }, over={ 1, 0.1, 0.7, 0.4 } },
-        strokeColor = { default={ 0.300, 0.667, 1, 1 }, over={ 1, 1, 1, 1 } },
-        strokeWidth = 6,
-        font = native.systemFontBold,
-        fontSize = 25,
-        --onEvent = handleCancelButtonEvent
+    --back button
+    local backBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/back.png"
     }
-    nextButton.x = display.contentWidth - 120
-    nextButton.y = display.contentHeight - 43
-    sceneGroup:insert( nextButton )
+    backBtn.x = display.contentWidth - 420
+    backBtn.y = display.contentHeight - 750
+    backBtn.destination = "game_levels"
+    backBtn:addEventListener("tap", btnTap)
+    sceneGroup:insert(backBtn)
+    --/back button]]--
+    
+  --pause button
+  local pauseBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/pauseBtn.png"
+    }
+    pauseBtn.x = display.contentWidth -230
+    pauseBtn.y = display.contentHeight - 40
+    --pauseBtn.destination = "game_levels"
+    pauseBtn:addEventListener("tap", btnTap)
+    sceneGroup:insert(pauseBtn)
+  --/pause button
+  
+  --next button
+  local nextBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/nextBtn.png"
+    }
+    nextBtn.x = display.contentWidth -420
+    nextBtn.y = display.contentHeight - 40
+    nextBtn.destination = "game_levels"
+    nextBtn:addEventListener("tap", btnTap)
+    sceneGroup:insert(nextBtn)
+  --/next button
+  
+  --replay button
+  local reloadBtn = widget.newButton{
+    width = 70,
+    height = 70,
+    defaultFile = "images/reloadBtn.png"
+    }
+    reloadBtn.x = display.contentWidth -50
+    reloadBtn.y = display.contentHeight - 40
+    reloadBtn.destination = "game_levels"
+    reloadBtn:addEventListener("tap", btnTap)
+    sceneGroup:insert(reloadBtn)
+  --/replay button
+ 
     
     -- If the level is locked, disable the button and fade it out.
     if ( mydata.settings.unlockedLevels == nil ) then
       mydata.settings.unlockedLevels = 1
     end
     if ( 2 < mydata.settings.unlockedLevels ) then
-      nextButton:setEnabled( true )
-      nextButton.alpha = 1
+      nextBtn:setEnabled( true )
+      nextBtn.alpha = 1
     else 
-      nextButton:setEnabled( false ) 
-      nextButton.alpha = 0.667
+      nextBtn:setEnabled( false ) 
+      nextBtn.alpha = 0.667
     end 
-    -- end next button
-    
-    -- start replay button
-    local replayButton = widget.newButton{
-        label = "Replay Button",
-        fontSize = 30,
-        shape = "rect",
-        width = 235,
-        height = 80,
-        defaultFile = "refresh.png",
-        overFile = "refresh.png",
-        strokeColor = { default={ 0.300, 0.667, 1, 1 }, over={ 1, 1, 1, 1 } },
-        strokeWidth = 6
-        --onEvent = handleCancelButtonEvent
-    }
-    replayButton.x = display.contentWidth - 360
-    replayButton.y = display.contentHeight - 43
-    sceneGroup:insert( replayButton )
-    --end replay button
-    
-    -- start timer
-    local displayTimer = display.newText("0", 100, 100, native.systemFont, 40)
-    displayTimer.x = display.contentCenterX
-    displayTimer.y = display.contentCenterY + 270
-    displayTimer:setTextColor(1,0,0)
-    sceneGroup:insert( displayTimer )
-    -- end timer
     
     -- start draw circle
     local circle1 = display.newCircle(400, 255, 50)
@@ -179,6 +210,40 @@ local params
     sceneGroup:insert(block1)
     sceneGroup:insert(block2)
     --end sa block
+
+    -- start timer
+    local displayTimeUsed = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
+    displayTimeUsed.x = 100
+    displayTimeUsed.y = 130
+    displayTimeUsed:setTextColor(1,0,0)
+    sceneGroup:insert(displayTimeUsed)
+
+    local gameTimer = display.newText("0", 100, 100, native.systemFont, 40)
+    gameTimer.x = 200
+    gameTimer.y = 130
+    gameTimer:setTextColor(1,0,0)
+    sceneGroup:insert( gameTimer )
+
+    function displayTime(event)
+      local params = event.source.params
+      gameTimer.text = event.count
+      if event.count < 4 then
+        if (circle1.x == 90 and circle2.x == 245 and circle3.x == 90) and (circle1.y == 255 and circle2.y == 550 and circle3.y == 550) then
+          timer.cancel(event.source)
+          storyboard.showOverlay( "popupalert_success" ,{effect = "fade", params ={levelNum = "game5"}, isModal = true} )
+        end
+      elseif event.count == 4 then
+        timer.cancel(event.source)
+        if (circle1.x == 90 and circle2.x == 245 and circle3.x == 90) and (circle1.y == 255 and circle2.y == 550 and circle3.y == 550) then
+          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  , params ={levelNum = "game5"}, isModal = true} )
+        else 
+          storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  , params ={levelNum = "game5"}, isModal = true} )
+        end
+      end
+    end
+
+    local tmr = timer.performWithDelay(1000, displayTime, 0)
+    -- end timer
     
   local function checkXLeftPosition(group, block1, block2)
     for i=1, group.numChildren do

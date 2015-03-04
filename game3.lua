@@ -6,7 +6,7 @@ local mydata = require( "mydata" )
 local physics = require("physics")
 physics.start()
 
-local params
+require("timer2")
 
 local function handleCancelButtonEvent( event )
 
@@ -17,24 +17,25 @@ local function handleCancelButtonEvent( event )
 end
 
 local function btnTap(event)
+    timer.cancel(tmr)
     storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
     return true
 end
 
-local function onComplete( event )
-  if event.action == "clicked" then
-      local i = event.index
-      if i == 1 then
-        -- back to main menu
-        storyboard.gotoScene( "menu")
-      elseif i == 2 then
-        -- replay level
-        storyboard.gotoScene( "game3", { effect = "crossFade", time = 333 })
-      elseif i == 3 then
-        mydata.settings.unlockedLevels = 4
-        storyboard.gotoScene("game4", {effect = "crossFade", time = 333})
-      end
-  end
+local function pausebtnTap(event)
+    event.target.xScale = 0.95
+    event.target.yScale = 0.95
+  timer.pause(gameTimer)
+    --
+    storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+    return true
+end
+
+local function reloadbtnTap(event)
+  timer.cancel(gameTimer)
+  time = 0
+  storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+    return true
 end
 
 -- Start the storyboard event handlers
@@ -140,7 +141,7 @@ function scene:createScene( event )
     }
     nextBtn.x = display.contentWidth -420
     nextBtn.y = display.contentHeight - 40
-    nextBtn.destination = "game_levels"
+    nextBtn.destination = "game4"
     nextBtn:addEventListener("tap", btnTap)
     sceneGroup:insert(nextBtn)
   --/next button
@@ -214,15 +215,6 @@ function scene:createScene( event )
     sceneGroup:insert(block)
     --end sa block
     
-    local function daogKo(group)
-        if (group[1].x == 400 and group[1].y == 255) and (group[2].x == 245 and group[2].y == 255) and (group[3].x == 400 and group[3].y == 400) then
-            print("Yes.")
-            return true
-        else
-            return false
-        end
-    end
-
     -- start timer
     local displayTimeUsed = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
     displayTimeUsed.x = 100
@@ -230,26 +222,28 @@ function scene:createScene( event )
     displayTimeUsed:setTextColor(1,0,0)
     sceneGroup:insert(displayTimeUsed)
 
-    local displayTimer = display.newText("0", 100, 100, native.systemFont, 40)
-    displayTimer.x = 200
-    displayTimer.y = 130
-    displayTimer:setTextColor(1,0,0)
-    sceneGroup:insert( displayTimer )
+    local gameTimer = display.newText("0", 100, 100, native.systemFont, 40)
+    gameTimer.x = 200
+    gameTimer.y = 130
+    gameTimer:setTextColor(1,0,0)
+    sceneGroup:insert( gameTimer )
 
     function displayTime(event)
       --  local params = event.source.params
-      displayTimer.text = event.count
-        if event.count < 20 then
+      gameTimer.text = event.count
+        if event.count < 4 then
             if (circle1.x == 400 and circle1.y == 255) and (circle2.x == 245 and circle2.y == 255) and (circle3.x == 400 and circle3.y == 400) then
                 timer.cancel(event.source)
-                native.showAlert("Congratulations", "You win the game.", {"Main Menu", "Replay", "Next Level"}, onComplete)
+                mydata.settings.unlockedLevels = 4
+                storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
             end
-        elseif event.count == 20 then
+        elseif event.count == 4 then
             timer.cancel(event.source)
             if (circle1.x == 400 and circle1.y == 255) and (circle2.x == 245 and circle2.y == 255) and (circle3.x == 400 and circle3.y == 400) then
-                native.showAlert("Congratulations", "You win the game.", {"Main Menu", "Replay", "Next Level"}, onComplete)
+                mydata.settings.unlockedLevels = 4
+                storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
             else
-                native.showAlert("Time's up.", "Better luck next time.", {"Main Menu", "Replay"}, onComplete)
+                storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
             end
         end
     end

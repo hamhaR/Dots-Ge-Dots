@@ -26,6 +26,7 @@ local function handleCancelButtonEvent( event )
 end
 
 local function btnTap(event)
+  timer.cancel(gameTimer)
 	storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
 	return true
 end
@@ -181,38 +182,7 @@ function scene:createScene( event )
       nextBtn:setEnabled( false ) 
       nextBtn.alpha = 0.667
     end 
-   
-    --start timer
-    --actual
-    local displayTimer = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
-    displayTimer.x = 100
-    displayTimer.y = 130
-    displayTimer:setTextColor(1,0,0)
-    sceneGroup:insert( displayTimer )
-    
-  display.setStatusBar(display.HiddenStatusBar) time = 0
- 
-  local timeUsed = display.newText( time, 100, 100, native.systemFont, 30 )
-  timeUsed.x = 200
-  timeUsed.y = 130
-  timeUsed:setTextColor( 1,0,0 )
-  function displayTime()
-    time = time + 1
-    timeUsed.text = time
-  end
-  local gameTimer = timer.performWithDelay(1000, displayTime, 0)
-  sceneGroup:insert(timeUsed)
-    
-    --time limit
-    local timelimit = display.newText("Time Limit: 20 seconds", 100, 100, native.systemFont, 30)
-    timelimit.x = 180
-    timelimit.y = 670
-    timelimit:setTextColor(1,0,0)
-    sceneGroup:insert( timelimit )
-    -- end timer
-    
-
-    
+  
     -- start draw circle
     local circle1 = display.newCircle(90, 255, 50)
     circle1:setFillColor(100, 0, 250) 
@@ -247,6 +217,43 @@ function scene:createScene( event )
     sceneGroup:insert(block2)
    
     --end sa block
+
+    -- start timer
+    local displayTimeUsed = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
+    displayTimeUsed.x = 100
+    displayTimeUsed.y = 130
+    displayTimeUsed:setTextColor(1,0,0)
+    sceneGroup:insert(displayTimeUsed)
+
+    local gameTimer = display.newText("0", 100, 100, native.systemFont, 40)
+    gameTimer.x = 200
+    gameTimer.y = 130
+    gameTimer:setTextColor(1,0,0)
+    sceneGroup:insert(gameTimer)
+
+    function displayTime(event)
+      local params = event.source.params
+      gameTimer.text = event.count
+      if event.count < 4 then
+        if (circle1.x == 245 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 400 and circle2.y == 400 and circle3.y == 550) then
+          timer.cancel(event.source)
+          mydata.settings.unlockedLevels = 3
+          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        end
+      elseif event.count == 4 then
+        timer.cancel(event.source)
+        if (circle1.x == 245 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 400 and circle2.y == 400 and circle3.y == 550) then
+          mydata.settings.unlockedLevels = 3
+          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        else 
+          storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        end
+      end
+    end
+    
+    local tmr = timer.performWithDelay(1000, displayTime, 0)
+
+    -- end timer
     
     --physics part(checks left, right, up and down positions of every dot with respect to toher dots and to blocks)
   local function checkXLeftPosition(group, block1, block2, block3)
@@ -937,6 +944,7 @@ end
                   print(group.y)
               end
               transition.to( event.target, { time = 2500, y = spot } )
+              print("x: ", circle1.x, circle2.x, circle3.x, "\ny: ", circle1.y, circle2.y, circle3.y)
             elseif ( dY < -20 ) then
               --local spot = UP
               checkYUpPosition(group, block1, block2, block3)
