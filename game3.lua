@@ -21,15 +21,6 @@ local function btnTap(event)
     return true
 end
 
-local function daogKo(group)
-    if (group[1].x == 400 and group[1].y == 255) and (group[2].x == 245 and group[2].y == 255) and (group[3].x == 400 and group[3].y == 400) then
-        print("Yes.")
-        return true
-    else
-        return false
-    end
-end
-
 local function onComplete( event )
   if event.action == "clicked" then
       local i = event.index
@@ -40,6 +31,7 @@ local function onComplete( event )
         -- replay level
         storyboard.gotoScene( "game3", { effect = "crossFade", time = 333 })
       elseif i == 3 then
+        mydata.settings.unlockedLevels = 4
         storyboard.gotoScene("game4", {effect = "crossFade", time = 333})
       end
   end
@@ -222,6 +214,15 @@ function scene:createScene( event )
     sceneGroup:insert(block)
     --end sa block
     
+    local function daogKo(group)
+        if (group[1].x == 400 and group[1].y == 255) and (group[2].x == 245 and group[2].y == 255) and (group[3].x == 400 and group[3].y == 400) then
+            print("Yes.")
+            return true
+        else
+            return false
+        end
+    end
+
     -- start timer
     local displayTimeUsed = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
     displayTimeUsed.x = 100
@@ -236,24 +237,25 @@ function scene:createScene( event )
     sceneGroup:insert( displayTimer )
 
     function displayTime(event)
-        local params = event.source.params
+      --  local params = event.source.params
       displayTimer.text = event.count
-      -- do
-      if daogKo(params.myParam1) then
-        timer.cancel(event.source)
-        native.showAlert("Time's up.", "Congratulations you win the game.", {"Main Menu", "Replay", "Next Level"}, onComplete)
-      elseif event.count == 20 then
-        timer.cancel(event.source)
-        if daogKo(params.myParam1) then
-            native.showAlert("Time's up.", "Congratulations you win the game.", {"Main Menu", "Replay", "Next Level"}, onComplete)
-        else
-            native.showAlert("Time's up.", "Better luck next time.", {"Main Menu", "Replay"}, onComplete)
+        if event.count < 20 then
+            if (circle1.x == 400 and circle1.y == 255) and (circle2.x == 245 and circle2.y == 255) and (circle3.x == 400 and circle3.y == 400) then
+                timer.cancel(event.source)
+                native.showAlert("Congratulations", "You win the game.", {"Main Menu", "Replay", "Next Level"}, onComplete)
+            end
+        elseif event.count == 20 then
+            timer.cancel(event.source)
+            if (circle1.x == 400 and circle1.y == 255) and (circle2.x == 245 and circle2.y == 255) and (circle3.x == 400 and circle3.y == 400) then
+                native.showAlert("Congratulations", "You win the game.", {"Main Menu", "Replay", "Next Level"}, onComplete)
+            else
+                native.showAlert("Time's up.", "Better luck next time.", {"Main Menu", "Replay"}, onComplete)
+            end
         end
-        print("Timer is canceled.")
-      end
     end
+
     local tmr = timer.performWithDelay(1000, displayTime, 0)
-    tmr.params = {myParam1 = group}
+    --tmr.params = group
 
     -- end timer
 
