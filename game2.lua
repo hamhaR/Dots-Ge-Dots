@@ -30,6 +30,22 @@ local function btnTap(event)
 	return true
 end
 
+local function pausebtnTap(event)
+	event.target.xScale = 0.95
+	event.target.yScale = 0.95
+  timer.pause(gameTimer)
+	--
+	storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+	return true
+end
+
+local function reloadbtnTap(event)
+  timer.cancel(gameTimer)
+  time = 0
+  storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+	return true
+end
+
 -- Start the storyboard event handlers
 function scene:createScene( event )
     local sceneGroup = self.view
@@ -122,8 +138,8 @@ function scene:createScene( event )
 	}
 	pauseBtn.x = display.contentWidth -230
   pauseBtn.y = display.contentHeight - 40
-	--pauseBtn.destination = "game_levels"
-	pauseBtn:addEventListener("tap", btnTap)
+	pauseBtn.destination = "pause"
+	pauseBtn:addEventListener("tap", pausebtnTap)
 	sceneGroup:insert(pauseBtn)
   --/pause button
   
@@ -135,7 +151,7 @@ function scene:createScene( event )
 	}
 	nextBtn.x = display.contentWidth -420
   nextBtn.y = display.contentHeight - 40
-	nextBtn.destination = "game_levels"
+	nextBtn.destination = "game3"
 	nextBtn:addEventListener("tap", btnTap)
 	sceneGroup:insert(nextBtn)
   --/next button
@@ -148,8 +164,8 @@ function scene:createScene( event )
 	}
 	reloadBtn.x = display.contentWidth -50
   reloadBtn.y = display.contentHeight - 40
-	reloadBtn.destination = "game_levels"
-	reloadBtn:addEventListener("tap", btnTap)
+	reloadBtn.destination = "game2"
+	reloadBtn:addEventListener("tap", reloadbtnTap)
 	sceneGroup:insert(reloadBtn)
   --/replay button
  
@@ -166,7 +182,7 @@ function scene:createScene( event )
       nextBtn.alpha = 0.667
     end 
    
-    -- start timer
+    --start timer
     --actual
     local displayTimer = display.newText("Time Used: ", 100, 100, 'Marker Felt', 30)
     displayTimer.x = 100
@@ -184,7 +200,8 @@ function scene:createScene( event )
     time = time + 1
     timeUsed.text = time
   end
-  timer.performWithDelay(1000, displayTime, 0)
+  local gameTimer = timer.performWithDelay(1000, displayTime, 0)
+  sceneGroup:insert(timeUsed)
     
     --time limit
     local timelimit = display.newText("Time Limit: 20 seconds", 100, 100, native.systemFont, 30)
@@ -193,6 +210,8 @@ function scene:createScene( event )
     timelimit:setTextColor(1,0,0)
     sceneGroup:insert( timelimit )
     -- end timer
+    
+
     
     -- start draw circle
     local circle1 = display.newCircle(90, 255, 50)

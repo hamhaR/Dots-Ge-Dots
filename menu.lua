@@ -19,6 +19,7 @@ end
 -- called when the scene's view does not exist
 function scene:createScene(event)
   local group = self.view
+ 
   
   local gameTitle = display.newText( "Dots Ge Dots", 100, 100, "Helvetica", 65 )
   gameTitle.x = display.contentCenterX
