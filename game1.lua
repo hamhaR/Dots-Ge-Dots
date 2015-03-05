@@ -312,6 +312,12 @@ function scene:createScene( event )
     gameTimer.y = 130
     gameTimer:setTextColor(1,0,0)
     sceneGroup:insert(gameTimer)
+    
+    local timeLimit = display.newText("Time Limit: 5 seconds", 100, 100, 'Marker Felt', 30)
+    timeLimit.x = 170
+    timeLimit.y = 670
+    timeLimit:setTextColor(1,0,0)
+    sceneGroup:insert(timeLimit)
 
     function displayTime(event)
       local params = event.source.params
