@@ -273,7 +273,7 @@ function scene:createScene( event )
                 print("sus oy")
             end
             print("woah")
-        elseif group[1].x > 240 and group[3].y ~= block[3].y then
+        elseif group[1].x == 250 and group[3].x == 400 and group[1].y == group[3].y and group[3].y ~= block[3].y then
                 group[1].x = group[1].x - 155   
                 group[3].x = group[3].x - 155
                 print("handsome")
