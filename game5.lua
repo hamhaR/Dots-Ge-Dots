@@ -27,7 +27,7 @@ local function handleCancelButtonEvent( event )
 end
 
 local function btnTap(event)
-  timer.cancel(tmr)
+  timer.cancel(gameTimer)
   storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
   return true
 end
@@ -37,7 +37,7 @@ local function pausebtnTap(event)
   event.target.yScale = 0.95
   timer.pause(gameTimer)
   --
-  storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+  storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game5"}, isModal = true} )
   return true
 end
 
@@ -137,7 +137,7 @@ end
     pauseBtn.x = display.contentWidth - 340
     pauseBtn.y = display.contentHeight - 40
     --pauseBtn.destination = "game_levels"
-    pauseBtn:addEventListener("tap", btnTap)
+    pauseBtn:addEventListener("tap", pausebtnTap)
     sceneGroup:insert(pauseBtn)
   --/pause button
   
@@ -149,8 +149,8 @@ end
     }
     reloadBtn.x = display.contentWidth - 140
     reloadBtn.y = display.contentHeight - 40
-    reloadBtn.destination = "game_levels"
-    reloadBtn:addEventListener("tap", btnTap)
+    --reloadBtn.destination = "game_levels"
+    reloadBtn:addEventListener("tap", reloadbtnTap)
     sceneGroup:insert(reloadBtn)
   --/replay button
    

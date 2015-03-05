@@ -17,7 +17,7 @@ local function handleCancelButtonEvent( event )
 end
 
 local function btnTap(event)
-    timer.cancel(tmr)
+    timer.cancel(gameTimer)
     storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
     return true
 end
@@ -27,7 +27,7 @@ local function pausebtnTap(event)
     event.target.yScale = 0.95
   timer.pause(gameTimer)
     --
-    storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+    storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game4"}, isModal = true} )
     return true
 end
 
@@ -125,10 +125,10 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/pauseBtn.png"
     }
-    pauseBtn.x = display.contentWidth - 140
+    pauseBtn.x = display.contentWidth - 340
     pauseBtn.y = display.contentHeight - 40
     --pauseBtn.destination = "game_levels"
-    pauseBtn:addEventListener("tap", btnTap)
+    pauseBtn:addEventListener("tap", pausebtnTap)
     sceneGroup:insert(pauseBtn)
   --/pause button
   
@@ -139,10 +139,10 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/reloadBtn.png"
     }
-    reloadBtn.x = display.contentWidth - 340
-  reloadBtn.y = display.contentHeight - 40
-    reloadBtn.destination = "game_levels"
-    reloadBtn:addEventListener("tap", btnTap)
+    reloadBtn.x = display.contentWidth - 140
+    reloadBtn.y = display.contentHeight - 40
+    --reloadBtn.destination = "game_levels"
+    reloadBtn:addEventListener("tap", reloadbtnTap)
     sceneGroup:insert(reloadBtn)
   --/replay button
  
@@ -204,22 +204,22 @@ function scene:createScene( event )
     gameTimer:setTextColor(1,0,0)
     sceneGroup:insert( gameTimer )
     
-    local timeLimit = display.newText("Time Limit: 4 seconds", 100, 100, 'Marker Felt', 30)
+    local timeLimit = display.newText("Time Limit: 5 seconds", 100, 100, 'Marker Felt', 30)
     timeLimit.x = 170
     timeLimit.y = 670
     timeLimit:setTextColor(1,0,0)
     sceneGroup:insert(timeLimit)
 
     function displayTime(event)
-      --  local params = event.source.params
+      local params = event.source.params
       gameTimer.text = event.count
-        if event.count < 4 then
+        if event.count < 5 then
             if ((circle1.x == 250 or circle1.x == 245) and circle1.y == 550) and (circle2.x == 400 and circle2.y == 400) and (circle3.x == 400 and circle3.y == 550) then
                 timer.cancel(event.source)
                 mydata.settings.unlockedLevels = 5
                 storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game4"}, isModal = true} )
             end
-        elseif event.count == 4 then
+        elseif event.count == 5 then
             timer.cancel(event.source)
             if (circle1.x == 250 and circle1.y == 550) and (circle2.x == 400 and circle2.y == 400) and (circle3.x == 400 and circle3.y == 550) then
                 mydata.settings.unlockedLevels = 5

@@ -99,8 +99,6 @@ function scene:destroyScene( event )
 	local group = self.view
   timer.resume(gameTimer)
 
-	-- Remove listeners attached to the Runtime, timers, transitions, audio tracks
-
 end
 
 

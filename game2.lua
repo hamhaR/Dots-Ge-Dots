@@ -219,6 +219,26 @@ function scene:createScene( event )
           timer.cancel(event.source)
           mydata.settings.unlockedLevels = 3
           storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+                elseif(circle1.x == x2 and circle2.x == x3 and circle3.x == x3) and (circle1.y == y2 and circle2.y == y3 and circle3.y == y2) then
+          timer.cancel(event.source)
+          mydata.settings.unlockedLevels = 3
+          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(circle1.x == x3 and circle2.x == x3 and circle3.x == x2) and (circle1.y == y2 and circle2.y == y3 and circle3.y == y2) then
+          timer.cancel(event.source)
+          mydata.settings.unlockedLevels = 3
+          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(circle1.x == x3 and circle2.x == x3 and circle3.x == x2) and (circle1.y == y3 and circle2.y == y2 and circle3.y == y2) then
+          timer.cancel(event.source)
+          mydata.settings.unlockedLevels = 3
+          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(circle1.x == x3 and circle2.x == x2 and circle3.x == x3) and (circle1.y == y2 and circle2.y == y2 and circle3.y == y3) then
+          timer.cancel(event.source)
+          mydata.settings.unlockedLevels = 3
+          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(circle1.x == x3 and circle2.x == x2 and circle3.x == x3) and (circle1.y == y3 and circle2.y == y2 and circle3.y == y2) then
+          timer.cancel(event.source)
+          mydata.settings.unlockedLevels = 3
+          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
         end
       elseif event.count == 5 then
         timer.cancel(event.source)
