@@ -1,5 +1,3 @@
--- Rolly Bear World Project by Christian Peeters
--- See all tutorial @christian.peeters.com
 
 local storyboard = require( "storyboard" )
 local scene = storyboard.newScene()
@@ -19,6 +17,7 @@ local function btnTap(event)
 	return true
 end
 
+--proceed to next level
 local function nextBtnTap(event)
 	if params.levelNum == "game1" then
 		storyboard.gotoScene("game2", {time=333, effect="crossFade"})
@@ -27,6 +26,22 @@ local function nextBtnTap(event)
 	elseif params.levelNum == "game3" then
 		storyboard.gotoScene("game4", {time=333, effect="crossFade"})
 	elseif params.levelNum == "game4" then
+		storyboard.gotoScene("game5", {time=333, effect="crossFade"})
+	end
+	return true
+end
+
+--reload level
+local function reloadBtnTap(event)
+	if params.levelNum == "game1" then
+		storyboard.gotoScene("game1", {time=333, effect="crossFade"})
+	elseif params.levelNum == "game2" then
+		storyboard.gotoScene("game2", {time=333, effect="crossFade"})
+	elseif params.levelNum == "game3" then
+		storyboard.gotoScene("game3", {time=333, effect="crossFade"})
+	elseif params.levelNum == "game4" then
+		storyboard.gotoScene("game4", {time=333, effect="crossFade"})
+  elseif params.levelNum == "game5" then
 		storyboard.gotoScene("game5", {time=333, effect="crossFade"})
 	end
 	return true
@@ -49,30 +64,34 @@ local backgroundOverlay = display.newRect (group, 0, 0, 1200, 1700)
 	
 -- change pause to Congratulations
 --if params.levelNum ~= "game5" then
-	local overlay = display.newImage ("images/overlayv2.png", 400 , 500)
+	local overlay = display.newImage ("images/popupOverlay.png", 400 , 500)
 					overlay.x = 300
 					overlay.y = 400
 					group:insert (overlay)
 --end
-
+local message = display.newImageRect ("images/levelCompleted.png", 420, 150)
+				message.x = 250
+				message.y = 270
+				--message:addEventListener ("tap", nextBtnTap)
+				group:insert(message)
 -- change resume button to next level button
-local resumeBtn = display.newImageRect ("images/resumeBtn.png", 230, 50)
-				resumeBtn.x = 250
-				resumeBtn.y = 350
-				resumeBtn:addEventListener ("tap", nextBtnTap)
-				group:insert(resumeBtn)
+local nextlevelBtn = display.newImageRect ("images/nextlevelBtn.png", 250, 50)
+				nextlevelBtn.x = 250
+				nextlevelBtn.y = 420
+				nextlevelBtn:addEventListener ("tap", nextBtnTap)
+				group:insert(nextlevelBtn)
 -- change reload button to replay button
-local reloadBtn = display.newImageRect ("images/reload.png" ,250, 50)
+local reloadBtn = display.newImageRect ("images/reload.png" ,300, 50)
 				reloadBtn.x = 250 
-				reloadBtn.y = 420
+				reloadBtn.y = 490
 				params = event.params
-				reloadBtn.destination = "game2"
-				reloadBtn:addEventListener ("tap", btnTap)
+				--reloadBtn.destination = "game2"
+				reloadBtn:addEventListener ("tap", reloadBtnTap)
 				group:insert (reloadBtn)
         
 local mainMenu = display.newImageRect ("images/mainMenu.png" ,250, 50)
 				mainMenu.x = 250 
-				mainMenu.y = 510
+				mainMenu.y = 560
 				params = event.params
 				mainMenu.destination = "menu"
 				mainMenu:addEventListener ("tap", btnTap)

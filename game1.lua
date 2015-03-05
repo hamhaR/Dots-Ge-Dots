@@ -28,7 +28,7 @@ local function pausebtnTap(event)
   event.target.yScale = 0.95
   timer.pause(gameTimer)
   --
-  storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+  storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
   return true
 end
 
@@ -290,7 +290,7 @@ function scene:createScene( event )
   }
   reloadBtn.x = display.contentWidth -50
   reloadBtn.y = display.contentHeight - 40
-  reloadBtn.destination = "game2"
+  reloadBtn.destination = "game1"
   reloadBtn:addEventListener("tap", reloadbtnTap)
   sceneGroup:insert(reloadBtn)
   --/replay button
@@ -343,13 +343,14 @@ function scene:createScene( event )
       local params = event.source.params
       gameTimer.text = event.count
       -- do
-      if event.count < 3 then
+      if event.count < 5 then
         if (params[1].x == 165 and params[1].y == 150) and (circle1.x == 90 and circle1.y == 400) and (circle1.x ~= circle2.x and circle1.x ~= circle3) then
           timer.cancel(event.source)
           mydata.settings.unlockedLevels = 2
+          print("You solved level 1!!")
           storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
         end
-      elseif event.count == 3 then
+      elseif event.count == 5 then
         timer.cancel(event.source)
         if (params[1].x == 165 and params[1].y == 150) and (circle1.x == 90 and circle1.y == 400) and (circle1.x ~= circle2.x and circle1.x ~= circle3) then
           mydata.settings.unlockedLevels = 2

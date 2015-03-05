@@ -234,13 +234,13 @@ function scene:createScene( event )
     function displayTime(event)
       local params = event.source.params
       gameTimer.text = event.count
-      if event.count < 4 then
+      if event.count < 5 then
         if (circle1.x == 245 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 400 and circle2.y == 400 and circle3.y == 550) then
           timer.cancel(event.source)
           mydata.settings.unlockedLevels = 3
           storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
         end
-      elseif event.count == 4 then
+      elseif event.count == 5 then
         timer.cancel(event.source)
         if (circle1.x == 245 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 400 and circle2.y == 400 and circle3.y == 550) then
           mydata.settings.unlockedLevels = 3

@@ -1,5 +1,3 @@
--- Rolly Bear World Project by Christian Peeters
--- See all tutorial @christian.peeters.com
 
 local storyboard = require( "storyboard" )
 local scene = storyboard.newScene()
@@ -19,7 +17,7 @@ local function btnTap(event)
   return true
 end
 
-local function reloadBtnTap(event)
+local function playAgainBtnTap(event)
   if params.levelNum == "game1" then
     storyboard.gotoScene("game1", {time=333, effect="crossFade"})
   elseif params.levelNum == "game2" then
@@ -51,24 +49,31 @@ local backgroundOverlay = display.newRect (group, 0, 0, 1200, 1700)
   
 -- change pause to Congratulations
 --if params.levelNum ~= "game5" then
-  local overlay = display.newImage ("images/overlayv2.png", 400 , 500)
+  local overlay = display.newImage ("images/popupOverlay.png", 400 , 500)
           overlay.x = 300
           overlay.y = 400
           group:insert (overlay)
 --end
 
--- change reload button to replay button
-local reloadBtn = display.newImageRect ("images/reload.png" ,250, 50)
-        reloadBtn.x = 250 
-        reloadBtn.y = 420
+--message
+local message = display.newImageRect ("images/levelFail.png", 400, 150)
+				message.x = 250
+				message.y = 280
+				--message:addEventListener ("tap", nextBtnTap)
+				group:insert(message)
+
+-- play again
+local tryAgainBtn = display.newImageRect ("images/tryAgain.png" ,250, 50)
+        tryAgainBtn.x = 250 
+        tryAgainBtn.y = 450
         params = event.params
         --reloadBtn.destination = "game2"
-        reloadBtn:addEventListener ("tap", reloadBtnTap)
-        group:insert (reloadBtn)
+        tryAgainBtn:addEventListener ("tap", playAgainBtnTap)
+        group:insert (tryAgainBtn)
         
 local mainMenu = display.newImageRect ("images/mainMenu.png" ,250, 50)
         mainMenu.x = 250 
-        mainMenu.y = 510
+        mainMenu.y = 550
         params = event.params
         mainMenu.destination = "menu"
         mainMenu:addEventListener ("tap", btnTap)

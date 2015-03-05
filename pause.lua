@@ -1,10 +1,12 @@
--- Rolly Bear World Project by Christian Peeters
--- See all tutorial @christian.peeters.com
 
 local storyboard = require( "storyboard" )
 local scene = storyboard.newScene()
 local physics = require("physics")
+local game1 = require("game1")
 local game2 = require("game2")
+local game3 = require("game3")
+local game4 = require("game4")
+local game5 = require("game5")
 local params
 
 local centerX = display.contentCenterX 
@@ -35,14 +37,20 @@ local backgroundOverlay = display.newRect (group, 0, 0, 1200, 1700)
 				backgroundOverlay:addEventListener ("touch", catchBackgroundOverlay)
 	
 
-local overlay = display.newImage ("images/overlayv2.png", 400 , 500)
+local overlay = display.newImage ("images/popupOverlay.png", 400 , 500)
 				overlay.x = 300
 				overlay.y = 400
 				group:insert (overlay)
+        
+local message = display.newImageRect ("images/gamePaused.png", 420, 150)
+				message.x = 250
+				message.y = 250
+				--message:addEventListener ("tap", nextBtnTap)
+				group:insert(message)
 
 local resumeBtn = display.newImageRect ("images/resumeBtn.png", 230, 50)
 				resumeBtn.x = 250
-				resumeBtn.y = 350
+				resumeBtn.y = 410
 				local function hideOverlay(event)
 					storyboard.hideOverlay("fade", 800)
 				end 
@@ -50,17 +58,17 @@ local resumeBtn = display.newImageRect ("images/resumeBtn.png", 230, 50)
 				resumeBtn:addEventListener ("tap", hideOverlay)
 				group:insert(resumeBtn)
 
-local reloadBtn = display.newImageRect ("images/reload.png" ,250, 50)
+local reloadBtn = display.newImageRect ("images/reload.png" ,280, 50)
 				reloadBtn.x = 250 
-				reloadBtn.y = 420
+				reloadBtn.y = 480
 				params = event.params
 				reloadBtn.destination = "game2"
 				reloadBtn:addEventListener ("tap", btnTap)
 				group:insert (reloadBtn)
         
-local mainMenu = display.newImageRect ("images/mainMenu.png" ,250, 50)
+local mainMenu = display.newImageRect ("images/mainMenu.png" ,260, 50)
 				mainMenu.x = 250 
-				mainMenu.y = 510
+				mainMenu.y = 550
 				params = event.params
 				mainMenu.destination = "menu"
 				mainMenu:addEventListener ("tap", btnTap)
