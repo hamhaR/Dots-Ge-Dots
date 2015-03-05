@@ -125,25 +125,13 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/pauseBtn.png"
     }
-    pauseBtn.x = display.contentWidth -230
+    pauseBtn.x = display.contentWidth - 140
     pauseBtn.y = display.contentHeight - 40
     --pauseBtn.destination = "game_levels"
     pauseBtn:addEventListener("tap", btnTap)
     sceneGroup:insert(pauseBtn)
   --/pause button
   
-  --next button
-  local nextBtn = widget.newButton{
-    width = 70,
-    height = 70,
-    defaultFile = "images/nextBtn.png"
-    }
-    nextBtn.x = display.contentWidth -420
-    nextBtn.y = display.contentHeight - 40
-    nextBtn.destination = "game5"
-    nextBtn:addEventListener("tap", btnTap)
-    sceneGroup:insert(nextBtn)
-  --/next button
   
   --replay button
   local reloadBtn = widget.newButton{
@@ -151,26 +139,13 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/reloadBtn.png"
     }
-    reloadBtn.x = display.contentWidth -50
+    reloadBtn.x = display.contentWidth - 340
   reloadBtn.y = display.contentHeight - 40
     reloadBtn.destination = "game_levels"
     reloadBtn:addEventListener("tap", btnTap)
     sceneGroup:insert(reloadBtn)
   --/replay button
  
-    
-    -- If the level is locked, disable the button and fade it out.
-    if ( mydata.settings.unlockedLevels == nil ) then
-      mydata.settings.unlockedLevels = 1
-    end
-    if ( 2 < mydata.settings.unlockedLevels ) then
-      nextBtn:setEnabled( true )
-      nextBtn.alpha = 1
-    else 
-      nextBtn:setEnabled( false ) 
-      nextBtn.alpha = 0.667
-    end 
-    
     -- start draw circle
     local circle1 = display.newCircle(95, 550, 50)
     circle1:setFillColor(174/255, 87/255, 163/255) 
@@ -233,14 +208,14 @@ function scene:createScene( event )
       --  local params = event.source.params
       gameTimer.text = event.count
         if event.count < 4 then
-            if (circle1.x == 245 and circle1.y == 550) and (circle2.x == 400 and circle2.y == 400) and (circle3.x == 400 and circle3.y == 550) then
+            if ((circle1.x == 250 or circle1.x == 245) and circle1.y == 550) and (circle2.x == 400 and circle2.y == 400) and (circle3.x == 400 and circle3.y == 550) then
                 timer.cancel(event.source)
                 mydata.settings.unlockedLevels = 5
                 storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game4"}, isModal = true} )
             end
         elseif event.count == 4 then
             timer.cancel(event.source)
-            if (circle1.x == 245 and circle1.y == 550) and (circle2.x == 400 and circle2.y == 400) and (circle3.x == 400 and circle3.y == 550) then
+            if (circle1.x == 250 and circle1.y == 550) and (circle2.x == 400 and circle2.y == 400) and (circle3.x == 400 and circle3.y == 550) then
                 mydata.settings.unlockedLevels = 5
                 storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game4"}, isModal = true} )
             else
@@ -310,13 +285,16 @@ function scene:createScene( event )
             group[1].x = group[1].x + 155
             print("asdf")
         elseif group[2].x < 300 and group[2].y ~= group[3].y  then
-            if group[2].x < group[3].x then
-                group[2].x = group[2].x + 155
-            else
-                print("jkl", group[1].x, group[2].x)
+            if group[1].x == 95 and group[1].y == 550 and group[2].x == 245 and group[2].y == 250 then
                 group[1].x = group[1].x + 155
                 group[2].x = group[2].x + 155
                 print("jkl", group[1].x, group[2].x)
+            elseif group[1].x == 405 and group[1].y == 550 and group[3].x == 400 and group[3].y == 400 and group[2].x == 245 then
+                group[2].x = 400
+                print("aydaw gari")
+            elseif group[1].x == 250 and group[1].y == group[3].y and group[2].x == 245 then
+                group[2].x = 400
+                print("oh come on")
             end
         elseif group[1].y == group[3].y and group[1].x < 300 then
             group[1].x = 245
@@ -326,6 +304,7 @@ function scene:createScene( event )
             group[1].x = group[1].x + 155
             print("qrst")
         end
+        print("x: ", group[1].x, group[2].x, group[3].x, "\ny: ", group[1].y, group[2].y, group[3].y)
     end
 
     local function handleSwipe( event )

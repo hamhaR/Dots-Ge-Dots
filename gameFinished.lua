@@ -17,36 +17,6 @@ local function btnTap(event)
 	return true
 end
 
---proceed to next level
-local function nextBtnTap(event)
-	if params.levelNum == "game1" then
-		storyboard.gotoScene("game2", {time=333, effect="crossFade"})
-	elseif params.levelNum == "game2" then
-		storyboard.gotoScene("game3", {time=333, effect="crossFade"})
-	elseif params.levelNum == "game3" then
-		storyboard.gotoScene("game4", {time=333, effect="crossFade"})
-	elseif params.levelNum == "game4" then
-		storyboard.gotoScene("game5", {time=333, effect="crossFade"})
-	end
-	return true
-end
-
---reload level
-local function reloadBtnTap(event)
-	if params.levelNum == "game1" then
-		storyboard.gotoScene("game1", {time=333, effect="crossFade"})
-	elseif params.levelNum == "game2" then
-		storyboard.gotoScene("game2", {time=333, effect="crossFade"})
-	elseif params.levelNum == "game3" then
-		storyboard.gotoScene("game3", {time=333, effect="crossFade"})
-	elseif params.levelNum == "game4" then
-		storyboard.gotoScene("game4", {time=333, effect="crossFade"})
-  elseif params.levelNum == "game5" then
-		storyboard.gotoScene("game5", {time=333, effect="crossFade"})
-	end
-	return true
-end
-
  function catchBackgroundOverlay(event)
 	return true 
 end

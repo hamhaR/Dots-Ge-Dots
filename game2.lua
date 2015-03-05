@@ -137,25 +137,12 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/pauseBtn.png"
 	}
-	pauseBtn.x = display.contentWidth -230
+	pauseBtn.x = display.contentWidth - 340
   pauseBtn.y = display.contentHeight - 40
 	pauseBtn.destination = "pause"
 	pauseBtn:addEventListener("tap", pausebtnTap)
 	sceneGroup:insert(pauseBtn)
   --/pause button
-  
-  --next button
-  local nextBtn = widget.newButton{
-    width = 70,
-    height = 70,
-    defaultFile = "images/nextBtn.png"
-	}
-	nextBtn.x = display.contentWidth -420
-  nextBtn.y = display.contentHeight - 40
-	nextBtn.destination = "game3"
-	nextBtn:addEventListener("tap", btnTap)
-	sceneGroup:insert(nextBtn)
-  --/next button
   
   --replay button
   local reloadBtn = widget.newButton{
@@ -163,25 +150,12 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/reloadBtn.png"
 	}
-	reloadBtn.x = display.contentWidth -50
+	reloadBtn.x = display.contentWidth - 140
   reloadBtn.y = display.contentHeight - 40
 	reloadBtn.destination = "game2"
 	reloadBtn:addEventListener("tap", reloadbtnTap)
 	sceneGroup:insert(reloadBtn)
   --/replay button
- 
-    
-    -- If the level is locked, disable the button and fade it out.
-    if ( mydata.settings.unlockedLevels == nil ) then
-      mydata.settings.unlockedLevels = 1
-    end
-    if ( 2 < mydata.settings.unlockedLevels ) then
-      nextBtn:setEnabled( true )
-      nextBtn.alpha = 1
-    else 
-      nextBtn:setEnabled( false ) 
-      nextBtn.alpha = 0.667
-    end 
   
     -- start draw circle
     local circle1 = display.newCircle(90, 255, 50)
