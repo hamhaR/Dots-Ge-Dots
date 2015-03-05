@@ -227,15 +227,15 @@ end
     function displayTime(event)
       local params = event.source.params
       gameTimer.text = event.count
-      if event.count < 4 then
+      if event.count < 5 then
         if (circle1.x == 90 and circle2.x == 245 and circle3.x == 90) and (circle1.y == 255 and circle2.y == 550 and circle3.y == 550) then
           timer.cancel(event.source)
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade", params ={levelNum = "game5"}, isModal = true} )
+          storyboard.showOverlay( "gameFinished" ,{effect = "fade", params ={levelNum = "game5"}, isModal = true} )
         end
-      elseif event.count == 4 then
+      elseif event.count == 5 then
         timer.cancel(event.source)
         if (circle1.x == 90 and circle2.x == 245 and circle3.x == 90) and (circle1.y == 255 and circle2.y == 550 and circle3.y == 550) then
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  , params ={levelNum = "game5"}, isModal = true} )
+          storyboard.showOverlay( "gameFinished" ,{effect = "fade"  , params ={levelNum = "game5"}, isModal = true} )
         else 
           storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  , params ={levelNum = "game5"}, isModal = true} )
         end

@@ -27,8 +27,6 @@ local function nextBtnTap(event)
 		storyboard.gotoScene("game4", {time=333, effect="crossFade"})
 	elseif params.levelNum == "game4" then
 		storyboard.gotoScene("game5", {time=333, effect="crossFade"})
-  elseif params.levelNum == "game5" then
-		storyboard.gotoScene("gameFinished", {time=333, effect="crossFade"})
 	end
 	return true
 end
@@ -71,29 +69,21 @@ local backgroundOverlay = display.newRect (group, 0, 0, 1200, 1700)
 					overlay.y = 400
 					group:insert (overlay)
 --end
-local message = display.newImageRect ("images/levelCompleted.png", 420, 150)
+local message = display.newImageRect ("images/success.png", 420, 150)
 				message.x = 250
-				message.y = 270
+				message.y = 250
 				--message:addEventListener ("tap", nextBtnTap)
 				group:insert(message)
--- change resume button to next level button
-local nextlevelBtn = display.newImageRect ("images/nextlevelBtn.png", 250, 50)
-				nextlevelBtn.x = 250
-				nextlevelBtn.y = 420
-				nextlevelBtn:addEventListener ("tap", nextBtnTap)
-				group:insert(nextlevelBtn)
--- change reload button to replay button
-local reloadBtn = display.newImageRect ("images/reload.png" ,300, 50)
-				reloadBtn.x = 250 
-				reloadBtn.y = 490
-				params = event.params
-				--reloadBtn.destination = "game2"
-				reloadBtn:addEventListener ("tap", reloadBtnTap)
-				group:insert (reloadBtn)
+
+local message2 = display.newImageRect ("images/message2.png", 350, 180)
+				message2.x = 250
+				message2.y = 440
+				--message:addEventListener ("tap", nextBtnTap)
+				group:insert(message2)
         
 local mainMenu = display.newImageRect ("images/mainMenu.png" ,250, 50)
 				mainMenu.x = 250 
-				mainMenu.y = 560
+				mainMenu.y = 580
 				params = event.params
 				mainMenu.destination = "menu"
 				mainMenu:addEventListener ("tap", btnTap)
