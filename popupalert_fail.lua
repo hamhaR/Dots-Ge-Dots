@@ -18,6 +18,7 @@ local function btnTap(event)
 end
 
 local function playAgainBtnTap(event)
+  storyboard.purgeScene(params.levelNum)
   if params.levelNum == "game1" then
     storyboard.gotoScene("game1", {time=333, effect="crossFade"})
   elseif params.levelNum == "game2" then

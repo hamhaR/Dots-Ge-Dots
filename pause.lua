@@ -21,6 +21,22 @@ local function btnTap(event)
 	return true
 end
 
+local function reloadbtnTap(event)
+	storyboard.purgeScene(params.levelNum)
+  if params.levelNum == "game1" then
+    storyboard.gotoScene("game1", {time=333, effect="crossFade"})
+  elseif params.levelNum == "game2" then
+    storyboard.gotoScene("game2", {time=333, effect="crossFade"})
+  elseif params.levelNum == "game3" then
+    storyboard.gotoScene("game3", {time=333, effect="crossFade"})
+  elseif params.levelNum == "game4" then
+    storyboard.gotoScene("game4", {time=333, effect="crossFade"})
+  elseif params.levelNum == "game5" then
+    storyboard.gotoScene("game5", {time=333, effect="crossFade"})
+  end
+  return true
+end
+
  function catchBackgroundOverlay(event)
 	return true 
 end
@@ -62,8 +78,8 @@ local reloadBtn = display.newImageRect ("images/reload.png" ,280, 50)
 				reloadBtn.x = 250 
 				reloadBtn.y = 480
 				params = event.params
-				reloadBtn.destination = "game2"
-				reloadBtn:addEventListener ("tap", btnTap)
+				--reloadBtn.destination = "game2"
+				reloadBtn:addEventListener ("tap", reloadbtnTap)
 				group:insert (reloadBtn)
         
 local mainMenu = display.newImageRect ("images/mainMenu.png" ,260, 50)
