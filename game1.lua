@@ -33,12 +33,15 @@ local function pausebtnTap(event)
 end
 
 local function reloadbtnTap(event)
-  timer.cancel(gameTimer)
-  time = 0
-  storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+  --storyboard.purgeScene("game1")
+  timer.pause(gameTimer)
+  storyboard.showOverlay( "reload" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
   return true
 end
 
+ function catchBackgroundOverlay(event)
+	return true 
+end
 
 local function checkXLeftPosition(group)
   for i=1, group.numChildren do
@@ -277,8 +280,8 @@ function scene:createScene( event )
   }
   reloadBtn.x = display.contentWidth - 140
   reloadBtn.y = display.contentHeight - 40
-  reloadBtn.destination = "game1"
-  reloadBtn:addEventListener("tap", reloadbtnTap)
+  --reloadBtn.destination = "reload"
+  --reloadBtn:addEventListener("tap", reloadbtnTap)
   sceneGroup:insert(reloadBtn)
   --/replay button
   
