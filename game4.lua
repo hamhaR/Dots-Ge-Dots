@@ -8,6 +8,14 @@ physics.start()
 
 require("timer2")
 
+--fix positions of dots in every grid (x and y coordinates)
+local x1 = 95
+local x2 = 245
+local x3 = 400
+local y1 = 250
+local y2 = 400
+local y3 = 550
+
 local function handleCancelButtonEvent( event )
 
     if ( "ended" == event.phase ) then
@@ -236,82 +244,245 @@ function scene:createScene( event )
     -- end timer
 
     --move dots
-    
+
     local function checkYUpPosition(group, block)
-        if group[2].x == group[3].x and group[3].y > group[2].y and group[2].y > 300 then
-            group[2].y = group[2].y - 150
-            group[3].y = group[3].y - 150
-        elseif group[3].x ~= group[2].x and group[3].y > 300 then
-            group[3].y = group[3].y - 150
+      if(group[1].x == x1 and group[1].y == y3) then
+        if(group[2].x == x2 and group[2].y == y1 and group[3].x == x3 and group[3].y == y2) then
+          print("move up1")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y1
+        elseif(group[2].x == x2 and group[2].y == y1 and group[3].x == x3 and group[3].y == group[1].y) then
+          print("move up2")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y2
+        elseif(group[2].x == x3 and group[2].y == y2 and group[3].x == x2 and group[3].y == group[1].y) then
+          print("move up8")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y3
+        elseif(group[2].y == group[1].y and group[3].y == group[1].y) then
+          print("move up11")
+          group[2].y = y2
         end
+      elseif(group[1].x == x2 and group[1].y == y3) then
+        if(group[2].x == group[1].x and group[2].y == y1 and group[3].x == x3 and group[3].y == y2) then
+          print("move up3")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y1
+        elseif(group[2].x == group[1].x and group[2].y == y1 and group[3].x == x3 and group[3].y == group[1].y) then
+          print("move up4")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y2
+        elseif(group[2].x == x3 and group[2].y == y1 and group[3].x == group[2].x and group[3].y == group[1].y) then
+          print("move up5")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y2
+        elseif(group[2].x == x3 and group[2].y == y2 and group[3].x == group[2].x and group[3].y == group[1].y) then
+          print("move up7")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y2
+        end
+      elseif(group[1].x == x3 and group[1].y == y3) then
+        if(group[1].x == group[3].x and group[3].y == y1 and group[3]. y == group[2].y) then
+          print("move up2")
+          group[1].y = y2
+          group[2].y = y1
+          group[3].y = y1
+        elseif(group[2].x == x2 and group[2].y == y1 and group[3].x == group[1].x and group[3].y == y2) then
+          print("move up13")
+          group[1].y = y2
+          group[3].y = y1
+        end
+      end
     end
-
+    
     local function checkYDownPosition(group, block)
-        
-        if group[3].x ~= group[1].x and group[3].x ~= group[2].x and group[3].y < 500   then
-            group[3].y = group[3].y + 150
-            print("nega")
-        elseif group[2].x ~= block[3].x and group[2].y + 150 ~= group[3].y then
-            group[2].y = group[2].y + 150
-            print("anne")
-        elseif group[2].x == group[3].x and group[3].y > group[2].y and group[3].y < 500 and group[3].x ~= group[1].x then
-            if group[3].y + 150 == group[1].y and group[1].x-5 == group[3].x then
-                
-                print("wae")
-            else
-                group[2].y = group[2].y + 150
-                group[3].y = group[3].y + 150
-                print("waeyo?")
-            end
+      if(group[1].x == x1 and group[1].y == y3) then
+        if(group[2].x == x2 and group[3].x == x3 and group[2].y == y1 and group[2].y == group[3].y) then
+          print("move down1")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y2
+        elseif(group[2].x == x2 and group[2].y == y1 and group[3].x == x3 and group[3].y == y2) then
+          print("move down2")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y3
+        elseif(group[2].x == x3 and group[2].y == y2 and group[3].x == x2 and group[3].y == group[1].y) then
+          print("move down10")
+          group[1].y = y3
+          group[2].y = y3
+          group[3].y = y3
+        elseif(group[2].x == x3 and group[2].y == y1 and group[3].x == x2 and group[3].y == group[1].y) then
+          print("move down11")
+          group[2].y = y2
         end
-        print("x: ", group[1].x, group[2].x, group[3].x, "\ny: ", group[1].y, group[2].y, group[3].y)
+      elseif(group[1].x == x2 and group[1].y == y3) then
+        if(group[1].x == group[2].x and group[2].y == y1 and group[3].x == x3 and group[3].y == group[2].y) then
+          print("move down3")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y2
+        elseif(group[2].x == group[1].x and group[2].y == y1 and group[3].x == x3 and group[3].y == y2) then
+          print("move down5")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y3
+        elseif(group[2].x == x3 and group[2].y == y1 and group[3].x == group[2].x and group[3].y == group[1].y) then
+          print("move down7")
+          group[1].y = y3
+          group[2].y = y2
+          group[3].y = y3
+        elseif(group[2].x == x3 and group[2].y == y1 and group[3].x == group[2].x and group[3].y == y2) then
+          print("move down9")
+          group[1].y = y3
+          group[2].y = y2
+          group[3].y = y3
+        end
+      elseif(group[1].x == x3 and group[1].y == y3) then
+        if(group[1].x == group[3].x and group[3].y == y1 and group[3]. y == group[2].y) then
+          print("move down4")
+          group[1].y = y3
+          group[2].y = y1
+          group[3].y = y2
+        end
+      elseif(group[1].x == x3 and group[1].y == y2) then
+        if(group[2].x == x2 and group[2].y == y1 and group[3].x == group[1].x and group[3].y == group[2].y) then
+          print("move down14")
+          group[1].y = y3
+          group[3].y = y2
+        end
+      end
     end
-
+    
     local function checkXLeftPosition(group, block)
-        
-        if group[3].x - 155 == block[3].x and group[3].y == block[3].y then
-            if group[2].x - 150 == block[1].x and group[1].x > 100 then
-                group[1].x = 95
-                print("pretty")
-            elseif group[2].x - 150 ~= block[1].x then
-                group[1].x = group[1].x - 155
-                group[2].x = group[2].x - 155
-                print("sus oy")
-            end
-            print("woah")
-        elseif group[1].x == 250 and group[3].x == 400 and group[1].y == group[3].y and group[3].y ~= block[3].y then
-                group[1].x = group[1].x - 155   
-                group[3].x = group[3].x - 155
-                print("handsome")
-        end 
+      if(group[1].x == x1 and group[1].y == y3) then
+        if(group[2].x == x2 and group[2].y == y1 and group[3].x == x3 and group[3].y == group[1].y) then
+          print("move left")
+          group[1].x = x1
+          group[2].x = x2
+          group[3].x = x2
+        elseif(group[2].x == x3 and group[2].y == y1 and group[3].x == x2 and group[3].y == group[1].y) then
+          print("move left11")
+          group[2].x = x2
+        end
+      elseif(group[1].x == x2 and group[1].y == y3) then
+        if(group[1].x == group[2].x and group[2].y == y1 and group[3].x == x3 and group[3].y == group[2].y) then
+          print("move left1")
+          group[1].x = x1
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[2].x == group[1].x and group[2].y == y1 and group[3].x == x3 and group[3].y == y2) then
+          print("move up3")
+          group[1].x = x1
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[2].x == group[1].x and group[2].y == y1 and group[3].x == x3 and group[3].y == group[1].y) then
+          print("move left4")
+          group[1].x = x1
+          group[2].x = x2
+          group[3].x = x2
+        elseif(group[2].x == x3 and group[2].y == y1 and group[3].x == group[2].x and group[3].y == group[1].y) then
+          print("move left7")
+          group[1].x = x1
+          group[2].x = x2
+          group[3].x = x2
+        elseif(group[2].x == x3 and group[2].y == y2 and group[3].x == group[2].x and group[3].y == group[1].y) then
+          print("move left8")
+          group[1].x = x1
+          group[2].x = x3
+          group[3].x = x2
+        elseif(group[2].x == x3 and group[2].y == y1 and group[3].x == group[2].x and group[3].y == y2) then
+          print("move left9")
+          group[1].x = x1
+          group[2].x = x2
+          group[3].x = x3
+        end
+      elseif(group[1].x == x3 and group[1].y == y3) then
+        if(group[1].x == group[3].x and group[3].y == y1 and group[3]. y == group[2].y) then
+          print("move left2")
+          group[1].x = x2
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[2].x == x2 and group[2].y == y1 and group[3].x == group[1].x and group[3].y == y2) then
+          print("move left13")
+          group[1].x = x2
+        elseif(group[2].x == group[1].x and group[3].x == group[1].x) then
+          print("move left14")
+          group[1].x = x2
+          group[2].x = x2
+        end
+      end
+    end
+    
+    local function checkXRightPosition(group, block)
+      if(group[1].x == x1 and group[1].y == y3) then
+        if(group[2].x == x2 and group[3].x == x3 and group[2].y == y1 and group[2].y == group[3].y) then
+          print("move right1")
+          group[1].x = x2
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[2].x == x2 and group[2].y == y1 and group[3].x == x3 and group[3].y == y2) then
+          print("move right2")
+          group[1].x = x2
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[2].x == x2 and group[2].y == y1 and group[3].x == x3 and group[3].y == group[1].y) then
+          print("move right4")
+          group[1].x = x2
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[2].x == x2 and group[2].y == y1 and group[3].x == x2 and group[3].y == group[1].y) then
+          print("move right5")
+          group[1].x = x2
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[2].x == x3 and group[2].y == y2 and group[3].x == x2 and group[3].y == group[1].y) then
+          print("move right9")
+          group[1].x = x2
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[2].x == x3 and group[2].y == y1 and group[3].x == x2 and group[3].y == group[1].y) then
+          print("move right12")
+          group[1].x = x2
+          group[3].x = x3
+        end
+      elseif(group[1].x == x2 and group[1].y == y3) then
+        if(group[1].x == group[2].x and group[2].y == y1 and group[3].x == x3 and group[3].y == group[2].y) then
+          print("move right3")
+          group[1].x = x3
+          group[2].x = x2
+          group[3].x = x3
+        elseif(group[2].x == group[1].x and group[2].y == y1 and group[3].x == x3 and group[3].y == y2) then
+          print("move right4")
+          group[1].x = x3
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[2].x == group[1].x and group[2].y == y1 and group[3].x == x3 and group[3].y == group[1].y) then
+          print("move right6")
+          group[1].x = x2
+          group[2].x = x3
+          group[3].x = x3
+        elseif(group[2].x == x3 and group[2].y == y1 and group[3].x == group[2].x and group[3].y == y2) then
+          print("move right7")
+          group[1].x = x3
+          group[2].x = x3
+          group[3].x = x3
+        end
+      elseif(group[1].x == x3 and group[1].y == y3) then
+        if(group[2].x == x2 and group[2].y == y1 and group[3].x == group[1].x and group[3].y == y2) then
+          print("move right13")
+          group[2].x = x3
+        end
+      end
     end
 
-    local function checkXRightPosition(group, block)
-        if group[1].x >= 95 and group[2].x+150 ~= group[3].x and group[2].y == group[3].y and group[1].x<300 then
-            group[1].x = group[1].x + 155
-            print("asdf")
-        elseif group[2].x < 300 and group[2].y ~= group[3].y  then
-            if group[1].x == 95 and group[1].y == 550 and group[2].x == 245 and group[2].y == 250 then
-                group[1].x = group[1].x + 155
-                group[2].x = group[2].x + 155
-                print("jkl", group[1].x, group[2].x)
-            elseif group[1].x == 405 and group[1].y == 550 and group[3].x == 400 and group[3].y == 400 and group[2].x == 245 then
-                group[2].x = 400
-                print("aydaw gari")
-            elseif group[1].x == 250 and group[1].y == group[3].y and group[2].x == 245 then
-                group[2].x = 400
-                print("oh come on")
-            end
-        elseif group[1].y == group[3].y and group[1].x < 300 then
-            group[1].x = 245
-            group[3].x = 400
-            print("mnop")
-        elseif group[1].y ~= group[3].y and group[1].x < 300 then
-            group[1].x = group[1].x + 155
-            print("qrst")
-        end
-        print("x: ", group[1].x, group[2].x, group[3].x, "\ny: ", group[1].y, group[2].y, group[3].y)
-    end
 
     local function handleSwipe( event )
         if ( event.phase == "moved" ) then
@@ -322,11 +493,11 @@ function scene:createScene( event )
                 --local spot = RIGHT
                 print("right")
                 checkXRightPosition(group, block)
-                transition.to( event.target, { time=500, x=spot } )
+                transition.to( event.target, { time=1000} )
             elseif ( dX  < -10 ) then
                 --swipe left
                 checkXLeftPosition(group, block)
-                transition.to( event.target, { time=500, x=spot } )
+                transition.to( event.target, { time=1000} )
             end
             --y-axis(up and down movement) = 
             local dY = event.y - event.yStart
@@ -334,11 +505,11 @@ function scene:createScene( event )
                 print("down")
               --local spot = DOWN 
               checkYDownPosition(group, block)
-              transition.to( event.target, { time = 500, y = spot } )
+              transition.to( event.target, { time = 1000} )
             elseif ( dY < -10 ) then
                 print("up", group[1].y, group[2].y, group[3].y)
                 checkYUpPosition(group, block)
-              transition.to( event.target, { time = 500, y = spot } )
+              transition.to( event.target, { time = 1000} )
             end
             --end sa y
         end

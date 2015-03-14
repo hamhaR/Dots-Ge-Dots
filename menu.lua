@@ -16,6 +16,11 @@ local function aboutButtonHit(event)
   return true
 end
 
+local function exitButtonHit(event)
+  storyboard.gotoScene("quitGame", {time=333, effect="crossFade"})
+  return true
+end
+
 -- called when the scene's view does not exist
 function scene:createScene(event)
   local group = self.view
@@ -50,6 +55,7 @@ function scene:createScene(event)
   local exitButton = display.newText( "Exit", 0, 0, native.systemFont, 50 )
   exitButton.x = display.contentCenterX
   exitButton.y = display.contentCenterY + 115
+  exitButton:addEventListener("tap", exitButtonHit)
   group:insert( exitButton )
   
 end
