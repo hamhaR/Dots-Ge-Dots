@@ -11,13 +11,13 @@ local function settingsButtonHit(event)
   return true
 end
 
-local function aboutButtonHit(event)
-  storyboard.gotoScene("about", {effect="slideRight"})
+local function instructionButtonHit(event)
+  storyboard.gotoScene("instructions", {effect="slideRight"})
   return true
 end
 
 local function exitButtonHit(event)
-  storyboard.gotoScene("quitGame", {time=333, effect="crossFade"})
+  storyboard.showOverlay( "quitGame" ,{effect = "fade"  ,  params ={levelNum = "menu"}, isModal = true} )
   return true
 end
 
@@ -45,11 +45,11 @@ function scene:createScene(event)
   settingsButton:addEventListener( "tap", settingsButtonHit )
   group:insert( settingsButton )
   
-  local aboutButton = display.newText( "About", 0, 0, native.systemFont, 50 )
+  local aboutButton = display.newText( "Instructions", 0, 0, native.systemFont, 50 )
   aboutButton.x = display.contentCenterX
   aboutButton.y = display.contentCenterY + 55
   --aboutButton.goto("about")
-  aboutButton:addEventListener( "tap", aboutButtonHit )
+  aboutButton:addEventListener( "tap", instructionButtonHit )
   group:insert( aboutButton )
   
   local exitButton = display.newText( "Exit", 0, 0, native.systemFont, 50 )

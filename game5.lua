@@ -692,10 +692,13 @@ end
                 --swipe right
                 --local spot = RIGHT
                 checkXRightPosition(group, block1, block2)
+                transition.to( event.target, { time=2500, x=spot } )
                 if ( event.target.x == LEFT ) then
                     spot = CENTERX 
+                    transition.to( event.target, { time=2500, x=spot } )
                 elseif(event.target.x == RIGHT) then
                   checkXRightPosition(group, block1, block2)
+                  transition.to( event.target, { time=2500, x=spot } )
                   --spot = RIGHT
                 end
                 transition.to( event.target, { time=2500, x=spot } )
@@ -703,10 +706,13 @@ end
                 --swipe left
                 --local spot = LEFT
                 checkXLeftPosition(group, block1, block2)
+                transition.to( event.target, { time=2500, x=spot } )
                 if ( event.target.x == RIGHT ) then
                   spot = CENTERX 
+                  transition.to( event.target, { time=2500, x=spot } )
                 elseif(event.target.x == LEFT) then
                   checkXLeftPosition(group, block1, block2)
+                  transition.to( event.target, { time=2500, x=spot } )
                 end
                 transition.to( event.target, { time=2500, x=spot } )
             end
@@ -715,10 +721,13 @@ end
             if (dY > 10) then
               --local spot = DOWN 
               checkYDownPosition(group, block1, block2)
+              transition.to( event.target, { time = 2500, y = spot } )
               if ( event.target.y == UP )  then
                   spot = CENTERY
+                  transition.to( event.target, { time = 2500, y = spot } )
               elseif( event.target.y == DOWN) then
                   checkYDownPosition(group, block1, block2)
+                  transition.to( event.target, { time = 2500, y = spot } )
                   print(group.x )
                   print(group.y)
               end
@@ -726,10 +735,13 @@ end
             elseif ( dY < -10 ) then
               --local spot = UP
               checkYUpPosition(group, block1, block2)
+              transition.to( event.target, { time = 2500, y = spot } )
               if ( event.target.y == DOWN) then
                   spot = CENTERY
+                  transition.to( event.target, { time = 2500, y = spot } )
               elseif(event.target.y == UP) then
                 checkYUpPosition(group, block1, block2) 
+                transition.to( event.target, { time = 2500, y = spot } )
                 
               end
               transition.to( event.target, { time = 2500, y = spot } )

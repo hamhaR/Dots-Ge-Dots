@@ -39,6 +39,12 @@ local function reloadbtnTap(event)
   return true
 end
 
+local function quitBtnTap(event)
+  timer.pause(gameTimer)
+  storyboard.showOverlay( "quitGame" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
+  return true
+end
+
  function catchBackgroundOverlay(event)
 	return true 
 end
@@ -283,8 +289,8 @@ function scene:createScene( event )
   --reloadBtn.destination = "reload"
   --reloadBtn:addEventListener("tap", reloadbtnTap)
   sceneGroup:insert(reloadBtn)
-  --/replay button
   
+
     -- start draw circle
     local circle1 = display.newCircle(90, 255, 50)
     circle1:setFillColor(100, 0, 250) 

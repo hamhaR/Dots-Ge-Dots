@@ -10,28 +10,33 @@ local function handleCancelButtonEvent( event )
     end
 end
 
+local function btnTap(event)
+	storyboard.gotoScene (  event.target.destination, { time=333, effect = "fade"} )
+	return true
+end
+
 function scene:createScene(event)
   local sceneGroup = self.view
   
-  -- Create background
-    local background = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
-    background:setFillColor( 1 )
-    background.x = display.contentCenterX
-    background.y = display.contentCenterY
-    sceneGroup:insert( background )
+ local backgroundOverlay = display.newImage ("images/instructionsBackground.jpg")
+        backgroundOverlay:scale(1.2, 2.1)
+        backgroundOverlay.x = 0
+        backgroundOverlay.y = 0
+				backgroundOverlay.isHitTestable = true
+				backgroundOverlay:addEventListener ("tap", catchBackgroundOverlay)
+				backgroundOverlay:addEventListener ("touch", catchBackgroundOverlay)
+        sceneGroup:insert (backgroundOverlay)
     
     --YOUR CODE HERE!!!
     
     -- Create a button that returns to the menu scene.
-    local backButton = widget.newButton({
-        id = "button1",
-        label = "Back To Menu",
-        fontSize = 30,
-        onEvent = handleCancelButtonEvent
-    })
-    backButton.x = display.contentCenterX
-    backButton.y = display.contentHeight - 50
-    sceneGroup:insert( backButton )
+    local mainMenu = display.newImageRect ("images/mainMenu.png" ,260, 50)
+				mainMenu.x = 250 
+				mainMenu.y = 770
+				params = event.params
+				mainMenu.destination = "menu"
+				mainMenu:addEventListener ("tap", btnTap)
+				sceneGroup:insert (mainMenu)
     
 end
 
