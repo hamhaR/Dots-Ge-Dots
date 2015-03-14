@@ -212,13 +212,13 @@ function scene:createScene( event )
     function displayTime(event)
       local params = event.source.params
       gameTimer.text = event.count
-        if event.count < 5 then
+        if event.count < 20 then
             if (circle1.x == 400 and circle1.y == 255) and (circle2.x == 245 and circle2.y == 255) and (circle3.x == 400 and circle3.y == 400) then
                 timer.cancel(event.source)
                 mydata.settings.unlockedLevels = 4
                 storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
             end
-        elseif event.count == 5 then
+        elseif event.count == 20 then
             timer.cancel(event.source)
             if (circle1.x == 400 and circle1.y == 255) and (circle2.x == 245 and circle2.y == 255) and (circle3.x == 400 and circle3.y == 400) then
                 mydata.settings.unlockedLevels = 4
@@ -334,8 +334,13 @@ function scene:createScene( event )
             group[1].x = 245
             group[2].x = 95
             
+        elseif group[1].x == 400 and group[2].x == 245 and group[3].x == 400 and group[2].y == group[3].y then
+            group[1].x = 245
+            group[2].x = 95
+            group[3].x = 245
+            print("asa", group[1].x)
         else
-            print("asa", group[3].x, block[3].y)
+            print("Condition statement not satisfied.")
         end
     end
 
@@ -354,36 +359,34 @@ function scene:createScene( event )
 
     end
 
+    local dX
+    local dY
+
     local function handleSwipe( event )
-        if ( event.phase == "moved" ) then
-            local dX = event.x - event.xStart
-            --print( event.x, event.xStart, dX )
-            if ( dX > 5 ) then
-                --swipe right
-                --local spot = RIGHT
-                print("right")
+        if event.phase == "moved" then
+            print(group.x, event.x, event.xStart, event.xStart - event.x)
+            dX = event.xStart - event.x
+            dY = event.yStart - event.y
+            print("\n\ndX: ", dX,  "\ndY: ", dY)
+        elseif event.phase == "ended" then
+            if dX < 0 and dY < 20  then
+                print("To the right.")
                 checkXRightPosition(group, block)
-                transition.to( event.target, { time=500, x=spot } )
-            elseif ( dX  < -10 ) then
-                --swipe left
+                return true
+            elseif dX > 0 and dY > -20 then
+                print("To the left")
                 checkXLeftPosition(group, block)
-                transition.to( event.target, { time=500, x=spot } )
-            end
-            --y-axis(up and down movement) = 
-            local dY = event.y - event.yStart
-            if (dY > 10) then
-                print("down")
-              --local spot = DOWN 
-              checkYDownPosition(group, block)
-              transition.to( event.target, { time = 500, y = spot } )
-            elseif ( dY < -10 ) then
-                print("up", group[1].x, group[1].y)
+                return true
+            elseif dY < 0 then
+                print("Go down")
+                checkYDownPosition(group, block)
+                return true
+            elseif dY > 0 then
+                print("Go up")
                 checkYUpPosition(group, block)
-              transition.to( event.target, { time = 500, y = spot } )
+                return true
             end
-            --end sa y
         end
-        return true
     end
       
       
