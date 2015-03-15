@@ -40,9 +40,9 @@ local function pausebtnTap(event)
 end
 
 local function reloadbtnTap(event)
-  timer.cancel(gameTimer)
-  time = 0
-  storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+    timer.cancel(gameTimer)
+    storyboard.purgeScene(event.target.destination)
+    storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
     return true
 end
 
@@ -149,7 +149,7 @@ function scene:createScene( event )
     }
     reloadBtn.x = display.contentWidth - 140
     reloadBtn.y = display.contentHeight - 40
-    --reloadBtn.destination = "game_levels"
+    reloadBtn.destination = "game4"
     reloadBtn:addEventListener("tap", reloadbtnTap)
     sceneGroup:insert(reloadBtn)
   --/replay button
@@ -484,36 +484,29 @@ function scene:createScene( event )
     end
 
 
+    local dX = 0
+    local dY = 0
+
     local function handleSwipe( event )
         if ( event.phase == "moved" ) then
-            local dX = event.x - event.xStart
-            --print( event.x, event.xStart, dX )
-            if ( dX > 5 ) then
-                --swipe right
-                --local spot = RIGHT
-                print("right")
-                checkXRightPosition(group, block)
-                transition.to( event.target, { time=1000} )
-            elseif ( dX  < -10 ) then
-                --swipe left
-                checkXLeftPosition(group, block)
-                transition.to( event.target, { time=1000} )
-            end
-            --y-axis(up and down movement) = 
-            local dY = event.y - event.yStart
-            if (dY > 10) then
-                print("down")
-              --local spot = DOWN 
-              checkYDownPosition(group, block)
-              transition.to( event.target, { time = 1000} )
-            elseif ( dY < -10 ) then
-                print("up", group[1].y, group[2].y, group[3].y)
-                checkYUpPosition(group, block)
-              transition.to( event.target, { time = 1000} )
-            end
-            --end sa y
+            dX = event.x - event.xStart
+            dY = event.y - event.yStart
+            print("End of story.\n", dX, dY)
+            return false
         end
-        return true
+        if dX > 0 and dX > dY  then
+            print("move right")
+            checkXRightPosition(group, block)
+        elseif dX < 0 and dY > dX then
+            print("move left")
+            checkXLeftPosition(group, block)
+        elseif dY < 0 then
+            print("move up")
+            checkYUpPosition(group, block)
+        elseif dY > 0 then
+            print("move down")
+            checkYDownPosition(group, block)
+        end
     end
 
     group:addEventListener("touch", handleSwipe)  

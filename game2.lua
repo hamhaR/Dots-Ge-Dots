@@ -27,24 +27,24 @@ end
 
 local function btnTap(event)
   timer.cancel(gameTimer)
-	storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
-	return true
+  storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+  return true
 end
 
 local function pausebtnTap(event)
-	event.target.xScale = 0.95
-	event.target.yScale = 0.95
+  event.target.xScale = 0.95
+  event.target.yScale = 0.95
   timer.pause(gameTimer)
-	--
-	storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
-	return true
+  --
+  storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+  return true
 end
 
 local function reloadbtnTap(event)
   timer.cancel(gameTimer)
-  time = 0
+  storyboard.purgeScene(event.target.destination)
   storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
-	return true
+  return true
 end
 
 -- Start the storyboard event handlers
@@ -119,16 +119,16 @@ function scene:createScene( event )
     -- end of grid
 
     --back button
-	local backBtn = widget.newButton{
+  local backBtn = widget.newButton{
     width = 70,
     height = 70,
     defaultFile = "images/back.png"
-	}
-	backBtn.x = display.contentWidth - 420
+  }
+  backBtn.x = display.contentWidth - 420
   backBtn.y = display.contentHeight - 750
-	backBtn.destination = "game_levels"
-	backBtn:addEventListener("tap", btnTap)
-	sceneGroup:insert(backBtn)
+  backBtn.destination = "game_levels"
+  backBtn:addEventListener("tap", btnTap)
+  sceneGroup:insert(backBtn)
     --/back button]]--
     
   --pause button
@@ -136,12 +136,12 @@ function scene:createScene( event )
     width = 70,
     height = 70,
     defaultFile = "images/pauseBtn.png"
-	}
-	pauseBtn.x = display.contentWidth - 340
+  }
+  pauseBtn.x = display.contentWidth - 340
   pauseBtn.y = display.contentHeight - 40
-	pauseBtn.destination = "pause"
-	pauseBtn:addEventListener("tap", pausebtnTap)
-	sceneGroup:insert(pauseBtn)
+  pauseBtn.destination = "pause"
+  pauseBtn:addEventListener("tap", pausebtnTap)
+  sceneGroup:insert(pauseBtn)
   --/pause button
   
   --replay button
@@ -149,12 +149,12 @@ function scene:createScene( event )
     width = 70,
     height = 70,
     defaultFile = "images/reloadBtn.png"
-	}
-	reloadBtn.x = display.contentWidth - 140
+  }
+  reloadBtn.x = display.contentWidth - 140
   reloadBtn.y = display.contentHeight - 40
-	reloadBtn.destination = "game2"
-	reloadBtn:addEventListener("tap", reloadbtnTap)
-	sceneGroup:insert(reloadBtn)
+  reloadBtn.destination = "game2"
+  reloadBtn:addEventListener("tap", reloadbtnTap)
+  sceneGroup:insert(reloadBtn)
   --/replay button
   
     -- start draw circle
@@ -214,7 +214,7 @@ function scene:createScene( event )
     function displayTime(event)
       local params = event.source.params
       gameTimer.text = event.count
-      if event.count < 5 then
+      if event.count < 15 then
         if (circle1.x == 245 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 400 and circle2.y == 400 and circle3.y == 550) then
           timer.cancel(event.source)
           mydata.settings.unlockedLevels = 3
@@ -240,7 +240,7 @@ function scene:createScene( event )
           mydata.settings.unlockedLevels = 3
           storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
         end
-      elseif event.count == 5 then
+      elseif event.count == 15 then
         timer.cancel(event.source)
         if (circle1.x == 245 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 400 and circle2.y == 400 and circle3.y == 550) then
           mydata.settings.unlockedLevels = 3
@@ -908,56 +908,43 @@ end
     local DOWN = 150
     
 
+    local dX = 0
+    local dY = 0
+
     local function handleSwipe( event )
         if ( event.phase == "moved" ) then
-            local dX = event.x - event.xStart
-            print( event.x, event.xStart, dX )
-            if ( dX > 5 ) then
-                --swipe right
-                --local spot = RIGHT
+            dX = event.x - event.xStart
+            dY = event.y - event.yStart
+            print("End of story.\n", dX, dY)
+            --return false
+        --end
+          if dX > 20 and dX > dY  then
+              print("move right")
+              local spot = "right"
+              checkXRightPosition(group, block1, block2, block3)
+              if event.target.param == "right" then
+                -- right
                 checkXRightPosition(group, block1, block2, block3)
-                if ( event.target.x == LEFT ) then
-                    spot = CENTERX 
-                elseif(event.target.x == RIGHT) then
-                  checkXRightPosition(group, block1, block2, block3)
-                  --spot = RIGHT
-                end
-                transition.to( event.target, { time=2500, x=spot } )
-            elseif ( dX  < -20 ) then
+              elseif event.target.param == "left" then
+                -- left
                 checkXLeftPosition(group, block1, block2, block3)
-                if ( event.target.x == RIGHT ) then
-                  spot = CENTERX 
-                elseif(event.target.x == LEFT) then
-                  checkXLeftPosition(group, block1, block2, block3)
-                end
-                transition.to( event.target, { time=2500, x=spot } )
-            end
-            --y-axis(up and down movement) = 
-            local dY = event.y - event.yStart
-            if (dY > 10) then
-              checkYDownPosition(group, block1, block2, block3)
-              if ( event.target.y == UP )  then
-                  spot = CENTERY
-              elseif( event.target.y == DOWN) then
-                  checkYDownPosition(group, block1, block2, block3)
-                  print(group.x )
-                  print(group.y)
               end
-              transition.to( event.target, { time = 2500, y = spot } )
-              print("x: ", circle1.x, circle2.x, circle3.x, "\ny: ", circle1.y, circle2.y, circle3.y)
-            elseif ( dY < -20 ) then
-              --local spot = UP
+              transition.to( event.target, { time=500, param=spot } )
+              return true
+          elseif dX < -20 and dY > dX then
+              print("move left")
+              checkXLeftPosition(group, block1, block2, block3)
+              return true
+          elseif dY < -20 then
+              print("move up")
               checkYUpPosition(group, block1, block2, block3)
-              if ( event.target.y == DOWN) then
-                  spot = CENTERY
-              elseif(event.target.y == UP) then
-                checkYUpPosition(group, block1, block2, block3) 
-              end
-              transition.to( event.target, { time = 2500,  y = spot } )
-            end
-            --end sa y
+              return true
+          elseif dY > 20 then
+              print("move down")
+              checkYDownPosition(group, block1, block2, block3)
+              return true
+          end
         end
-        return true
     end
       
       

@@ -19,23 +19,23 @@ end
 
 local function btnTap(event)
   timer.cancel(gameTimer)
-	storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
-	return true
+    storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+    return true
 end
 
 local function pausebtnTap(event)
-	event.target.xScale = 0.95
-	event.target.yScale = 0.95
+    event.target.xScale = 0.95
+    event.target.yScale = 0.95
   timer.pause(gameTimer)
-	--
-	storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
-	return true
+    --
+    storyboard.showOverlay( "pause" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
+    return true
 end
 
 local function reloadbtnTap(event)
-  timer.cancel(gameTimer)
-  time = 0
-  storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
+    timer.cancel(gameTimer)
+    storyboard.purgeScene(event.target.destination)
+    storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
     return true
 end
 
@@ -142,7 +142,7 @@ function scene:createScene( event )
     }
     reloadBtn.x = display.contentWidth - 140
     reloadBtn.y = display.contentHeight - 40
-    --reloadBtn.destination = "game_levels"
+    reloadBtn.destination = "game3"
     reloadBtn:addEventListener("tap", reloadbtnTap)
     sceneGroup:insert(reloadBtn)
   --/replay button
@@ -281,6 +281,7 @@ function scene:createScene( event )
                 print("no up")
             end
         end
+        return true
         --]]
     end
 
@@ -317,6 +318,7 @@ function scene:createScene( event )
             group[3].y = 550
             print("ambot")
         end
+        return true
     end
 
     local function checkXLeftPosition(group, block)
@@ -342,6 +344,7 @@ function scene:createScene( event )
         else
             print("Condition statement not satisfied.")
         end
+        return true
     end
 
     local function checkXRightPosition(group, block)
@@ -356,37 +359,35 @@ function scene:createScene( event )
             group[3].x = 400
             print(group[1].x, group[2].x) 
         end
-
+        return true
     end
 
-    local dX
-    local dY
+    local dX = 0
+    local dY = 0
 
     local function handleSwipe( event )
-        if event.phase == "moved" then
-            print(group.x, event.x, event.xStart, event.xStart - event.x)
-            dX = event.xStart - event.x
-            dY = event.yStart - event.y
-            print("\n\ndX: ", dX,  "\ndY: ", dY)
-        elseif event.phase == "ended" then
-            if dX < 0 and dY < 20  then
-                print("To the right.")
-                checkXRightPosition(group, block)
-                return true
-            elseif dX > 0 and dY > -20 then
-                print("To the left")
-                checkXLeftPosition(group, block)
-                return true
-            elseif dY < 0 then
-                print("Go down")
-                checkYDownPosition(group, block)
-                return true
-            elseif dY > 0 then
-                print("Go up")
-                checkYUpPosition(group, block)
-                return true
-            end
+        if ( event.phase == "moved" ) then
+            dX = event.x - event.xStart
+            dY = event.y - event.yStart
+            print("End of story.\n", dX, dY)
+            return false
         end
+        if dX > 20 and dX > dY  then
+            print("move right")
+            checkXRightPosition(group, block)
+        elseif dX < 0 and dY > dX then
+            print("move left")
+            checkXLeftPosition(group, block)
+        elseif dY < 0 then
+            print("move up")
+            checkYUpPosition(group, block)
+        elseif dY > 0 then
+            print("move down")
+            checkYDownPosition(group, block)
+        end
+        
+        --end
+        
     end
       
       

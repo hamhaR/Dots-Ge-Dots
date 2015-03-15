@@ -33,20 +33,14 @@ local function pausebtnTap(event)
 end
 
 local function reloadbtnTap(event)
-  --storyboard.purgeScene("game1")
-  timer.pause(gameTimer)
-  storyboard.showOverlay( "reload" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
-  return true
-end
-
-local function quitBtnTap(event)
-  timer.pause(gameTimer)
-  storyboard.showOverlay( "quitGame" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
+  timer.cancel(gameTimer)
+  storyboard.purgeScene(event.target.destination)
+  storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
   return true
 end
 
  function catchBackgroundOverlay(event)
-	return true 
+  return true 
 end
 
 local function checkXLeftPosition(group)
@@ -246,8 +240,8 @@ function scene:createScene( event )
         end
     end
     
+    grid[3]:setFillColor(1, 104/255, 1)
     grid[6]:setFillColor(1, 104/255, 1)
-    grid[8]:setFillColor(1, 104/255, 1)
     grid[9]:setFillColor(1, 104/255, 1)
     
     -- end of grid
@@ -286,19 +280,19 @@ function scene:createScene( event )
   }
   reloadBtn.x = display.contentWidth - 140
   reloadBtn.y = display.contentHeight - 40
-  --reloadBtn.destination = "reload"
-  --reloadBtn:addEventListener("tap", reloadbtnTap)
+  reloadBtn.destination = "game1"
+  reloadBtn:addEventListener("tap", reloadbtnTap)
   sceneGroup:insert(reloadBtn)
+  --/replay button
   
-
     -- start draw circle
     local circle1 = display.newCircle(90, 255, 50)
     circle1:setFillColor(100, 0, 250) 
     
-    local circle2= display.newCircle(245, 255, 50)
+    local circle2= display.newCircle(90, 400, 50)
     circle2:setFillColor(100, 0, 250) 
     
-    local circle3= display.newCircle(245, 400, 50)
+    local circle3= display.newCircle(90, 550, 50)
     circle3:setFillColor(100, 0, 250)
     
     local group = display.newGroup()
@@ -322,7 +316,7 @@ function scene:createScene( event )
     gameTimer:setTextColor(1,0,0)
     sceneGroup:insert(gameTimer)
     
-    local timeLimit = display.newText("Time Limit: 5 seconds", 100, 100, 'Marker Felt', 30)
+    local timeLimit = display.newText("Time Limit: 3 seconds", 100, 100, 'Marker Felt', 30)
     timeLimit.x = 170
     timeLimit.y = 670
     timeLimit:setTextColor(1,0,0)
@@ -332,16 +326,16 @@ function scene:createScene( event )
       local params = event.source.params
       gameTimer.text = event.count
       -- do
-      if event.count < 5 then
-        if (params[1].x == 165 and params[1].y == 150) and (circle1.x == 90 and circle1.y == 400) and (circle1.x ~= circle2.x and circle1.x ~= circle3) then
+      if event.count < 3 then
+        if group[1].x == 305 then
           timer.cancel(event.source)
           mydata.settings.unlockedLevels = 2
           print("You solved level 1!!")
           storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
         end
-      elseif event.count == 5 then
+      elseif event.count == 3 then
         timer.cancel(event.source)
-        if (params[1].x == 165 and params[1].y == 150) and (circle1.x == 90 and circle1.y == 400) and (circle1.x ~= circle2.x and circle1.x ~= circle3) then
+        if params[1].x == 305 then
           mydata.settings.unlockedLevels = 2
           storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
         else 
@@ -358,60 +352,38 @@ function scene:createScene( event )
     local CENTERX = display.contentWidth - 450
     local CENTERY = display.contentHeight - 640
     local LEFT = 9
-    local RIGHT = 165
+    local RIGHT = 160
     local UP = -17
     local DOWN = 150
+    local dX = 0
+    local dY = 0
     
     local function handleSwipe( event )
-        if ( event.phase == "moved" ) then
-            local dX = event.x - event.xStart
-            --print( event.x, event.xStart, dX )
-            if ( dX > 5 ) then
-                --swipe right
-                local spot = RIGHT
-                if ( event.target.x == LEFT ) then
-                    spot = CENTERX - 10
-                elseif(event.target.x == RIGHT) then
-                  checkXRightPosition(group)
-                  --spot = RIGHT
-                end
-                transition.to( event.target, { time=500, x=spot } )
-            elseif ( dX  < -20 ) then
-                --swipe left
-                local spot = LEFT
-                if ( event.target.x == RIGHT ) then
-                  spot = CENTERX - 10 
-                elseif(event.target.x == LEFT) then
-                  checkXLeftPosition(group)
-                end
-                transition.to( event.target, { time=500, x=spot } )
-            end
-            --y-axis(up and down movement) = 
-            local dY = event.y - event.yStart
-            if (dY > 10) then
-              local spot = DOWN 
-              if ( event.target.y == UP )  then
-                  spot = CENTERY
-              elseif( event.target.y == DOWN) then
-                  checkYDownPosition(group)
-              end
-              transition.to( event.target, { time = 500, y = spot } )
-            elseif ( dY < -10 ) then
-              local spot = UP
-              if ( event.target.y == DOWN) then
-                  spot = CENTERY
-              elseif(event.target.y == UP) then
-                checkYUpPosition(group) 
-                
-              end
-              transition.to( event.target, { time = 500, y = spot } )
-            end
-            --end sa y
+      if ( event.phase == "moved" ) then
+        dX = event.x - event.xStart
+        if ( dX > 0) then
+          --swipe right
+          local spot = RIGHT
+          if event.target.x == RIGHT then
+            spot = 305
+          elseif event.target.x == LEFT then
+            spot = RIGHT
+          end
+          transition.to( event.target, { time=500, x=spot } )
+          return true
+        elseif ( dX  < 0) then
+          --swipe left
+          local spot = LEFT
+          if event.target.x == LEFT then
+            spot = RIGHT
+          end
+          transition.to( event.target, { time=500, x=spot } )
+          return true
         end
-        return true
+      end
+      return true
     end
-      
-      
+
       group:addEventListener("touch", handleSwipe)  
 end
 

@@ -43,7 +43,7 @@ end
 
 local function reloadbtnTap(event)
   timer.cancel(gameTimer)
-  time = 0
+  storyboard.purgeScene(event.target.destination)
   storyboard.gotoScene (  event.target.destination, {effect = "crossFade", time = 333} )
   return true
 end
@@ -149,7 +149,7 @@ end
     }
     reloadBtn.x = display.contentWidth - 140
     reloadBtn.y = display.contentHeight - 40
-    --reloadBtn.destination = "game_levels"
+    reloadBtn.destination = "game5"
     reloadBtn:addEventListener("tap", reloadbtnTap)
     sceneGroup:insert(reloadBtn)
   --/replay button
@@ -684,71 +684,29 @@ end
     local DOWN = 150
     
 
+    local dX = 0
+    local dY = 0
+
     local function handleSwipe( event )
         if ( event.phase == "moved" ) then
-            local dX = event.x - event.xStart
-            --print( event.x, event.xStart, dX )
-            if ( dX > 5 ) then
-                --swipe right
-                --local spot = RIGHT
-                checkXRightPosition(group, block1, block2)
-                transition.to( event.target, { time=2500, x=spot } )
-                if ( event.target.x == LEFT ) then
-                    spot = CENTERX 
-                    transition.to( event.target, { time=2500, x=spot } )
-                elseif(event.target.x == RIGHT) then
-                  checkXRightPosition(group, block1, block2)
-                  transition.to( event.target, { time=2500, x=spot } )
-                  --spot = RIGHT
-                end
-                transition.to( event.target, { time=2500, x=spot } )
-            elseif ( dX  < -20 ) then
-                --swipe left
-                --local spot = LEFT
-                checkXLeftPosition(group, block1, block2)
-                transition.to( event.target, { time=2500, x=spot } )
-                if ( event.target.x == RIGHT ) then
-                  spot = CENTERX 
-                  transition.to( event.target, { time=2500, x=spot } )
-                elseif(event.target.x == LEFT) then
-                  checkXLeftPosition(group, block1, block2)
-                  transition.to( event.target, { time=2500, x=spot } )
-                end
-                transition.to( event.target, { time=2500, x=spot } )
-            end
-            --y-axis(up and down movement) = 
-            local dY = event.y - event.yStart
-            if (dY > 10) then
-              --local spot = DOWN 
-              checkYDownPosition(group, block1, block2)
-              transition.to( event.target, { time = 2500, y = spot } )
-              if ( event.target.y == UP )  then
-                  spot = CENTERY
-                  transition.to( event.target, { time = 2500, y = spot } )
-              elseif( event.target.y == DOWN) then
-                  checkYDownPosition(group, block1, block2)
-                  transition.to( event.target, { time = 2500, y = spot } )
-                  print(group.x )
-                  print(group.y)
-              end
-              transition.to( event.target, { time = 2500, y = spot } )
-            elseif ( dY < -10 ) then
-              --local spot = UP
-              checkYUpPosition(group, block1, block2)
-              transition.to( event.target, { time = 2500, y = spot } )
-              if ( event.target.y == DOWN) then
-                  spot = CENTERY
-                  transition.to( event.target, { time = 2500, y = spot } )
-              elseif(event.target.y == UP) then
-                checkYUpPosition(group, block1, block2) 
-                transition.to( event.target, { time = 2500, y = spot } )
-                
-              end
-              transition.to( event.target, { time = 2500, y = spot } )
-            end
-            --end sa y
+            dX = event.x - event.xStart
+            dY = event.y - event.yStart
+            print("End of story.\n", dX, dY)
+            return false
         end
-        return true
+        if dX > 0 and dX > dY  then
+            print("move right")
+            checkXRightPosition(group, block1, block2)
+        elseif dX < 0 and dY > dX then
+            print("move left")
+            checkXLeftPosition(group, block1, block2)
+        elseif dY < 0 then
+            print("move up")
+            checkYUpPosition(group, block1, block2)
+        elseif dY > 0 then
+            print("move down")
+            checkYDownPosition(group, block1, block2)
+        end
     end
       
       
