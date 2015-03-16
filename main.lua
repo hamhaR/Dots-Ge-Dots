@@ -12,3 +12,8 @@ storyboard.purgeOnSceneChange = true
 display.setStatusBar(display.HiddenStatusBar)
 
 storyboard.gotoScene("menu", {effect="slideDown"} )
+
+
+
+
+ 

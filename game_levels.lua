@@ -17,6 +17,11 @@ local function handleCancelButtonEvent( event )
     end
 end
 
+local function btnTap(event)
+	storyboard.gotoScene (  event.target.destination, { time=333, effect = "fade"} )
+	return true
+end
+
 -- Button handler to go to the selected level
 local function handleLevelSelect( event )
     
@@ -49,30 +54,26 @@ function scene:createScene( event )
 
     -- Create background
     local background = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
-    background:setFillColor( 1 )
+    background:setFillColor( 0,0,0 )
     background.x = display.contentCenterX
     background.y = display.contentCenterY
     sceneGroup:insert( background )
     
-    local gameTitle = display.newText( "Dots Ge Dots", 100, 100, native.systemFont, 45 )
-    gameTitle.x = display.contentCenterX
-    gameTitle.y = display.contentCenterY - 350
-    gameTitle:setTextColor(black)
-    sceneGroup:insert( gameTitle )
+    
 
     -- Use a scrollView to contain the level buttons (for support of more than one full screen).
     -- Since this will only scroll vertically, lock horizontal scrolling.
     local levelSelectGroup = widget.newScrollView({
         width = 480,
-        height = 650,
+        height = 480,
         scrollWidth = 480,
-        scrollHeight = 800,
+        scrollHeight = 480,
         horizontalScrollDisabled = true
     })
 
     -- 'xOffset', 'yOffset' and 'cellCount' are used to position the buttons in the grid.
-    local xOffset = 94
-    local yOffset = 44
+    local xOffset = 150
+    local yOffset = 50
     local cellCount = 1
 
     -- Define the array to hold the buttons
@@ -87,20 +88,20 @@ function scene:createScene( event )
             onEvent = handleLevelSelect,
             emboss = false,
             shape="rect",
-            width = 68,
-            height = 52,
+            width = 100,
+            height = 100,
             font = native.systemFontBold,
-            fontSize = 20,
+            fontSize = 30,
             labelColor = { default = { 1, 1, 1 }, over = { 0.5, 0.5, 0.5 } },
             --cornerRadius = 8,
             labelYOffset = -6, 
             fillColor = { default={ 0, 0.5, 1, 1 }, over={ 0.5, 0.75, 1, 1 } },
             strokeColor = { default={ 0, 0, 1, 1 }, over={ 0.333, 0.667, 1, 1 } },
-            strokeWidth = 2
+            strokeWidth = 4
         })
         -- Position the button in the grid and add it to the scrollView
-        buttons[i].x = xOffset
-        buttons[i].y = yOffset
+        buttons[i].x = xOffset + 20
+        buttons[i].y = yOffset + 50
         buttons[i].num = i
         levelSelectGroup:insert( buttons[i] )
 
@@ -131,10 +132,10 @@ function scene:createScene( event )
             for j = 1, mydata.settings.levels[i].stars do
                 star[j] = display.newPolygon( 0, 0, starVertices )
                 star[j]:setFillColor( 1, 0.9, 0 )
-                star[j].strokeWidth = 1
+                star[j].strokeWidth = 3
                 star[j]:setStrokeColor( 1, 0.8, 0 )
                 star[j].x = buttons[i].x + (j * 16) - 32
-                star[j].y = buttons[i].y + 8
+                star[j].y = buttons[i].y + 25
                 levelSelectGroup:insert( star[j] )
             end
         end
@@ -142,12 +143,12 @@ function scene:createScene( event )
         -- Compute the position of the next button.
         -- This tutorial draws 5 buttons across.
         -- It also spaces based on the button width and height + initial offset from the left.
-        xOffset = xOffset + 100
+        xOffset = xOffset + 150
         cellCount = cellCount + 1
-        if ( cellCount > 4 ) then
+        if ( cellCount > 2 ) then
             cellCount = 1
-            xOffset = 94
-            yOffset = yOffset + 75
+            xOffset = 150
+            yOffset = yOffset + 150
         end
     end
 
@@ -156,16 +157,20 @@ function scene:createScene( event )
     levelSelectGroup.x = display.contentCenterX
     levelSelectGroup.y = display.contentCenterY
 
+  local gameTitle = display.newImage("images/dgd2.png")
+  gameTitle:scale(1.2, 3)
+    gameTitle.x = 250
+    gameTitle.y = 100
+    --gameTitle:setTextColor(black)
+    sceneGroup:insert( gameTitle )
     -- Create a cancel button for return to the menu scene.
-    local doneButton = widget.newButton({
-        id = "button1",
-        label = "Back To Menu",
-        fontSize = 30,
-        onEvent = handleCancelButtonEvent
-    })
-    doneButton.x = display.contentCenterX
-    doneButton.y = display.contentHeight - 50
-    sceneGroup:insert( doneButton )
+    local mainMenu = display.newImageRect ("images/mainMenu.png" ,260, 50)
+				mainMenu.x = 250 
+				mainMenu.y = 770
+				--params = event.params
+				mainMenu.destination = "menu"
+				mainMenu:addEventListener ("tap", btnTap)
+				sceneGroup:insert (mainMenu)
 end
 
 -- On scene show...

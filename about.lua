@@ -1,59 +1,117 @@
-local storyboard = require("storyboard")
+
+local storyboard = require( "storyboard" )
 local scene = storyboard.newScene()
+local physics = require("physics")
+local game1 = require("game1")
+local game2 = require("game2")
+local game3 = require("game3")
+local game4 = require("game4")
+local game5 = require("game5")
+local params
 
-local widget = require( "widget" )
+-- local forward references should go here --
 
--- Button handler returns to the menu scene
-local function handleCancelButtonEvent( event )
-    if ( "ended" == event.phase ) then
-        storyboard.gotoScene( "menu", { effect="crossFade", time=333 } )
-    end
+local function btnTap(event)
+	--event.target.xScale = 0.95
+	--event.target.yScale = 0.95
+	storyboard.gotoScene (  event.target.destination, { time=333, effect = "fade"} )
+	return true
 end
 
-function scene:createScene(event)
-  local sceneGroup = self.view
+
+
+ function catchBackgroundOverlay(event)
+	return true 
+end
+
+-- Called when the scene's view does not exist:
+function scene:createScene( event )
+	local group = self.view
   
-  -- Create background
-    local background = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
-    background:setFillColor( 1 )
-    background.x = display.contentCenterX
-    background.y = display.contentCenterY
-    sceneGroup:insert( background )
-    
-  -- Display information about the game
-    local aboutText = display.newText(
-        "DGD is a brain puzzle game\n, in which all the dots move together.\n The dots always move unless they are blocked,\n to solve the puzzle,\n move all the dots onto the colored squares.\n Player can only proceed to the next level\n only if all dots are placed on the colored squares\n and does not exceed to the limit number of moves.\n", display.contentCenterX, 200, native.systemFont,20, center  )
-    aboutText:setFillColor(0,0,0)
-    sceneGroup:insert(aboutText)
-  
-  -- Create a button that returns to the menu scene.
-    local backButton = widget.newButton({
-        id = "button1",
-        label = "Back To Menu",
-        fontSize = 30,
-        onEvent = handleCancelButtonEvent
-    })
-    backButton.x = display.contentCenterX
-    backButton.y = display.contentHeight - 50
-    sceneGroup:insert( backButton )
-  
+  local backgroundOverlay = display.newImage ("images/instructionsBackground.jpg")
+        backgroundOverlay:scale(1.2, 1.2)
+        backgroundOverlay.x = 180
+        backgroundOverlay.y = 300
+				backgroundOverlay.isHitTestable = true
+				backgroundOverlay:addEventListener ("tap", catchBackgroundOverlay)
+				backgroundOverlay:addEventListener ("touch", catchBackgroundOverlay)
+        group:insert (backgroundOverlay)
+        
+  --[[local instructions = display.newImageRect ("images/mechanics.png" ,400, 350)
+				instructions.x = 250 
+				instructions.y = 350
+				params = event.params
+				--instructions.destination = "menu"
+				--instructions:addEventListener ("tap", btnTap)
+				group:insert (instructions)
+        ]]--
+  local box = display.newRect(250, 350, 400, 350)
+  box:setFillColor( black )
+  group:insert(box)
+  local info = display.newText(
+    "Developers: \n Rahmah Hadji Abdulmadid\n BS-Computer Science\n \n Sunshine Podiotan\n BS- Computer Science", display.contentCenterX, 200, "starcraft.ttf",30, center)
+  info.x = 250
+  info.y = 350
+  info:setFillColor(1)
+  group:insert(info)
+        
+  local mainMenu = display.newImageRect ("images/mainMenu.png" ,260, 50)
+				mainMenu.x = 250 
+				mainMenu.y = 770
+				params = event.params
+				mainMenu.destination = "menu"
+				mainMenu:addEventListener ("tap", btnTap)
+				group:insert (mainMenu)
+        
+   
 end
 
-function scene:enterScene(event)
-  local group = self.view
+
+
+-- Called immediately after scene has moved onscreen:
+function scene:enterScene( event )
+	local group = self.view
+--timer.resume(gameTimer)
 end
 
-function scene:exitScene(event)
-  local group = self.view
+
+-- Called when scene is about to move offscreen:
+function scene:exitScene( event )
+	local group = self.view
+
+	-- stop time here
+	-- Remove listeners attached to the Runtime, timers, transitions
+
 end
 
+
+-- Called prior to the removal of scene's "view" (display group)
 function scene:destroyScene( event )
+	local group = self.view
+  --timer.resume(gameTimer)
 
 end
 
+
+---------------------------------------------------------------------------------
+-- END OF YOUR IMPLEMENTATION
+---------------------------------------------------------------------------------
+
+-- "createScene" event is dispatched if scene's view does not exist
 scene:addEventListener( "createScene", scene )
+
+-- "enterScene" event is dispatched whenever scene transition has finished
 scene:addEventListener( "enterScene", scene )
+
+-- "exitScene" event is dispatched before next scene's transition begins
 scene:addEventListener( "exitScene", scene )
+
+-- "destroyScene" event is dispatched before view is unloaded, which can be
+-- automatically unloaded in low memory situations, or explicitly via a call to
+-- storyboard.purgeScene() or storyboard.removeScene().
 scene:addEventListener( "destroyScene", scene )
+
+
+---------------------------------------------------------------------------------
 
 return scene

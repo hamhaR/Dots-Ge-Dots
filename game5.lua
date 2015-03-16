@@ -198,7 +198,7 @@ end
     gameTimer:setTextColor(1,0,0)
     sceneGroup:insert( gameTimer )
     
-    local timeLimit = display.newText("Time Limit: 5 seconds", 100, 100, 'Marker Felt', 30)
+    local timeLimit = display.newText("Time Limit: 10 seconds", 100, 100, 'Marker Felt', 30)
     timeLimit.x = 170
     timeLimit.y = 670
     timeLimit:setTextColor(1,0,0)
@@ -207,18 +207,24 @@ end
     function displayTime(event)
       local params = event.source.params
       gameTimer.text = event.count
-      if event.count < 5 then
-        if (circle1.x == 90 and circle2.x == 245 and circle3.x == 90) and (circle1.y == 255 and circle2.y == 550 and circle3.y == 550) then
-          timer.cancel(event.source)
-          storyboard.showOverlay( "gameFinished" ,{effect = "fade", params ={levelNum = "game5"}, isModal = true} )
-        end
-      elseif event.count == 5 then
-        timer.cancel(event.source)
-        if (circle1.x == 90 and circle2.x == 245 and circle3.x == 90) and (circle1.y == 255 and circle2.y == 550 and circle3.y == 550) then
-          storyboard.showOverlay( "gameFinished" ,{effect = "fade"  , params ={levelNum = "game5"}, isModal = true} )
-        else 
-          storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  , params ={levelNum = "game5"}, isModal = true} )
-        end
+      if (circle1.x == 90 and circle2.x == 245 and circle3.x == 90) and (circle1.y == 255 and circle2.y == 550 and circle3.y == 550) then
+        if(event.count >= 0 and event.count <= 4) then
+            mydata.settings.levels[5].stars = 3
+            timer.cancel(event.source)
+            storyboard.showOverlay( "gameFinished" ,{effect = "fade"  ,  params ={levelNum = "game5"}, isModal = true} )
+          elseif(event.count >= 5 and event.count <= 8) then
+            mydata.settings.levels[5].stars = 2
+            timer.cancel(event.source)
+            storyboard.showOverlay( "gameFinished" ,{effect = "fade"  ,  params ={levelNum = "game5"}, isModal = true} )
+          elseif(event.count >= 9 and event.count <= 10) then
+            mydata.settings.levels[5].stars = 1
+            timer.cancel(event.source)
+            storyboard.showOverlay( "gameFinished" ,{effect = "fade"  ,  params ={levelNum = "game5"}, isModal = true} )
+          elseif(event.count > 10) then
+            mydata.settings.levels[5].stars = 0
+            timer.cancel(event.source)
+            storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game5"}, isModal = true} )
+          end
       end
     end
 
@@ -697,15 +703,19 @@ end
         if dX > 0 and dX > dY  then
             print("move right")
             checkXRightPosition(group, block1, block2)
+            transition.to( event.target, { time=500} )
         elseif dX < 0 and dY > dX then
             print("move left")
             checkXLeftPosition(group, block1, block2)
+            transition.to( event.target, { time=500} )
         elseif dY < 0 then
             print("move up")
             checkYUpPosition(group, block1, block2)
+            transition.to( event.target, { time=500} )
         elseif dY > 0 then
             print("move down")
             checkYDownPosition(group, block1, block2)
+            transition.to( event.target, { time=500} )
         end
     end
       

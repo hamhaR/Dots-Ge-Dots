@@ -72,6 +72,7 @@ local resumeBtn = display.newImageRect ("images/resumeBtn.png", 230, 50)
 				end 
         
 				resumeBtn:addEventListener ("tap", hideOverlay)
+        timer.resume(gameTimer)
 				group:insert(resumeBtn)
 
 local reloadBtn = display.newImageRect ("images/reload.png" ,280, 50)

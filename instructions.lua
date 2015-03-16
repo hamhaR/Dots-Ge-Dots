@@ -29,21 +29,31 @@ function scene:createScene( event )
 	local group = self.view
   
   local backgroundOverlay = display.newImage ("images/instructionsBackground.jpg")
-        backgroundOverlay:scale(1.2, 2.1)
-        backgroundOverlay.x = 0
-        backgroundOverlay.y = 0
+        backgroundOverlay:scale(1.2, 1.2)
+        backgroundOverlay.x = 180
+        backgroundOverlay.y = 300
 				backgroundOverlay.isHitTestable = true
 				backgroundOverlay:addEventListener ("tap", catchBackgroundOverlay)
 				backgroundOverlay:addEventListener ("touch", catchBackgroundOverlay)
         group:insert (backgroundOverlay)
         
-  local instructions = display.newImageRect ("images/mechanics.png" ,400, 350)
+  --[[local instructions = display.newImageRect ("images/mechanics.png" ,400, 350)
 				instructions.x = 250 
 				instructions.y = 350
 				params = event.params
 				--instructions.destination = "menu"
 				--instructions:addEventListener ("tap", btnTap)
 				group:insert (instructions)
+        ]]--
+  local box = display.newRect(250, 350, 350, 320)
+  box:setFillColor( black )
+  group:insert(box)
+  local instructions = display.newText(
+    "       Move all the dots \n to the colored grid within \n      the given time limit. \n      Failure to do so \n    will make you lose \n            the game.. \n           Good luck!!!", display.contentCenterX, 200, "starcraft.ttf",30, center)
+  instructions.x = 250
+  instructions.y = 350
+  instructions:setFillColor(1)
+  group:insert(instructions)
         
   local mainMenu = display.newImageRect ("images/mainMenu.png" ,260, 50)
 				mainMenu.x = 250 

@@ -134,24 +134,24 @@ function scene:createScene( event )
     sceneGroup:insert(pauseBtn)
   --/pause button
   
-  --replay button
+--replay button
   local reloadBtn = widget.newButton{
     width = 70,
     height = 70,
     defaultFile = "images/reloadBtn.png"
-    }
-    reloadBtn.x = display.contentWidth - 140
-    reloadBtn.y = display.contentHeight - 40
-    reloadBtn.destination = "game3"
-    reloadBtn:addEventListener("tap", reloadbtnTap)
-    sceneGroup:insert(reloadBtn)
+  }
+  reloadBtn.x = display.contentWidth - 140
+  reloadBtn.y = display.contentHeight - 40
+  reloadBtn.destination = "game3"
+  reloadBtn:addEventListener("tap", reloadbtnTap)
+  sceneGroup:insert(reloadBtn)
   --/replay button
    
     -- start draw circle
     local circle1 = display.newCircle(245, 255, 50)
     circle1:setFillColor(174/255, 87/255, 163/255) 
     
-    local circle2= display.newCircle(95, 400, 50)
+    local circle2= display.newCircle(90, 400, 50)
     circle2:setFillColor(174/255, 87/255, 163/255) 
     
     local circle3= display.newCircle(245, 400, 50)
@@ -166,13 +166,13 @@ function scene:createScene( event )
     
     --insert block 
     local block1 = display.newImage( "block_brick.png" )
-    block1.x = 95
+    block1.x = 90
     block1.y = 250
     block1:scale(-0.57, -0.57)
     --sceneGroup:insert(block1)
 
     local block2 = display.newImage("block_brick.png")
-    block2.x = 95
+    block2.x = 90
     block2.y = 550
     block2:scale(-0.57, -0.57)
     --sceneGroup:insert(block2)
@@ -203,34 +203,39 @@ function scene:createScene( event )
     gameTimer:setTextColor(1,0,0)
     sceneGroup:insert( gameTimer )
     
-    local timeLimit = display.newText("Time Limit: 5 seconds", 100, 100, 'Marker Felt', 30)
+    local timeLimit = display.newText("Time Limit: 10 seconds", 100, 100, 'Marker Felt', 30)
     timeLimit.x = 170
     timeLimit.y = 670
     timeLimit:setTextColor(1,0,0)
     sceneGroup:insert(timeLimit)
 
-    function displayTime(event)
+  function displayTime(event)
       local params = event.source.params
       gameTimer.text = event.count
-        if event.count < 20 then
-            if (circle1.x == 400 and circle1.y == 255) and (circle2.x == 245 and circle2.y == 255) and (circle3.x == 400 and circle3.y == 400) then
-                timer.cancel(event.source)
-                mydata.settings.unlockedLevels = 4
-                storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
-            end
-        elseif event.count == 20 then
+      if (circle1.x == 400 and circle1.y == 255) and (circle2.x == 245 and circle2.y == 255) and (circle3.x == 400 and circle3.y == 400) then
+        if(event.count > 0 and event.count <= 4) then
+            mydata.settings.levels[3].stars = 3
             timer.cancel(event.source)
-            if (circle1.x == 400 and circle1.y == 255) and (circle2.x == 245 and circle2.y == 255) and (circle3.x == 400 and circle3.y == 400) then
-                mydata.settings.unlockedLevels = 4
-                storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
-            else
-                storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
-            end
+            mydata.settings.unlockedLevels = 4
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
+        elseif(event.count >= 5 and event.count <= 8) then
+            mydata.settings.levels[3].stars = 2
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 4
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
+        elseif(event.count >= 9 and event.count <= 10) then
+            mydata.settings.levels[3].stars = 1
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 4
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
+        elseif(event.count > 10) then
+            timer.cancel(event.source)
+            storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
         end
+      end
     end
 
-    local tmr = timer.performWithDelay(1000, displayTime, 0)
-    --tmr.params = group
+    local tmr = timer.performWithDelay(1000, displayTime, 0)    tmr.params = group
 
     -- end timer
 
@@ -242,124 +247,86 @@ function scene:createScene( event )
     local UP = -20
     local DOWN = 150
     
-    local function checkYUpPosition(group, block)
-        if group[1].y > 255 then
-            if (group[1].y-145 ~= group[2].y and group[1].x ~= group[2].x) or (group[1].y-145 ~= group[3].y and group[1].x ~= group[3].x) then
-                if (group[1].x == block[1].x) and (group[1].y-150 == block[1].y) then
-                    print("dots don't move, 1")
-                elseif group[2].x == block[1].x and group[2].y - 150 == block[1].y then
-                    print("pikachu")
-                    group[1].y = 255
-                    group[3].y = group[3].y - 150
-                else
-                    print("anne")
-                    group[1].y = 255
-                    group[2].y = 255
-                    group[3].y = group[3].y - 150
-                end
-            end
-        elseif group[2].y > 255 then
-            if (group[2].y-145 ~= group[3].y and group[2].x ~= group[3].x) or (group[1].y-145 ~= group[2].y and group[2].x ~= group[1].x) then
-                if (group[2].x == block[1].x) and (group[2].y-150 == block[1].y) then
-                    print("dots dont move, 2", group[3].y)
-                    if group[3].y ~= 255 and group[1].x ~= group[3].x then
-                        group[3].y = 255
-                    end
-                else
-                    group[2].y = 255
-                end
-            end
-        elseif group[3].y > 255 then
-            if (group[3].y-145 ~= group[1].y and group[3].y ~= group[2].y)  then
-                if (group[3].x == block[1].x) and (group[3].y-150 == block[1].y) then
-                    print("dots dont move, 3")
-                else
-                    print("na unsa ka?")
-                    group[3].y = group[3].y - 150
-                end
-            else
-                print("no up")
-            end
+    local function checkYUpPosition(group)
+      if(group[1].x == 245 and group[1].y == 255) then
+        if(group[2].x == 90 and group[2].y == 400 and group[3].x == 245 and group[3].y == 400) then
+          print("don't move")
         end
-        return true
-        --]]
+      elseif(group[1].x == 400 and group[1].y == 255) then
+        if(group[2].x == 245 and group[2].y == 400 and group[3].x == 400 and group[3].y == 400) then
+          print("move up")
+          group[2].y = 255
+        end
+      elseif(group[1].x == 400 and group[1].y == 400) then
+        if(group[2].x == 245 and group[2].y == 400 and group[3].x == 400 and group[3].y == 550) then
+          print("move up2")
+          group[1].y = 255
+          group[2].y = 255
+          group[3].y = 400
+        end
+      end
+      return true
     end
 
-    local function checkYDownPosition(group, block)
-        if group[1].y == 400 then
-            group[3].y = 550
-            print("statement 1")
-        elseif group[2].y == 400 then
-            if (group[2].y+150 == block[2].y and group[2].x == block[2].x) and (group[3].y+150 == block[3].y and group[3].x == block[3].x) then
-                print("statement 2, block")
-            elseif (group[2].y+150 == block[3].y and group[2].x == block[3].x) then
-                group[1].y = 400
-                group[2].y = 400
-                group[3].y = 550
-                print("srsly?")
-            else
-                if group[3].y == 400 then
-                    group[1].y = 400
-                    group[3].y = 550
-                elseif group[3].y == 255 then
-                    group[1].y = 400
-                    group[3].y = 400
-                end
-                print("condition not satisfy")
-            end
-        elseif group[3].y == 400 and group[1].y < 400 and group[2].y < 400 then
-            group[1].y = 400
-            group[2].y = 400
-            group[3].y = 400
-            print("statement 3")
-        else
-            group[1].y = 400
-            group[2].y = 400
-            group[3].y = 550
-            print("ambot")
+    local function checkYDownPosition(group)
+      if(group[1].x == 245 and group[1].y == 255) then
+        if(group[2].x == 90 and group[2].y == 400 and group[3].x == 245 and group[3].y == 400) then
+          print("don't move")
         end
-        return true
+       elseif(group[1].x == 400 and group[1].y == 255) then
+        if(group[2].x == 245 and group[2].y == 400 and group[3].x == 400 and group[3].y == 400) then
+          print("move down")
+          group[1].y = 400
+          group[3].y = 550
+        end
+      elseif(group[1].x == 400 and group[1].y == 400) then
+        if(group[2].x == 245 and group[2].y == 400 and group[3].x == 400 and group[3].y == 550) then
+          print("don't move")
+        end
+      end
+      return true
     end
 
-    local function checkXLeftPosition(group, block)
-        if group[1].x == 95 or group[2].x == 95 or group[3].x == 95 then
-            print("left dont move")
-        elseif group[1].x > 95 and group[2].x > 95 and (group[3].x > 95 and (group[3].x-155 ~= block[3].x and group[3].y == block[3].y)) then
-            group[1].x = 245
-            group[2].x = 95
-            group[3].x = 245
-
-        elseif group[2].x-150 == block[1].x and group[2].y-5 == block[1].y and group[3].x >190 then
-            group[3].x = group[3].x - 150
-            print(group[3].x)
-        elseif group[3].x - 155 == block[3].x and group[3].y == block[3].y then
-            group[1].x = 245
-            group[2].x = 95
-            
-        elseif group[1].x == 400 and group[2].x == 245 and group[3].x == 400 and group[2].y == group[3].y then
-            group[1].x = 245
-            group[2].x = 95
-            group[3].x = 245
-            print("asa", group[1].x)
-        else
-            print("Condition statement not satisfied.")
+    local function checkXLeftPosition(group)
+      if(group[1].x == 245 and group[1].y == 255) then
+        if(group[2].x == 90 and group[2].y == 400 and group[3].x == 245 and group[3].y == 400) then
+          print("don't move")
         end
-        return true
+       elseif(group[1].x == 400 and group[1].y == 255) then
+        if(group[2].x == 245 and group[2].y == 400 and group[3].x == 400 and group[3].y == 400) then
+          print("move left")
+          group[1].x = 245
+          group[2].x = 90
+          group[3].x = 245
+        end
+      elseif(group[1].x == 400 and group[1].y == 400) then
+        if(group[2].x == 245 and group[2].y == 400 and group[3].x == 400 and group[3].y == 550) then
+          print("move left2")
+          group[1].x = 245
+          group[2].x = 90
+        end
+      end
+      return true
     end
 
-    local function checkXRightPosition(group, block)
-        print("echos", group[1].x, group[2].x, group[3].x)
-        if group[2].x - 150 == block[1].x and group[2].y-5 == block[1].y and group[1].x-155 == group[2].x and group[3].x < 400 then
-            group[3].x = group[3].x + 150
-        elseif group[2].x == 95 and group[1].x == 245 and group[3].x == 400 and group[1].y == 400 and group[2].y == 400 and group[3].y == 400 then
-            print("stay dude!")
-        else
-            group[1].x = 400
-            group[2].x = 245
-            group[3].x = 400
-            print(group[1].x, group[2].x) 
+    local function checkXRightPosition(group)
+      if(group[1].x == 245 and group[1].y == 255) then
+        if(group[2].x == 90 and group[2].y == 400 and group[3].x == 245 and group[3].y == 400) then
+          print(" move right1")
+          group[1].x = 400
+          group[2].x = 245
+          group[3].x = 400
         end
-        return true
+       elseif(group[1].x == 400 and group[1].y == 255) then
+        if(group[2].x == 245 and group[2].y == 400 and group[3].x == 400 and group[3].y == 400) then
+          print("don't move")
+        end
+      elseif(group[1].x == 400 and group[1].y == 400) then
+        if(group[2].x == 245 and group[2].y == 400 and group[3].x == 400 and group[3].y == 550) then
+          print("don't move")
+        end
+      end
+      return true
     end
 
     local dX = 0
@@ -372,25 +339,40 @@ function scene:createScene( event )
             print("End of story.\n", dX, dY)
             return false
         end
-        if dX > 20 and dX > dY  then
-            print("move right")
-            checkXRightPosition(group, block)
-        elseif dX < 0 and dY > dX then
-            print("move left")
-            checkXLeftPosition(group, block)
-        elseif dY < 0 then
-            print("move up")
-            checkYUpPosition(group, block)
-        elseif dY > 0 then
-            print("move down")
-            checkYDownPosition(group, block)
-        end
-        
+          if dX > 20 and dX > dY  then
+              print("move right")
+              local spot = "right"
+              checkXRightPosition(group)
+              transition.to( event.target, { time=333} )
+              if event.target.param == "right" then
+                -- right
+                checkXRightPosition(group)
+                transition.to( event.target, { time=333} )
+              elseif event.target.param == "left" then
+                -- left
+                checkXLeftPosition(group)
+                transition.to( event.target, { time=333} )
+              end
+              transition.to( event.target, { time=333 } )
+              return true
+          elseif dX < -20 and dY > dX then
+              print("move left")
+              checkXLeftPosition(group)
+              transition.to( event.target, { time=100} )
+              return true
+          elseif dY < -20 then
+              print("move up")
+              checkYUpPosition(group)
+              transition.to( event.target, { time=100} )
+              return true
+          elseif dY > 20 then
+              print("move down")
+              checkYDownPosition(group)
+              transition.to( event.target, { time=333} )
+              return true
+          end
         --end
-        
     end
-      
-      
       group:addEventListener("touch", handleSwipe)  
 end
 

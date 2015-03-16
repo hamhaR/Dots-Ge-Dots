@@ -6,8 +6,8 @@ local function startButtonHit(event)
   return true
 end
 
-local function settingsButtonHit(event)
-  storyboard.gotoScene("settings", {effect="slideUp"})
+local function aboutButtonHit(event)
+  storyboard.gotoScene("about", {effect="slideUp"})
   return true
 end
 
@@ -26,10 +26,12 @@ function scene:createScene(event)
   local group = self.view
  
   
-  local gameTitle = display.newText( "Dots Ge Dots", 100, 100, "Helvetica", 65 )
-  gameTitle.x = display.contentCenterX
-  gameTitle.y = display.contentCenterY - 200
-  group:insert( gameTitle )
+  local gameTitle = display.newImage("images/dgd2.png")
+  gameTitle:scale(1, 3)
+    gameTitle.x = 250
+    gameTitle.y = 170
+    --gameTitle:setTextColor(black)
+    group:insert( gameTitle )
  
   local startButton = display.newText( "Play Game", 0, 0, native.systemFont, 50 )
   startButton.x = display.contentCenterX
@@ -38,18 +40,18 @@ function scene:createScene(event)
   startButton:addEventListener( "tap", startButtonHit )
   group:insert( startButton )
   
-  local settingsButton = display.newText( "Settings", 0, 0, native.systemFont, 50 )
+  local settingsButton = display.newText( "Instructions", 0, 0, native.systemFont, 50 )
   settingsButton.x = display.contentCenterX
   settingsButton.y = display.contentCenterY - 5
   --settingsButton.goto("settings")
-  settingsButton:addEventListener( "tap", settingsButtonHit )
+  settingsButton:addEventListener( "tap", instructionButtonHit )
   group:insert( settingsButton )
   
-  local aboutButton = display.newText( "Instructions", 0, 0, native.systemFont, 50 )
+  local aboutButton = display.newText( "Credits", 0, 0, native.systemFont, 50 )
   aboutButton.x = display.contentCenterX
   aboutButton.y = display.contentCenterY + 55
   --aboutButton.goto("about")
-  aboutButton:addEventListener( "tap", instructionButtonHit )
+  aboutButton:addEventListener( "tap", aboutButtonHit )
   group:insert( aboutButton )
   
   local exitButton = display.newText( "Exit", 0, 0, native.systemFont, 50 )

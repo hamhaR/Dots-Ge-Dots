@@ -205,7 +205,7 @@ function scene:createScene( event )
     gameTimer:setTextColor(1,0,0)
     sceneGroup:insert(gameTimer)
     
-    local timeLimit = display.newText("Time Limit: 5 seconds", 100, 100, 'Marker Felt', 30)
+    local timeLimit = display.newText("Time Limit: 10 seconds", 100, 100, 'Marker Felt', 30)
     timeLimit.x = 170
     timeLimit.y = 670
     timeLimit:setTextColor(1,0,0)
@@ -214,39 +214,128 @@ function scene:createScene( event )
     function displayTime(event)
       local params = event.source.params
       gameTimer.text = event.count
-      if event.count < 15 then
-        if (circle1.x == 245 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 400 and circle2.y == 400 and circle3.y == 550) then
-          timer.cancel(event.source)
-          mydata.settings.unlockedLevels = 3
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
-                elseif(circle1.x == x2 and circle2.x == x3 and circle3.x == x3) and (circle1.y == y2 and circle2.y == y3 and circle3.y == y2) then
-          timer.cancel(event.source)
-          mydata.settings.unlockedLevels = 3
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
-        elseif(circle1.x == x3 and circle2.x == x3 and circle3.x == x2) and (circle1.y == y2 and circle2.y == y3 and circle3.y == y2) then
-          timer.cancel(event.source)
-          mydata.settings.unlockedLevels = 3
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
-        elseif(circle1.x == x3 and circle2.x == x3 and circle3.x == x2) and (circle1.y == y3 and circle2.y == y2 and circle3.y == y2) then
-          timer.cancel(event.source)
-          mydata.settings.unlockedLevels = 3
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
-        elseif(circle1.x == x3 and circle2.x == x2 and circle3.x == x3) and (circle1.y == y2 and circle2.y == y2 and circle3.y == y3) then
-          timer.cancel(event.source)
-          mydata.settings.unlockedLevels = 3
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
-        elseif(circle1.x == x3 and circle2.x == x2 and circle3.x == x3) and (circle1.y == y3 and circle2.y == y2 and circle3.y == y2) then
-          timer.cancel(event.source)
-          mydata.settings.unlockedLevels = 3
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+      if (circle1.x == 245 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 400 and circle2.y == 400 and circle3.y == 550) then
+        --determines the amount of star to be given
+        if(event.count >= 0 and event.count <= 4) then
+            mydata.settings.levels[2].stars = 3
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 5 and event.count <= 8) then
+            mydata.settings.levels[2].stars = 2
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 9 and event.count <= 10) then
+            mydata.settings.levels[2].stars = 1
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count > 10) then
+            timer.cancel(event.source)
+            storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
         end
-      elseif event.count == 15 then
-        timer.cancel(event.source)
-        if (circle1.x == 245 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 400 and circle2.y == 400 and circle3.y == 550) then
-          mydata.settings.unlockedLevels = 3
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
-        else 
-          storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+            
+      elseif(circle1.x == x2 and circle2.x == x3 and circle3.x == x3) and (circle1.y == y2 and circle2.y == y3 and circle3.y == y2) then
+        if(event.count >= 0 and event.count <= 4) then
+            mydata.settings.levels[2].stars = 3
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 5 and event.count <= 8) then
+            mydata.settings.levels[2].stars = 2
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 9 and event.count <= 10) then
+            mydata.settings.levels[2].stars = 1
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count > 10) then
+            timer.cancel(event.source)
+            storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        end
+      elseif(circle1.x == x3 and circle2.x == x3 and circle3.x == x2) and (circle1.y == y2 and circle2.y == y3 and circle3.y == y2) then
+        if(event.count >= 0 and event.count <= 4) then
+            mydata.settings.levels[2].stars = 3
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 5 and event.count <= 8) then
+            mydata.settings.levels[2].stars = 2
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 9 and event.count <= 10) then
+            mydata.settings.levels[2].stars = 1
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count > 10) then
+            timer.cancel(event.source)
+            storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        end
+      elseif(circle1.x == x3 and circle2.x == x3 and circle3.x == x2) and (circle1.y == y3 and circle2.y == y2 and circle3.y == y2) then
+        if(event.count >= 0 and event.count <= 4) then
+            mydata.settings.levels[2].stars = 3
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 5 and event.count <= 8) then
+            mydata.settings.levels[2].stars = 2
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 9 and event.count <= 10) then
+            mydata.settings.levels[2].stars = 1
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count > 10) then
+            timer.cancel(event.source)
+            storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        end
+      elseif(circle1.x == x3 and circle2.x == x2 and circle3.x == x3) and (circle1.y == y2 and circle2.y == y2 and circle3.y == y3) then
+        if(event.count >= 0 and event.count <= 4) then
+            mydata.settings.levels[2].stars = 3
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 5 and event.count <= 8) then
+            mydata.settings.levels[2].stars = 2
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 9 and event.count <= 10) then
+            mydata.settings.levels[2].stars = 1
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count > 10) then
+            timer.cancel(event.source)
+            storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        end
+      elseif(circle1.x == x3 and circle2.x == x2 and circle3.x == x3) and (circle1.y == y3 and circle2.y == y2 and circle3.y == y2) then
+        if(event.count >= 0 and event.count <= 4) then
+            mydata.settings.levels[2].stars = 3
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 5 and event.count <= 8) then
+            mydata.settings.levels[2].stars = 2
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count >= 9 and event.count <= 10) then
+            mydata.settings.levels[2].stars = 1
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 3
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
+        elseif(event.count > 10) then
+            mydata.settings.levels[2].stars = 0
+            timer.cancel(event.source)
+            storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game2"}, isModal = true} )
         end
       end
     end

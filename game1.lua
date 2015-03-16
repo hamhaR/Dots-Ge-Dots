@@ -39,8 +39,14 @@ local function reloadbtnTap(event)
   return true
 end
 
+local function quitBtnTap(event)
+  timer.pause(gameTimer)
+  storyboard.showOverlay( "quitGame" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
+  return true
+end
+
  function catchBackgroundOverlay(event)
-  return true 
+	return true 
 end
 
 local function checkXLeftPosition(group)
@@ -77,34 +83,16 @@ local function checkXLeftPosition(group)
 end
 
 local function checkXRightPosition(group)
-  for i=1, group.numChildren do
-    if i == 1 then
-      if (group[i].x < 245) then
-        if(group[i].y == group[2].y or group[i].y == group[3].y) then
-          print("Dont move")
-        else
-          group[i].x = 245
-        end
-      end
-    elseif i == 2 then
-      -- do
-      if (group[i].x < 245) then
-        if(group[i].y == group[1].y or group[i].y == group[3].y) then
-          print("Dont move")
-        else
-          group[i].x = 245
-        end
-      end
-    elseif i == 3 then
-      -- do
-      if (group[i].x < 245) then
-        if(group[i].y == group[1].y or group[i].y == group[2].y) then
-          print("Dont move")
-        else
-          group[i].x = 245
-        end
-      end
-    end
+  if(group[1].x == 90 and group[1].x == group[2].x and group[1].x == group[3].x) then
+    print("move right1")
+    group[1].x = 245
+    group[2].x = 245
+    group[3].x = 245
+  elseif(group[1].x == 245 and group[1].x == group[2].x and group[1].x == group[3].x) then
+    print("move right2")
+    group[1].x = 400
+    group[2].x = 400
+    group[3].x = 400
   end
   return true
 end
@@ -283,10 +271,10 @@ function scene:createScene( event )
   reloadBtn.destination = "game1"
   reloadBtn:addEventListener("tap", reloadbtnTap)
   sceneGroup:insert(reloadBtn)
-  --/replay button
   
+
     -- start draw circle
-    local circle1 = display.newCircle(90, 255, 50)
+   local circle1 = display.newCircle(90, 255, 50)
     circle1:setFillColor(100, 0, 250) 
     
     local circle2= display.newCircle(90, 400, 50)
@@ -316,7 +304,7 @@ function scene:createScene( event )
     gameTimer:setTextColor(1,0,0)
     sceneGroup:insert(gameTimer)
     
-    local timeLimit = display.newText("Time Limit: 3 seconds", 100, 100, 'Marker Felt', 30)
+    local timeLimit = display.newText("Time Limit: 5 seconds", 100, 100, 'Marker Felt', 30)
     timeLimit.x = 170
     timeLimit.y = 670
     timeLimit:setTextColor(1,0,0)
@@ -325,67 +313,103 @@ function scene:createScene( event )
     function displayTime(event)
       local params = event.source.params
       gameTimer.text = event.count
-      -- do
-      if event.count < 3 then
-        if group[1].x == 305 then
-          timer.cancel(event.source)
-          mydata.settings.unlockedLevels = 2
-          print("You solved level 1!!")
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
-        end
-      elseif event.count == 3 then
-        timer.cancel(event.source)
-        if params[1].x == 305 then
-          mydata.settings.unlockedLevels = 2
-          storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
-        else 
-          storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
-        end
+      if (circle1.x == 400 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 255 and circle2.y == 400 and circle3.y == 550) then
+        if(event.count >= 0 and event.count <= 2) then
+          print("solved")
+            mydata.settings.levels[1].stars = 3
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 2
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
+          elseif(event.count >= 3 and event.count <= 4) then
+            print("solved")
+            mydata.settings.levels[1].stars = 2
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 2
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
+          elseif(event.count == 5) then
+            print("solved")
+            mydata.settings.levels[1].stars = 1
+            timer.cancel(event.source)
+            mydata.settings.unlockedLevels = 2
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
+          elseif(event.count > 5) then
+            print(" not solved")
+            mydata.settings.levels[1].stars = 0
+            timer.cancel(event.source)
+            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
+          end
       end
     end
-    
+
     local tmr = timer.performWithDelay(1000, displayTime, 0)
-    tmr.params = {group}
 
     -- end timer
+ 
     
-    local CENTERX = display.contentWidth - 450
+ local CENTERX = display.contentWidth - 450
     local CENTERY = display.contentHeight - 640
     local LEFT = 9
     local RIGHT = 160
-    local UP = -17
-    local DOWN = 150
+    local UP = -60
+    local DOWN = 10
     local dX = 0
     local dY = 0
     
-    local function handleSwipe( event )
-      if ( event.phase == "moved" ) then
-        dX = event.x - event.xStart
-        if ( dX > 0) then
-          --swipe right
-          local spot = RIGHT
-          if event.target.x == RIGHT then
-            spot = 305
-          elseif event.target.x == LEFT then
-            spot = RIGHT
-          end
-          transition.to( event.target, { time=500, x=spot } )
-          return true
-        elseif ( dX  < 0) then
-          --swipe left
-          local spot = LEFT
-          if event.target.x == LEFT then
-            spot = RIGHT
-          end
-          transition.to( event.target, { time=500, x=spot } )
-          return true
+        local function handleSwipe( event )
+        if ( event.phase == "moved" ) then
+            local dX = event.x - event.xStart
+            --print( event.x, event.xStart, dX )
+            if ( dX > 5 ) then
+                --swipe right
+                --local spot = RIGHT
+                checkXRightPosition(group)
+                if ( event.target.x == LEFT ) then
+                    spot = CENTERX - 10
+                elseif(event.target.x == RIGHT) then
+                  checkXRightPosition(group)
+                  --spot = RIGHT
+                end
+                transition.to( event.target, { time=500, x=spot } )
+            elseif ( dX  < -20 ) then
+                --swipe left
+                --local spot = LEFT
+                checkXLeftPosition(group)
+                if ( event.target.x == RIGHT ) then
+                  spot = CENTERX - 10 
+                elseif(event.target.x == LEFT) then
+                  checkXLeftPosition(group)
+                end
+                transition.to( event.target, { time=500, x=spot } )
+            end
+            --y-axis(up and down movement) = 
+          --[[  local dY = event.y - event.yStart
+            if (dY > 10) then
+              local spot = DOWN 
+              if ( event.target.y == UP )  then
+                  spot = CENTERY
+              elseif( event.target.y == DOWN) then
+                  checkYDownPosition(group)
+              end
+              transition.to( event.target, { time = 500, y = spot } )
+            elseif ( dY < -10 ) then
+              local spot = UP
+              if ( event.target.y == DOWN) then
+                  spot = CENTERY
+              elseif(event.target.y == UP) then
+                checkYUpPosition(group) 
+                
+              end
+              transition.to( event.target, { time = 500, y = spot } )
+            end]]--
+            --end sa y
         end
-      end
-      return true
+        return true
     end
-
+      
+      
       group:addEventListener("touch", handleSwipe)  
 end
+
 
 local function proceedToNextLevel(group)
   --insert code
