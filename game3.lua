@@ -233,7 +233,7 @@ function scene:createScene( event )
             storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game3"}, isModal = true} )
         end
       end
-    end
+  end
 
     local tmr = timer.performWithDelay(1000, displayTime, 0)    tmr.params = group
 
@@ -331,8 +331,10 @@ function scene:createScene( event )
 
     local dX = 0
     local dY = 0
+    local count = 0
 
     local function handleSwipe( event )
+<<<<<<< HEAD
         if ( event.phase == "moved" ) then
             dX = event.x - event.xStart
             dY = event.y - event.yStart
@@ -372,6 +374,44 @@ function scene:createScene( event )
               return true
           end
         --end
+=======
+        count = count + 1
+        if event.phase == "moved" then 
+          dX = event.x - event.xStart
+          dY = event.y - event.yStart
+          print("Start for loop")
+          
+          for i= 1, 1 do
+            if count == 1 then
+              if dX > 20 and dX > dY  then
+                  print("move right")
+                  checkXRightPosition(group, block)
+                  return true
+              elseif dX < -20 and dY > dX then
+                  print("move left")
+                  checkXLeftPosition(group, block)
+                  return true
+              elseif dY < -20 then
+                  print("move up")
+                  checkYUpPosition(group, block)
+                  return true
+              elseif dY > 20 then
+                  print("move down")
+                  checkYDownPosition(group, block)
+                  return true
+              end
+            end
+            print("End for loop")
+            
+          end
+          
+          print("Touches",count)
+          return true  
+        end
+        print("Current count")
+        count = 0
+        return true
+>>>>>>> bc231d84931970973097f443a9934cb3442b6318
     end
       group:addEventListener("touch", handleSwipe)  
 end

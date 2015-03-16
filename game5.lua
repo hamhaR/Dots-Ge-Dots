@@ -692,8 +692,10 @@ end
 
     local dX = 0
     local dY = 0
+    local count = 0
 
     local function handleSwipe( event )
+<<<<<<< HEAD
         if ( event.phase == "moved" ) then
             dX = event.x - event.xStart
             dY = event.y - event.yStart
@@ -716,7 +718,44 @@ end
             print("move down")
             checkYDownPosition(group, block1, block2)
             transition.to( event.target, { time=500} )
+=======
+        count = count + 1
+        if event.phase == "moved" then 
+          dX = event.x - event.xStart
+          dY = event.y - event.yStart
+          print("Start for loop")
+          
+          for i= 1, 1 do
+            if count == 1 then
+              if dX > 0 and dX > dY  then
+                  print("move right")
+                  checkXRightPosition(group, block1, block2)
+                  return true
+              elseif dX < 0 and dY > dX then
+                  print("move left")
+                  checkXLeftPosition(group, block1, block2)
+                  return true
+              elseif dY < 0 then
+                  print("move up")
+                  checkYUpPosition(group, block1, block2)
+                  return true
+              elseif dY > 0 then
+                  print("move down")
+                  checkYDownPosition(group, block1, block2)
+                  return true
+              end
+            end
+            print("End for loop")
+            
+          end
+          
+          print("Touches",count)
+          return true  
+>>>>>>> bc231d84931970973097f443a9934cb3442b6318
         end
+        print("Current count")
+        count = 0
+        return true
     end
       
       

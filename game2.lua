@@ -7,6 +7,7 @@ local physics = require("physics")
 physics.start()
 
 require("timer2")
+system.activate( "multitouch" )
 
 --fix positions of dots in every grid (x and y coordinates)
 local x1 = 90
@@ -172,6 +173,7 @@ function scene:createScene( event )
     group:insert(circle2)
     group:insert(circle3)
      --physics.addBody(group, {density=0, friction=0, bounce=0})
+    group.numTouches = 0
     sceneGroup:insert( group)
     
     -- end circle
@@ -396,45 +398,47 @@ function scene:createScene( event )
           group[i].x = x1
           group[2].x = x2
           group[3].x = x3
+          return true
         elseif(group[i].y ~= group[3].y and group[i].x ~= group[3].x and group[3].x == group[2].x and group[3].x ~= block1.x and group[3].y == block1.y) then
           group[i].x = x1
           group[2].x = x3
-          group[3].x = x2
+          group[3].x = x2 
         elseif(group[i].y ~= group[2].y and group[i].x == group[2].x and  group[i].x ~= group[3].x and group[2].y == group[3].y and group[3].x ~= block1.x) then
           group[i].x = x1
           group[2].x = x2
-          group[3].x = x3
+          group[3].x = x3 
         elseif(group[i].y ~= group[3].y and group[i].x == group[3].x and group[3].y == group[2].y and group[2].x ~= block1.x) then
           group[i].x = x1
           group[2].x = x3
           group[3].x = x2
+          return true
         elseif(group[i].x == group[2].x and group[2].x ~= group[3].x and group[3].x ~= block1.x and group[3].y == block2.y) then
           group[i].x = x1
           group[2].x = x2
-          group[3].x = x3
+          group[3].x = x3 
         elseif(group[i].x == group[3].x and group[3].x ~= group[2].x and group[2].x ~= block1.x and group[2].y == block2.y) then
           group[i].x = x1
           group[2].x = x3
-          group[3].x = x2
+          group[3].x = x2 
         elseif(group[i].x == group[2].x and group[i].y == group[3].y and group[2].y == block1.y and group[2].x ~= group[3].x and group[3].x ~= block1.x) then
           group[i].x = x1
           group[2].x = x2
-          group[3].x = x2
+          group[3].x = x2 
         end
       elseif(group[i].x == x3 and group[i].y == y1) then
         if(group[i].x == group[2].x and group[i].x == group[3].x and group[2].y == block1.y ) then
           group[i].x = x2
           group[2].x = x2
-          group[3].x = x3
+          group[3].x = x3 
         elseif(group[i].x == group[3].x and group[i].x ~= group[2].x and group[2].y == group[3].y and group[2].y == block1.y) then
           group[i].x = x2
           group[2].x = x2
-          group[3].x = x3
+          group[3].x = x3 
         elseif(group[i].y == group[2].y and group[i].x  == group[3].x and group[3].y == block1.y) then
             group[i].x = x2
             group[2].x = x1
-            group[3].x = x2
-        end
+            group[3].x = x2 
+        end 
       end
 
     elseif i == 2 then
@@ -464,6 +468,7 @@ function scene:createScene( event )
             group[1].x = x3
             group[3].x = x2
           end
+
     elseif i == 3 then
       -- do
           if(group[i].x == block1.x) then
@@ -495,7 +500,6 @@ function scene:createScene( event )
           end
     end
   end
-  return true
 end
 
 local function checkXRightPosition(group, block1, block2, block3)
@@ -524,6 +528,7 @@ local function checkXRightPosition(group, block1, block2, block3)
             group[i].x = x2
             group[2].x = x3
             group[3].x = x3
+            return true
           elseif(group[i].y == group[3].y and group[3].x ~= group[2].x and group[2].y ~= block1.y) then
             group[i].x = x2
             group[2].x = x3
@@ -660,7 +665,6 @@ local function checkXRightPosition(group, block1, block2, block3)
       --end
     end
   end
-  return true
 end
 
 local function checkYUpPosition(group, block1, block2, block3)
@@ -721,6 +725,7 @@ local function checkYUpPosition(group, block1, block2, block3)
             group[i].y = y1
             group[2].y = y2
             group[3].y = y1--
+            return true
           elseif(group[i].x == group[3].x and group[i].x ~= group[2].x and group[3].y == group[2].y and group[3].y == block1.y and group[3].x ~= block1.x) then
             group[i].y = y1
             group[2].y = y1
@@ -785,7 +790,7 @@ local function checkYUpPosition(group, block1, block2, block3)
           elseif(group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y ~= block1.y) then
             group[i].y = y1
             group[3].y = y1
-            group[1].y = y2 --
+            group[1].y = y2
           end
         elseif(group[i].x == x3 and group[i].y == y2) then
           if(group[i].y == group[1].y and group[i].x == group[3].x) then
@@ -803,7 +808,6 @@ local function checkYUpPosition(group, block1, block2, block3)
             group[1].y = y1
             group[3].y = y1
           end
-        
         end
     elseif i == 3 then 
       --do
@@ -834,7 +838,6 @@ local function checkYUpPosition(group, block1, block2, block3)
       end
     end
   end 
-  return true
 end
 
 local function checkYDownPosition(group, block1, block2, block3)
@@ -952,7 +955,7 @@ local function checkYDownPosition(group, block1, block2, block3)
           elseif(group[i].y == group[3].y and group[3].x ~= group[1].x and group[1].y ~= block1.y) then
             group[i].y = y1
             group[3].y = y1
-            group[1].y = y2 --
+            group[1].y = y2
           end
         end
     elseif i == 3 then 
@@ -985,7 +988,6 @@ local function checkYDownPosition(group, block1, block2, block3)
       end
     end
   end
-  return true
 end
     
     --move dots
@@ -999,43 +1001,57 @@ end
 
     local dX = 0
     local dY = 0
+    local count = 0
 
     local function handleSwipe( event )
-        if ( event.phase == "moved" ) then
-            dX = event.x - event.xStart
-            dY = event.y - event.yStart
-            print("End of story.\n", dX, dY)
+        --if ( event.phase == "moved" ) then
+            
             --return false
         --end
-          if dX > 20 and dX > dY  then
-              print("move right")
-              local spot = "right"
-              checkXRightPosition(group, block1, block2, block3)
-              if event.target.param == "right" then
-                -- right
-                checkXRightPosition(group, block1, block2, block3)
-              elseif event.target.param == "left" then
-                -- left
-                checkXLeftPosition(group, block1, block2, block3)
+        count = count + 1
+        if event.phase == "moved" then 
+          dX = event.x - event.xStart
+          dY = event.y - event.yStart
+          print("Start for loop")
+          
+          for i= 1, 1 do
+            if count == 1 then
+              if dX > 20 and dX > dY  then
+                  print("move right")
+                  checkXRightPosition(group, block1, block2, block3)
+                  return true
+              elseif dX < -20 and dY > dX then
+                  print("move left")
+                  checkXLeftPosition(group, block1, block2, block3)
+                  return true
+              elseif dY < -20 then
+                  print("move up")
+                  checkYUpPosition(group, block1, block2, block3)
+                  return true
+              elseif dY > 20 then
+                  print("move down")
+                  checkYDownPosition(group, block1, block2, block3)
+                  return true
               end
-              transition.to( event.target, { time=500, param=spot } )
-              return true
-          elseif dX < -20 and dY > dX then
-              print("move left")
-              checkXLeftPosition(group, block1, block2, block3)
-              return true
-          elseif dY < -20 then
-              print("move up")
-              checkYUpPosition(group, block1, block2, block3)
-              return true
-          elseif dY > 20 then
-              print("move down")
-              checkYDownPosition(group, block1, block2, block3)
-              return true
+            end
+            --count = count - 1
+            --print("count:::::::::::", count)
+          --else
+            --print("count ======>", count)
+            --return true
+            print("End for loop")
+            
           end
+          
+          print("Touches",count)
+          return true  
         end
+        print("Current count")
+        count = 0
+        return true
     end
       
+
       
       group:addEventListener("touch", handleSwipe)  
 end

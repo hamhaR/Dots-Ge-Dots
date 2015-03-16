@@ -493,27 +493,45 @@ function scene:createScene( event )
 
     local dX = 0
     local dY = 0
+    local count = 0
 
     local function handleSwipe( event )
-        if ( event.phase == "moved" ) then
-            dX = event.x - event.xStart
-            dY = event.y - event.yStart
-            print("End of story.\n", dX, dY)
-            return false
+        count = count + 1
+        if event.phase == "moved" then 
+          dX = event.x - event.xStart
+          dY = event.y - event.yStart
+          print("Start for loop")
+          
+          for i= 1, 1 do
+            if count == 1 then
+              if dX > 0 and dX > dY  then
+                  print("move right")
+                  checkXRightPosition(group, block)
+                  return true
+              elseif dX < 0 and dY > dX then
+                  print("move left")
+                  checkXLeftPosition(group, block)
+                  return true
+              elseif dY < 0 then
+                  print("move up")
+                  checkYUpPosition(group, block)
+                  return true
+              elseif dY > 0 then
+                  print("move down")
+                  checkYDownPosition(group, block)
+                  return true
+              end
+            end
+            print("End for loop")
+            
+          end
+          
+          print("Touches",count)
+          return true  
         end
-        if dX > 0 and dX > dY  then
-            print("move right")
-            checkXRightPosition(group, block)
-        elseif dX < 0 and dY > dX then
-            print("move left")
-            checkXLeftPosition(group, block)
-        elseif dY < 0 then
-            print("move up")
-            checkYUpPosition(group, block)
-        elseif dY > 0 then
-            print("move down")
-            checkYDownPosition(group, block)
-        end
+        print("Current count")
+        count = 0
+        return true
     end
 
     group:addEventListener("touch", handleSwipe)  
