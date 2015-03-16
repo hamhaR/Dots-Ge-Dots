@@ -198,7 +198,7 @@ end
     gameTimer:setTextColor(1,0,0)
     sceneGroup:insert( gameTimer )
     
-    local timeLimit = display.newText("Time Limit: 5 seconds", 100, 100, 'Marker Felt', 30)
+    local timeLimit = display.newText("Time Limit: 10 seconds", 100, 100, 'Marker Felt', 30)
     timeLimit.x = 170
     timeLimit.y = 670
     timeLimit:setTextColor(1,0,0)
@@ -207,12 +207,12 @@ end
     function displayTime(event)
       local params = event.source.params
       gameTimer.text = event.count
-      if event.count < 5 then
+      if event.count < 10 then
         if (circle1.x == 90 and circle2.x == 245 and circle3.x == 90) and (circle1.y == 255 and circle2.y == 550 and circle3.y == 550) then
           timer.cancel(event.source)
           storyboard.showOverlay( "gameFinished" ,{effect = "fade", params ={levelNum = "game5"}, isModal = true} )
         end
-      elseif event.count == 5 then
+      elseif event.count == 10 then
         timer.cancel(event.source)
         if (circle1.x == 90 and circle2.x == 245 and circle3.x == 90) and (circle1.y == 255 and circle2.y == 550 and circle3.y == 550) then
           storyboard.showOverlay( "gameFinished" ,{effect = "fade"  , params ={levelNum = "game5"}, isModal = true} )
@@ -686,27 +686,45 @@ end
 
     local dX = 0
     local dY = 0
+    local count = 0
 
     local function handleSwipe( event )
-        if ( event.phase == "moved" ) then
-            dX = event.x - event.xStart
-            dY = event.y - event.yStart
-            print("End of story.\n", dX, dY)
-            return false
+        count = count + 1
+        if event.phase == "moved" then 
+          dX = event.x - event.xStart
+          dY = event.y - event.yStart
+          print("Start for loop")
+          
+          for i= 1, 1 do
+            if count == 1 then
+              if dX > 0 and dX > dY  then
+                  print("move right")
+                  checkXRightPosition(group, block1, block2)
+                  return true
+              elseif dX < 0 and dY > dX then
+                  print("move left")
+                  checkXLeftPosition(group, block1, block2)
+                  return true
+              elseif dY < 0 then
+                  print("move up")
+                  checkYUpPosition(group, block1, block2)
+                  return true
+              elseif dY > 0 then
+                  print("move down")
+                  checkYDownPosition(group, block1, block2)
+                  return true
+              end
+            end
+            print("End for loop")
+            
+          end
+          
+          print("Touches",count)
+          return true  
         end
-        if dX > 0 and dX > dY  then
-            print("move right")
-            checkXRightPosition(group, block1, block2)
-        elseif dX < 0 and dY > dX then
-            print("move left")
-            checkXLeftPosition(group, block1, block2)
-        elseif dY < 0 then
-            print("move up")
-            checkYUpPosition(group, block1, block2)
-        elseif dY > 0 then
-            print("move down")
-            checkYDownPosition(group, block1, block2)
-        end
+        print("Current count")
+        count = 0
+        return true
     end
       
       
