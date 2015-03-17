@@ -49,120 +49,6 @@ end
 	return true 
 end
 
-local function checkXLeftPosition(group)
-  for i=1, group.numChildren do
-    if i == 1 then
-      if (group[i].x > 90) then
-        if(group[i].y == group[2].y or group[i].y == group[3].y) then
-          print("Dont move")
-        else
-          group[i].x = 90
-        end
-      end
-    elseif i == 2 then
-      -- do
-      if (group[i].x > 90) then
-        if(group[i].y == group[1].y or group[i].y == group[3].y) then
-          print("Dont move")
-        else
-          group[i].x = 90
-        end
-      end
-    elseif i == 3 then
-      -- do
-      if (group[i].x > 90) then
-        if(group[i].y == group[1].y or group[i].y == group[2].y) then
-          print("Dont move")
-        else
-          group[i].x = 90
-        end
-      end
-    end
-  end
-  return true
-end
-
-local function checkXRightPosition(group)
-  if(group[1].x == 90 and group[1].x == group[2].x and group[1].x == group[3].x) then
-    print("move right1")
-    group[1].x = 245
-    group[2].x = 245
-    group[3].x = 245
-  elseif(group[1].x == 245 and group[1].x == group[2].x and group[1].x == group[3].x) then
-    print("move right2")
-    group[1].x = 400
-    group[2].x = 400
-    group[3].x = 400
-  end
-  return true
-end
-
-local function checkYUpPosition(group)
-  for i = 1, group.numChildren do
-    if i == 1 then
-      --do
-      if (group[i].y > 255) then
-        if group[i].x == group[2].x or group[i].x == group[3].x then
-          print ("Dont move")
-        else
-          group[i].y = 255
-        end
-      end
-    elseif i == 2 then
-      --do
-      if (group[i].y > 255) then
-        if group[i].x == group[1].x or group[i].x == group[3].x then
-          print ("Dont move")
-        else
-          group[i].y = 255
-        end
-      end
-    elseif i == 3 then 
-      --do
-      if (group[i].y > 255) then
-        if group[i].x == group[2].x or group[i].x == group[1].x then
-          print ("Dont move")
-        else
-          group[i].y = 255
-        end
-      end
-    end
-  end 
-end
-
-local function checkYDownPosition(group)
-  for i = 1, group.numChildren do
-    if i == 1 then
-      --do
-      if (group[i].y < 400) then
-        if group[i].x == group[2].x or group[i].x == group[3].x then
-          print ("Dont move")
-        else
-          group[i].y = 400
-        end
-      end
-    elseif i == 2 then
-      --do
-      if (group[i].y < 400) then
-        if group[i].x == group[1].x or group[i].x == group[3].x then
-          print ("Dont move")
-        else
-          group[i].y = 400
-        end
-      end
-    elseif i == 3 then 
-      --do
-      if (group[i].y < 400) then
-        if group[i].x == group[2].x or group[i].x == group[1].x then
-          print ("Dont move")
-        else
-          group[i].y = 400
-        end
-      end
-    end
-  end
-end
-
 -- Start the storyboard event handlers
 function scene:createScene( event )
     local sceneGroup = self.view
@@ -184,11 +70,13 @@ function scene:createScene( event )
     sceneGroup:insert(levelUp)
     
     --lower rect
+    --[[
     local levelDown = display.newRect(0, 0, 1200, 180)
     levelDown.x = 0
     levelDown.y = 800
     levelDown:setFillColor(0, 255, 255)
     sceneGroup:insert(levelDown)
+    --]]
   --/lower rect
     
     local level1 = display.newText( "Level 1", 100, 100, native.systemFont, 55 )
@@ -253,8 +141,8 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/pauseBtn.png"
   }
-  pauseBtn.x = display.contentWidth - 340
-  pauseBtn.y = display.contentHeight - 40
+  pauseBtn.x = display.contentWidth - 150
+  pauseBtn.y = display.contentHeight - 670
   pauseBtn.destination = "pause"
   pauseBtn:addEventListener("tap", pausebtnTap)
   sceneGroup:insert(pauseBtn)
@@ -266,8 +154,8 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/reloadBtn.png"
   }
-  reloadBtn.x = display.contentWidth - 140
-  reloadBtn.y = display.contentHeight - 40
+  reloadBtn.x = display.contentWidth - 50
+  reloadBtn.y = display.contentHeight - 670
   reloadBtn.destination = "game1"
   reloadBtn:addEventListener("tap", reloadbtnTap)
   sceneGroup:insert(reloadBtn)
@@ -311,103 +199,82 @@ function scene:createScene( event )
     sceneGroup:insert(timeLimit)
 
     function displayTime(event)
-      local params = event.source.params
       gameTimer.text = event.count
-      if (circle1.x == 400 and circle2.x == 400 and circle3.x == 400) and (circle1.y == 255 and circle2.y == 400 and circle3.y == 550) then
+      if group.x == 320 then
         if(event.count >= 0 and event.count <= 2) then
-          print("solved")
+          print("solved1")
             mydata.settings.levels[1].stars = 3
             timer.cancel(event.source)
             mydata.settings.unlockedLevels = 2
             storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
-          elseif(event.count >= 3 and event.count <= 4) then
-            print("solved")
+        elseif(event.count >= 3 and event.count <= 4) then
+            print("solved2")
             mydata.settings.levels[1].stars = 2
             timer.cancel(event.source)
             mydata.settings.unlockedLevels = 2
             storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
-          elseif(event.count == 5) then
-            print("solved")
+        elseif(event.count == 5) then
+            print("solved3")
             mydata.settings.levels[1].stars = 1
             timer.cancel(event.source)
             mydata.settings.unlockedLevels = 2
             storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
-          elseif(event.count > 5) then
+        elseif(event.count > 5) then
             print(" not solved")
             mydata.settings.levels[1].stars = 0
             timer.cancel(event.source)
             storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
-          end
+        end
       end
     end
 
     local tmr = timer.performWithDelay(1000, displayTime, 0)
 
     -- end timer
- 
-    
- local CENTERX = display.contentWidth - 450
-    local CENTERY = display.contentHeight - 640
-    local LEFT = 9
-    local RIGHT = 160
-    local UP = -60
-    local DOWN = 10
-    local dX = 0
-    local dY = 0
-    
-        local function handleSwipe( event )
-        if ( event.phase == "moved" ) then
-            local dX = event.x - event.xStart
-            --print( event.x, event.xStart, dX )
-            if ( dX > 5 ) then
-                --swipe right
-                --local spot = RIGHT
-                checkXRightPosition(group)
-                if ( event.target.x == LEFT ) then
-                    spot = CENTERX - 10
-                elseif(event.target.x == RIGHT) then
-                  checkXRightPosition(group)
-                  --spot = RIGHT
-                end
-                transition.to( event.target, { time=500, x=spot } )
-            elseif ( dX  < -20 ) then
-                --swipe left
-                --local spot = LEFT
-                checkXLeftPosition(group)
-                if ( event.target.x == RIGHT ) then
-                  spot = CENTERX - 10 
-                elseif(event.target.x == LEFT) then
-                  checkXLeftPosition(group)
-                end
-                transition.to( event.target, { time=500, x=spot } )
-            end
-            --y-axis(up and down movement) = 
-          --[[  local dY = event.y - event.yStart
-            if (dY > 10) then
-              local spot = DOWN 
-              if ( event.target.y == UP )  then
-                  spot = CENTERY
-              elseif( event.target.y == DOWN) then
-                  checkYDownPosition(group)
-              end
-              transition.to( event.target, { time = 500, y = spot } )
-            elseif ( dY < -10 ) then
-              local spot = UP
-              if ( event.target.y == DOWN) then
-                  spot = CENTERY
-              elseif(event.target.y == UP) then
-                checkYUpPosition(group) 
-                
-              end
-              transition.to( event.target, { time = 500, y = spot } )
-            end]]--
-            --end sa y
-        end
-        return true
+  
+  local function handleSwipeLeft(event)
+    if group.x > 0 then
+      group.x = group.x - 160
+      print("Move to the left.")
+      return true
     end
-      
-      
-      group:addEventListener("touch", handleSwipe)  
+  end
+
+  local function handleSwipeRight(event)
+    if group.x < 300 then
+      group.x = group.x + 160
+      print("Move to the right.", group.x)
+      return true
+    end
+  end
+
+  local upBtn = display.newText("UP", 100, 100, 'Marker Felt', 30)
+  upBtn.x = 245
+  upBtn.y = 720
+  upBtn:setTextColor(0.8, 0.9, 0.9)
+  sceneGroup:insert(upBtn)
+
+  local downBtn = display.newText("DOWN", 100, 100, 'Marker Felt', 30)
+  downBtn.x = 245
+  downBtn.y = 770
+  downBtn:setTextColor(0.8, 0.9, 0.9)
+  sceneGroup:insert(downBtn)
+
+  local leftBtn = display.newText("LEFT", 100, 100, 'Marker Felt', 30)
+  leftBtn.x = 100
+  leftBtn.y = 750
+  leftBtn:setTextColor(0,0,0)
+  sceneGroup:insert(leftBtn)
+  leftBtn:addEventListener("tap", handleSwipeLeft)
+
+  local rightBtn = display.newText("RIGHT", 100, 100, 'Marker Felt', 30)
+  rightBtn.x = 400
+  rightBtn.y = 750
+  rightBtn:setTextColor(0,0,0)
+  sceneGroup:insert(rightBtn)
+  rightBtn:addEventListener("tap", handleSwipeRight)
+
+  
 end
 
 

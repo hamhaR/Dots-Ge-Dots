@@ -65,12 +65,13 @@ function scene:createScene( event )
     levelUp:setFillColor(0, 255, 255)
     sceneGroup:insert(levelUp)
 
+    --[[
     local levelDown = display.newRect(0, 0, 1200, 180)
     levelDown.x = 0
     levelDown.y = 800
     levelDown:setFillColor(0, 255, 255)
     sceneGroup:insert(levelDown)
-
+    -]]
 
     local level1 = display.newText( "Level 4", 100, 100, native.systemFont, 55 )
     level1.x = display.contentCenterX
@@ -133,8 +134,8 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/pauseBtn.png"
     }
-    pauseBtn.x = display.contentWidth - 340
-    pauseBtn.y = display.contentHeight - 40
+    pauseBtn.x = display.contentWidth - 150
+    pauseBtn.y = display.contentHeight - 670
     --pauseBtn.destination = "game_levels"
     pauseBtn:addEventListener("tap", pausebtnTap)
     sceneGroup:insert(pauseBtn)
@@ -147,8 +148,8 @@ function scene:createScene( event )
     height = 70,
     defaultFile = "images/reloadBtn.png"
     }
-    reloadBtn.x = display.contentWidth - 140
-    reloadBtn.y = display.contentHeight - 40
+    reloadBtn.x = display.contentWidth - 50
+    reloadBtn.y = display.contentHeight - 670
     reloadBtn.destination = "game4"
     reloadBtn:addEventListener("tap", reloadbtnTap)
     sceneGroup:insert(reloadBtn)
@@ -490,51 +491,53 @@ function scene:createScene( event )
       end
     end
 
+  local function handleSwipeUp(event)
+    checkYUpPosition(group, block)
+    return true
+  end
 
-    local dX = 0
-    local dY = 0
-    local count = 0
+  local function handleSwipeDown(event)
+    checkYDownPosition(group, block)
+    return true
+  end
 
-    local function handleSwipe( event )
-        count = count + 1
-        if event.phase == "moved" then 
-          dX = event.x - event.xStart
-          dY = event.y - event.yStart
-          print("Start for loop")
-          
-          for i= 1, 1 do
-            if count == 1 then
-              if dX > 0 and dX > dY  then
-                  print("move right")
-                  checkXRightPosition(group, block)
-                  return true
-              elseif dX < 0 and dY > dX then
-                  print("move left")
-                  checkXLeftPosition(group, block)
-                  return true
-              elseif dY < 0 then
-                  print("move up")
-                  checkYUpPosition(group, block)
-                  return true
-              elseif dY > 0 then
-                  print("move down")
-                  checkYDownPosition(group, block)
-                  return true
-              end
-            end
-            print("End for loop")
-            
-          end
-          
-          print("Touches",count)
-          return true  
-        end
-        print("Current count")
-        count = 0
-        return true
-    end
+  local function handleSwipeLeft(event)
+    checkXLeftPosition(group, block)
+    return true
+  end
 
-    group:addEventListener("touch", handleSwipe)  
+  local function handleSwipeRight(event)
+    checkXRightPosition(group, block)
+    return true
+  end
+
+  local upBtn = display.newText("UP", 100, 100, 'Marker Felt', 30)
+  upBtn.x = 245
+  upBtn.y = 720
+  upBtn:setTextColor(0, 0, 0)
+  sceneGroup:insert(upBtn)
+  upBtn:addEventListener("tap", handleSwipeUp)
+
+  local downBtn = display.newText("DOWN", 100, 100, 'Marker Felt', 30)
+  downBtn.x = 245
+  downBtn.y = 770
+  downBtn:setTextColor(0, 0, 0)
+  sceneGroup:insert(downBtn)
+  downBtn:addEventListener("tap", handleSwipeDown)
+
+  local leftBtn = display.newText("LEFT", 100, 100, 'Marker Felt', 30)
+  leftBtn.x = 100
+  leftBtn.y = 750
+  leftBtn:setTextColor(0,0,0)
+  sceneGroup:insert(leftBtn)
+  leftBtn:addEventListener("tap", handleSwipeLeft)
+
+  local rightBtn = display.newText("RIGHT", 100, 100, 'Marker Felt', 30)
+  rightBtn.x = 400
+  rightBtn.y = 750
+  rightBtn:setTextColor(0,0,0)
+  sceneGroup:insert(rightBtn)
+  rightBtn:addEventListener("tap", handleSwipeRight) 
 
 end
 
