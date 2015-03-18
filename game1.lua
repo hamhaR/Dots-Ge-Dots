@@ -223,7 +223,7 @@ function scene:createScene( event )
             print(" not solved")
             mydata.settings.levels[1].stars = 0
             timer.cancel(event.source)
-            storyboard.showOverlay( "popupalert_success" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
+            storyboard.showOverlay( "popupalert_fail" ,{effect = "fade"  ,  params ={levelNum = "game1"}, isModal = true} )
         end
       end
     end
@@ -231,9 +231,14 @@ function scene:createScene( event )
     local tmr = timer.performWithDelay(1000, displayTime, 0)
 
     -- end timer
+
+    local music1 = audio.loadStream("audio/button-3.wav")
+
   
   local function handleSwipeLeft(event)
     if group.x > 0 then
+      audio.play(music1, {loops=0})
+      audio.setVolume(0.2)
       group.x = group.x - 160
       print("Move to the left.")
       return true
@@ -242,6 +247,8 @@ function scene:createScene( event )
 
   local function handleSwipeRight(event)
     if group.x < 300 then
+      audio.play(music1, {loops=0})
+      audio.setVolume(0.2)
       group.x = group.x + 160
       print("Move to the right.", group.x)
       return true

@@ -491,22 +491,32 @@ function scene:createScene( event )
       end
     end
 
+  local music1 = audio.loadStream("audio/button-3.wav")
+
   local function handleSwipeUp(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(0.2)
     checkYUpPosition(group, block)
     return true
   end
 
   local function handleSwipeDown(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(0.2)
     checkYDownPosition(group, block)
     return true
   end
 
   local function handleSwipeLeft(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(0.2)
     checkXLeftPosition(group, block)
     return true
   end
 
   local function handleSwipeRight(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(0.2)
     checkXRightPosition(group, block)
     return true
   end

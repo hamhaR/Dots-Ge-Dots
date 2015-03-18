@@ -682,23 +682,33 @@ end
     end
     return true
   end
+
+  local music1 = audio.loadStream("audio/button-3.wav")
   
   local function handleSwipeUp(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(0.2)
     checkYUpPosition(group, block1, block2)
     return true
   end
 
   local function handleSwipeDown(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(0.2)
     checkYDownPosition(group, block1, block2)
     return true
   end
 
   local function handleSwipeLeft(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(0.2)
     checkXLeftPosition(group, block1, block2)
     return true
   end
 
   local function handleSwipeRight(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(0.2)
     checkXRightPosition(group, block1, block2)
     return true
   end
