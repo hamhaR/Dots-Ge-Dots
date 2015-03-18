@@ -7,6 +7,7 @@ local game2 = require("game2")
 local game3 = require("game3")
 local game4 = require("game4")
 local game5 = require("game5")
+require("timer2")
 local params
 
 local centerX = display.contentCenterX 
@@ -68,11 +69,11 @@ local resumeBtn = display.newImageRect ("images/resumeBtn.png", 230, 50)
 				resumeBtn.x = 250
 				resumeBtn.y = 410
 				local function hideOverlay(event)
-					storyboard.hideOverlay("fade", 800)
+					storyboard.hideOverlay("fade", 333)
 				end 
         
 				resumeBtn:addEventListener ("tap", hideOverlay)
-        timer.resume(gameTimer)
+        timer.resume(tmr)
 				group:insert(resumeBtn)
 
 local reloadBtn = display.newImageRect ("images/reload.png" ,280, 50)
@@ -92,19 +93,17 @@ local mainMenu = display.newImageRect ("images/mainMenu.png" ,260, 50)
 				group:insert (mainMenu)
 end
 
-
-
 -- Called immediately after scene has moved onscreen:
 function scene:enterScene( event )
 	local group = self.view
---timer.resume(gameTimer)
+--timer.pause()
 end
 
 
 -- Called when scene is about to move offscreen:
 function scene:exitScene( event )
 	local group = self.view
-
+--timer.resume()
 	-- stop time here
 	-- Remove listeners attached to the Runtime, timers, transitions
 
@@ -114,7 +113,7 @@ end
 -- Called prior to the removal of scene's "view" (display group)
 function scene:destroyScene( event )
 	local group = self.view
-  timer.resume(gameTimer)
+  timer.resume(tmr)
 
 end
 

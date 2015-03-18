@@ -28,8 +28,13 @@ function scene:createScene( event )
     -- end background
     
     if(params.buttonID == 1) then
+     -- storyboard.purgeScene("game1")
+    print("purged1")
+    storyboard.purgeScene("game1")
       storyboard.gotoScene( "game1", { effect = "crossFade", time = 333 } )
     elseif(params.buttonID == 2) then
+      storyboard.purgeScene("game2")
+    print("purged2")
       storyboard.gotoScene( "game2", { effect = "crossFade", time = 333 } )
     elseif(params.buttonID == 3) then
       storyboard.gotoScene( "game3", { effect = "crossFade", time = 333 } )
@@ -41,21 +46,6 @@ function scene:createScene( event )
       storyboard.gotoScene( "game6", { effect = "crossFade", time = 333 } )
     end
     
-    --[[
-    -- start back button
-    local backButton = widget.newButton({
-        id = "button",
-        label = "<",
-        font = native.systemFontBold,
-        fontSize = 100,
-        onEvent = handleCancelButtonEvent
-    })
-    backButton.x = display.contentWidth - 420
-    backButton.y = display.contentHeight - 750
-    sceneGroup:insert( backButton )
-    -- end back button
-    ]]--
-   
 end
 
 function scene:showScene( event )

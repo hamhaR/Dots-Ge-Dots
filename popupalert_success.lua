@@ -13,12 +13,13 @@ local centerY = display.contentCenterY
 local function btnTap(event)
 	event.target.xScale = 0.95
 	event.target.yScale = 0.95
-	storyboard.gotoScene (  event.target.destination, { params ={levelNum = params.levelNum}, time=333, effect = "fade"} )
+	storyboard.gotoScene (  event.target.destination, { params ={levelNum = params.levelNum}, time=333, effect = "crossFade"} )
 	return true
 end
 
 --proceed to next level
 local function nextBtnTap(event)
+  storyboard.purgeScene(params.levelNum)
 	if params.levelNum == "game1" then
 		storyboard.gotoScene("game2", {time=333, effect="crossFade"})
 	elseif params.levelNum == "game2" then
