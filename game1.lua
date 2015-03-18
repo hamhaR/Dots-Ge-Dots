@@ -165,11 +165,14 @@ function scene:createScene( event )
       end
     end
     local tmr = timer.performWithDelay(1000, displayTime, 0)
+    local music1 = audio.loadStream("audio/button-3.wav")
   --end sa timer
   
   --dot movements
   local function tapLeft(event)
     if group.x > 0 then
+      audio.play(music1, {loops=0})
+      audio.setVolume(5)
       group.x = group.x - 160
       print("Move to the left.")
       return true
@@ -178,6 +181,8 @@ function scene:createScene( event )
 
   local function tapRight(event)
     if group.x < 300 then
+      audio.play(music1, {loops=0})
+      audio.setVolume(5)
       group.x = group.x + 160
       print("Move to the right.", group.x)
       return true
@@ -280,6 +285,7 @@ function scene:createScene( event )
   reloadBtn:addEventListener("tap", reloadbtnTap)
   sceneGroup:insert(reloadBtn)
   
+
   local upBtn = display.newImageRect ("images/up.png" ,70, 70)
   upBtn.x = 240 
 	upBtn.y = 670

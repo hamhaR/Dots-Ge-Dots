@@ -268,23 +268,34 @@ function scene:createScene( event )
       end
       return true
     end
+  
+  
+  local music1 = audio.loadStream("audio/button-3.wav")
 
   local function tapUp(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(5)
     checkYUpPosition(group)
     return true
   end
 
   local function tapDown(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(5)
     checkYDownPosition(group)
     return true
   end
 
   local function tapLeft(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(5)
     checkXLeftPosition(group)
     return true
   end
 
   local function tapRight(event)
+    audio.play(music1, {loops=0})
+    audio.setVolume(5)
     checkXRightPosition(group)
     return true
   end

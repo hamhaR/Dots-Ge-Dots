@@ -25,6 +25,10 @@ end
 function scene:createScene( event )
 	local group = self.view
 
+	local finaleMusic = audio.loadStream("audio/Cheer.wav")
+	audio.play(finaleMusic, {loops=0})
+    audio.setVolume(5)
+
 local backgroundOverlay = display.newRect (group, 0, 0, 1200, 1700)
 				backgroundOverlay:setFillColor( black )
 				backgroundOverlay.alpha = 0.6
