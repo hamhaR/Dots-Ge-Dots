@@ -219,6 +219,7 @@ function scene:createScene( event )
 		reloadBtn.x = 250 
 		reloadBtn.y = 480
 		params = event.params
+    reloadBtn.destination = "game1"
 		reloadBtn:addEventListener ("tap", reloadbtnTap)
 		sceneGroup:insert (reloadBtn)
         
